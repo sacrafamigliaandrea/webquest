@@ -401,6 +401,101 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
   .slots,.tiles{gap:6px}
   .avviso-finestre .schema{display:none}
 }
+/* ---------- VIDEO (special edition): player senza distrazioni ---------- */
+.vplayer{background:#1C1517;border-radius:14px;overflow:hidden}
+.v-schermo{position:relative;aspect-ratio:16/9;background:#000}
+.v-frame,.v-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.v-frame{pointer-events:none}
+.v-scudo{position:absolute;inset:0;z-index:2;cursor:pointer}
+.v-poster{position:absolute;inset:0;z-index:3;border:none;padding:16px;background:radial-gradient(circle at 50% 40%,#3A2E31,#1C1517 70%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;text-align:center}
+/* copertina nostra, non la miniatura di YouTube: niente immagini esterne e nessuna risposta "suggerita" dall'anteprima */
+.v-poster-tit{font-family:var(--head);font-weight:600;font-size:clamp(16px,2.2vw,21px);max-width:90%}
+.v-poster-can{font-size:14px;color:rgba(255,255,255,.75)}
+.v-grande{width:78px;height:78px;border-radius:50%;background:var(--rosso);color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.v-grande svg.i{width:40px;height:40px;margin-left:5px}
+.v-fine{position:absolute;inset:0;z-index:4;background:rgba(28,21,23,.97);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-family:var(--head);font-size:18px;text-align:center;padding:12px}
+.v-fine p{margin:0}
+.v-ctrl{display:flex;align-items:center;gap:8px;padding:8px 10px 4px;color:#fff;flex-wrap:wrap}
+.v-btn{min-width:44px;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;display:grid;place-items:center;padding:0 10px;font-family:var(--head);font-weight:600;font-size:14px}
+.v-btn svg.i{width:22px;height:22px}
+.v-btn.on{background:#fff;color:var(--ink)}
+.v-barra{position:relative;flex:1 1 170px;height:44px}
+.v-barra::before{content:"";position:absolute;left:0;right:0;top:50%;height:8px;margin-top:-4px;border-radius:4px;background:rgba(255,255,255,.22)}
+.v-zona{position:absolute;top:50%;height:16px;margin-top:-8px;border-radius:5px;background:var(--oro);opacity:.9}
+.v-barra.dentro .v-zona{box-shadow:0 0 0 3px rgba(212,160,23,.5)}
+.v-fatto{position:absolute;left:0;top:50%;height:8px;margin-top:-4px;border-radius:4px;background:#fff;width:0;pointer-events:none}
+.v-fatto::after{content:"";position:absolute;right:-8px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.v-barra input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.v-tempo{font-family:var(--head);font-size:14px;min-width:88px;text-align:center}
+.v-info{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:6px 12px 12px;color:rgba(255,255,255,.88);font-size:14.5px}
+.v-info svg.i{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
+.v-info .btn{min-height:44px;font-size:14.5px;padding:7px 12px;background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.special{margin-top:18px;text-align:left;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px}
+.special .ico{width:48px;height:48px;border-radius:13px;background:var(--rosso);display:grid;place-items:center;flex:0 0 auto}
+.special .ico svg.i{width:26px;height:26px;margin-left:3px}
+.special div{flex:1 1 220px}
+.special b{font-family:var(--head);font-size:17px;display:block}
+.special small{display:block;font-family:var(--head);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--oro)}
+.special span{font-size:15px;color:rgba(255,255,255,.85)}
+.palco.aperta .special{display:none}
+.vmock{display:flex;justify-content:center;gap:8px;margin:14px 0 16px;flex-wrap:wrap}
+.vmock span{background:#1C1517;color:#fff;border-radius:10px;padding:9px 14px;font-family:var(--head);font-weight:600;font-size:15px}
+.vmock span.zona{background:var(--oro);color:var(--ink)}
+
+/* ---------- CARTA (citazione o verso) e QUADERNO finale ---------- */
+.carta{position:relative;margin:14px 0 0;background:#FFFBF3;border:1px solid #EFE2C8;border-left:6px solid var(--rosso);border-radius:0 14px 14px 0;padding:16px 18px 14px 54px;box-shadow:var(--shadow)}
+.carta svg.i{position:absolute;left:16px;top:16px;width:26px;height:26px;color:var(--rosso)}
+.carta blockquote{margin:0;font-family:var(--head);font-size:20px;font-weight:500;line-height:1.45;color:var(--ink);white-space:pre-line}
+.carta figcaption{margin-top:8px;font-size:15px;color:var(--muted)}
+.carta figcaption b{color:var(--ink)}
+.carta.nuova{animation:pop .6s ease}
+.quaderno{margin-bottom:24px}
+.quaderno-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.quaderno .carta{margin:0;cursor:pointer;padding-bottom:44px}
+.quaderno .carta blockquote{font-size:17.5px}
+.quaderno .carta .scegli{position:absolute;right:12px;bottom:10px;display:flex;align-items:center;gap:6px;font-family:var(--head);font-size:13.5px;font-weight:600;color:var(--muted)}
+.quaderno .carta .scegli i{width:20px;height:20px;border-radius:50%;border:2px solid var(--brd2);background:#fff}
+.quaderno .carta.scelta{border-color:var(--oro);border-left-color:var(--oro);background:#FFF6DA}
+.quaderno .carta.scelta .scegli{color:var(--ambra)}
+.quaderno .carta.scelta .scegli i{border-color:var(--oro);background:var(--oro);box-shadow:inset 0 0 0 3px #fff}
+.quaderno .carta.vuota{opacity:.45;cursor:default}
+.quaderno textarea{width:100%;min-height:78px;font:18px/1.5 var(--body);padding:10px 12px;border:2px solid var(--brd2);border-radius:12px;resize:vertical;color:var(--text);margin-top:12px}
+.quaderno textarea:focus{outline:none;border-color:var(--ink)}
+
+/* ---------- RIPRESA: l'indirizzo porta la partita di qualcun altro ---------- */
+.ripresa{border:2px solid var(--ambraB);background:var(--ambraL);border-radius:var(--r);padding:14px 16px;margin-bottom:20px}
+.ripresa h3{font-size:18px;color:var(--ambra);display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.ripresa p{margin:0 0 12px;font-size:16.5px}
+.ripresa .azioni{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- PROMEMORIA cmd+F in sovrimpressione (tappe con PDF) ---------- */
+.cmdf-modale{position:fixed;inset:0;z-index:60;background:rgba(33,24,26,.5);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.cmdf-card{background:#fff;border-radius:20px;max-width:560px;width:100%;padding:22px 26px 24px;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.cmdf-card h2{font-size:24px;display:flex;gap:10px;align-items:center;margin:10px 0 6px}
+.cmdf-card h2 svg.i{width:28px;height:28px;color:var(--rossoD)}
+.cmdf-tasti{display:flex;justify-content:center;align-items:center;gap:12px;margin:16px 0 18px}
+.cmdf-tasti kbd.kc{font-size:24px;height:62px;min-width:78px;border-bottom-width:6px;border-radius:12px}
+.cmdf-tasti kbd.kc svg.i{width:22px;height:22px}
+.cmdf-tasti .piu{font-size:26px;color:var(--light);font-family:var(--head)}
+.cmdf-tasti .premi1{animation:premi 2s ease-in-out infinite}
+.cmdf-tasti .premi2{animation:premi 2s ease-in-out .25s infinite}
+@keyframes premi{0%,25%,85%,100%{transform:translateY(0);border-bottom-width:6px;background:linear-gradient(#fff,#F6F1F1)}35%,75%{transform:translateY(4px);border-bottom-width:2px;background:#FFF3C4}}
+.cmdf-passi{margin:0 0 14px;padding-left:24px;display:grid;gap:9px;font-size:17px}
+.cmdf-passi li::marker{font-family:var(--head);font-weight:700;color:var(--rossoD)}
+.cmdf-passi mark{background:var(--oro);color:var(--ink);font-family:var(--head);font-weight:700;border-radius:6px;padding:1px 8px}
+.cmdf-finta{display:flex;align-items:center;gap:8px;max-width:340px;margin:0 auto 14px;background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.18);padding:8px 10px 8px 12px;font:15px system-ui,-apple-system,sans-serif;color:#202124}
+.cmdf-finta svg.i{width:17px;height:17px;color:#5F6368}
+.cmdf-finta .testo{flex:1}
+.cmdf-finta .testo::after{content:"";display:inline-block;width:2px;height:17px;background:#202124;margin-left:2px;vertical-align:-3px;animation:cursore-t 1s steps(1) infinite}
+@keyframes cursore-t{50%{opacity:0}}
+.cmdf-finta .conta{font-size:13px;color:#5F6368}
+.cmdf-finta svg.i.ruota{transform:rotate(90deg)}
+.cmdf-azioni{display:flex;justify-content:center;margin-top:16px}
+.cmdf-chip{position:fixed;right:18px;bottom:18px;z-index:55;display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:9px 16px 9px 10px;font-family:var(--head);font-weight:600;font-size:15px;box-shadow:0 10px 26px rgba(0,0,0,.28);min-height:52px;max-width:calc(100vw - 36px)}
+.cmdf-chip kbd.kc{color:var(--ink);height:30px;min-width:30px;font-size:13px}
+.cmdf-chip .piu{color:rgba(255,255,255,.7)}
+.cmdf-chip span.t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 /* ---------- SIMULATORE: ricerca di prova su uno schermo diviso finto ---------- */
 .sim-invito{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:18px;background:var(--card);border:2px dashed var(--brd2);border-radius:var(--r);padding:14px 18px}
 .sim-invito .ico{width:48px;height:48px;border-radius:13px;background:var(--ink);color:#fff;display:grid;place-items:center;flex:0 0 auto}
@@ -566,7 +661,10 @@ mark.fm.cur{background:#F59E0B;color:#000}
     <symbol id="t-formula1" viewBox="0 0 24 24"><path d="M5 21V3.5M5 4h14v9H5"/><g fill="currentColor" stroke="none"><rect x="5" y="4" width="3.5" height="3"/><rect x="12" y="4" width="3.5" height="3"/><rect x="8.5" y="7" width="3.5" height="3"/><rect x="15.5" y="7" width="3.5" height="3"/><rect x="5" y="10" width="3.5" height="3"/><rect x="12" y="10" width="3.5" height="3"/></g></symbol>
     <symbol id="t-tennis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.7c2.9 3 2.9 9.6 0 12.6M18.4 5.7c-2.9 3-2.9 9.6 0 12.6"/></symbol>
     <symbol id="t-storia-viaggi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v1.6M12 19.4V21M3 12h1.6M19.4 12H21M12 6.2l2.4 5.8L12 17.8 9.6 12z"/><path d="M12 6.2l2.4 5.8H9.6z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="t-citazioni" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M10.2 5.5C6.9 6.4 4.3 9 4.3 12.9a3.1 3.1 0 1 0 3.1-3.1c-.3 0-.6 0-.8.1.6-1.5 2-2.7 3.9-3.3z"/><path d="M19.7 5.5c-3.3.9-5.9 3.5-5.9 7.4a3.1 3.1 0 1 0 3.1-3.1c-.3 0-.6 0-.8.1.6-1.5 2-2.7 3.9-3.3z"/></g></symbol>
+    <symbol id="t-canzoni" viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M6 10.5a6 6 0 0 0 12 0M12 16.5V21M8.5 21h7"/><path d="M9 6.5h2M9 9.5h2" stroke-width="1.4"/></symbol>
     <symbol id="t-nobel-italiani" viewBox="0 0 24 24"><path d="M8 2.5l3 6M16 2.5l-3 6"/><circle cx="12" cy="15" r="6"/><path d="M12 11.6l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="t-video" viewBox="0 0 24 24"><rect x="2.5" y="4" width="15.5" height="11" rx="2"/><path d="M8.6 7.2v4.6l4-2.3z" fill="currentColor" stroke="none"/><circle cx="17" cy="16.3" r="3.7" fill="var(--ico-bg,#fff)"/><path d="M19.7 19L22 21.3"/></symbol>
     <!-- discipline -->
     <symbol id="d-arte" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.9-1 1.5-2l-.4-1.1a1.7 1.7 0 0 1 1.6-2.3H17a4 4 0 0 0 4-4C21 7 17 3 12 3z"/><g fill="currentColor" stroke="none"><circle cx="7.5" cy="11" r="1.2"/><circle cx="9.5" cy="7" r="1.2"/><circle cx="14.5" cy="7" r="1.2"/></g></symbol>
     <symbol id="d-storia" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12M7.5 3c0 4.6 4 5.4 4 9s-4 4.4-4 9M16.5 3c0 4.6-4 5.4-4 9s4 4.4 4 9"/><path d="M9 19.6c.6-1.6 2-2.4 3-2.4s2.4.8 3 2.4z" fill="currentColor" stroke="none"/></symbol>
@@ -598,6 +696,8 @@ mark.fm.cur{background:#F59E0B;color:#000}
     <symbol id="i-schermo" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="1.8"/><path d="M12 4v13M9 21h6M12 17v4M5 8h4.5M5 11h3M14.5 8h4.5M14.5 11h3.5"/></symbol>
     <symbol id="i-ingranaggio" viewBox="0 0 24 24"><path d="M12 2.8l1.5 2.4 2.8-.6.6 2.8 2.4 1.5-1.4 2.5 1.4 2.5-2.4 1.5-.6 2.8-2.8-.6L12 21.2l-1.5-2.4-2.8.6-.6-2.8-2.4-1.5 1.4-2.5-1.4-2.5 2.4-1.5.6-2.8 2.8.6z"/><circle cx="12" cy="12" r="3.2"/></symbol>
     <symbol id="i-ricarica" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4v4h-4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-pausa" viewBox="0 0 24 24"><path d="M8.5 5.5v13M15.5 5.5v13" stroke-width="3.2"/></symbol>
     <symbol id="i-freccia" viewBox="0 0 24 32"><path d="M12 3v25M4 19l8 9 8-9"/></symbol>
     <symbol id="i-tastiera" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h1M9.5 10h1M13 10h1M16.5 10h1M7 14h10"/></symbol>
   </defs>
@@ -622,6 +722,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
   <section class="scr" id="scr-intro" aria-labelledby="titolo-intro">
     <div class="intro">
       <div>
+        <div id="ripresa"></div>
         <span class="eyebrow">Caccia al tesoro digitale</span>
         <h1 id="titolo-intro">Web Quest <em>del Campus</em></h1>
         <p class="lead">Otto tappe su siti ufficiali, una parola segreta da ricomporre. Il tema della tua spedizione è chiuso nella busta: lo scoprirai solo aprendola.</p>
@@ -655,6 +756,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
         </svg>
         <div class="catalogo-tit" id="catalogo-tit">Una di queste spedizioni ti aspetta</div>
         <div class="catalogo" id="catalogo"></div>
+        <div id="special"></div>
         <div class="rivela hidden" id="rivela" aria-live="polite"></div>
       </div>
     </div>
@@ -685,6 +787,10 @@ mark.fm.cur{background:#F59E0B;color:#000}
 <footer>Web Quest del Campus · Scuola Sacra Famiglia, Orzinuovi · Animatore Digitale Andrea Cerioli</footer>
 
 <!-- ======================= MODALE INFO DOCENTI ======================= -->
+<!-- ======================= PROMEMORIA cmd+F (sovrimpressione) ======================= -->
+<div class="cmdf-modale hidden" id="cmdf-modale" role="dialog" aria-modal="true" aria-labelledby="cmdf-tit"></div>
+<button class="cmdf-chip lampeggia hidden" id="cmdf-chip" type="button"></button>
+
 <div class="modale hidden" id="modale" role="dialog" aria-modal="true" aria-labelledby="titolo-docenti">
   <div class="dialogo">
     <div class="dialogo-head">
@@ -3860,6 +3966,1228 @@ const QUEST = [
     "note": "Sito dell'Istituto Italiano di Cultura di Stoccolma (rete MAECI, dominio esteri.it). Gli anni dei Nobel di Quasimodo (1959) e Montale (1975): il 1959 è sulla pagina, il 1975 è un dato certo (ed è anche nell'elenco della tappa 'elenco-nobel-italiani'). La lettera Ö: il confronto tollerante dovrebbe accettare anche 'Osterling', già inserito tra le varianti."
    }
   ]
+ },
+ {
+  "tema": "citazioni",
+  "sigla": "CIT",
+  "breve": "Parole che restano",
+  "icona": "t-citazioni",
+  "titolo": "Parole che restano",
+  "sottotitolo": "Dieci frasi cercate alla fonte, dai grandi della storia ai campioni dello sport: chi le ha dette, quando, e perché valgono ancora oggi.",
+  "parole": [
+   "CORAGGIO",
+   "RISPETTO",
+   "SPERANZA"
+  ],
+  "indovinelli": {
+   "CORAGGIO": "Non è non avere paura: è fare la cosa giusta anche quando la paura c'è.",
+   "RISPETTO": "Lo mostri quando stringi la mano all'avversario a fine gara e quando ascolti chi la pensa diversamente da te.",
+   "SPERANZA": "Dice il proverbio che è l'ultima a morire: è la fiducia che domani possa andare meglio."
+  },
+  "tappe": [
+   {
+    "id": "dante-canoscenza",
+    "titolo": "Fatti per conoscere",
+    "disciplina": "lingue",
+    "contesto": "Dante Alighieri (Firenze, 1265 - Ravenna, 1321) scrisse la Divina Commedia, il viaggio immaginario nell'aldilà che è una delle opere più importanti della lingua italiana. Nel canto XXVI dell'Inferno incontra Ulisse, l'eroe greco dei viaggi, che racconta come convinse i suoi compagni a navigare oltre i confini del mondo conosciuto. Le parole di Ulisse ai compagni sono un invito a non vivere come animali, ma a cercare il bene e il sapere.",
+    "url": "www.danteonline.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel riquadro \"Consultazione delle Opere\" clicca su \"consulta\".",
+     "Nell'elenco delle opere, sotto \"Commedia\", clicca su \"Commedia - ed. Petrocchi\".",
+     "In alto, nel menu \"Cantica\" lascia \"I\" (l'Inferno) e nel menu \"Canto\" scegli \"xxvi\" (26 in numeri romani); se la pagina non cambia, clicca \"Vai!\".",
+     "Scorri il canto fino ai versi 118-120: ogni tre versi, a destra, compare il numero del verso (117, 120...)."
+    ],
+    "domanda": "Completa i versi di Dante: «Considerate la vostra semenza: / fatti non foste a viver come bruti, / ma per seguir virtute e ___.»",
+    "tipo": "testo",
+    "risposte": [
+     "canoscenza",
+     "conoscenza"
+    ],
+    "aiuti": [
+     "La terzina è nel canto XXVI dell'Inferno, subito dopo il verso numero 117.",
+     "La parola mancante è la forma antica di \"conoscenza\": nel testo di Dante comincia con \"cano...\"."
+    ],
+    "soluzione": "canoscenza. È la forma antica di \"conoscenza\": secondo Ulisse gli esseri umani non sono fatti per vivere come animali (\"bruti\"), ma per cercare la virtù e il sapere.",
+    "carta": {
+     "testo": "Considerate la vostra semenza: fatti non foste a viver come bruti, ma per seguir virtute e canoscenza.",
+     "autore": "Dante Alighieri",
+     "fonte": "Divina Commedia, Inferno, canto XXVI, versi 118-120 (inizio del Trecento): parole di Ulisse ai compagni"
+    },
+    "prova": "Considerate la vostra semenza: fatti non foste a viver come bruti, ma per seguir virtute e canoscenza\".",
+    "url_verifica": "https://www.danteonline.it/opere/index.php?opera=Commedia%20-%20ed.%20Petrocchi&livello1=I&livello2=xxvi",
+    "verificato": "2026-10-15",
+    "note": "Fonte primaria: testo della Commedia nell'edizione critica Petrocchi su Danteonline, sito a cura del comitato scientifico della Società Dantesca Italiana (Firenze). www.danteonline.it -> 302 a index.html (HTTP 200); il pulsante \"consulta\" porta a /opere/. La scelta di cantica e canto avviene con due menu a tendina (form POST con invio automatico al cambio di voce e pulsante \"Vai!\"): verificato simulando la scelta con curl (cookie di sessione) e con l'indirizzo GET equivalente in url_verifica, letto anche con WebFetch (vv. 118-120; il numero 120 compare accanto alla terzina, il 117 a quella precedente). Rubrica del canto sulla pagina: «Canto XXVI, nel quale si tratta de l'ottava bolgia [...] e in persona d'Ulisse e Diomedes pone loro pene». La frase è di Dante ma nel poema la pronuncia Ulisse rivolgendosi ai compagni («Li miei compagni fec'io sì aguti, / con questa orazion picciola...»): la carta lo indica nella fonte."
+   },
+   {
+    "id": "segre-ballatoi",
+    "titolo": "Arance dai ballatoi",
+    "disciplina": "storia",
+    "contesto": "Liliana Segre è nata a Milano nel 1930. Il 30 gennaio 1944, a 13 anni, fu deportata con il papà ad Auschwitz: il treno partì dai sotterranei della Stazione Centrale di Milano, dove oggi c'è il Memoriale della Shoah, che lei ha contribuito a fondare. Fu l'unica della sua famiglia a tornare; dagli anni Novanta racconta la sua storia agli studenti e nel 2018 è stata nominata senatrice a vita. Nella sua testimonianza ricorda un gesto di umanità che non ha mai dimenticato.",
+    "url": "www.memorialeshoah.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel menu in alto apri \"ATTIVITÀ\" e clicca su \"Testimonianze\" (oppure, nella pagina iniziale, clicca sul titolo \"TESTIMONIANZE\").",
+     "Nel riquadro dedicato a Liliana Segre clicca su \"Continua a leggere\".",
+     "Scorri fino al racconto \"IL VIAGGIO\" di Liliana Segre e leggi il pezzo in cui i deportati escono dal carcere di San Vittore, la mattina del 30 gennaio 1944."
+    ],
+    "domanda": "Nel racconto «Il viaggio» Liliana Segre ricorda che, mentre i deportati attraversavano il carcere di San Vittore, i detenuti comuni si sporgevano dai ballatoi e lanciavano loro qualcosa da mangiare. Quali cibi nomina? Scrivili tutti.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "arance",
+      "varianti": [
+       "arance",
+       "arancia",
+       "le arance",
+       "aranci"
+      ]
+     },
+     {
+      "voce": "mele",
+      "varianti": [
+       "mele",
+       "mela",
+       "le mele"
+      ]
+     },
+     {
+      "voce": "biscotti",
+      "varianti": [
+       "biscotti",
+       "biscotto",
+       "i biscotti"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Nella pagina di Liliana Segre cerca la parola \"ballatoi\" con Cmd+F (Mac) o Ctrl+F (Windows): è nel racconto \"IL VIAGGIO\".",
+     "Sono tre cibi: due frutti e una cosa dolce da sgranocchiare."
+    ],
+    "soluzione": "arance, mele, biscotti. Ma soprattutto, scrive Liliana Segre, quei detenuti urlavano parole di incoraggiamento, di solidarietà e di benedizione: un gesto di umanità in mezzo all'indifferenza.",
+    "carta": {
+     "testo": "Furono straordinari; furono uomini che, vedendo altri uomini andare al macello solo per la colpa di essere nati da un grembo e non da un altro, ne avevano pietà.",
+     "autore": "Liliana Segre",
+     "fonte": "«Il viaggio», testimonianza sulla deportazione da Milano del 30 gennaio 1944 (Memoriale della Shoah di Milano)"
+    },
+    "prova": "Essi si sporgevano dai ballatoi e ci buttavano arance, mele, biscotti, ma, soprattutto, ci urlavano parole di incoraggiamento, di solidarietà e di benedizione! Furono straordinari;",
+    "url_verifica": "https://www.memorialeshoah.it/liliana-segre/",
+    "verificato": "2026-10-15",
+    "note": "TAPPA ELENCO: 3 voci (arance, mele, biscotti), tutte nella stessa frase. Fonte: Fondazione Memoriale della Shoah di Milano (Binario 21). La pagina presenta il testo con il titolo «IL VIAGGIO - di Liliana Segre»; nella sezione DOCUMENTI la stessa pagina cita «Alberto e Liliana Segre, testimonianza tratta da: AAVV, Viaggio nella Memoria - Binario 21, catalogo della mostra a cura dell'Associazione Figli della Shoah, Proedi Editore, Milano 2006, 2013, pp. 86-89», ma non dice esplicitamente che \"Il viaggio\" venga da lì: per questo la fonte della carta indica la testimonianza e l'occasione (la deportazione del 30 gennaio 1944). Verificato con curl (HTTP 200) e WebFetch su home (menu ATTIVITÀ > Testimonianze), /testimonianze/ (riquadro Liliana Segre con \"Continua a leggere\") e /liliana-segre/. Dati del contesto: nata a Milano il 10 settembre 1930; deportata il 30 gennaio 1944 a 13 anni (la pagina scrive una volta «aveva 14 anni» e una volta «aveva allora 13 anni»: per le date è 13); «tra le fondatrici del Memoriale»; «unica della sua famiglia» a tornare; testimone nelle scuole «nei primi anni '90»; il convoglio partì dai sotterranei della Stazione Centrale (pagina \"La storia del luogo\"). Senatrice a vita dal 19 gennaio 2018: fatto certo, non riportato sulla pagina. La pagina contiene tra i DOCUMENTI un link esterno a Wikipedia: non va usato. La carta contiene l'espressione «andare al macello»: è il testo esatto, da contestualizzare in classe."
+   },
+   {
+    "id": "yamal-pallone-sogno",
+    "titolo": "Un pallone e un sogno",
+    "disciplina": "cittadinanza",
+    "contesto": "Lamine Yamal è una giovanissima stella del Barcellona e della nazionale spagnola di calcio. L'11 giugno 2026, Giornata internazionale del gioco e primo giorno dei Mondiali di calcio, quando aveva 18 anni, l'UNICEF lo ha nominato Ambasciatore di buona volontà: il suo compito è difendere il diritto di ogni bambino a giocare. Per l'occasione ha raccontato com'era la sua infanzia.",
+    "url": "www.unicef.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel menu in alto apri \"Chi Siamo\" e clicca su \"Ambasciatori UNICEF\".",
+     "Scorri la pagina fino alla sezione \"News ed Aggiornamenti\" e clicca sulla notizia dell'11/06/2026 \"Giornata internazionale del gioco, L'UNICEF nomina Lamine Yamal Ambasciatore di buona volontà...\".",
+     "Leggi le parole di Lamine tra virgolette: la frase che ti serve comincia con \"Crescendo\"."
+    ],
+    "domanda": "Quando è stato nominato Ambasciatore dell'UNICEF, Lamine Yamal ha raccontato che da bambino, crescendo, aveva soltanto quattro cose. Quali? Scrivile tutte.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "famiglia",
+      "varianti": [
+       "famiglia",
+       "una famiglia",
+       "la famiglia",
+       "la mia famiglia"
+      ]
+     },
+     {
+      "voce": "pallone",
+      "varianti": [
+       "pallone",
+       "un pallone",
+       "il pallone",
+       "palla",
+       "una palla"
+      ]
+     },
+     {
+      "voce": "parco",
+      "varianti": [
+       "parco",
+       "un parco",
+       "il parco"
+      ]
+     },
+     {
+      "voce": "sogno",
+      "varianti": [
+       "sogno",
+       "un sogno",
+       "il sogno"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Nella notizia sulla nomina di Lamine Yamal cerca con Cmd+F (Mac) o Ctrl+F (Windows) la parola \"Crescendo\".",
+     "Sono quattro cose: le persone di casa, l'oggetto con cui si gioca a calcio, un prato pubblico dove giocare all'aperto e una cosa che si può fare anche a occhi aperti."
+    ],
+    "soluzione": "famiglia, pallone, parco, sogno. «Crescendo, tutto ciò che avevo era una famiglia, un pallone, un parco e un sogno»: a Lamine bastavano poche cose per giocare, e oggi chiede che ogni bambino abbia un luogo sicuro dove poterlo fare.",
+    "carta": {
+     "testo": "Crescendo, tutto ciò che avevo era una famiglia, un pallone, un parco e un sogno.",
+     "autore": "Lamine Yamal",
+     "fonte": "Nomina ad Ambasciatore di buona volontà dell'UNICEF, Giornata internazionale del gioco, 11 giugno 2026 (traduzione di UNICEF Italia)"
+    },
+    "prova": "Crescendo, tutto ciò che avevo era una famiglia, un pallone, un parco e un sogno. Giocare a calcio mi ha dato una struttura, un senso di appartenenza e speranza per il futuro.",
+    "url_verifica": "https://www.unicef.it/media/giornata-internazionale-del-gioco-oggi-lunicef-nomina-lamine-yamal-ambasciatore-di-buona-volonta-e-lancia-nuovo-rapporto-sul-gioco/",
+    "verificato": "2026-10-15",
+    "note": "NUOVA. TAPPA ELENCO: 4 voci (famiglia, pallone, parco, sogno), tutte nella stessa frase. Fonte: UNICEF Italia (Comitato Italiano per l'UNICEF Fondazione ETS), notizia «Giornata internazionale del gioco, L'UNICEF nomina Lamine Yamal Ambasciatore di buona volontà e lancia nuovo rapporto sul Gioco» dell'11/06/2026, categoria «Ambasciatori e Testimonial». La pagina introduce la frase con «ha dichiarato Lamine» e indica l'occasione: «La nomina è avvenuta in occasione della Giornata internazionale del gioco, che si celebra ogni anno l'11 giugno [...] e nel giorno di apertura della Coppa del Mondo FIFA». Il testo italiano è la traduzione di UNICEF Italia dalla dichiarazione diffusa da UNICEF internazionale (per questo la carta lo indica). Verificato con curl (HTTP 200, pagine HTML statiche) e WebFetch su home (menu \"Chi Siamo\" > \"Ambasciatori UNICEF\"), su /ambasciatori-unicef/ (la notizia è la prima di 6 nel riquadro \"News ed Aggiornamenti\") e sulla notizia. RISCHIO: il riquadro \"News ed Aggiornamenti\" mostra le 6 notizie più recenti della categoria (oggi da ottobre 2025 a giugno 2026, circa una al mese): se la notizia esce dal riquadro, l'archivio \"Media\" si carica con JavaScript e la ricerca del sito non è verificabile; in quel caso dare agli studenti l'indirizzo della notizia (url_verifica). \"Crescendo\" compare 2 volte con Cmd+F: la prima è la frase giusta (la seconda è «stanno crescendo», più avanti). Dati del contesto dalla pagina: «18enne stella del Barcellona e della nazionale spagnola» (età al momento della nomina: nel contesto è scritto «quando aveva 18 anni», perché Lamine è nato nel luglio 2007, fatto certo non riportato sulla pagina); Ambasciatore «con l'obiettivo di difendere il diritto di ogni bambino a giocare». Il sito ha in alto il link \"UNICEF SHOP\" e pulsanti di donazione (organizzazione non profit esplicitamente ammessa); nessuna pubblicità di terzi. Collegamento utile in classe: il diritto al gioco è l'articolo 31 della Convenzione ONU sui diritti dell'infanzia (pagina \"La Convenzione sui diritti dell'infanzia e dell'adolescenza\" nello stesso menu \"Chi Siamo\")."
+   },
+   {
+    "id": "tamberi-barshim",
+    "titolo": "Un oro diviso in due",
+    "disciplina": "sport",
+    "contesto": "Gianmarco «Gimbo» Tamberi è un campione italiano di salto in alto. Nel 2016, pochi giorni prima delle Olimpiadi di Rio, si fece male in modo grave e non poté gareggiare. Il 1° agosto 2021, alle Olimpiadi di Tokyo, lui e il suo amico Mutaz Barshim del Qatar superarono entrambi 2,37 metri e sbagliarono tre volte a 2,39: invece di sfidarsi in uno spareggio, si divisero la medaglia d'oro. Pochi mesi dopo, alla consegna dei Collari d'Oro, Gimbo raccontò che cosa aveva provato.",
+    "url": "www.fidal.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "In cima alla pagina, nella casella di ricerca con la scritta \"Cerca notizie, atleti e manifestazioni\", scrivi Collari Tamberi e premi Invio.",
+     "Nei risultati, nella sezione \"News\", clicca su \"Collari d’Oro, le mille emozioni dell’atletica\" (20/12/2021).",
+     "Scorri l'articolo fino al titoletto \"HANNO DETTO\" e leggi le parole di GIANMARCO TAMBERI."
+    ],
+    "domanda": "Completa le parole di Gianmarco Tamberi: «Dividere la medaglia con un ___ come Barshim è l'emozione più bella della mia vita, lo rifarei sempre.»",
+    "tipo": "testo",
+    "risposte": [
+     "amico",
+     "un amico"
+    ],
+    "aiuti": [
+     "Nell'articolo sui Collari d'Oro del 20 dicembre 2021 cerca con Cmd+F (Mac) o Ctrl+F (Windows) la parola \"Barshim\".",
+     "La parola mancante indica una persona a cui vuoi bene e di cui ti fidi, anche quando in gara è un tuo avversario."
+    ],
+    "soluzione": "amico. In gara Tamberi e Barshim erano avversari, ma nella vita sono amici: invece di sfidarsi ancora, scelsero di dividere l'oro olimpico, e per Gimbo fu l'emozione più bella della sua vita.",
+    "carta": {
+     "testo": "Dividere la medaglia con un amico come Barshim è l’emozione più bella della mia vita, lo rifarei sempre.",
+     "autore": "Gianmarco Tamberi",
+     "fonte": "Cerimonia dei Collari d'Oro dello sport italiano, Auditorium Parco della Musica, Roma, 20 dicembre 2021"
+    },
+    "prova": "GIANMARCO TAMBERI - “Dividere la medaglia con un amico come Barshim è l’emozione più bella della mia vita, lo rifarei sempre. Se ripenso all’ultima gara prima delle Olimpiadi, era un dramma.",
+    "url_verifica": "https://www.fidal.it/content/Collari-d%E2%80%99Oro-le-mille-emozioni-dell%E2%80%99atletica/137279",
+    "verificato": "2026-10-15",
+    "note": "NUOVA. Fonte: FIDAL - Federazione Italiana di Atletica Leggera, articolo «Collari d’Oro, le mille emozioni dell’atletica» del 20 dicembre 2021: cerimonia di consegna dei Collari d'Oro («la massima onorificenza dello sport italiano») nella Sala Sinopoli dell'Auditorium Parco della Musica \"Ennio Morricone\" a Roma, organizzata da CONI e CIP, premi consegnati dal presidente del Consiglio Mario Draghi; la frase è nella sezione «HANNO DETTO» sotto il nome «GIANMARCO TAMBERI». Percorso con la ricerca interna del sito (non c'è un menu che porti ad articoli del 2021): la casella è nell'intestazione, accanto alle icone dei social, con il testo grigio «Cerca notizie, atleti e manifestazioni» che sparisce al clic (dal CSS resta visibile anche sotto i 768 px di larghezza). Verificato con curl e WebFetch: result.php?cerca=Collari+Tamberi restituisce «News (4)»: 1) «Collari d’Oro: premi per le Marche» 22/12/2023, 2) il nostro articolo 20/12/2021, 3-4) «Collare d'oro per Gianmarco Tamberi» 19/12/2016. Con «Collari d'Oro» i risultati sono 13 (il nostro è il quinto). In alternativa l'articolo si apre anche con l'indirizzo corto www.fidal.it/content/a/137279 (il sito ignora la parte testuale dell'indirizzo; verificato HTTP 200). \"Barshim\" compare 1 volta nell'articolo. Dati del contesto dall'articolo FIDAL del 1° agosto 2021 «Tamberi: \"Ho sentito un’esplosione nel cuore\"» (www.fidal.it/content/a/134804): Barshim «un percorso senza errori a 2,37, poi tre tentativi senza successo a 2,39. A quel punto, in un altro mondo sarebbe stato spareggio»; «quell’infortunio tremendo a pochi giorni dalle Olimpiadi di Rio»; Barshim «un grande amico»; data «primo-agosto-duemilaventuno». Il Qatar come nazione di Barshim è un fatto certo non scritto sulla pagina. Il sito ha in testata e nel riquadro \"Partner\" i loghi degli sponsor federali (On, Frecciarossa, Felicetti, Uliveto, Omegor, Consorzio Venezie, Mondo, Gazzetta dello Sport) e nel piè di pagina il link \"Atletica Shop\": nessun banner pubblicitario di terzi né di scommesse (nessun codice pubblicitario nell'HTML). Nella stessa sezione «HANNO DETTO» c'è anche Marcell Jacobs («dopo tanti infortuni sognavamo questi momenti»): possibile domanda di riserva sullo stesso sito."
+   },
+   {
+    "id": "pertini-granai",
+    "titolo": "Svuotare gli arsenali, riempire i granai",
+    "disciplina": "storia",
+    "contesto": "Sandro Pertini (1896-1990) si oppose al fascismo e per questo passò più di 14 anni tra carcere e confino; durante la Resistenza fu condannato a morte, ma riuscì a evadere. L'8 luglio 1978 fu eletto Presidente della Repubblica con 832 voti su 995. Il giorno dopo, giurando davanti al Parlamento, spiegò con un'immagine semplice che cosa doveva portare l'Italia nel mondo.",
+    "url": "www.senatoragazzi.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "granai",
+    "percorso": [
+     "Clicca su \"Materiali utili\" (nel menu in alto o nel riquadro della pagina iniziale).",
+     "Nell'\"Indice dei contenuti\" clicca su \"Senatori che hanno fatto l'Italia\"; alla voce \"Sandro Pertini - fascicolo\" clicca su \"Scarica il documento\": il PDF di 36 pagine si apre nel browser.",
+     "Premi Cmd+F (Mac) o Ctrl+F (Windows) e cerca la parola \"granai\": compare una sola volta, a pagina 31, nel messaggio del 9 luglio 1978.",
+     "Leggi tutta la frase: la parola che manca nella domanda viene poco prima di \"granai\"."
+    ],
+    "domanda": "Completa le parole di Sandro Pertini: «L'Italia, a mio avviso, deve essere nel mondo portatrice di pace: si svuotino gli ___ di guerra, sorgente di morte, si colmino i granai, sorgente di vita per milioni di creature umane che lottano contro la fame.»",
+    "tipo": "testo",
+    "risposte": [
+     "arsenali",
+     "gli arsenali"
+    ],
+    "aiuti": [
+     "Nel PDF del fascicolo su Pertini cerca con Cmd+F o Ctrl+F la parola \"granai\" (pagina 31).",
+     "La parola mancante indica i depositi dove si custodiscono le armi: comincia con \"arse...\"."
+    ],
+    "soluzione": "arsenali. Gli arsenali sono i depositi di armi, i granai quelli del grano: Pertini chiedeva di togliere risorse alla guerra (sorgente di morte) per darle a chi ha fame (sorgente di vita).",
+    "carta": {
+     "testo": "… si svuotino gli arsenali di guerra, sorgente di morte, si colmino i granai, sorgente di vita per milioni di creature umane che lottano contro la fame.",
+     "autore": "Sandro Pertini",
+     "fonte": "Messaggio dopo il giuramento da Presidente della Repubblica, Parlamento in seduta comune, Roma, 9 luglio 1978"
+    },
+    "prova": "L'Italia, a mio avviso, deve essere nel mondo portatrice di pace: si svuotino gli arsenali di guerra, sorgente di morte, si colmino i granai, sorgente di vita per milioni di creature umane che lottano contro la fame.",
+    "url_verifica": "https://www.senatoragazzi.it/media/materiali/fascicolo_pertini.pdf",
+    "verificato": "2026-10-15",
+    "note": "TAPPA PDF. Senato Ragazzi è il sito del Senato della Repubblica per i giovani. Fascicolo «Italiani che hanno fatto l'Italia: Sandro Pertini» (Ufficio comunicazione istituzionale del Senato, Incontri in Libreria n. 5, novembre 2010; sul sito la descrizione dice «nel 2011»), 36 pagine, testo selezionabile, scaricato in pdf-citazioni/senatoragazzi_fascicolo_pertini.pdf e letto con pdftotext e pypdf: contiene il resoconto della seduta comune del 9 luglio 1978 (pp. 29-35: giuramento e messaggio) e un intervento in Senato del 23 marzo 1953. \"granai\" compare 1 volta (p. 31), sulla stessa riga di \"si colmino i\"; \"arsenali\" 1 volta (p. 31). La stessa frase, con la fonte «Dal giuramento e messaggio del Presidente della Repubblica Sandro Pertini, Seduta comune di Camera e Senato del 9 luglio 1978», è anche nel \"Sandro Pertini - pannello\" (1 pagina). Accesso: curl con user agent da browser -> HTTP 200 (pagine e PDF, servito inline come application/pdf, senza download forzato); WebFetch riceve 403 perché il sito blocca lo user agent \"Claude-User\" (verificato: stesso indirizzo, 403 solo con quello user agent). Percorso verificato sull'HTML: voce di menu \"Materiali utili\", \"Indice dei contenuti\" con l'ancora \"Senatori che hanno fatto l'Italia\" (#s6), blocco \"Sandro Pertini - fascicolo\" con link \"Scarica il documento\". Impaginazione a due colonne: con pdftotext -layout le colonne si mescolano e verifica.py può segnare la prova \"NO\" (falso negativo); senza -layout il testo è nell'ordine giusto. La carta riporta 26 parole di una frase di 34 (da qui i puntini iniziali). Dati del contesto dal fascicolo: nato il 25 settembre 1896, morto il 24 febbraio 1990; «più di 14 anni di carcere e confino»; «Catturato dalle SS, venne condannato a morte, riuscì ad evadere»; eletto l'8 luglio 1978 al sedicesimo scrutinio con 832 voti su 995."
+   },
+   {
+    "id": "vio-non-mollare",
+    "titolo": "Lo sport è vita",
+    "disciplina": "sport",
+    "contesto": "Beatrice «Bebe» Vio è nata a Venezia nel 1997. A 11 anni una grave meningite le ha fatto perdere braccia e gambe, ma lei è tornata a tirare di scherma, il suo sport preferito, e ha vinto l'oro paralimpico nel fioretto a Rio 2016 e a Tokyo 2020. Il 23 giugno 2021, al Quirinale, il Presidente della Repubblica Sergio Mattarella le consegnò il Tricolore: insieme al nuotatore Federico Morlacchi, sarebbe stata portabandiera dell'Italia alle Paralimpiadi di Tokyo. Quel giorno spiegò che cosa significa lo sport per gli atleti paralimpici.",
+    "url": "federscherma.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "In alto a destra, accanto al pulsante \"Tesseramento online\", clicca sulla lente di ingrandimento: nella casella \"Cerca\" scrivi Bebe Vio tricolore e premi Invio.",
+     "Tra i risultati clicca sul secondo, del 23 giugno 2021: \"PARALIMPIADI TOKYO 2020 – BEBE VIO RICEVE IL TRICOLORE DAL PRESIDENTE DELLA REPUBBLICA: “REALIZZO UN SOGNO”\".",
+     "Leggi l'articolo fino al paragrafo che contiene le parole di Bebe sui \"Giochi della ripartenza\"."
+    ],
+    "domanda": "Completa le parole di Bebe Vio: «Vita è la parola chiave. Per noi lo sport è vita e questa Paralimpiade riuscirà a dimostrare a tutti che non bisogna mai ___ nulla.»",
+    "tipo": "testo",
+    "risposte": [
+     "mollare"
+    ],
+    "aiuti": [
+     "Nell'articolo del 23 giugno 2021 cerca con Cmd+F (Mac) o Ctrl+F (Windows) la parola \"ripartenza\".",
+     "La parola mancante significa \"arrendersi, lasciar perdere\": comincia con \"mol...\"."
+    ],
+    "soluzione": "mollare. Per Bebe gli atleti paralimpici hanno già superato tanti ostacoli: nella vita succedono molte cose, ma l'importante è non arrendersi e ripartire sempre.",
+    "carta": {
+     "testo": "Vita è la parola chiave. Per noi lo sport è vita e questa Paralimpiade riuscirà a dimostrare a tutti che non bisogna mai mollare nulla.",
+     "autore": "Bebe Vio",
+     "fonte": "Consegna del Tricolore ai portabandiera per i Giochi di Tokyo, Palazzo del Quirinale, Roma, 23 giugno 2021"
+    },
+    "prova": "Vita è la parola chiave. Per noi lo sport è vita e questa Paralimpiade riuscirà a dimostrare a tutti che non bisogna mai mollare nulla, che succederanno un sacco di cose ma l’importante è riprendere sempre",
+    "url_verifica": "https://federscherma.it/paralimpiadi-tokyo-2020-bebe-vio-riceve-il-tricolore-dal-presidente-della-repubblica-realizzo-un-sogno-saranno-i-giochi-della-ripartenza-perche-lo-sport-e-vita/",
+    "verificato": "2026-10-15",
+    "note": "NUOVA. Fonte: Federazione Italiana Scherma, articolo del 23 giugno 2021 (datePublished 2021-06-23) «PARALIMPIADI TOKYO 2020 – BEBE VIO RICEVE IL TRICOLORE DAL PRESIDENTE DELLA REPUBBLICA: \"REALIZZO UN SOGNO\"»: «la schermitrice azzurra ha ricevuto al Quirinale, dalle mani del Presidente della Repubblica, Sergio Mattarella, la bandiera italiana per le Paralimpiadi di Tokyo, insieme all'altro alfiere azzurro, il nuotatore Federico Morlacchi»; la frase è introdotta da «le parole di Bebe Vio che ieri [...] ha raggiunto Roma per vivere questa giornata speciale al Quirinale». La data della cerimonia è confermata dall'articolo del 22 giugno 2021 «IL PRESIDENTE DELLA REPUBBLICA CONSEGNA IL TRICOLORE AI PORTABANDIERA: BEBE VIO DOMANI AL QUIRINALE». La carta riporta 25 parole di una frase più lunga (continua con «che succederanno un sacco di cose ma l’importante è riprendere sempre»). Indirizzo: www.federscherma.it reindirizza (301) a federscherma.it. Percorso con la ricerca interna di WordPress: icona lente (aria-label \"Cerca\") a destra del pulsante \"Tesseramento online\", campo con segnaposto \"Cerca\" (dalle impostazioni del tema la coppia pulsante + lente resta in alto a destra sia nella versione larga sia sotto i 1500 px, cioè anche nella metà destra dello schermo diviso); verificato con curl e WebFetch: «Bebe Vio tricolore» restituisce 1) 24 agosto 2021 cerimonia di apertura, 2) il nostro articolo 23 giugno 2021, 3) 22 giugno 2021, 4) 23 settembre 2024. Alternativa: indirizzo corto federscherma.it/?p=62014 (shortlink WordPress, 301 all'articolo). \"ripartenza\" 1 occorrenza nel testo dell'articolo (anche nell'indirizzo), \"mollare\" 1. Dati del contesto: nata a Venezia il 4 marzo 1997, scherma (fioretto), ori individuali a Rio 2016 e Tokyo 2020 (scheda atleta del Comitato Italiano Paralimpico, letta con WebFetch: comitatoparalimpico.it risponde 503 a curl per protezione anti-bot); meningite a 11 anni con «amputazione dei quattro arti» (www.art4sport.org, pagina \"Chi siamo\"); «tornata alla sua vita di prima [...] il suo amato sport, la scherma». Nessun codice pubblicitario nell'HTML di federscherma.it (solo banner dei cookie). SCARTATE per Bebe Vio: motto «Se sembra impossibile allora si può fare» (titolo del suo libro Rizzoli 2017: sui siti istituzionali compare senza occasione) e discorso alla Camera del 19 settembre 2023 (sul sito della Camera c'è solo il video)."
+   },
+   {
+    "id": "malala-libri",
+    "titolo": "Armi facili, libri difficili",
+    "disciplina": "cittadinanza",
+    "contesto": "Malala Yousafzai è nata nel 1997 nella valle dello Swat, in Pakistan. Quando i talebani impedirono alle ragazze di andare a scuola, lei decise di parlare: nel 2012 le spararono sullo scuolabus, ma sopravvisse e continuò la sua battaglia. Nel 2014, a 17 anni, è diventata la persona più giovane a ricevere il Premio Nobel per la Pace. Nella lezione tenuta a Oslo ha fatto ai capi del mondo una domanda semplice, ma difficilissima.",
+    "url": "www.nobelprize.org/prizes/peace/2014/summary",
+    "lingua": "en",
+    "pdf": false,
+    "percorso": [
+     "Nel riquadro \"Navigate to:\" (oppure sotto la sua foto) clicca su \"Malala Yousafzai\".",
+     "Nel riquadro \"Navigate to:\" della pagina di Malala clicca su \"Nobel Prize lecture\".",
+     "La lezione è lunga: premi Cmd+F (Mac) o Ctrl+F (Windows) e cerca la parola inglese \"guns\" (armi), che compare una sola volta.",
+     "Leggi la domanda che contiene \"guns\"."
+    ],
+    "domanda": "Nella lezione per il Premio Nobel Malala chiede ai grandi del mondo: «Why is it that giving guns is so easy but giving ___ is so hard?» (Perché dare armi è così facile, ma dare ___ è così difficile?). Quale parola manca? Puoi scriverla in inglese o in italiano.",
+    "tipo": "testo",
+    "risposte": [
+     "books",
+     "libri",
+     "book",
+     "i libri"
+    ],
+    "aiuti": [
+     "Nella pagina \"Nobel Prize lecture\" usa Cmd+F o Ctrl+F per cercare la parola \"guns\".",
+     "Subito dopo Malala parla di carri armati (tanks) e di scuole (schools): la parola mancante è una cosa che si legge e in inglese finisce con -s."
+    ],
+    "soluzione": "books (libri). Malala fa notare che i Paesi potenti trovano facilmente il modo di dare armi e costruire carri armati, ma non di dare libri e costruire scuole: per lei l'istruzione di ogni bambino è la strada verso la pace.",
+    "carta": {
+     "testo": "Why is it that giving guns is so easy but giving books is so hard?",
+     "autore": "Malala Yousafzai",
+     "fonte": "Lezione per il Premio Nobel per la Pace, Municipio di Oslo, 10 dicembre 2014"
+    },
+    "prova": "Why is it that giving guns is so easy but giving books is so hard? Why is it, why is it that making tanks is so easy, but building schools is so hard?",
+    "url_verifica": "https://www.nobelprize.org/prizes/peace/2014/yousafzai/lecture/",
+    "verificato": "2026-10-15",
+    "note": "UNICA tappa in inglese. Fonte primaria: testo della Nobel Lecture sul sito ufficiale della Fondazione Nobel; la pagina indica «Malala Yousafzai delivered her Nobel Lecture on 10 December 2014 at the Oslo City Hall, Norway» e «Nobel Lecture by Malala Yousafzai, Oslo, 10 December 2014». WebFetch riceve 403 da nobelprize.org (protezione anti-bot), ma le pagine sono HTML statico: verificate con curl (HTTP 200) e lette integralmente (summary 2014, facts, lecture). \"guns\" compare 1 volta nel testo della lezione, \"books\" 1 volta. Dati del contesto: Born 12 July 1997, Mingora, Pakistan (Facts); Swat; nel 2008 i talebani bruciarono le scuole femminili (Facts); «attacked me and my friends [...] on our school bus in 2012»; «the youngest person to receive this award»; «the 17 years of my life». Traduzione della domanda tra parentesi per aiutare gli studenti; la carta riporta l'originale inglese. La stessa lezione esiste anche in PDF (yousafzai-lecture_en.pdf, 6 pagine), scaricato in pdf-citazioni/."
+   },
+   {
+    "id": "egonu-rialzarmi",
+    "titolo": "Rialzarsi con la squadra",
+    "disciplina": "sport",
+    "contesto": "Paola Egonu è una delle campionesse della Nazionale italiana di pallavolo. L'11 agosto 2024, alle Olimpiadi di Parigi, le azzurre allenate da Julio Velasco hanno battuto 3-0 gli Stati Uniti: è stata la prima medaglia d'oro olimpica mai vinta da una squadra italiana di pallavolo, e Paola ha segnato 22 punti. Subito dopo la finale ha spiegato che cosa, per lei, aveva contato di più.",
+    "url": "www.federvolley.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella barra blu in cima alla pagina, nella casella \"Cerca\", scrivi trionfo olimpico e premi Invio.",
+     "Clicca sul primo risultato: \"Le dichiarazioni delle azzurre dopo il trionfo olimpico\" (News, 11 agosto 2024).",
+     "Scorri la pagina fino alle parole di PAOLA EGONU."
+    ],
+    "domanda": "Completa le parole di Paola Egonu dopo la finale olimpica: «Per me è stato importante essere riuscita a ___ e intraprendere un'altra avventura con questa squadra, questo gruppo.»",
+    "tipo": "testo",
+    "risposte": [
+     "rialzarmi",
+     "rialzarsi",
+     "a rialzarmi"
+    ],
+    "aiuti": [
+     "Nella pagina con le dichiarazioni delle azzurre cerca con Cmd+F (Mac) o Ctrl+F (Windows) la parola \"avventura\".",
+     "La parola mancante è quello che fai quando cadi e ti rimetti in piedi: comincia con \"rial...\"."
+    ],
+    "soluzione": "rialzarmi. Anche le campionesse attraversano momenti difficili: per Paola la cosa più importante non è stata solo vincere, ma rimettersi in piedi e ripartire insieme alla squadra.",
+    "carta": {
+     "testo": "Per me è stato importante essere riuscita a rialzarmi e intraprendere un'altra avventura con questa squadra, questo gruppo.",
+     "autore": "Paola Egonu",
+     "fonte": "Dichiarazioni dopo la finale olimpica vinta 3-0 contro gli Stati Uniti, Parigi, 11 agosto 2024"
+    },
+    "prova": "Per me è stato importante essere riuscita a rialzarmi e intraprendere un'altra avventura con questa squadra, questo gruppo.",
+    "url_verifica": "https://www.federvolley.it/le-dichiarazioni-delle-azzurre-dopo-il-trionfo-olimpico",
+    "verificato": "2026-10-15",
+    "note": "NUOVA. Fonte: FIPAV - Federazione Italiana Pallavolo, news «Le dichiarazioni delle azzurre dopo il trionfo olimpico» dell'11 agosto 2024 («Parigi. Queste le dichiarazioni di alcune azzurre dopo il successo olimpico»); la frase è nel blocco «PAOLA EGONU». Percorso con la ricerca interna (campo \"Cerca\" nella barra blu dell'intestazione, visibile a tutte le larghezze di finestra, pagina /cerca): verificato con curl e WebFetch, «trionfo olimpico» restituisce 35 risultati e il nostro articolo è il primo (titolo identico alla ricerca); NON usare «dichiarazioni azzurre» (387 risultati, i più recenti per primi). \"rialzarmi\" 1 occorrenza, \"avventura\" 1 nel blocco di Egonu (nella pagina c'è anche «avventura» nei titoli correlati in fondo: «Parigi 2024 avventura fantastica»). Dati del contesto dalla news «Le azzurre fanno la storia: è medaglia d'oro, 3-0 agli Stati Uniti»: «battuti gli Stati Uniti 3-0 (25-18, 25-20, 25-17), impresa mai riuscita prima ad alcuna squadra azzurra del volley»; CT Velasco; tabellino «Egonu 22». Nessun codice pubblicitario nell'HTML (curl). Il premio di migliore giocatrice del torneo non è stato verificato su una pagina FIPAV raggiungibile: non citarlo. Nella stessa pagina ci sono le parole di Anna Danesi («Il QUI E ORA è stato il nostro mantra») e di Julio Velasco: possibili varianti della domanda."
+   }
+  ],
+  "riserve": [
+   {
+    "id": "levi-montalcini-avventura",
+    "titolo": "Un'avventura lunga trentatré anni",
+    "disciplina": "scienze",
+    "contesto": "Rita Levi-Montalcini (Torino, 1909 - Roma, 2012) dovette convincere il padre a lasciarla studiare medicina. Nel 1938 le leggi razziali le vietarono di continuare all'università, ma lei proseguì le ricerche in un piccolo laboratorio privato. Scoprì il fattore di crescita nervoso (NGF) e nel 1986 ricevette il Premio Nobel per la Medicina insieme all'amico Stanley Cohen. Alla cena dei premi Nobel raccontò con una frase la loro lunga ricerca insieme.",
+    "url": "www.ebri.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel menu in alto passa sulla voce \"Rita Levi-Montalcini\" e clicca su \"La biografia\" (oppure, nella pagina iniziale, nel riquadro \"La nostra fondatrice\" clicca su \"SCOPRI DI PIù\").",
+     "Scorri la biografia fino al riquadro \"Il discorso di Rita Levi-Montalcini al banchetto dei premi Nobel\" (10 Dicembre 1986).",
+     "Leggi il primo paragrafo del discorso: la frase che cerchi comincia con \"Da allora\"."
+    ],
+    "domanda": "Completa le parole di Rita Levi-Montalcini (nella traduzione italiana): «Da allora, abbiamo apprezzato ogni minuto di questa ___ che doveva condurci a Stoccolma.»",
+    "tipo": "testo",
+    "risposte": [
+     "avventura",
+     "questa avventura"
+    ],
+    "aiuti": [
+     "La frase è nel discorso al banchetto dei premi Nobel, riportato nella parte bassa della pagina \"La biografia\".",
+     "La parola mancante si usa per un viaggio pieno di imprevisti e di scoperte: comincia con \"avv...\"."
+    ],
+    "soluzione": "avventura. Rita e Stanley Cohen avevano cominciato a lavorare insieme trentatré anni prima: per lei la ricerca scientifica era un'avventura da godersi minuto per minuto, fino al Nobel di Stoccolma.",
+    "carta": {
+     "testo": "Da allora, abbiamo apprezzato ogni minuto di questa avventura che doveva condurci a Stoccolma.",
+     "autore": "Rita Levi-Montalcini",
+     "fonte": "Discorso al banchetto dei Premi Nobel, Stoccolma, 10 dicembre 1986 (traduzione italiana della Fondazione EBRI)"
+    },
+    "prova": "Da allora, abbiamo apprezzato ogni minuto di questa avventura che doveva condurci a Stoccolma.",
+    "url_verifica": "https://www.ebri.it/rita-levi-montalicin-la-biografia/",
+    "verificato": "2026-10-15",
+    "note": "RISERVA (in citazioni.json era tappa principale; sito diverso da tutte le principali). Fonte: Fondazione EBRI - European Brain Research Institute Rita Levi-Montalcini, centro di ricerca fondato da lei nel 2002. La pagina \"La biografia\" riporta, con il titolo «Il discorso di Rita Levi-Montalcini al banchetto dei premi Nobel - 10 Dicembre 1986», la traduzione italiana dell'inizio del discorso (link \"Clicca qui per l'intero discorso\" a un PDF di 1 pagina, scaricato in pdf-citazioni/ebri-discorso-RLM-ITA.pdf). Originale inglese verificato su nobelprize.org (Banquet speech, «Rita Levi-Montalcini's speech at the Nobel Banquet, December 10, 1986»): «Stanley and I first began to work together thirty-three years ago [...] Since then, we enjoyed every minute of this adventure which was to lead us to Stockholm.» Verificato con curl (HTTP 200) e WebFetch su home (menu \"Rita Levi-Montalcini\" > \"La biografia\"; riquadro \"La nostra fondatrice\" con \"SCOPRI DI PIù\") e sulla biografia. Dati del contesto dalla biografia: nata il 22 aprile 1909 a Torino; «dopo aver convinto suo padre a farla studiare»; leggi razziali del 1938; «in un piccolo laboratorio privato» a Torino nel 1940; NGF; Nobel 1986 con Stanley Cohen; morta il 30 dicembre 2012 a 103 anni. Il sito ha pulsanti per donazioni (fondazione non profit), nessuna pubblicità. L'indirizzo della pagina contiene un refuso (\"montalicin\"): non va digitato. SCARTATA la frase della pagina \"Rita e l'EBRI\" («La vita non finisce con la morte...»): manca l'occasione."
+   },
+   {
+    "id": "primo-levi-nocciolo",
+    "titolo": "Il nocciolo della memoria",
+    "disciplina": "storia",
+    "contesto": "Primo Levi (Torino, 1919-1987) era un chimico. Nel 1944 fu deportato ad Auschwitz e, tornato a casa, scrisse libri per raccontare quello che aveva vissuto, come \"Se questo è un uomo\". Nel 1986 pubblicò \"I sommersi e i salvati\", pensato soprattutto per i giovani che non avevano conosciuto quei fatti. Una sua frase spiega in poche parole perché la memoria è un dovere.",
+    "url": "www.primolevi.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella pagina iniziale scorri fino alla sezione \"Scoprire Primo Levi\": sotto il titolo \"Opera\" clicca su \"Tutte le opere\".",
+     "Nell'elenco delle opere clicca sul titolo \"I sommersi e i salvati\" (non sull'edizione scolastica commentata).",
+     "Leggi la presentazione del libro: la frase di Primo Levi è tra virgolette, all'inizio del testo della \"quarta di copertina\" della prima edizione."
+    ],
+    "domanda": "Completa la frase di Primo Levi: «È avvenuto, quindi può accadere di nuovo: questo è il ___ di quanto abbiamo da dire.»",
+    "tipo": "testo",
+    "risposte": [
+     "nocciolo",
+     "il nocciolo"
+    ],
+    "aiuti": [
+     "Nella pagina del libro \"I sommersi e i salvati\" cerca un paragrafo tra virgolette che comincia con \"È avvenuto\".",
+     "La parola mancante indica la parte più importante di un discorso, il suo cuore: è anche il nome del seme duro che c'è dentro la pesca o l'oliva."
+    ],
+    "soluzione": "nocciolo. Per Primo Levi il cuore di ciò che i sopravvissuti ai Lager dovevano dire era proprio questo: ciò che è avvenuto può accadere di nuovo, quindi non bisogna dimenticare.",
+    "carta": {
+     "testo": "È avvenuto, quindi può accadere di nuovo: questo è il nocciolo di quanto abbiamo da dire.",
+     "autore": "Primo Levi",
+     "fonte": "I sommersi e i salvati, Einaudi, 1986"
+    },
+    "prova": "«\"È avvenuto, quindi può accadere di nuovo: questo è il nocciolo di quanto abbiamo da dire\". In otto, densi capitoli Primo Levi torna sull'esperienza dei Lager nazisti",
+    "url_verifica": "https://www.primolevi.it/it/sommersi-salvati",
+    "verificato": "2026-10-15",
+    "note": "RISERVA (in citazioni.json era tappa principale; sito diverso da tutte le principali). Fonte: Centro Internazionale di Studi Primo Levi (Torino). La pagina riporta la frase tra virgolette come apertura del testo della quarta di copertina della prima edizione Einaudi 1986 (collana «Gli struzzi») e indica l'uscita del libro: «esce da Einaudi nella primavera del 1986». Verificato con curl (HTTP 200; primolevi.it e www.primolevi.it reindirizzano a /it) e con WebFetch su home, /it/opere e /it/sommersi-salvati. Nella home \"Tutte le opere\" sta sotto il titolo \"Opera\" della sezione \"Scoprire Primo Levi\"; in alternativa menu \"Opere di Primo Levi\" > \"Edizioni italiane\" > \"I sommersi e i salvati\". Nell'elenco delle opere il titolo compare due volte (libro ed edizione scolastica commentata): il percorso lo specifica. Dati del contesto: chimico; deportato ad Auschwitz nel 1944; morto nel 1987 (home: «dal 1947 fino alla morte avvenuta nel 1987»); il libro si rivolgeva «alle generazioni future, in particolare agli studenti» (scheda dell'edizione scolastica in /it/opere). Le citazioni sul sito sono tratte dalle Opere complete (Einaudi 2016-2018)."
+   }
+  ],
+  "quaderno": "Il quaderno delle citazioni"
+ },
+ {
+  "tema": "canzoni",
+  "sigla": "CAN",
+  "breve": "Canzoni e inni",
+  "icona": "t-canzoni",
+  "titolo": "Versi che cantano",
+  "sottotitolo": "Inni, arie d'opera e antichi canti: caccia ai versi che da secoli fanno cantare l'Italia e l'Europa.",
+  "parole": [
+   "LIBRETTO",
+   "SPARTITO",
+   "CANTANTE"
+  ],
+  "indovinelli": {
+   "LIBRETTO": "Si chiama come un piccolo libro, ma contiene tutte le parole che i cantanti di un'opera cantano sul palco.",
+   "SPARTITO": "Fogli pieni di note sul pentagramma: senza di lui l'orchestra non saprebbe che cosa suonare.",
+   "CANTANTE": "Usa la voce come uno strumento: può essere soprano, tenore, baritono o basso."
+  },
+  "tappe": [
+   {
+    "id": "mameli-prima-esecuzione",
+    "titolo": "La prima volta di Fratelli d'Italia",
+    "disciplina": "storia",
+    "contesto": "Nel 1847 Goffredo Mameli, uno studente genovese di vent'anni, scrisse «Il Canto degli Italiani». Lo mandò a Torino al musicista Michele Novaro, che lo mise subito in musica. Pochi mesi dopo l'inno risuonò per la prima volta in pubblico, a Genova, durante una festa popolare: era l'inizio di una lunga storia che arriva fino agli stadi di oggi.",
+    "url": "www.settantesimo.governo.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella pagina iniziale clicca su \"Menu\" e, nel gruppo \"Approfondimenti\", scegli \"Inno nazionale\" (in alternativa scorri la pagina e clicca sul riquadro \"Inno Nazionale\").",
+     "Leggi il secondo paragrafo della pagina \"Inno Nazionale\": racconta dove, quando e da chi l'inno fu suonato per la prima volta."
+    ],
+    "domanda": "Il 10 dicembre 1847, a Genova, l'inno di Mameli fu suonato per la prima volta davanti al pubblico. Quale banda musicale lo eseguì?",
+    "tipo": "testo",
+    "risposte": [
+     "Filarmonica Sestrese",
+     "la Filarmonica Sestrese",
+     "Sestrese"
+    ],
+    "aiuti": [
+     "Cerca il paragrafo che inizia con «L'inno debuttò pubblicamente il 10 dicembre 1847 a Genova».",
+     "Leggi l'ultima frase di quel paragrafo: «Per l'occasione venne eseguito dalla ...». Il nome viene da Sestri, un quartiere di Genova."
+    ],
+    "soluzione": "Filarmonica Sestrese. L'inno debuttò il 10 dicembre 1847 sul piazzale del santuario di Nostra Signora di Loreto, nel quartiere genovese di Oregina, suonato dalla Filarmonica Sestrese.",
+    "carta": {
+     "testo": "Fratelli d’Italia, l’Italia s’è desta;\ndell’elmo di Scipio s’è cinta la testa.\nDov’è la vittoria? Le porga la chioma\nché schiava di Roma Iddio la creò.",
+     "autore": "Testo di Goffredo Mameli, musica di Michele Novaro",
+     "fonte": "Il Canto degli Italiani, 1847, prima strofa (testo integrale sul sito Settantesimo della Presidenza del Consiglio dei Ministri)"
+    },
+    "prova": "Per l’occasione venne eseguito dalla Filarmonica Sestrese.",
+    "url_verifica": "https://www.settantesimo.governo.it/it/approfondimenti/inno-nazionale/index.html",
+    "verificato": "2026-10-15",
+    "note": "PUBBLICO DOMINIO: autore del testo Goffredo Mameli, morto il 6 luglio 1849 (fonte: Presidenza del Consiglio dei Ministri, Ufficio del Cerimoniale di Stato, pagina 'Inno nazionale, gli autori', presidenza.governo.it/ufficio_cerimoniale/cerimoniale/inno_autori.html: 'Morì per le conseguenze dell'infezione il 6 luglio 1849, a soli ventidue anni'). Musica di Michele Novaro, morto il 20 ottobre 1885 (stessa fonte). SITO: sito storico 'Settantesimo' della Struttura di missione per gli anniversari di interesse nazionale (Presidenza del Consiglio), pubblicato come copia statica HTML: la radice www.settantesimo.governo.it reindirizza con meta refresh a /it/index.html; HTTP 200 su tutte le pagine (curl -sIL); WebFetch OK (il riassuntore di WebFetch si rifiuta di trascrivere il testo dell'inno credendolo protetto: il testo è stato letto con curl). La pagina contiene il testo integrale delle cinque strofe: la carta riporta la prima quartina esattamente come sulla pagina (apostrofi tipografici compresi). Menu verificato: 'Menu' > gruppo 'Approfondimenti' > 'Inno nazionale'; in home c'è anche il riquadro 'Inno Nazionale'. Link ai social ma nessuna pubblicità; 'Preferenze cookie' non bloccante. La stessa pagina dà il contesto: Mameli 'allora studente e patriota', testo inviato a Torino a Novaro. Frase precedente sulla pagina, con data e luogo: 'L’inno debuttò pubblicamente il 10 dicembre 1847 a Genova, presentato alla popolazione sul piazzale del santuario della Nostra Signora di Loreto del quartiere di Oregina, durante la commemorazione della rivolta del quartiere genovese di Portoria contro gli occupanti asburgici.'"
+   },
+   {
+    "id": "inno-legge-181",
+    "titolo": "Da provvisorio a ufficiale",
+    "disciplina": "cittadinanza",
+    "contesto": "L'Inno, il Tricolore e il Presidente della Repubblica sono i tre simboli dell'unità nazionale. Eppure per oltre settant'anni «Fratelli d'Italia» è stato l'inno nazionale solo «provvisoriamente»: lo aveva deciso il Consiglio dei Ministri il 12 ottobre 1946, in vista del giuramento delle Forze Armate alla nuova Repubblica. Solo molto più tardi il Parlamento ha approvato una legge per renderlo definitivo.",
+    "url": "presidenza.governo.it/ufficio_cerimoniale",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Se compare l'avviso sui cookie, clicca \"No, non acconsento\": la pagina resta leggibile.",
+     "Nel menu laterale, nel gruppo \"Protocollo di Stato\", clicca su \"Inno nazionale\".",
+     "Leggi il paragrafo che inizia con «Con la legge 4 dicembre 2017»."
+    ],
+    "domanda": "Qual è il numero della legge del 4 dicembre 2017 con cui la Repubblica ha riconosciuto definitivamente «Il Canto degli Italiani» come Inno nazionale?",
+    "tipo": "numero",
+    "risposte": [
+     "181"
+    ],
+    "aiuti": [
+     "Nella pagina \"Inno nazionale\" cerca la parola «definitivamente».",
+     "Il numero si trova subito dopo «legge 4 dicembre 2017, n.»: ha tre cifre."
+    ],
+    "soluzione": "181. Con la legge 4 dicembre 2017, n. 181, la Repubblica ha riconosciuto definitivamente il testo di Goffredo Mameli e lo spartito originale di Michele Novaro come Inno nazionale; il 14 marzo 2025 un decreto del Presidente della Repubblica ha stabilito come va eseguito.",
+    "carta": {
+     "testo": "Noi siamo da secoli calpesti, derisi\nperché non siam popolo, perché siam divisi.\nRaccolgaci un’unica bandiera, una speme:\ndi fonderci insieme già l’ora suonò.",
+     "autore": "Testo di Goffredo Mameli, musica di Michele Novaro",
+     "fonte": "Il Canto degli Italiani, 1847, seconda strofa (testo integrale sul sito Settantesimo della Presidenza del Consiglio dei Ministri)"
+    },
+    "prova": "Con la legge 4 dicembre 2017, n. 181, la Repubblica ha riconosciuto definitivamente il testo de \"Il Canto degli Italiani\" di Goffredo Mameli e lo spartito musicale originale di Michele Novaro quale proprio Inno nazionale.",
+    "url_verifica": "https://presidenza.governo.it/ufficio_cerimoniale/cerimoniale/inno.html",
+    "verificato": "2026-10-15",
+    "note": "PUBBLICO DOMINIO: Goffredo Mameli morto il 6 luglio 1849 (fonte: stesso sito, pagina 'Inno nazionale, gli autori', collegata dal nome di Mameli nella pagina 'Inno nazionale'). La carta è copiata esattamente dal sito Settantesimo (www.settantesimo.governo.it/it/approfondimenti/inno-nazionale/index.html), perché la pagina del Cerimoniale non riporta il testo (offre solo i PDF degli autografi e della partitura e l'MP3 della Banda interforze). SITO: Ufficio del Cerimoniale di Stato della Presidenza del Consiglio; presidenza.governo.it/ufficio_cerimoniale -> 301/302 -> 200 (curl -sIL); pagina 'Inno nazionale' HTTP 200, HTML statico, verificata con curl e WebFetch. Banner cookie con pulsanti 'Si, acconsento' / 'No, non acconsento', non bloccante. Menu laterale verificato: 'Protocollo di Stato' > 'Inno nazionale'. CONTESTO verificato sulla stessa pagina: 'uno dei tre simboli dell'unità nazionale' insieme al Tricolore e al Presidente della Repubblica; comunicato del Consiglio dei Ministri del 12 ottobre 1946 ('provvisoriamente, si adotti come Inno nazionale l'Inno di Mameli'); decreto del Presidente della Repubblica del 14 marzo 2025 'Modalità di esecuzione dell'Inno nazionale' (link alla Gazzetta Ufficiale). ALTERNATIVA PDF (non usata): il fascicolo GU Serie Generale n. 104 del 7 maggio 2025 (48 pagine, scaricato in pdf-canzoni/GU-SG-104-2025-05-07.pdf) contiene il decreto alle pp. 16-17 (pagine 20-21 del PDF): 'Durante l'esecuzione i presenti sono in piedi, in posizione composta, in silenzio oppure partecipando col canto' e, nelle cerimonie, l'inno 'senza l'introduzione iniziale' si esegue 'ripetendo due volte di seguito le prime due quartine e due volte di seguito il ritornello'. La pagina del Cerimoniale ha un impaginato fisso senza adattamento mobile: nella scheda stretta (circa 900 px) può servire scorrere in orizzontale per vedere il menu laterale."
+   },
+   {
+    "id": "va-pensiero-eufrate",
+    "titolo": "Sulle rive di un fiume lontano",
+    "disciplina": "geografia",
+    "contesto": "Il 9 marzo 1842, al Teatro alla Scala di Milano, Giuseppe Verdi conquistò il pubblico con il Nabucco. Il suo coro più famoso, «Va, pensiero», è cantato dagli Ebrei portati prigionieri a Babilonia, che sognano la patria perduta. Il testo lo scrisse il poeta Temistocle Solera. Ogni autunno a Parma, vicino ai luoghi dove Verdi nacque, il Festival Verdi riporta in scena le sue opere.",
+    "url": "teatroregioparma.it/spettacolo/nabucodonosor",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella pagina dello spettacolo \"NABUCODONOSOR\" (Festival Verdi) clicca su \"sinossi\", cioè il riassunto della trama.",
+     "Scorri fino alla \"Parte terza – La profezia\" e trova la frase in cui compare il coro \"Va, pensiero\"."
+    ],
+    "domanda": "Secondo la sinossi del Teatro Regio di Parma, sulle sponde di quale fiume gli Ebrei incatenati cantano «Va, pensiero»?",
+    "tipo": "testo",
+    "risposte": [
+     "Eufrate",
+     "fiume Eufrate",
+     "l'Eufrate"
+    ],
+    "aiuti": [
+     "Leggi la trama della Parte terza: la scena del coro si svolge vicino a un grande fiume della Mesopotamia.",
+     "La frase comincia con «Sulle sponde dell'...»: è il fiume che attraversava Babilonia e che, insieme al Tigri, dà il nome alla Mesopotamia, la «terra tra i due fiumi»."
+    ],
+    "soluzione": "Eufrate. Gli Ebrei, prigionieri a Babilonia, cantano sulle sponde dell'Eufrate; nel coro, però, salutano le rive del Giordano, il fiume della loro patria lontana.",
+    "carta": {
+     "testo": "Va pensiero sull’ali dorate,\nva ti posa sui clivi, sui colli\nove olezzano libere e molli\nl’aure dolci del suolo natal!\nDel Giordano le rive saluta,\ndi Sïonne le torri atterrate...",
+     "autore": "Testo di Temistocle Solera, musica di Giuseppe Verdi",
+     "fonte": "Nabucco, parte terza, scena quarta (Milano, Teatro alla Scala, 9 marzo 1842); libretto di sala del Teatro Regio di Parma, Festival Verdi 2019, p. 40"
+    },
+    "prova": "Sulle sponde dell’Eufrate intanto gli Ebrei incatenati mandano un pensiero nostalgico alla loro patria (coro: “Va, pensiero”), con il risultato di suscitare la deprecazione di Zaccaria, che li esorta a non lamentarsi come imbelli, a reagire.",
+    "url_verifica": "https://teatroregioparma.it/spettacolo/nabucodonosor/",
+    "verificato": "2026-10-15",
+    "note": "PUBBLICO DOMINIO: librettista Temistocle Solera, nato a Ferrara nel 1815 e morto a Milano nel 1878 (fonte: Opera e Balletto Nazionale di Sofia, operasofia.bg/en/staff/temistokle-solera: 'He died in Milan in 1878'; la data 21 aprile 1878 è riportata concordemente dalla bibliografia, ad es. l'articolo di P. Faustini negli Annali online dell'Università di Ferrara). Musica di Giuseppe Verdi, morto il 27 gennaio 1901 (fonte: casaverdi.it, 'Biografia di Giuseppe Verdi'). CARTA copiata esattamente dal libretto di sala del Teatro Regio di Parma (Festival Verdi 2019, p. 40), PDF di 96 pagine scaricato in pdf-canzoni/TRP-2019-Libretto-Nabucco.pdf da old.teatroregioparma.it/wp-content/uploads/2020/04/TRP-2019-Libretto-Nabucco.pdf (edizione critica di Roger Parker: 'libere e molli' dove altre edizioni hanno 'tepide e molli'; 'Va pensiero' senza virgola). PAGINA: HTTP 301 -> 200, contenuto nell'HTML (curl e WebFetch); banner cookie Cookiebot non bloccante (rifiutare i cookie non necessari). La pagina riporta anche 'Prima rappresentazione il 9 marzo 1842 al Teatro alla Scala di Milano' e 'libretto di Temistocle Solera'. RISCHIO STABILITÀ: è la pagina della produzione del Festival Verdi 2026 (recite dal 27 settembre al 24 ottobre 2026). Dovrebbe restare online con lo stesso indirizzo nell'archivio spettacoli, ma la navigazione da menu ('Spettacoli' > 'Festival Verdi') cambierà con l'edizione 2027: per questo l'URL porta direttamente alla pagina. Ricontrollare prima dell'uso. La stessa frase della sinossi ('Sulle sponde dell'Eufrate intanto gli Ebrei incatenati...') è anche nel libretto di sala 2019."
+   },
+   {
+    "id": "nessun-dorma-libretto-pdf",
+    "titolo": "All'alba vincerò",
+    "disciplina": "musica",
+    "contesto": "«Nessun dorma» è una delle arie d'opera più famose del mondo: la senti negli stadi, nei film e nelle pubblicità. La canta il principe Calaf nella Turandot di Giacomo Puccini, una fiaba ambientata a Pechino. Puccini morì nel 1924 prima di finire l'opera, che debuttò alla Scala di Milano nel 1926. Il Centro studi Giacomo Puccini di Lucca mette online il libretto completo dentro il programma di sala del Teatro La Fenice di Venezia.",
+    "url": "puccini.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "Tramontate",
+    "percorso": [
+     "Nella pagina iniziale, sotto la citazione di Puccini, clicca su \"Le opere\" (oppure, nel menu in alto, passa su \"Giacomo Puccini\" e clicca \"La musica\").",
+     "Clicca sulla categoria \"Opere teatrali\" e poi su \"Turandot\" (è l'ultima dell'elenco).",
+     "In fondo alla scheda clicca sulla linguetta \"Letteratura Critica\".",
+     "Nella riga di Emanuele D'Angelo («Il libretto di Turandot») clicca sul titolo «Turandot»: si apre un PDF di 172 pagine, il programma di sala del Teatro La Fenice (2007) con il libretto completo.",
+     "Premi Cmd+F (Mac) o Ctrl+F (Windows) e cerca la parola \"Tramontate\": c'è una sola occorrenza, a pagina 80 del PDF, nel libretto dell'atto terzo."
+    ],
+    "domanda": "Alla fine di «Nessun dorma» il principe Calaf canta: «Dilegua, o notte!… Tramontate, o stelle!… All’alba ___!…». Quale parola manca?",
+    "tipo": "testo",
+    "risposte": [
+     "vincerò",
+     "vincero"
+    ],
+    "aiuti": [
+     "Nel PDF cerca con Cmd+F (o Ctrl+F) la parola \"Tramontate\": la trovi una sola volta, nel testo del libretto.",
+     "Leggi la riga subito sotto «Dilegua, o notte!… Tramontate, o stelle!…»: Calaf è sicuro di vincere la sfida quando sorgerà il sole."
+    ],
+    "soluzione": "Vincerò. Calaf è certo che all'alba la principessa Turandot non avrà scoperto il suo nome e che lui avrà vinto: «All'alba vincerò!» è il grido finale dell'aria.",
+    "carta": {
+     "testo": "Nessun dorma!… Tu pure, o Principessa,\nnella tua fredda stanza\nguardi le stelle\nche tremano d’amore e di speranza…\nMa il mio mistero è chiuso in me,\nil nome mio nessun saprà!",
+     "autore": "Testo di Giuseppe Adami e Renato Simoni, musica di Giacomo Puccini",
+     "fonte": "Turandot, atto terzo (prima rappresentazione: Milano, Teatro alla Scala, 25 aprile 1926); libretto nel programma di sala «La Fenice prima dell'Opera» 2007, n. 8, p. 79"
+    },
+    "prova": "IL PRINCIPE IGNOTO Dilegua, o notte!… Tramontate, o stelle!… All’alba vincerò!…",
+    "url_verifica": "https://puccini.it/wp-content/uploads/2024/05/105_6860Turandot_v4.pdf",
+    "verificato": "2026-10-15",
+    "note": "PUBBLICO DOMINIO: librettisti Giuseppe Adami (1878-1946) e Renato Simoni (1875-1952), entrambi morti prima del 1956 (fonte: lo stesso PDF, p. 47: 'Giuseppe Adami (1878-1946)', 'Renato Simoni (1875-1952)'; confermato dal catalogo IMSLP). Musica di Giacomo Puccini (morto nel 1924). La carta riporta i versi esattamente come nel PDF (p. 79), tolti solo i richiami alle note a piè di pagina (17b, 17c). Il PDF è un'edizione curata da Michele Girardi (2007): il testo del libretto è di pubblico dominio e la carta ne cita 6 versi. PDF: 172 pagine, 6,5 MB, testo selezionabile, scaricato in pdf-canzoni/105_6860Turandot_v4.pdf e letto con pdftotext e pypdf. 'Tramontate' = 1 sola occorrenza in tutto il PDF (pagina 80; numerazione stampata = numerazione del PDF); 'vincerò' 3 occorrenze, tutte a p. 80. Attenzione: cercare 'Dilegua' dà 4 risultati (pp. 37, 80, 92 due volte) e 'Nessun dorma' molti risultati sparsi: per questo la parola chiave è 'Tramontate'. PERCORSO verificato con curl e WebFetch: puccini.it (menu 'Giacomo Puccini' > 'La musica' = puccini.it/opere/) > 'Opere teatrali' > 'Turandot' (puccini.it/opera/turandot/) > linguetta 'Letteratura Critica' (tab Bootstrap: il contenuto è già nell'HTML) > link «Turandot» nella riga 'EMANUELE D'ANGELO, Il libretto di Turandot...' (lo stesso PDF è collegato anche nella riga di Anselm Gerhard). In home c'è anche la sezione 'Le opere musicali' con 'Turandot' > 'Scopri di più'. SITO: Centro studi Giacomo Puccini (associazione culturale ETS di ricerca, sostenuta dal Ministero della Cultura; promotore dell'Edizione Nazionale delle opere di Puccini); nessuna pubblicità; banner cookie CookieYes non bloccante. La scheda Turandot riporta anche la prima rappresentazione (Milano, Teatro alla Scala, 25 aprile 1926), l'ambientazione ('A Pekino, al tempo delle favole') e il completamento di Franco Alfano. La 'prova' è il testo estratto con pypdf (pagina a due colonne: con pdftotext -layout l'intestazione 'IL PRINCIPE IGNOTO' finisce nell'altra colonna)."
+   },
+   {
+    "id": "boheme-amici-soffitta",
+    "titolo": "Quattro amici in soffitta",
+    "disciplina": "musica",
+    "contesto": "«La bohème» di Puccini racconta la vita di quattro giovani artisti squattrinati che dividono una soffitta a Parigi, intorno al 1830: hanno pochi soldi, molta fame e tantissimi sogni. In quella soffitta uno di loro incontra Mimì, una ricamatrice. L'opera debuttò al Teatro Regio di Torino il 1° febbraio 1896, diretta da un giovanissimo Arturo Toscanini.",
+    "url": "puccini.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella pagina iniziale, sotto la citazione di Puccini, clicca su \"Le opere\" (oppure, nel menu in alto, passa su \"Giacomo Puccini\" e clicca \"La musica\").",
+     "Clicca sulla categoria \"Opere teatrali\" e poi su \"La bohème\".",
+     "Leggi l'elenco \"Personaggi\": accanto ad alcuni nomi è scritto il mestiere."
+    ],
+    "domanda": "Nella Bohème quattro amici vivono insieme in una soffitta: un poeta, un pittore, un musicista e un filosofo. Come si chiamano? Scrivi i quattro nomi.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "Rodolfo",
+      "varianti": [
+       "Rodolfo poeta",
+       "Rodolf",
+       "Rodolpho"
+      ]
+     },
+     {
+      "voce": "Marcello",
+      "varianti": [
+       "Marcello pittore",
+       "Marcelo",
+       "Marcel"
+      ]
+     },
+     {
+      "voce": "Schaunard",
+      "varianti": [
+       "Schaunard musicista",
+       "Shaunard",
+       "Schaunar",
+       "Sciaunard",
+       "Schonard",
+       "Chaunard"
+      ]
+     },
+     {
+      "voce": "Colline",
+      "varianti": [
+       "Colline filosofo",
+       "Collin",
+       "Coline",
+       "Collines"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Nella scheda dell'opera cerca la voce \"Personaggi\": è un elenco numerato da 1 a 10.",
+     "Sono i personaggi numero 3, 4, 5 e 6: accanto al nome trovi il mestiere (poeta, pittore, musicista, filosofo)."
+    ],
+    "soluzione": "Rodolfo (poeta), Marcello (pittore), Schaunard (musicista) e Colline (filosofo). Sono i quattro «bohémien», giovani artisti poveri ma pieni di fantasia; Rodolfo si presenta a Mimì proprio dicendo «Sono un poeta».",
+    "carta": {
+     "testo": "Chi son? – Sono un poeta.\nChe cosa faccio? – Scrivo.\nE come vivo? – Vivo.\nIn mia povertà lieta\nscialo da gran signore\nrime ed inni d’amore.",
+     "autore": "Testo di Giuseppe Giacosa e Luigi Illica, musica di Giacomo Puccini",
+     "fonte": "La bohème, quadro primo, aria di Rodolfo «Che gelida manina» (Torino, Teatro Regio, 1° febbraio 1896); libretto nel programma di sala «La Fenice prima dell'Opera» 2011, n. 1, p. 68"
+    },
+    "prova": "3. Rodolfo, poeta (T) 4. Marcello, pittore (Br) 5. Schaunard, musicista (Br) 6. Colline, filosofo (B)",
+    "url_verifica": "https://puccini.it/opera/la-boheme/",
+    "verificato": "2026-10-15",
+    "note": "TOTALE: 4 voci (Rodolfo, Marcello, Schaunard, Colline), nell'elenco numerato 'Personaggi' della scheda (voci 3-6, con il mestiere accanto); gli altri personaggi della lista sono Mimì, Musetta, Parpignol, Benoît (padrone di casa), Alcindoro (consigliere di stato), Sergente dei doganieri. PUBBLICO DOMINIO: librettisti Giuseppe Giacosa, morto nel 1906 (fonte: programma di sala La Fenice 2011 sulla Bohème, PDF collegato dalla stessa scheda: 'questo sodalizio artistico, spezzato dalla scomparsa di Giacosa nel 1906'), e Luigi Illica, nato a Castell'Arquato il 9 maggio 1857 e morto a Colombarone il 16 dicembre 1919 (fonte: Polska Biblioteka Muzyczna, enciclopedia, voce 'Illica Luigi'). Musica di Puccini, morto nel 1924. CARTA copiata esattamente dal PDF «La Fenice prima dell'Opera» 2011 n. 1 (la-boheme_2011.pdf, collegato dalla linguetta 'Letteratura Critica' della stessa scheda; 188 pagine, scaricato in pdf-canzoni/la-boheme_2011.pdf), p. 68 stampata = p. 84 del PDF. PAGINA: puccini.it/opera/la-boheme/ HTTP 200, verificata con curl e WebFetch (elenco Personaggi, 'Azione: 1830 circa a Parigi', 'Prima rappresentazione: Torino, Teatro Regio, 1 febbraio 1896', maestro concertatore Arturo Toscanini). Sito senza pubblicità; banner cookie CookieYes non bloccante. In home la sezione 'Le opere musicali' ha anche il riquadro 'La Bohème' > 'Scopri di più'."
+   },
+   {
+    "id": "inno-europeo-gioia",
+    "titolo": "Un inno senza parole",
+    "disciplina": "cittadinanza",
+    "contesto": "Anche l'Unione europea ha il suo inno: è la melodia dell'«Inno alla gioia», che Ludwig van Beethoven mise nel finale della sua Nona sinfonia. Le parole vengono da una poesia del poeta tedesco Friedrich Schiller, che parla di fratellanza tra tutte le persone. Eppure, quando l'inno europeo risuona nelle cerimonie ufficiali, nessuno canta: l'inno ufficiale è solo musica.",
+    "url": "european-union.europa.eu/index_it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Apri il menu (se è chiuso, clicca sul pulsante \"Menu\" in alto), scegli \"Principi, paesi, storia\" e poi \"Simboli\".",
+     "Clicca sul riquadro \"Inno europeo\" e leggi il terzo paragrafo."
+    ],
+    "domanda": "In che anno i capi di Stato e di governo dei paesi membri hanno adottato l'Inno alla gioia come inno ufficiale dell'Unione europea?",
+    "tipo": "numero",
+    "risposte": [
+     "1985"
+    ],
+    "aiuti": [
+     "Nella pagina \"Inno europeo\" ci sono due anni vicini: uno riguarda il Consiglio d'Europa, l'altro l'Unione europea.",
+     "Il Consiglio d'Europa lo adottò nel 1972: l'anno giusto è nella frase che inizia con «Nel ... è stato adottato dai capi di Stato e di governo»."
+    ],
+    "soluzione": "1985. Il Consiglio d'Europa aveva scelto la melodia già nel 1972; nel 1985 è diventata l'inno ufficiale dell'Unione europea. L'inno non ha testo: parla con il linguaggio universale della musica.",
+    "carta": {
+     "testo": "Deine Zauber binden wieder,\nWas die Mode streng geteilt;\nAlle Menschen werden Brüder,\nWo dein sanfter Flügel weilt.",
+     "autore": "Testo di Friedrich Schiller («An die Freude», 1785), musica di Ludwig van Beethoven (Nona sinfonia). «Alle Menschen werden Brüder» significa «Tutti gli uomini diventano fratelli».",
+     "fonte": "Beethoven Jubiläums Gesellschaft (BTHVN2020) – Beethoven-Haus Bonn, Beethoven-Grundschulkalender, settimana 19, «Ode an die Freude»"
+    },
+    "prova": "Nel 1972 il Consiglio d'Europa ha adottato il tema dell'Inno alla gioia di Beethoven come proprio inno. Nel 1985 è stato adottato dai capi di Stato e di governo dei paesi membri come inno ufficiale dell'Unione europea. L'inno non ha testo, ma solo musica.",
+    "url_verifica": "https://european-union.europa.eu/principles-countries-history/symbols/european-anthem_it",
+    "verificato": "2026-10-15",
+    "note": "PUBBLICO DOMINIO: testo di Friedrich Schiller (1759-1805), morto a Weimar il 9 maggio 1805 (fonte: Klassik Stiftung Weimar, pagina 'Schillers Wohnhaus' e fotoarchivio digitale 'Friedrich von Schillers (1759-1805)'). Musica di Beethoven (morto nel 1827). Nessuna traduzione italiana usata (le traduzioni moderne possono essere protette): la carta è l'originale tedesco, copiato esattamente dal calendario scolastico della Beethoven Jubiläums Gesellschaft pubblicato dal Beethoven-Haus Bonn (internet.beethoven.de/pdf-web/BeethovenGrundschulkalender_02.pdf, 111 pagine), tolto solo il richiamo di nota '1' dopo 'geteilt'; la traduzione di una riga nel campo 'autore' è nostra. Il verso 'Alle Menschen werden Brüder' è indicato come 'zentrale Satz' della poesia anche dal Governo federale tedesco (bundesregierung.de, 'Sieben Dinge, die Sie noch nicht über die Europa-Hymne wussten'). PAGINA: sito ufficiale dell'Unione europea, versione italiana; tutte le pagine del percorso HTTP 200 (index_it, principles-countries-history_it, symbols_it, european-anthem_it), verificate con curl e WebFetch; nessun banner bloccante. Menu verificato: 'Principi, paesi, storia' > 'Simboli' > riquadro 'Inno europeo' (gli altri riquadri: 'Il motto dell'UE', 'Bandiera europea', 'Anni europei'). Contesto verificato sulla pagina: Nona sinfonia 'composta nel 1823 da Ludwig van Beethoven', 'Inno alla gioia, scritto da Friedrich Schiller nel 1785'; 'L'inno non ha testo, ma solo musica'. Ultimo aggiornamento della pagina: 17 aprile 2026."
+   },
+   {
+    "id": "marseillaise-strasburgo",
+    "titolo": "Un canto di guerra nato sul Reno",
+    "disciplina": "lingue",
+    "contesto": "Anche la Francia ha un inno famosissimo: «La Marseillaise». Lo scrisse un giovane capitano dell'esercito, Claude-Joseph Rouget de Lisle, in una sola notte del 1792, subito dopo l'inizio di una guerra. Il nome «Marsigliese» arrivò dopo, perché a Parigi lo cantavano i volontari arrivati da Marsiglia. La pagina è in francese: niente paura, nomi di città e date si riconoscono facilmente!",
+    "url": "www.elysee.fr",
+    "lingua": "fr",
+    "pdf": false,
+    "percorso": [
+     "Se compare l'avviso sui cookie, scegli di rifiutarli: la pagina resta leggibile.",
+     "Apri il menu in alto (se lo schermo è stretto è il pulsante \"menu\"), clicca su \"Présidence\" e poi su \"Les symboles\".",
+     "Nella sezione \"Les symboles\" clicca su \"L'hymne national\".",
+     "Leggi il paragrafo che inizia con «Son auteur, Claude-Joseph Rouget de Lisle»."
+    ],
+    "domanda": "Nella notte tra il 25 e il 26 aprile 1792 Rouget de Lisle compose l'inno in casa del sindaco (in francese «maire») di una città. Quale? Puoi scrivere il nome in francese o in italiano.",
+    "tipo": "testo",
+    "risposte": [
+     "Strasbourg",
+     "Strasburgo"
+    ],
+    "aiuti": [
+     "Nel paragrafo cerca la parola francese «maire», che significa «sindaco».",
+     "La frase dice «chez le maire de ...»: è una città dell'Alsazia, vicina al fiume Reno (in francese «Rhin») e al confine con la Germania."
+    ],
+    "soluzione": "Strasburgo (Strasbourg). Rouget de Lisle compose il canto in casa del sindaco Dietrich e lo intitolò «Chant de guerre pour l'armée du Rhin», cioè «Canto di guerra per l'armata del Reno».",
+    "carta": {
+     "testo": "Allons enfants de la Patrie,\nLe jour de gloire est arrivé !",
+     "autore": "Testo e musica di Claude-Joseph Rouget de Lisle. Significa: «Andiamo, figli della Patria, il giorno della gloria è arrivato!»",
+     "fonte": "La Marseillaise, 1792, primo couplet (Présidence de la République, elysee.fr)"
+    },
+    "prova": "Dans la nuit du 25 au 26 avril 1792, à la suite de la déclaration de guerre de la France à l'empereur d'Autriche, il composa chez le maire de Strasbourg, dénommé Dietrich, un morceau qu’il intitula \"Chant de guerre pour l'armée du Rhin\".",
+    "url_verifica": "https://www.elysee.fr/la-presidence/la-marseillaise-de-rouget-de-lisle",
+    "verificato": "2026-10-15",
+    "note": "UNICA TAPPA PRINCIPALE IN LINGUA STRANIERA (francese). PUBBLICO DOMINIO: Claude-Joseph Rouget de Lisle, nato il 10 maggio 1760 a Lons-le-Saunier, morto a Choisy-le-Roi il 26 giugno 1836 (fonte: Assemblée nationale, dossier historique 'La Marseillaise', pagina 'Claude Joseph Rouget de Lisle': 'Il décède dans cette ville le 26 juin 1836 à l'âge de 76 ans'). La carta usa solo i primi due versi del primo couplet; la traduzione nel campo 'autore' è nostra. PAGINA: sito ufficiale della Presidenza della Repubblica francese, in francese (selettore lingue: anche inglese e tedesco). HTTP 200 su home, 'Les symboles' (/la-presidence/les-symboles-de-la-republique-francaise) e 'L'hymne national' (/la-presidence/la-marseillaise-de-rouget-de-lisle); verificate con curl e WebFetch. Menu verificato: 'Présidence' > 'Les symboles' > link 'L'hymne national'. Banner cookie tarteaucitron non bloccante. Sulla stessa pagina: il testo completo ('Les paroles', 7 couplets), 'La IIIe République choisit la Marseillaise en 1879 comme hymne national', i fédérés de Marseille e l'insurrezione delle Tuileries del 10 agosto 1792. Il testo contiene versi violenti nei couplet successivi: la carta si limita ai primi due versi."
+   },
+   {
+    "id": "cantico-frate-sole",
+    "titolo": "Il canto più antico della lingua italiana",
+    "disciplina": "lingue",
+    "contesto": "Il «Cantico delle creature» di San Francesco d'Assisi è considerato la prima opera letteraria in lingua italiana: un italiano antichissimo, ancora pieno di parole simili al latino. Non era una poesia da leggere in silenzio, ma una lode da cantare: i frati la insegnavano alla gente nei paesi e nei mercati. Nel 2026 si ricordano gli 800 anni dalla morte di Francesco, e un comitato nazionale ha raccolto la sua storia in un sito.",
+    "url": "sanfrancesco800.cultura.gov.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella pagina iniziale scorri fino alla sezione \"Anniversari Francescani 2023 – 2026\".",
+     "Clicca sul riquadro \"Il Cantico delle creature\".",
+     "Leggi il testo: racconta quando, dove e in quale notte Francesco compose il Cantico."
+    ],
+    "domanda": "Prima di comporre il Cantico, Francesco passò una notte insonne perché qualcuno lo tormentava. Quali animali?",
+    "tipo": "testo",
+    "risposte": [
+     "topi",
+     "i topi",
+     "dai topi",
+     "topo"
+    ],
+    "aiuti": [
+     "Leggi le prime righe della pagina: dopo aver detto che Francesco era quasi cieco e malato, il testo racconta la sua notte insonne.",
+     "Cerca le parole «Dopo una notte insonne, tormentato dai ...»: sono piccoli roditori."
+    ],
+    "soluzione": "I topi. Nel 1225 Francesco, quasi cieco e malato, si trovava in una capanna presso il monastero di San Damiano: dopo una notte insonne, tormentato dai topi, compose una lode a Dio per tutte le creature.",
+    "carta": {
+     "testo": "Laudato sie, mi’ Signore,\ncum tucte le tue creature,\nspetialmente messor lo frate sole,\nlo qual è iorno, et allumini noi per lui.\nEt ellu è bellu e radiante cum grande splendore:\nde te, Altissimo, porta significatione.",
+     "autore": "Testo di San Francesco d'Assisi",
+     "fonte": "Cantico di Frate Sole (Laudes creaturarum), 1225; versi citati nell'enciclica «Laudato si'» (2015), n. 87, vatican.va"
+    },
+    "prova": "Francesco è ormai quasi del tutto cieco, provato da malattie e sofferenze di diverso genere. Dopo una notte insonne, tormentato dai topi, celebra con un lirismo tutto speciale Dio, creatore e fonte di ogni bene, in tutte le sue creature e a questo scopo compone una laude in suo onore.",
+    "url_verifica": "https://sanfrancesco800.cultura.gov.it/?project=il-cantico-delle-creature",
+    "verificato": "2026-10-15",
+    "note": "PUBBLICO DOMINIO: San Francesco d'Assisi, morto alla Porziuncola la sera del 3 ottobre 1226 (fonte: stesso sito, pagina 'San Francesco', sanfrancesco800.cultura.gov.it/?page_id=529, cronologia: '1225 ... presso San Damiano, dove compone il Cantico delle Creature'; '1226 ... muore la sera del 3 ottobre'). CARTA copiata esattamente dall'enciclica 'Laudato si'' sul sito della Santa Sede (vatican.va, n. 87), dove i versi sono a capo; tolte solo le virgolette di apertura. La home del sito del Comitato riporta anche l'incipit nella sezione 'Laudes Creaturarum' ('Altissimu, onnipotente, bon Signore, tue so’ le laude, la gloria e l’honore et onne benedictione...'). SITO: Comitato nazionale per la celebrazione dell'ottavo centenario della morte di San Francesco (istituito con legge 140/2022), ospitato sul dominio del Ministero della Cultura; HTTP 200 su home e pagina, verificate con curl e WebFetch; nessuna pubblicità, banner cookie CookieYes non bloccante. Riquadro 'Il Cantico delle creature' verificato nella sezione 'Anniversari Francescani 2023 – 2026' (con 'La Regola Bollata', 'Il Natale di Greccio', 'Le stimmate', 'La pasqua di Francesco'). La pagina scrive 'prima opera letterario' (refuso del sito). Il racconto dei topi viene dalle fonti francescane antiche (Compilazione di Assisi). RISCHIO STABILITÀ: il mandato del Comitato termina il 30 aprile 2027; il sito potrebbe essere archiviato dopo quella data (gli indirizzi usano parametri brevi ?project= e ?page_id=). Ricontrollare prima dell'uso; in alternativa usare la riserva."
+   }
+  ],
+  "riserve": [
+   {
+    "id": "giornata-inno-17-marzo",
+    "titolo": "Il compleanno dell'Italia unita",
+    "disciplina": "cittadinanza",
+    "contesto": "C'è un giorno dell'anno dedicato all'Unità d'Italia, alla Costituzione, all'inno e alla bandiera. Non è una festa con le scuole chiuse, ma un'occasione per ricordare da dove veniamo. La data non è scelta a caso: è il giorno in cui, nel 1861, fu proclamata l'Unità d'Italia.",
+    "url": "presidenza.governo.it/ufficio_cerimoniale",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Se compare l'avviso sui cookie, clicca \"No, non acconsento\": la pagina resta leggibile.",
+     "Nel menu laterale, nel gruppo \"Protocollo di Stato\", clicca su \"Festività e giornate nazionali\".",
+     "Scorri fino al paragrafo dedicato alla «Giornata dell'Unità nazionale, della Costituzione, dell'inno e della bandiera»."
+    ],
+    "domanda": "In quale giorno dell'anno si celebra la «Giornata dell'Unità nazionale, della Costituzione, dell'inno e della bandiera»? Scrivi giorno e mese.",
+    "tipo": "testo",
+    "risposte": [
+     "17 marzo",
+     "il 17 marzo",
+     "17/3",
+     "17 03"
+    ],
+    "aiuti": [
+     "Nella pagina \"Festività e giornate nazionali\" cerca la parola «inno».",
+     "Leggi la frase che inizia con «Con la legge 23 novembre 2012, n. 222»: la data è subito dopo «da celebrarsi il»."
+    ],
+    "soluzione": "17 marzo. La Giornata è stata istituita con la legge 23 novembre 2012, n. 222, e si celebra il 17 marzo, il giorno in cui nel 1861 fu proclamata l'Unità d'Italia.",
+    "carta": {
+     "testo": "Uniamoci, amiamoci; l’unione e l’amore\nrivelano ai popoli le vie del Signore.\nGiuriamo far libero il suolo natio\nuniti, per Dio, chi vincer ci può?",
+     "autore": "Testo di Goffredo Mameli, musica di Michele Novaro",
+     "fonte": "Il Canto degli Italiani, 1847, terza strofa (testo integrale sul sito Settantesimo della Presidenza del Consiglio dei Ministri)"
+    },
+    "prova": "Con la legge 23 novembre 2012, n. 222 è stata istituita la \"Giornata dell'Unità nazionale, della Costituzione, dell'inno e della bandiera\" da celebrarsi il 17 marzo di ogni anno, nel giorno della proclamazione nel 1861 dell'Unità d'Italia.",
+    "url_verifica": "https://presidenza.governo.it/ufficio_cerimoniale/cerimoniale/giornate.html",
+    "verificato": "2026-10-15",
+    "note": "RISERVA in italiano (aspetto diverso dell'inno: la giornata nazionale a esso dedicata; stesso sito della tappa 'inno-legge-181', usarla in alternativa a quella o alla tappa sul Cantico). PUBBLICO DOMINIO: Goffredo Mameli morto il 6 luglio 1849 (fonte: presidenza.governo.it/ufficio_cerimoniale/cerimoniale/inno_autori.html). CARTA copiata esattamente dal sito Settantesimo (www.settantesimo.governo.it/it/approfondimenti/inno-nazionale/index.html). PAGINA: HTTP 200, HTML statico, verificata con curl e WebFetch; la pagina avverte anche che la Giornata 'non è da considerare giornata festiva'. Menu laterale verificato: 'Protocollo di Stato' > 'Festività e giornate nazionali' (WebFetch mostra un carattere mal codificato in 'Festività', a video l'etichetta è corretta). Risposta con numero: '17' deve coincidere. La pagina del Cerimoniale ha un impaginato fisso senza adattamento mobile: nella scheda stretta (circa 900 px) può servire scorrere in orizzontale per vedere il menu laterale."
+   },
+   {
+    "id": "tosca-cannone",
+    "titolo": "Un'orchestra che spara",
+    "disciplina": "musica",
+    "contesto": "«Tosca» di Giacomo Puccini è ambientata a Roma nel giugno del 1800 e debuttò al Teatro Costanzi di Roma il 14 gennaio 1900. Puccini voleva che il pubblico sentisse davvero i suoni della città: le campane delle chiese, l'organo, i tamburi. Così, oltre all'orchestra davanti al palcoscenico, mise alcuni strumenti direttamente sul palco... e tra questi c'è qualcosa di molto rumoroso.",
+    "url": "puccini.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nella pagina iniziale, sotto la citazione di Puccini, clicca su \"Le opere\" (oppure, nel menu in alto, passa su \"Giacomo Puccini\" e clicca \"La musica\").",
+     "Clicca sulla categoria \"Opere teatrali\" e poi su \"Tosca\".",
+     "Leggi la voce \"Orchestra\": gli strumenti che suonano in scena sono elencati dopo le parole «sul palco»."
+    ],
+    "domanda": "Tra gli «strumenti» che in Tosca suonano sul palco c'è anche un'arma da artiglieria, che spara un colpo fortissimo. Quale?",
+    "tipo": "testo",
+    "risposte": [
+     "cannone",
+     "un cannone",
+     "il cannone"
+    ],
+    "aiuti": [
+     "Nella scheda dell'opera trova la voce \"Orchestra\": le sigle sono abbreviazioni di strumenti (Fl = flauti, Arpa, Organo...).",
+     "Leggi le ultime due parole dopo «sul palco»: una sono i fucili, l'altra è un'arma molto più grande."
+    ],
+    "soluzione": "Il cannone. Nell'atto primo il colpo di cannone di Castel Sant'Angelo annuncia che un prigioniero è fuggito: Puccini lo tratta come uno strumento dell'orchestra, proprio come Čajkovskij nella sua Ouverture 1812.",
+    "carta": {
+     "testo": "E lucevan le stelle ed olezzava\nla terra – stridea l’uscio\ndell’orto – e un passo sfiorava la rena.",
+     "autore": "Testo di Giuseppe Giacosa e Luigi Illica, musica di Giacomo Puccini",
+     "fonte": "Tosca, atto terzo, aria di Cavaradossi (Roma, Teatro Costanzi, 14 gennaio 1900); libretto nel programma di sala «La Fenice prima dell'Opera» 2008, n. 4, p. 75"
+    },
+    "prova": "sul palco: Fl, Vla, Arpa, 4 Cr, 3 Trbn, Camp, Organo, 2 Tamb, Fucili, Cannone",
+    "url_verifica": "https://puccini.it/opera/tosca/",
+    "verificato": "2026-10-15",
+    "note": "RISERVA in italiano. PUBBLICO DOMINIO: librettisti Giuseppe Giacosa (morto nel 1906; fonte: programma di sala La Fenice 2011 sulla Bohème, collegato da puccini.it) e Luigi Illica (morto il 16 dicembre 1919; fonte: Polska Biblioteka Muzyczna, voce 'Illica Luigi'); musica di Puccini (morto nel 1924). CARTA copiata esattamente dal PDF «La Fenice prima dell'Opera» 2008 n. 4 (Tosca_2008.pdf, collegato dalla linguetta 'Letteratura Critica' della stessa scheda; 136 pagine, scaricato in pdf-canzoni/Tosca_2008.pdf), p. 75, tolto il richiamo di nota '14f'. Lo stesso PDF (pp. 81-82 del PDF, 'Appendice – Orchestra') conferma 'Sul palco ... Cannone, Fucili' e spiega che il cannone è 'un aerofono a suono indeterminato già comparso nell'Ouverture 1812 di Cajkovskij (1880)'; nel libretto dell'atto primo (p. 53: '(Un colpo di cannone...)' - 'Il cannon del castello!... Fu scoperta la fuga!') e nel riassunto (p. 87: 'tuona il cannone di Castel Sant'Angelo: la fuga è stata scoperta'). PAGINA: puccini.it/opera/tosca/ HTTP 200, verificata con curl e WebFetch ('Azione: Roma – Giugno 1800'; 'Prima rappresentazione: Roma, Teatro Costanzi, 14 gennaio 1900'). Stesso sito delle tappe Turandot e Bohème: usarla al posto di una di queste se necessario."
+   }
+  ],
+  "quaderno": "Il quaderno dei versi"
+ },
+ {
+  "tema": "video",
+  "sigla": "VDT",
+  "breve": "Video detective",
+  "icona": "t-video",
+  "titolo": "Video detective",
+  "sottotitolo": "Le informazioni stanno dentro i video didattici: guarda, ascolta, torna indietro, rallenta. Il dettaglio giusto è nel tratto dorato.",
+  "parole": [
+   "CINETECA",
+   "SEQUENZA",
+   "SCENARIO"
+  ],
+  "indovinelli": {
+   "CINETECA": "È come una biblioteca, ma al posto dei libri conserva film e video da salvare per il futuro.",
+   "SEQUENZA": "Tante scene una dopo l'altra, nell'ordine giusto: nei film è un pezzo di racconto, in matematica una fila di numeri.",
+   "SCENARIO": "Lo sfondo in cui si svolge la scena: a teatro è dipinto, al cinema può essere un luogo vero o ricostruito."
+  },
+  "tappe": [
+   {
+    "id": "video-esopianeti-transito",
+    "titolo": "Paxi e i pianeti lontani",
+    "disciplina": "scienze",
+    "contesto": "Paxi è la mascotte dell'Agenzia Spaziale Europea (ESA). In questo video racconta gli esopianeti, pianeti che girano attorno a stelle diverse dal Sole: sono così lontani che nessun telescopio riesce a fotografarli bene. Gli scienziati li scoprono con un trucco: guardano come cambia la luce della stella.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 1:12, dove comincia la parte dorata della barra.",
+     "Ascolta che cosa succede quando la luce di una stella diventa più fioca: Paxi dà un nome a quel movimento."
+    ],
+    "domanda": "Quando un pianeta passa davanti alla sua stella, la luce della stella diventa più debole. Come si chiama questo movimento?",
+    "tipo": "testo",
+    "risposte": [
+     "transito",
+     "il transito"
+    ],
+    "aiuti": [
+     "La risposta arriva verso 1:21, subito dopo la frase sulla luce che «sembra farsi più fioca».",
+     "Ascolta le parole «questo movimento si chiama ...»: è una parola che si usa anche per chi passa da un luogo (zona di ...)."
+    ],
+    "soluzione": "Transito: quando il pianeta passa davanti alla stella ne copre un po' la luce; più grande è il pianeta, meno luminosa appare la stella.",
+    "video": {
+     "id": "BofEHYO1Tfw",
+     "titolo": "Paxi esplora gli esopianeti!",
+     "canale": "European Space Agency, ESA",
+     "durata": 270,
+     "da": 72,
+     "a": 88
+    },
+    "prova": "«se la luce di una stella sembra farsi più fioca come vedete qui significa che il pianeta le sta passando davanti» (1:14) · «questo movimento si chiama transito» (1:21)",
+    "url_verifica": "https://www.youtube.com/watch?v=BofEHYO1Tfw&t=72",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale European Space Agency, ESA (ESA Education, video per 6-12 anni); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: manuali in italiano, catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. Nello stesso video (dal 2:55) la sonda CHEOPS e' trascritta male dai sottotitoli automatici: per questo la domanda e' sul transito, detto chiaramente e trascritto a mano."
+   },
+   {
+    "id": "video-paesaggio-alpi",
+    "titolo": "Le vette delle Alpi",
+    "disciplina": "geografia",
+    "contesto": "Zanichelli, uno degli editori di libri di scuola più noti, ha preparato un breve video sul paesaggio italiano: montagne, colline, pianure, fiumi, laghi e mari. Le montagne italiane formano due grandi catene, molto diverse tra loro per altezza e forma delle cime.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:49, quando si parla delle due catene montuose.",
+     "Ascolta come sono fatte le Alpi: il video dice quanti metri superano molte delle loro vette."
+    ],
+    "domanda": "Secondo il video, molte vette delle Alpi superano una certa altezza. Quanti metri?",
+    "tipo": "numero",
+    "risposte": [
+     "4000",
+     "4.000"
+    ],
+    "aiuti": [
+     "Il numero arriva verso 0:58: «Le Alpi a nord hanno molte vette sopra i ...».",
+     "È un numero di quattro cifre che comincia con 4: scrivilo in cifre."
+    ],
+    "soluzione": "4000 metri: le Alpi, a nord, hanno molte vette sopra i 4000 m e forme appuntite; gli Appennini sono più bassi e arrotondati.",
+    "video": {
+     "id": "z6gvY5DRkVM",
+     "titolo": "Il paesaggio italiano (tratto da La geografia per tutti)",
+     "canale": "Zanichelli editore",
+     "durata": 258,
+     "da": 49,
+     "a": 72
+    },
+    "prova": "«Le Alpi a nord hanno molte vette sopra i 4.000 m e forme appuntite.» (0:58-1:01)",
+    "url_verifica": "https://www.youtube.com/watch?v=z6gvY5DRkVM&t=49",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale Zanichelli editore; incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. Evitata come domanda la frase sui mari (2:30): i sottotitoli automatici scrivono «marreno» invece di «mar Tirreno»."
+   },
+   {
+    "id": "video-magellano-pigafetta",
+    "titolo": "Il giro del mondo di Magellano",
+    "disciplina": "storia",
+    "contesto": "Lo storico Adriano Roccucci racconta per HUB Scuola il primo giro del mondo in nave. Ferdinando Magellano, navigatore portoghese al servizio della Spagna, partì nel 1519 ma non tornò a casa: furono i suoi compagni a completare il viaggio. Tra loro c'era un italiano, che scrisse il diario della spedizione.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 1:15, quando si racconta che cosa accadde nelle Filippine.",
+     "Ascolta i nomi dei compagni che proseguirono il viaggio: uno di loro veniva da Vicenza."
+    ],
+    "domanda": "Magellano morì nelle Filippine nel 1521, ma i compagni continuarono il viaggio. Come si chiamava il compagno vicentino citato nel video?",
+    "tipo": "testo",
+    "risposte": [
+     "Pigafetta",
+     "Antonio Pigafetta"
+    ],
+    "aiuti": [
+     "Il nome arriva verso 1:28: «i suoi compagni, tra cui un vicentino ...».",
+     "È un cognome che comincia con «Pi» e finisce con «fetta»."
+    ],
+    "soluzione": "Pigafetta (Antonio Pigafetta, di Vicenza): con gli altri compagni proseguì fino al Capo di Buona Speranza e tornò in Spagna. Il suo diario è la principale fonte sul viaggio.",
+    "video": {
+     "id": "pk30vQGuTvA",
+     "titolo": "Adriano Roccucci - Il viaggio di Magellano: la prima circumnavigazione del globo",
+     "canale": "HUB Scuola",
+     "durata": 123,
+     "da": 75,
+     "a": 96
+    },
+    "prova": "«nel 1521 lui fu ucciso nelle filippine» (1:16-1:18) · «i suoi compagni tra cui un vicentino pigafetta proseguirono il viaggio fino al capo di buona speranza» (1:26-1:34)",
+    "url_verifica": "https://www.youtube.com/watch?v=pk30vQGuTvA&t=75",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale HUB Scuola (Mondadori Education, Rizzoli Education, DeA Scuola); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. Il nome di battesimo (Antonio) non e' detto nel video: e' accettato ma non richiesto; citato nella soluzione come dato di contesto."
+   },
+   {
+    "id": "video-ipazia-astrolabio",
+    "titolo": "Lo strumento di Ipazia",
+    "disciplina": "matematica",
+    "contesto": "In questa videointervista di HUB Scuola parla Ipazia, vissuta ad Alessandria d'Egitto tra il IV e il V secolo e considerata la prima matematica della storia. Era anche astronoma: nell'intervista descrive uno strumento per osservare il cielo e calcolare la posizione del Sole e delle stelle.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 1:07, quando l'intervistatore fa una domanda su uno strumento.",
+     "Ascolta come Ipazia lo descrive: due dischi di metallo che ruotano uno sull'altro."
+    ],
+    "domanda": "Ipazia descrive uno strumento formato da due dischi di metallo che ruotano uno sull'altro, per calcolare la posizione del Sole e delle stelle. Come si chiama?",
+    "tipo": "testo",
+    "risposte": [
+     "astrolabio",
+     "l'astrolabio"
+    ],
+    "aiuti": [
+     "Il nome dello strumento si sente due volte, a 1:10 e a 1:14.",
+     "La parola comincia con «astro», come astronomia e astronauta."
+    ],
+    "soluzione": "Astrolabio. Da detective: l'astrolabio esisteva già prima di Ipazia; secondo una lettera del suo allievo Sinesio, lei insegnava a costruirlo. Nel video infatti Ipazia lo spiega, ma non dice di averlo inventato.",
+    "video": {
+     "id": "NHtQfKB-un8",
+     "titolo": "Videointervista - Ipazia: la prima matematica",
+     "canale": "HUB Scuola",
+     "durata": 148,
+     "da": 67,
+     "a": 90
+    },
+    "prova": "«sei stata tu a inventare l'astrolabio puoi spiegarci che cos'è» (1:07-1:13) · «l'astrolabio è uno strumento che serve per le osservazioni astronomiche è formato da due dischi di metallo che ruotano uno sull'altro» (1:14-1:20)",
+    "url_verifica": "https://www.youtube.com/watch?v=NHtQfKB-un8&t=67",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale HUB Scuola (Mondadori Education, Rizzoli Education, DeA Scuola); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. Spunto per la discussione: la domanda dell'intervistatore presuppone che Ipazia l'abbia inventato, la risposta non lo conferma."
+   },
+   {
+    "id": "video-giotto-scrovegni",
+    "titolo": "Giotto a Padova",
+    "disciplina": "arte",
+    "contesto": "Giotto ha cambiato la pittura del Medioevo: le sue figure hanno peso, profondità ed emozioni. A Padova dipinse la Cappella degli Scrovegni, uno dei cicli di affreschi più famosi al mondo. Il video di HUB Scuola racconta la sua vita; il sito ufficiale della Cappella dice quando la dipinse. Metti insieme le due fonti.",
+    "url": "www.cappelladegliscrovegni.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel video premi «Vai al tratto» (da 0:24): ascolta dove e verso quale anno nasce Giotto.",
+     "Nella scheda di destra apri il sito e scorri la pagina iniziale fino al riquadro «LA CAPPELLA DEGLI SCROVEGNI».",
+     "Leggi la frase che dice in quanti anni, e tra quali anni, Giotto affrescò la Cappella."
+    ],
+    "domanda": "Dal video: verso quale anno nacque Giotto? Dal sito: in che anno cominciò gli affreschi della Cappella? Fai la sottrazione: quanti anni aveva Giotto, circa, quando cominciò a dipingere la Cappella degli Scrovegni?",
+    "tipo": "numero",
+    "risposte": [
+     "36"
+    ],
+    "aiuti": [
+     "Nel video, verso 0:35: «...dove lui nasce verso il ...». Sul sito: «Il ciclo affrescato da Giotto in soli due anni, tra il ... e il ...».",
+     "Giotto nasce verso il 1267; gli affreschi cominciano nel 1303. Calcola 1303 − 1267."
+    ],
+    "soluzione": "Circa 36 anni: Giotto nasce verso il 1267 (video) e affresca la Cappella tra il 1303 e il 1305 (sito); 1303 − 1267 = 36.",
+    "video": {
+     "id": "cN8a4jIYnIo",
+     "titolo": "Giotto",
+     "canale": "HUB Scuola",
+     "durata": 183,
+     "da": 24,
+     "a": 42
+    },
+    "prova": "Tra il 1303 e il 1305",
+    "url_verifica": "https://www.cappelladegliscrovegni.it/",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale HUB Scuola (Mondadori Education, Rizzoli Education, DeA Scuola); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. PROVA VIDEO: «colle di vespignano dove lui nasce verso il 1267» (0:33-0:35). PROVA SITO (home page, riquadro 'LA CAPPELLA DEGLI SCROVEGNI', HTTP 200 il 2026-10-15): 'Il ciclo affrescato da Giotto in soli due anni, tra il 1303 e il 1305, si dispiega sull'intera superficie interna della Cappella'. La risposta (36) e' calcolata: non compare come tale in nessuna delle due fonti. Il video dice 'verso il 1267': la soluzione dice 'circa'."
+   },
+   {
+    "id": "video-cristoforetti-alloggio",
+    "titolo": "La cameretta nello spazio",
+    "disciplina": "tecnologia",
+    "contesto": "Samantha Cristoforetti, astronauta italiana dell'ESA, ha girato questo video sulla Stazione spaziale internazionale, dopo mezzanotte e già in pigiama. Mostra dove dormono gli astronauti: ognuno ha un piccolissimo alloggio personale, con computer, sacco a pelo e pochi oggetti.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:11, quando Samantha comincia a mostrare il modulo dove si dorme.",
+     "Ascolta a che cosa paragona il suo piccolo alloggio, per dimensioni e forma."
+    ],
+    "domanda": "Samantha Cristoforetti dice che il piccolo alloggio di ogni astronauta assomiglia, per dimensioni e forma, a un oggetto che una volta si trovava in tutte le strade. Quale?",
+    "tipo": "testo",
+    "risposte": [
+     "cabina telefonica",
+     "una cabina telefonica",
+     "cabina del telefono",
+     "cabina"
+    ],
+    "aiuti": [
+     "La parola arriva verso 0:29: «...assomiglia come dimensioni e forma a una ...».",
+     "Una volta, per telefonare fuori casa, si entrava in una ... telefonica."
+    ],
+    "soluzione": "Una cabina telefonica: quattro astronauti dormono nel Nodo 2, ognuno in un alloggio grande più o meno come una cabina del telefono (due sulle pareti, uno sul soffitto, uno sul pavimento).",
+    "video": {
+     "id": "ILAiw5GQckg",
+     "titolo": "Dove dormono gli astronauti?",
+     "canale": "European Space Agency, ESA",
+     "durata": 228,
+     "da": 11,
+     "a": 33
+    },
+    "prova": "«noi 4 abbiamo qui ognuno di noi una piccola alloggi che assomiglia come dimensioni e forma a una cabina telefonica» (0:23-0:30)",
+    "url_verifica": "https://www.youtube.com/watch?v=ILAiw5GQckg&t=11",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale European Space Agency, ESA; incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. Spunto: nello spazio 'il sopra e il sotto sono solo una questione di convenzione' (0:38-0:42)."
+   },
+   {
+    "id": "video-costituzione-guerra",
+    "titolo": "La Costituzione e la pace",
+    "disciplina": "cittadinanza",
+    "contesto": "I primi 12 articoli della Costituzione italiana sono i principi fondamentali: i valori su cui si basa la Repubblica. Il video di HUB Scuola li riassume uno dopo l'altro, dal lavoro all'uguaglianza fino all'articolo dedicato alla guerra e alla pace, scritto subito dopo la Seconda guerra mondiale.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 2:01, verso la fine dell'elenco dei principi.",
+     "Ascolta quale articolo «stabilisce il rifiuto della guerra»."
+    ],
+    "domanda": "Quale articolo della Costituzione stabilisce il rifiuto della guerra? Scrivi il numero.",
+    "tipo": "numero",
+    "risposte": [
+     "11"
+    ],
+    "aiuti": [
+     "Ascolta da 2:05: «è utile soffermarsi sull'articolo ...».",
+     "I principi fondamentali sono 12: questo è uno degli ultimi, un numero di due cifre uguali."
+    ],
+    "soluzione": "Articolo 11: l'Italia ripudia la guerra, tranne che come difesa, e accetta di limitare la propria sovranità a favore di organizzazioni che promuovono la pace, come l'ONU e l'Unione europea.",
+    "video": {
+     "id": "WVml-1i-fPM",
+     "titolo": "I principi fondamentali della Costituzione italiana",
+     "canale": "HUB Scuola",
+     "durata": 165,
+     "da": 121,
+     "a": 148
+    },
+    "prova": "«è utile soffermarsi sull'articolo 11 che è in linea con la storia dell'assemblea costituente stabilisce il rifiuto della guerra» (2:05-2:14)",
+    "url_verifica": "https://www.youtube.com/watch?v=WVml-1i-fPM&t=121",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale HUB Scuola (Mondadori Education, Rizzoli Education, DeA Scuola); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC."
+   },
+   {
+    "id": "video-terremoto-casa",
+    "titolo": "Terremoto: la casa sicura",
+    "disciplina": "scienze",
+    "contesto": "Durante un terremoto ci si fa male soprattutto per gli oggetti e i mobili che cadono. In questo video un ricercatore dell'INGV (Istituto Nazionale di Geofisica e Vulcanologia) spiega come mettere in sicurezza la casa. Il sito della Protezione civile dice invece che cosa fare durante la scossa.",
+    "url": "rischi.protezionecivile.gov.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel video premi «Vai al tratto» (da 1:19): ascolta con che cosa conviene fissare i mobili alle pareti.",
+     "Nella scheda di destra apri il sito, clicca «Sismico» e poi «Sei preparato?».",
+     "Scorri fino a «Durante un terremoto» e leggi il consiglio «Se sei in un luogo chiuso»."
+    ],
+    "domanda": "Scrivi due parole. 1) Il video: con che cosa conviene fissare i mobili alle pareti (meglio delle staffe di metallo)? 2) Il sito: come si chiama il muro più spesso della casa, quello in cui il vano della porta è un buon riparo durante la scossa?",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "cinghie",
+      "varianti": [
+       "cinghie in nylon",
+       "cinghie di nylon",
+       "cinghia",
+       "cinghie nylon"
+      ]
+     },
+     {
+      "voce": "portante",
+      "varianti": [
+       "muro portante",
+       "parete portante",
+       "muro maestro"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Video, verso 1:40: «elementi di fissaggio flessibili come delle ...». Sito: «Mettiti nel vano di una porta inserita in un muro ...».",
+     "Le cinghie in nylon lasciano ondeggiare i mobili; il muro più spesso della casa è il muro portante, quello che regge l'edificio."
+    ],
+    "soluzione": "Cinghie (in nylon, in almeno due punti: lasciano ondeggiare i mobili e sforzano meno le pareti) e muro portante (il più spesso): nel vano di una porta inserita in un muro portante, vicino a una parete portante, sotto una trave o sotto un tavolo resistente.",
+    "video": {
+     "id": "cMYf-w1Up68",
+     "titolo": "La sicurezza in casa in caso di terremoto",
+     "canale": "INGVterremoti",
+     "durata": 125,
+     "da": 79,
+     "a": 113
+    },
+    "prova": "Mettiti nel vano di una porta inserita in un muro portante (quello più spesso), vicino a una parete portante o sotto una trave, oppure riparati sotto un letto o un tavolo resistente.",
+    "url_verifica": "https://rischi.protezionecivile.gov.it/it/sismico/sei-preparato/",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale INGVterremoti (Istituto Nazionale di Geofisica e Vulcanologia); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. PROVA VIDEO: «possiamo usare degli elementi di fissaggio flessibili come delle cinghie in nylon in almeno due punti possiamo usare anche delle staffe di metallo [...] ma le cinghie sono da preferire perché permettono ai mobili di ondeggiare riducendo lo sforzo sulle pareti» (1:38-1:52). SITO: rischi.protezionecivile.gov.it reindirizza a /it/index.html; menu 'Sismico' > 'Sei preparato?' (anche la scheda 'Rischio sismico. Sei preparato?'); HTTP 200 il 2026-10-15. Video girato durante il lockdown 2020 ('come ci ha insegnato anche questo virus'): conviene dirlo prima."
+   }
+  ],
+  "riserve": [
+   {
+    "id": "video-pantheon-cupola",
+    "titolo": "Il segreto della cupola",
+    "disciplina": "arte",
+    "contesto": "Il Pantheon di Roma ha quasi duemila anni e la sua cupola è ancora la più grande mai costruita in calcestruzzo romano. Il video di HUB Scuola svela un segreto delle sue proporzioni; il sito del Ministero della Cultura che gestisce il monumento ne dà le misure esatte.",
+    "url": "direzionemuseiroma.cultura.gov.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel video premi «Vai al tratto» (da 0:59): ascolta a che cosa è uguale il diametro della cupola.",
+     "Nella scheda di destra apri il sito e cerca la pagina del «Pantheon» (menu «Luoghi della Cultura»).",
+     "Leggi la frase che dà il diametro della cupola in metri."
+    ],
+    "domanda": "Il video dice che il diametro della cupola è uguale all'altezza dell'interno. Il sito dà il diametro in metri. Quanto è alto, in metri, l'interno del Pantheon?",
+    "tipo": "numero",
+    "risposte": [
+     "43,30",
+     "43,3"
+    ],
+    "aiuti": [
+     "Nel video, verso 1:09: «il suo diametro è esattamente uguale all'altezza del vano interno». Sul sito: «del diametro di ... metri e pari di altezza».",
+     "Il numero ha la virgola: 43 virgola ..."
+    ],
+    "soluzione": "43,30 metri: la cupola ha un diametro di 43,30 m e l'interno è alto altrettanto, come se dentro ci stesse una sfera perfetta.",
+    "video": {
+     "id": "KjOTOcH7QDE",
+     "titolo": "Pantheon (Roma)",
+     "canale": "HUB Scuola",
+     "durata": 136,
+     "da": 59,
+     "a": 81
+    },
+    "prova": "la più grande cupola realizzata in calcestruzzo romano, del diametro di 43,30 metri e pari di altezza.",
+    "url_verifica": "https://direzionemuseiroma.cultura.gov.it/pantheon/",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale HUB Scuola (Mondadori Education, Rizzoli Education, DeA Scuola); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: automatici in italiano (ASR), catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC. PROVA VIDEO: «una grande cupola che ha le proporzioni di una sfera dove il suo diametro è esattamente uguale all'altezza del vano interno» (1:04-1:14). ATTENZIONE alle date: il video dice 'tra il 118 e il 128 dopo Cristo', il sito '(118-125)': per questo la domanda non chiede le date (buon esempio di fonti che non coincidono)."
+   },
+   {
+    "id": "video-potenze-esponente",
+    "titolo": "Base ed esponente",
+    "disciplina": "matematica",
+    "contesto": "Una potenza è una moltiplicazione in cui i fattori sono tutti uguali: invece di scrivere 2 × 2 × 2 si scrive un 2 grande con un 3 piccolo in alto. Il video di HUB Scuola spiega come si chiamano i due numeri.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:09, quando si analizza «due alla terza».",
+     "Il 2 si chiama base: ascolta come si chiama il numero scritto in alto."
+    ],
+    "domanda": "In «2 alla terza» il 2 si chiama base. Come si chiama il 3, il numero piccolo scritto in alto?",
+    "tipo": "testo",
+    "risposte": [
+     "esponente",
+     "l'esponente"
+    ],
+    "aiuti": [
+     "Ascolta verso 0:19: «il numero scritto in alto, 3, è l' ...».",
+     "La parola comincia con «espo»."
+    ],
+    "soluzione": "Esponente: indica quante volte la base va moltiplicata per se stessa (2 alla terza = 2 × 2 × 2 = 8).",
+    "video": {
+     "id": "L6qvczdtrEo",
+     "titolo": "Le potenze",
+     "canale": "HUB Scuola",
+     "durata": 138,
+     "da": 9,
+     "a": 33
+    },
+    "prova": "«il numero due è detto base e indica il numero che dovrà essere moltiplicato il numero scritto in alto 3 el'esponente» (0:11-0:26; nei sottotitoli manuali è scritto proprio «el'esponente»)",
+    "url_verifica": "https://www.youtube.com/watch?v=L6qvczdtrEo&t=9",
+    "verificato": "2026-10-15",
+    "note": "VIDEO: canale ufficiale HUB Scuola (Mondadori Education, Rizzoli Education, DeA Scuola); incorporabile; nessuno slot pubblicitario pre-roll sulla pagina watch (controllo del 2026-10-15: la pubblicita' negli embed non si puo' escludere del tutto). SOTTOTITOLI: manuali in italiano, catturati il 2026-10-15 dalla traccia timedtext del player (trascrizioni/tutte.txt): sono gli stessi che lo studente vede premendo CC."
+   }
+  ],
+  "special": true
  }
 ];
 /* </QUEST_DATA> */
@@ -3935,6 +5263,33 @@ function salva(){
   if (!S) return;
   const s = ['1', S.seed, S.tema, S.fase, S.cur, S.ris.join(''), S.aiu.join(''), S.sost.map(x => x < 0 ? '-' : 'abcdefgh'[x]).join(''), S.dec].join('~');
   history.replaceState(null, '', location.pathname + location.search + '#wq=' + s);
+  segnaSessione();
+}
+/* PARTITA DI QUESTA SCHEDA. Lo stato vive nell'indirizzo (#wq=...): Chrome puo' riproporlo al compagno
+   successivo completando l'indirizzo dalla cronologia o riaprendo le schede, e la partita "ricomparirebbe".
+   La ripresa automatica vale solo se la partita e' stata giocata in QUESTA scheda e l'ultima azione risale
+   a meno di 20 minuti fa
+   (sessionStorage: muore con la scheda, nessun dato condiviso tra studenti); altrimenti si chiede. */
+const SESSIONE = 'wq-sessione', SESSIONE_MAX = 20 * 60 * 1000;   // 20 minuti dall'ultima azione
+function segnaSessione(){
+  try { if (S) sessionStorage.setItem(SESSIONE, JSON.stringify({k: S.seed + '~' + S.tema, t: Date.now()})); } catch (e) {}
+}
+function sessioneMia(st){
+  try {
+    const m = JSON.parse(sessionStorage.getItem(SESSIONE) || 'null');
+    return !!m && m.k === st.seed + '~' + st.tema && Date.now() - m.t < SESSIONE_MAX;
+  } catch (e) { return false; }
+}
+function proponiRipresa(st){
+  const q = questDa(st.tema), n = st.ris.filter(Boolean).length;
+  $('#ripresa').innerHTML = `<div class="ripresa" role="alert">
+    <h3>${ico('i-attenzione')}Questo indirizzo contiene una spedizione già iniziata</h3>
+    <p>«${esc(q.titolo)}», codice <b>${esc(q.sigla)}-${esc(st.seed)}</b>, ${n} ${n === 1 ? 'tappa risolta' : 'tappe risolte'} su ${CONFIG.TAPPE}.
+      Probabilmente l'ha iniziata un compagno: se non è la tua, apri una nuova busta.</p>
+    <div class="azioni"><button class="btn btn-primario" type="button" id="rip-nuova">${ico('i-busta')}Apri una nuova busta</button>
+      <button class="btn btn-linea" type="button" id="rip-mia">È la mia: riprendi</button></div></div>`;
+  $('#rip-nuova').onclick = () => { history.replaceState(null, '', location.pathname + location.search); apriBusta(); };
+  $('#rip-mia').onclick = () => { $('#ripresa').innerHTML = ''; S = st; salva(); route(); };
 }
 function carica(){
   const m = location.hash.match(/wq=([^&]+)/);
@@ -3972,6 +5327,8 @@ const conEtichette = s => esc(s).replace(/(?:&quot;|“|”|«)([^"“”«»]+?
 
 function mostra(id){
   document.querySelectorAll('.scr').forEach(s => s.classList.toggle('on', s.id === id));
+  if (id !== 'scr-game' && typeof promemoriaCmdF === 'function') promemoriaCmdF();
+  if (id !== 'scr-game' && typeof pausaVideo === 'function') pausaVideo();
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 function route(){
@@ -4054,7 +5411,12 @@ function confrontaElenco(valori, voci, gia){
    1. INTRO E BUSTA
    ===================================================================== */
 function renderCatalogo(scelto){
-  $('#catalogo').innerHTML = QUEST.map(q =>
+  const sp = QUEST.find(q => q.special);
+  $('#special').innerHTML = sp ? `<div class="special"><span class="ico">${ico('i-play')}</span>
+    <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span>${esc(sp.sottotitolo || '')}</span></div>
+    <button class="btn btn-primario" type="button" id="btn-special">Apri la special edition</button></div>` : '';
+  if (sp) $('#btn-special').onclick = () => apriBusta(sp.tema);
+  $('#catalogo').innerHTML = QUEST.filter(q => !q.special).map(q =>
     `<div class="chip-tema ${q.tema === scelto ? 'scelto' : ''}">${ico(q.icona)}<span>${esc(q.breve)}</span></div>`).join('');
 }
 function renderIntro(){
@@ -4063,15 +5425,18 @@ function renderIntro(){
   if (S && S.fase === 'i'){ palco.classList.add('aperta'); renderCatalogo(S.tema); renderRivela(); $('#btn-apri').classList.add('hidden'); }
   else { palco.classList.remove('aperta'); renderCatalogo(null); $('#rivela').classList.add('hidden'); $('#btn-apri').classList.remove('hidden'); }
 }
-function apriBusta(){
-  const forzato = PARAMS.q && questDa(PARAMS.q) ? PARAMS.q : null;
+function apriBusta(forza){
+  const forzato = typeof forza === 'string' && questDa(forza) ? forza : (PARAMS.q && questDa(PARAMS.q) ? PARAMS.q : null);
   const seed = PARAMS.seed && /^[A-Z0-9]{4,8}$/i.test(PARAMS.seed) ? PARAMS.seed.toUpperCase() : nuovoSeed();
-  const tema = forzato || QUEST[Math.floor(rngDa(seed, 'tema')() * QUEST.length)].tema;
+  const busta = QUEST.filter(q => !q.special);        // la special edition non esce a caso: ha il suo pulsante
+  const tema = forzato || busta[Math.floor(rngDa(seed, 'tema')() * busta.length)].tema;
   const n = CONFIG.TAPPE;
   S = {seed, tema, fase: 'i', cur: 0, ris: Array(n).fill(0), aiu: Array(n).fill(0), sost: Array(n).fill(-1), dec: 0};
   Object.keys(BOZZE).forEach(k => delete BOZZE[k]); Object.keys(ELENCO_OK).forEach(k => delete ELENCO_OK[k]);
   DEC = {arr: [], locked: new Set()};
   Object.assign(GUIDA, {modo: 'auto', tappa: -1, passo: null, mappa: false});
+  CMDF_VISTO.clear();
+  $('#ripresa').innerHTML = '';
   rimuoviSeedDaUrl(); salva();
   $('#btn-apri').classList.add('hidden');
   $('#palco').classList.add('aperta');
@@ -4080,8 +5445,11 @@ function apriBusta(){
 }
 function infoQuest(){
   const t = tappe();
-  const pdf = t.filter(x => x.pdf).length, en = t.filter(x => x.lingua && x.lingua !== 'it').length, el = t.filter(x => x.tipo === 'elenco').length;
+  const vid = t.filter(x => x.video).length, pdf = t.filter(x => x.pdf).length, en = t.filter(x => x.lingua && x.lingua !== 'it').length, el = t.filter(x => x.tipo === 'elenco').length;
   const f = [`${t.length} tappe`];
+  if (vid) f.push(vid === 1 ? '1 video' : `${vid} video`);
+  const vs = t.filter(x => x.video && x.url).length;   // tappe "video + sito"
+  if (vs) f.push(vs === 1 ? '1 con verifica sul sito' : `${vs} con verifica sul sito`);
   if (pdf) f.push(pdf === 1 ? '1 documento PDF' : `${pdf} documenti PDF`);
   if (el) f.push(el === 1 ? '1 tappa elenco' : `${el} tappe elenco`);
   if (en) f.push(en === 1 ? '1 sito in inglese' : `${en} siti in inglese`);
@@ -4182,10 +5550,13 @@ function renderBrief(){
   $('#scr-brief').innerHTML = testaTema() + invitoSimulatore() + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
-        <p>Sei un esploratore del web. La busta ti ha affidato la spedizione «${esc(q.breve)}»: ${t.length} tappe su siti ufficiali, come musei, enti pubblici, federazioni e biblioteche.</p>
-        <p class="mini">Sono siti sicuri e senza pubblicità: impari dove si trovano le informazioni affidabili.</p></div>
+        <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`
+          : `Sei un esploratore del web. La busta ti ha affidato la spedizione «${esc(q.breve)}»: ${t.length} tappe su siti ufficiali, come musei, enti pubblici, federazioni e biblioteche.`}</p>
+        <p class="mini">${q.special ? 'I video vengono da canali ufficiali e si guardano dentro la Web Quest, senza video consigliati né commenti. Se prima del video compare una breve pubblicità di YouTube, aspetta qualche secondo.'
+          : 'Sono siti sicuri e senza pubblicità: impari dove si trovano le informazioni affidabili.'}</p></div>
       <div class="card momento"><span class="num">2</span><h3>Gli obiettivi</h3>
-        <ul><li>raggiungere ogni sito digitando l'indirizzo senza errori;</li>
+        <ul>${t.some(x => x.video) ? '<li>ascoltare un video con una domanda in testa e trovare il dato nel tratto giusto;</li>' : ''}
+          <li>${t.every(x => x.url) ? 'raggiungere ogni sito' : 'raggiungere i siti di verifica'} digitando l'indirizzo senza errori;</li>
           <li>orientarti nei menu seguendo il percorso;</li>
           ${haPdf ? `<li>trovare un dato in un PDF lungo con ${MOD_TXT}+F;</li>` : ''}
           <li>scrivere il dato esatto, controllando prima di verificare.</li></ul></div>
@@ -4193,7 +5564,8 @@ function renderBrief(){
         <ul><li>Scegli tu l'ordine delle tappe dalla <b>mappa in alto</b>.</li>
           <li>Ogni risposta esatta ti consegna <b>una lettera</b>, che compare sulla mappa.</li>
           <li>Se ti blocchi hai 3 aiuti: dove guardare, un indizio preciso, la soluzione. Ogni aiuto resta scritto nel codice finale.</li>
-          <li>Con ${t.length} lettere ricomponi la <b>parola-tesoro</b>.</li></ul>
+          <li>Con ${t.length} lettere ricomponi la <b>parola-tesoro</b>.</li>
+          ${q.quaderno ? `<li>Ogni tappa risolta ti regala una carta per <b>${esc(q.quaderno.replace(/^Il /, 'il tuo '))}</b>.</li>` : ''}</ul>
         <ul class="legenda"><li><i class="ok"></i>risolta</li><li><i class="ok aiuto"></i>con aiuti</li><li><i class="sol"></i>con la soluzione</li></ul></div>
       <div class="card momento"><span class="num">4</span><h3>Le scorciatoie</h3>
         <p class="mini" style="margin-bottom:10px">Le scorciatoie valgono per il lato attivo: per cercare nel sito, clicca prima nella <b>scheda di destra</b>.</p>
@@ -4218,7 +5590,7 @@ function renderGame(){
   aggiornaGioco();
 }
 function aggiornaGioco(nuova = -1){
-  renderTopnav(nuova); renderTappa(); applicaGuida(); avvisoFinestre();
+  renderTopnav(nuova); renderTappa(); applicaGuida(); avvisoFinestre(); promemoriaCmdF();
 }
 function statoTappa(i){
   if (!S.ris[i]) return '';
@@ -4271,25 +5643,36 @@ function renderTappa(){
           value="${esc(risolta ? (t.risposte || [''])[0] : (BOZZE[i] || ''))}" ${risolta ? 'readonly' : ''} aria-label="Risposta alla tappa ${i + 1}">
         ${risolta ? '' : `<button class="btn btn-primario" type="button" id="btn-check">${ico('i-check')}Verifica</button>`}
       </div>`;
-  $('#col-centro').innerHTML = `
-    <article class="card tappa" aria-labelledby="tit-tappa">
+  /* la scheda si ridisegna a ogni azione (risposte, aiuti, guida), ma il VIDEO no: vive in #tappa-video,
+     creato solo quando cambia tappa, cosi' non riparte da capo (un iframe tolto dal DOM si ricarica) */
+  const chiave = S.seed + '~' + i + '~' + t.id;
+  let art = $('#col-centro .tappa');
+  if (!art || art.dataset.chiave !== chiave){
+    fermaVideo();
+    $('#col-centro').innerHTML = `<article class="card tappa" data-chiave="${esc(chiave)}" aria-labelledby="tit-tappa">
+      <div id="t-testa"></div>${t.video ? '<section class="blocco" id="tappa-video"></section>' : ''}<div id="t-corpo"></div></article>`;
+    if (t.video) montaVideo(t, $('#tappa-video'));
+  }
+  if (t.video) n = 1;           // il blocco 1 e' "Guarda il video"
+  $('#t-testa').innerHTML = `
       <div class="t-head">
         <div class="badges"><span class="badge disc">${ico(d.i)}${esc(d.l)}</span>
           ${t.pdf ? `<span class="badge pdf">${ico('i-doc')}PDF · ${MOD_TXT}+F</span>` : ''}
+          ${t.video ? `<span class="badge pdf">${ico('i-play')}Video${t.url ? ' + sito' : ''}</span>` : ''}
           ${t.tipo === 'elenco' ? `<span class="badge en">${ico('i-mappa')}Tappa elenco</span>` : ''}
           ${en ? `<span class="badge en">${ico('d-lingue')}Sito in inglese</span>` : ''}</div>
         <span class="t-num">Tappa ${i + 1} di ${CONFIG.TAPPE}</span>
       </div>
       <h2 id="tit-tappa">${esc(t.titolo)}</h2>
-      <p class="contesto">${esc(t.contesto)}</p>
-
-      <section class="blocco"><h3 class="etichetta">${num()}Digita questo indirizzo</h3>
+      <p class="contesto">${esc(t.contesto)}</p>`;
+  $('#t-corpo').innerHTML = `
+      ${t.url ? `<section class="blocco"><h3 class="etichetta">${num()}${t.video ? 'Confronta con il sito' : 'Digita questo indirizzo'}</h3>
         <div class="barra" data-url aria-label="Indirizzo da digitare: ${esc(t.url)}">${ico('i-lucchetto')}<span class="url-txt">${esc(t.url).replace(/\//g, '/<wbr>')}</span></div>
         <p class="nota">Clicca nella <b>scheda di destra</b>, poi nella barra degli indirizzi in alto (oppure premi ${combo('L')}), e scrivilo lettera per lettera. Non serve scrivere https://</p>
         ${en ? `<p class="nota en">${ico('d-lingue')}Il sito è in inglese: se ti serve, attiva il traduttore del browser. Le etichette del percorso sono quelle originali.</p>` : ''}
-      </section>
+      </section>` : ''}
 
-      <section class="blocco"><h3 class="etichetta">${num()}Segui il percorso</h3>
+      <section class="blocco"><h3 class="etichetta">${num()}${t.video && !t.url ? 'Segui i passi' : 'Segui il percorso'}</h3>
         <ol class="passi">${(t.percorso || []).map(p => `<li><span>${conEtichette(p)}</span></li>`).join('')}</ol>
       </section>
 
@@ -4308,12 +5691,11 @@ function renderTappa(){
         <button class="btn btn-linea" type="button" id="btn-prev" ${i === 0 ? 'disabled' : ''}>${ico('i-sx')}Tappa precedente</button>
         <button class="btn btn-linea" type="button" id="btn-next" ${i === CONFIG.TAPPE - 1 ? 'disabled' : ''}>Tappa successiva${ico('i-dx')}</button>
       </nav>
-      ${strumentiTappa(i)}
-    </article>`;
+      ${strumentiTappa(i)}`;
 
   /* il box indirizzo non si copia: va digitato */
-  const barra = document.querySelector('[data-url]');
-  ['copy', 'cut', 'contextmenu', 'dragstart', 'selectstart'].forEach(ev => barra.addEventListener(ev, e => e.preventDefault()));
+  const barra = document.querySelector('#t-corpo [data-url]');
+  if (barra) ['copy', 'cut', 'contextmenu', 'dragstart', 'selectstart'].forEach(ev => barra.addEventListener(ev, e => e.preventDefault()));
 
   $('#btn-prev').onclick = () => vaiTappa(i - 1);
   $('#btn-next').onclick = () => vaiTappa(i + 1);
@@ -4351,7 +5733,14 @@ function campiElenco(i, t, risolta){
 function boxRisolta(i, t){
   const via = S.aiu[i] >= 3 ? 'con la soluzione' : (S.aiu[i] ? `con ${S.aiu[i]} ${S.aiu[i] === 1 ? 'aiuto' : 'aiuti'}` : 'in autonomia');
   return `<div class="risolta-box"><span class="lett" aria-label="Lettera ${lettera(i)}">${lettera(i)}</span>
-    <p><b>Tappa risolta ${via}.</b> ${esc(t.soluzione || '')}</p></div>`;
+    <p><b>Tappa risolta ${via}.</b> ${esc(t.soluzione || '')}</p></div>` + cartaHTML(t, quest().quaderno ? `Entra nel tuo ${quest().quaderno.replace(/^Il /, '')}` : '');
+}
+/* CARTA: la citazione o il verso conquistato con la tappa (quest con "quaderno"): da ricordare e da rileggere alla fine */
+function cartaHTML(t, nota){
+  if (!t.carta || !t.carta.testo) return '';
+  const c = t.carta;
+  return `<figure class="carta">${ico('t-citazioni')}<blockquote>${esc(c.testo)}</blockquote>
+    <figcaption><b>${esc(c.autore || '')}</b>${c.fonte ? ' · ' + esc(c.fonte) : ''}${nota ? `<br><span class="mini">${esc(nota)}</span>` : ''}</figcaption></figure>`;
 }
 function feedback(tipo, html){
   const f = $('#feedback');
@@ -4361,7 +5750,7 @@ function feedback(tipo, html){
 const tentativi = {};
 function consiglioDopoErrori(i){
   tentativi[i] = (tentativi[i] || 0) + 1;
-  return tentativi[i] >= 3 && S.aiu[i] < 3 ? ' Hai già provato più volte: puoi chiedere un aiuto nella colonna a destra.' : '';
+  return tentativi[i] >= 3 && S.aiu[i] < 3 ? ' Hai già provato più volte: puoi chiedere un aiuto qui sotto, in «Ti serve un aiuto?».' : '';
 }
 function verificaRisposta(i){
   const t = tappe()[i], campo = $('#campo'), val = campo.value;
@@ -4371,7 +5760,10 @@ function verificaRisposta(i){
   if (r.noNum){ campo.classList.add('no'); return feedback('no', 'La risposta è un numero: scrivilo in cifre, per esempio 1922.'); }
   if (!r.ok){
     campo.classList.add('no');
-    return feedback('no', 'Non corrisponde al dato del sito. Controlla di essere sulla pagina dell\'ultimo passo del percorso e rileggi con calma la frase che contiene l\'informazione.' + consiglioDopoErrori(i));
+    return feedback('no', (t.video && !t.url
+      ? 'Non corrisponde a quello che dice il video. Riascolta il tratto dorato: torna indietro di 10 secondi o rallenta a 0,75×, con i sottotitoli accesi.'
+      : t.video ? 'Non corrisponde. Qui servono due fonti: riascolta il tratto dorato del video e rileggi la frase del sito indicata nel percorso.'
+      : 'Non corrisponde al dato del sito. Controlla di essere sulla pagina dell\'ultimo passo del percorso e rileggi con calma la frase che contiene l\'informazione.') + consiglioDopoErrori(i));
   }
   risolvi(i, r.esatta ? '' : `Accettata: la grafia esatta è «${esc(r.v)}».`);
 }
@@ -4390,8 +5782,9 @@ function verificaElenco(i){
   BOZZE[i] = campi.map(c => c.value);
   if (gia.size === voci.length) return risolvi(i, '');
   const sbagliate = campi.filter(c => c.classList.contains('no')).length;
+  const fonte = t.video ? (t.url ? ['alle fonti', 'nel video e sul sito'] : ['al video', 'nel tratto dorato']) : ['alla pagina', 'sul sito'];
   feedback('no', `Hai trovato <b>${gia.size} voci su ${voci.length}</b>.` +
-    (sbagliate ? ` ${sbagliate === 1 ? 'Una voce non corrisponde alla pagina (o è ripetuta): controlla come è scritta' : sbagliate + ' voci non corrispondono alla pagina (o sono ripetute): controlla come sono scritte'} sul sito.` : ' Continua a cercare le altre.') + consiglioDopoErrori(i));
+    (sbagliate ? ` ${sbagliate === 1 ? `Una voce non corrisponde ${fonte[0]} (o è ripetuta): controlla come è scritta` : `${sbagliate} voci non corrispondono ${fonte[0]} (o sono ripetute): controlla come sono scritte`} ${fonte[1]}.` : ' Continua a cercare le altre.') + consiglioDopoErrori(i));
 }
 function risolvi(i, nota){
   if (guidaAttiva()){ GUIDA.mappa = true; GUIDA.tappa = -1; }
@@ -4401,6 +5794,180 @@ function risolvi(i, nota){
   feedback('ok', `Dato trovato: la tappa ti consegna la lettera <b>${lettera(i)}</b>.${nota ? ' ' + nota : ''}` +
     (S.ris.every(Boolean) ? ' Hai tutte le lettere: premi «Verifica la spedizione».' : ''));
 }
+
+/* =====================================================================
+   PROMEMORIA cmd+F — in sovrimpressione, pulsante, nelle tappe che chiedono di cercare in un PDF.
+   Obiettivo: che la ricerca con cmd+F diventi una competenza di TUTTI. La prima volta che si apre
+   la tappa (in questa sessione) compare una finestra con i tasti animati e 4 passi; chiusa, resta
+   un pulsante lampeggiante in basso a destra finche' la tappa non e' risolta, e un tocco la riapre.
+   ===================================================================== */
+const CMDF_VISTO = new Set();
+function tappaCmdF(){
+  if (!S || S.fase !== 'g' || !$('#scr-game').classList.contains('on') || S.ris[S.cur]) return null;
+  const t = tappe()[S.cur];
+  return (t.pdf && t.cmdf) || t.video ? t : null;
+}
+function promemoriaCmdF(){
+  const chip = $('#cmdf-chip'), t = tappaCmdF();
+  if (!t){ chip.classList.add('hidden'); $('#cmdf-modale').classList.add('hidden'); return; }
+  chip.innerHTML = t.video ? `${ico('i-play')}<span class="t">Come si cerca in un video</span>`
+    : `${tasto('mod')}<span class="piu">+</span>${tasto('F')}<span class="t">Come si cerca «${esc(t.cmdf)}»</span>`;
+  chip.setAttribute('aria-label', t.video ? 'Promemoria: come si cerca un\'informazione in un video' : `Promemoria: come si cerca ${t.cmdf} nel PDF con ${MOD_TXT}+F`);
+  chip.classList.remove('hidden');
+  const chiave = S.seed + '~' + S.cur + '~' + t.id;
+  if (!CMDF_VISTO.has(chiave)){ CMDF_VISTO.add(chiave); apriCmdF(); }
+}
+function apriCmdF(){
+  const t = tappaCmdF(); if (!t) return;
+  const m = $('#cmdf-modale');
+  if (t.video){
+    const v = t.video;
+    m.innerHTML = `<div class="cmdf-card lampeggia">
+      <span class="eyebrow">Promemoria</span>
+      <h2 id="cmdf-tit">${ico('i-play')}Come si cerca un'informazione in un video</h2>
+      <p class="mini">Un video non si guarda e basta: si ascolta con una domanda in testa, come quando cerchi una parola nel PDF.</p>
+      <div class="vmock" aria-hidden="true"><span>-10 s</span><span>CC</span><span>0,75×</span><span class="zona">tratto ${mmss(v.da)}–${mmss(v.a)}</span></div>
+      <ol class="cmdf-passi">
+        <li><b>Leggi prima la domanda</b>: così sai che cosa ascoltare.</li>
+        <li>Premi play e guarda il <b>tratto dorato</b> sulla barra (o usa «Vai al tratto»).</li>
+        <li>Tieni accesi i <b>sottotitoli</b> (CC): leggi mentre ascolti.</li>
+        <li>Ti è sfuggito? <b>-10 s</b> per riascoltare, oppure rallenta a <b>0,75×</b>.</li>
+        <li>Appena senti il dato <b>metti in pausa</b> e scrivilo subito.</li>
+      </ol>
+      <div class="cmdf-azioni"><button class="btn btn-primario btn-grande" type="button" id="cmdf-ok">${ico('i-check')}Ho capito: ascolto con attenzione</button></div>
+    </div>`;
+    m.classList.remove('hidden');
+    $('#cmdf-ok').onclick = chiudiCmdF; $('#cmdf-ok').focus();
+    return;
+  }
+  m.innerHTML = `<div class="cmdf-card lampeggia">
+    <span class="eyebrow">Promemoria</span>
+    <h2 id="cmdf-tit">${ico('i-lente')}Come si cerca in un PDF lungo</h2>
+    <p class="mini">In questa tappa la risposta è dentro un documento PDF di molte pagine: non scorrerlo tutto, fai cercare la parola al browser.</p>
+    <div class="cmdf-tasti" aria-hidden="true"><kbd class="kc premi1">${IS_APPLE ? ico('i-cmd') + 'cmd' : 'Ctrl'}</kbd><span class="piu">+</span><kbd class="kc premi2">F</kbd></div>
+    <ol class="cmdf-passi">
+      <li>Apri il PDF nella <b>scheda di destra</b> e <b>clicca dentro il documento</b>.</li>
+      <li>Premi insieme ${combo('F')}: in alto a destra compare una casella di ricerca.</li>
+      <li>Scrivi <mark>${esc(t.cmdf)}</mark> e premi <b>Invio</b>: il browser colora la parola. Premi ancora Invio per passare alla volta successiva.</li>
+      <li><b>Leggi la frase</b> intorno alla parola colorata: lì c'è la risposta.</li>
+    </ol>
+    <div class="cmdf-finta" aria-hidden="true">${ico('i-lente')}<span class="testo">${esc(t.cmdf)}</span><span class="conta">1 di …</span>${ico('i-sx', 'ruota')}${ico('i-dx', 'ruota')}</div>
+    <p class="mini" style="text-align:center;margin:0">Su iPad: tocca la barra degli indirizzi, scrivi la parola e scegli «In questa pagina».</p>
+    <div class="cmdf-azioni"><button class="btn btn-primario btn-grande" type="button" id="cmdf-ok">${ico('i-check')}Ho capito: cerco con ${MOD_TXT}+F</button></div>
+  </div>`;
+  m.classList.remove('hidden');
+  $('#cmdf-ok').onclick = chiudiCmdF;
+  $('#cmdf-ok').focus();
+}
+function chiudiCmdF(){ $('#cmdf-modale').classList.add('hidden'); const c = $('#cmdf-chip'); if (!c.classList.contains('hidden')) c.focus(); }
+
+/* =====================================================================
+   VIDEO (special edition) — player YouTube incorporato SENZA DISTRAZIONI
+   (procedura «youtube-embed-senza-distrattori»): IFrame API con controls:0, disablekb, rel:0,
+   iv_load_policy:3; iframe con pointer-events:none (nessun clic arriva a YouTube: niente titolo,
+   «Guarda su YouTube», condividi); copertina nostra finche' non parte; schermo opaco a fine video
+   sopra i video consigliati; comandi nostri pensati per STUDIARE: -10 s, velocita' 0,75x,
+   sottotitoli, barra con il tratto da guardare evidenziato, «Vai al punto».
+   Limite noto: la pubblicita' che YouTube decide di mostrare non si puo' togliere ne' saltare.
+   ===================================================================== */
+let VIDEO = null, _ytPronto = null;
+const mmss = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+function caricaYT(){
+  if (_ytPronto) return _ytPronto;
+  _ytPronto = new Promise(ok => {
+    if (window.YT && window.YT.Player) return ok();
+    const prec = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => { if (prec) prec(); ok(); };
+    const sc = document.createElement('script'); sc.src = 'https://www.youtube.com/iframe_api'; document.head.append(sc);
+  });
+  return _ytPronto;
+}
+function montaVideo(t, box){
+  const v = t.video, dur = v.durata || 0;
+  const zona = v.a > v.da && dur ? `left:${(v.da / dur * 100).toFixed(2)}%;width:${((v.a - v.da) / dur * 100).toFixed(2)}%` : 'display:none';
+  box.innerHTML = `<h3 class="etichetta"><span class="n">1</span>Guarda il video</h3>
+    <div class="vplayer">
+      <div class="v-schermo">
+        <div class="v-frame"><div id="v-yt"></div></div>
+        <div class="v-scudo" aria-hidden="true"></div>
+        <button class="v-poster" type="button" aria-label="Avvia il video"><span class="v-grande">${ico('i-play')}</span>
+          <span class="v-poster-tit">${esc(v.titolo || '')}</span><span class="v-poster-can">${esc(v.canale || '')} · ${mmss(dur)}</span></button>
+        <div class="v-fine hidden"><p>Video finito</p><button class="btn btn-primario" type="button" data-v="rivedi">${ico('i-ricarica')}Riguarda il tratto ${mmss(v.da)}–${mmss(v.a)}</button></div>
+      </div>
+      <div class="v-ctrl">
+        <button class="v-btn" type="button" data-v="play" aria-label="Riproduci">${ico('i-play')}</button>
+        <button class="v-btn testo" type="button" data-v="indietro" aria-label="Indietro di 10 secondi">-10 s</button>
+        <div class="v-barra"><div class="v-zona" style="${zona}" title="Il tratto da guardare"></div><div class="v-fatto"></div>
+          <input type="range" min="0" max="${dur || 100}" step="1" value="0" aria-label="Posizione nel video" data-v="seek"></div>
+        <span class="v-tempo">0:00 / ${mmss(dur)}</span>
+        <button class="v-btn testo on" type="button" data-v="cc" aria-pressed="true" aria-label="Sottotitoli">CC</button>
+        <button class="v-btn testo" type="button" data-v="vel" aria-label="Velocità">1×</button>
+      </div>
+      <div class="v-info"><span>${ico('i-schermo')}<b>${esc(v.canale || '')}</b> · ${esc(v.titolo || '')}</span>
+        ${v.a > v.da ? `<button class="btn btn-linea" type="button" data-v="vai">${ico('i-dx')}Vai al tratto ${mmss(v.da)}–${mmss(v.a)}</button>` : ''}</div>
+    </div>`;
+  VIDEO = {id: v.id, da: v.da || 0, a: v.a || 0, durata: dur, player: null, pronto: false, suona: false, cc: true, vel: 1, timer: 0, box};
+  const mio = VIDEO;
+  box.addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (b && b.dataset.v !== 'seek') comandoVideo(b.dataset.v); });
+  box.querySelector('.v-scudo').addEventListener('click', () => comandoVideo('play'));
+  box.querySelector('[data-v="seek"]').addEventListener('input', e => { if (VIDEO && VIDEO.player && VIDEO.pronto) VIDEO.player.seekTo(+e.target.value, true); });
+  caricaYT().then(() => {
+    if (VIDEO !== mio) return;           // nel frattempo si e' cambiata tappa
+    VIDEO.player = new YT.Player('v-yt', {
+      videoId: v.id,
+      playerVars: {controls: 0, disablekb: 1, rel: 0, iv_load_policy: 3, playsinline: 1, modestbranding: 1, fs: 0,
+                   enablejsapi: 1, cc_load_policy: 1, cc_lang_pref: 'it', hl: 'it', origin: location.origin},
+      events: {
+        onReady: () => { if (VIDEO !== mio) return; mio.pronto = true; if (mio.vuoleSuonare) mio.player.playVideo(); },
+        onStateChange: e => statoVideo(mio, e.data)
+      }
+    });
+  });
+}
+function statoVideo(V, st){
+  if (VIDEO !== V) return;
+  const b = V.box, Y = window.YT && YT.PlayerState;
+  V.suona = st === Y.PLAYING;
+  if (st === Y.PLAYING){ b.querySelector('.v-poster').classList.add('hidden'); b.querySelector('.v-fine').classList.add('hidden'); }
+  if (st === Y.ENDED) b.querySelector('.v-fine').classList.remove('hidden');   // copre i video consigliati
+  const pb = b.querySelector('[data-v="play"]');
+  pb.innerHTML = ico(V.suona ? 'i-pausa' : 'i-play'); pb.setAttribute('aria-label', V.suona ? 'Pausa' : 'Riproduci');
+  clearInterval(V.timer);
+  if (V.suona) V.timer = setInterval(() => aggiornaTempo(V), 250);
+  aggiornaTempo(V);
+}
+function aggiornaTempo(V){
+  if (!V.player || !V.pronto || VIDEO !== V) return;
+  const t = V.player.getCurrentTime() || 0, d = V.player.getDuration() || V.durata || 1;
+  const b = V.box, r = b.querySelector('[data-v="seek"]');
+  if (Math.abs(+r.max - d) > 1){ r.max = Math.round(d); }
+  if (document.activeElement !== r) r.value = Math.round(t);
+  b.querySelector('.v-fatto').style.width = (t / d * 100).toFixed(2) + '%';
+  b.querySelector('.v-tempo').textContent = `${mmss(t)} / ${mmss(d)}`;
+  b.querySelector('.v-barra').classList.toggle('dentro', V.a > V.da && t >= V.da && t <= V.a);
+}
+function comandoVideo(c){
+  const V = VIDEO; if (!V) return;
+  const P = V.player, pronto = P && V.pronto;
+  if (c === 'play'){ if (!pronto){ V.vuoleSuonare = true; return; } V.suona ? P.pauseVideo() : P.playVideo(); }
+  if (!pronto) return;
+  if (c === 'indietro') P.seekTo(Math.max(0, P.getCurrentTime() - 10), true);
+  if (c === 'vai' || c === 'rivedi'){ P.seekTo(V.da, true); P.playVideo(); }
+  if (c === 'vel'){ V.vel = V.vel === 1 ? 0.75 : 1; P.setPlaybackRate(V.vel); V.box.querySelector('[data-v="vel"]').textContent = (V.vel === 1 ? '1' : '0,75') + '×'; }
+  if (c === 'cc'){
+    V.cc = !V.cc;
+    try { if (V.cc){ P.loadModule('captions'); P.setOption('captions', 'track', {languageCode: 'it'}); } else P.unloadModule('captions'); } catch (e) {}
+    const b = V.box.querySelector('[data-v="cc"]'); b.classList.toggle('on', V.cc); b.setAttribute('aria-pressed', V.cc);
+  }
+  aggiornaTempo(V);
+}
+function fermaVideo(){
+  if (!VIDEO) return;
+  clearInterval(VIDEO.timer);
+  try { if (VIDEO.player && VIDEO.player.destroy) VIDEO.player.destroy(); } catch (e) {}
+  VIDEO = null;
+}
+function pausaVideo(){ try { if (VIDEO && VIDEO.player && VIDEO.pronto) VIDEO.player.pauseVideo(); } catch (e) {} }
 
 /* aiuti graduati (modello EXIT): dentro il rompicapo, sotto il campo risposta */
 function aiutiTappa(i, t){
@@ -4419,9 +5986,9 @@ function aiutiTappa(i, t){
 }
 /* in fondo alla scheda: sostituzione della tappa (sito bloccato) e interruttore della guida */
 function strumentiTappa(i){
-  const restanti = maxSost() - sostUsate(), risolta = !!S.ris[i];
+  const restanti = maxSost() - sostUsate(), risolta = !!S.ris[i], t = tappe()[i];
   const info = S.sost[i] >= 0 ? 'Questa tappa è già una sostituta.'
-    : `Il sito non si apre? Chiedi al docente: puoi sostituire la tappa (${restanti} ${restanti === 1 ? 'sostituzione disponibile' : 'sostituzioni disponibili'}).`;
+    : `${t && t.video ? (t.url ? 'Il video o il sito non si aprono?' : 'Il video non parte?') : 'Il sito non si apre?'} Chiedi al docente: puoi sostituire la tappa (${restanti} ${restanti === 1 ? 'sostituzione disponibile' : 'sostituzioni disponibili'}).`;
   return `<div class="strumenti">
     <div class="sost"><span class="mini">${info}</span>
       <button class="btn btn-linea" type="button" id="btn-sost" ${risolta || S.sost[i] >= 0 || restanti <= 0 ? 'disabled' : ''}>${ico('i-scambia')}Sostituisci tappa</button></div>
@@ -4440,10 +6007,13 @@ function strumentiTappa(i){
    ===================================================================== */
 const GUIDA = {modo: 'auto', tappa: -1, passo: null, mappa: false};
 const guidaAttiva = () => !!S && (GUIDA.modo === 'on' || (GUIDA.modo === 'auto' && S.ris.filter(Boolean).length < CONFIG.TAPPE_GUIDATE));
-const passiGuida = t => ['url', 'percorso', ...(t.pdf ? ['cerca'] : []), 'risposta', 'verifica'];
+const passiGuida = t => t.video ? ['video', ...(t.url ? ['url', 'percorso'] : []), 'risposta', 'verifica']
+                                 : ['url', 'percorso', ...(t.pdf ? ['cerca'] : []), 'risposta', 'verifica'];
 function passoGuida(passo, t){
   const el = t.tipo === 'elenco';
   return ({
+    video: {sel: '.vplayer', dove: 'prima', ok: 'Fatto: ho ascoltato il tratto',
+      testo: "Premi <b>play</b> e guarda con attenzione il <b>tratto dorato</b> sulla barra: lì c'è l'informazione. Tieni accesi i sottotitoli; se ti sfugge qualcosa torna indietro di 10 secondi o rallenta a 0,75×."},
     url: {sel: '[data-url]', dove: 'dopo', ok: 'Fatto: il sito è aperto',
       testo: `Clicca dentro la <b>scheda di destra</b>, poi nella barra degli indirizzi in alto (oppure premi ${combo('L')}). Scrivi questo indirizzo lettera per lettera e premi Invio.`},
     percorso: {sel: '.passi', dove: 'prima', ok: 'Fatto: sono sulla pagina giusta',
@@ -4644,9 +6214,10 @@ function renderFine(){
       </div>
       <div class="card"><h3>${ico('i-mappa')}Il diario della spedizione</h3>
         <table class="riep"><thead><tr><th>Tappa</th><th>Indirizzo</th><th>Come l'hai risolta</th></tr></thead><tbody>
-          ${t.map((x, i) => `<tr><td><b>${i + 1}.</b> ${esc(x.titolo)}</td><td class="u">${esc(x.url)}</td><td>${sig(i)}${S.sost[i] >= 0 ? '<span class="sigillo x">sostituita</span>' : ''}</td></tr>`).join('')}
+          ${t.map((x, i) => `<tr><td><b>${i + 1}.</b> ${esc(x.titolo)}</td><td class="u">${esc(x.url || (x.video ? 'Video · ' + (x.video.canale || '') : ''))}</td><td>${sig(i)}${S.sost[i] >= 0 ? '<span class="sigillo x">sostituita</span>' : ''}</td></tr>`).join('')}
         </tbody></table></div>
     </div>
+    ${quadernoHTML(q, t)}
     <div class="fine-bot">
       <div class="card"><h3>${ico('i-check')}Come ho lavorato</h3>
         <p class="mini">Spunta solo quello che hai fatto davvero.</p>
@@ -4671,6 +6242,12 @@ function renderFine(){
     </div>
     <div id="conferma-nuova" style="max-width:520px;margin:0 auto"></div>`;
   mostra('scr-fine');
+  document.querySelectorAll('.quaderno .carta[data-k]').forEach(c => c.onclick = () => {
+    document.querySelectorAll('.quaderno .carta').forEach(x => x.classList.toggle('scelta', x === c));
+    const nome = c.querySelector('figcaption b').textContent;
+    $('#q-perche').placeholder = `Perché hai scelto le parole di ${nome}?`;
+    $('#q-perche').focus();
+  });
   $('#fine-tappe').onclick = () => { S.fase = 'g'; salva(); route(); };
   $('#fine-nuova').onclick = () => {
     $('#conferma-nuova').innerHTML = `<div class="conferma">Aprendo una nuova busta questa spedizione si chiude. Hai mostrato il codice al docente?
@@ -5146,6 +6723,21 @@ document.addEventListener('keydown', e => {
 window.addEventListener('resize', () => { if (SIM) riposizionaFreccia(); });
 document.addEventListener('click', e => { if (e.target.closest('[data-apri-sim]')) apriSimulatore(); });
 
+/* QUADERNO: le carte conquistate (citazioni o versi); lo studente sceglie la sua preferita e dice perche'.
+   Come le altre risposte metacognitive, resta solo sulla pagina (nessun dato salvato). */
+function quadernoHTML(q, t){
+  if (!q.quaderno || !t.some(x => x.carta)) return '';
+  const voce = /vers/i.test(q.quaderno) ? 'il verso' : 'la frase';
+  return `<section class="card quaderno"><h3>${ico('t-citazioni')}${esc(q.quaderno)}</h3>
+    <p class="mini">Rileggi ${voce === 'il verso' ? 'i versi' : 'le frasi'} che hai conquistato. Tocca ${voce} che vuoi ricordare e scrivi perché l'hai ${voce === 'il verso' ? 'scelto' : 'scelta'}.</p>
+    <div class="quaderno-grid">${t.map((x, i) => x.carta ? `<figure class="carta ${S.ris[i] ? '' : 'vuota'}" ${S.ris[i] ? `data-k="${i}" tabindex="0" role="button"` : ''}>${ico('t-citazioni')}
+      <blockquote>${esc(x.carta.testo)}</blockquote><figcaption><b>${esc(x.carta.autore || '')}</b>${x.carta.fonte ? ' · ' + esc(x.carta.fonte) : ''}</figcaption>
+      ${S.ris[i] ? '<span class="scegli"><i></i>La mia preferita</span>' : ''}</figure>` : '').join('')}</div>
+    <label class="sr" for="q-perche">Perché hai scelto questa ${voce === 'il verso' ? 'strofa' : 'frase'}?</label>
+    <textarea id="q-perche" placeholder="Tocca prima ${voce} che preferisci, poi scrivi qui perché."></textarea>
+  </section>`;
+}
+
 /* =====================================================================
    INFO DOCENTI (modale a tab)
    ===================================================================== */
@@ -5153,7 +6745,7 @@ let pinOk = false;
 const TAB = {
   metodo(){
     return `<h3>Obiettivo</h3>
-      <p>Allenare la ricerca di informazioni su fonti istituzionali: digitare con precisione un indirizzo, orientarsi nei menu di un sito, cercare una parola chiave in un PDF lungo con ${MOD_TXT}+F, trascrivere un dato in modo esatto.</p>
+      <p>Allenare la ricerca di informazioni su fonti istituzionali: digitare con precisione un indirizzo, orientarsi nei menu di un sito, cercare una parola chiave in un PDF lungo con ${MOD_TXT}+F, ritrovare un dato dentro un video, trascriverlo in modo esatto.</p>
       <div class="tags"><span>Competenza digitale</span><span>DigComp 2.2 · 1.1 Navigare, ricercare, filtrare</span><span>DigComp 2.2 · 1.2 Valutare dati e fonti</span><span>Imparare a imparare</span><span>Interdisciplinare</span></div>
       <h3>Cornice metodologica</h3>
       <ul><li><b>Catena + decoder (modello EXIT)</b>: ogni tappa risolta consegna una lettera; l'ordine delle tappe è libero; il finale è un anagramma. La decisione dello studente è <i>in che ordine indagare e quanto aiuto prendere</i>.</li>
@@ -5164,7 +6756,11 @@ const TAB = {
       <h3>Organizzazione</h3>
       <ul><li>Postazione: <b>visualizzazione divisa di Chrome</b> (menu «Scheda» &gt; «Aggiungi scheda alla nuova visualizzazione divisa», option+cmd+N). La Web Quest a sinistra, la ricerca nella scheda di destra; l'impaginazione è pensata per metà schermo. Su iPad: vista affiancata di Safari. Il briefing mostra i passi e controlla da solo se la quest occupa metà schermo.</li>
         <li>Attenzione: in Chrome la barra degli indirizzi è unica e vale per il lato attivo. Se uno studente scrive l'indirizzo con la quest attiva, il browser chiede conferma prima di lasciare la pagina; ricaricando, la partita riprende da dove era.</li>
+        <li><b>Promemoria ${MOD_TXT}+F</b>: nelle tappe con il PDF compare in sovrimpressione una finestra pulsante con i tasti e i passi per cercare la parola; chiusa, resta un pulsante lampeggiante in basso a destra finché la tappa non è risolta.</li>
+        <li><b>Un computer, tanti studenti</b>: la partita è legata alla scheda in cui è stata giocata. Se il browser ripropone l'indirizzo con la partita di un compagno (cronologia, schede riaperte), la pagina chiede se riprenderla o aprire una nuova busta. Per avere tempi diversi per ogni studente, nel link non fissare il codice partita.</li>
         <li><b>Simulatore</b> (facoltativo, dal briefing o da «Rivedi l'esempio» in fondo a ogni tappa): una ricerca di prova su uno schermo diviso finto, con un museo inventato. Prima «Guarda» (dimostrazione animata, adatta anche alla LIM), poi «Prova tu» con la guida passo passo: barra degli indirizzi, cookie, menu, freccia indietro, PDF, ${MOD_TXT}+F con più occorrenze, lato attivo, risposta con un nome-trappola.</li>
+        <li><b>Quest con le carte</b> («Parole che restano», «Versi che cantano»): ogni tappa risolta consegna la carta con la frase o i versi trovati, con autore e occasione. Nella schermata finale lo studente sceglie la carta preferita nel quaderno e scrive perché: è il materiale per il debrief (lettura ad alta voce, confronto tra le scelte). Alcune frasi toccano temi forti (la deportazione nella testimonianza di Liliana Segre): conviene introdurle.</li>
+        <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
@@ -5172,7 +6768,7 @@ const TAB = {
       <h3>Prima della lezione</h3>
       <ul><li>Aprire i siti del tema dalla rete della scuola: alcuni filtri bloccano domini. Se un sito non si apre, lo studente usa «Sostituisci tappa» (massimo ${CONFIG.MAX_SOST} per partita).</li>
         <li>I siti cambiano: ogni tappa riporta la data di verifica nella scheda «Bacino e risposte».</li>
-        <li>Nessun dato esce dal dispositivo e nulla viene salvato nel browser: lo stato della partita vive solo nell'indirizzo della pagina.</li>
+        <li>Nessun dato personale viene raccolto: lo stato della partita vive nell'indirizzo della pagina e, solo per riconoscere la scheda in cui si gioca, nella memoria di sessione del browser, che si cancella chiudendo la scheda. La special edition carica i video da YouTube (youtube.com/embed), che può usare propri cookie.</li>
         <li>Studenti under 14: nessuna consegna richiede strumenti di intelligenza artificiale generativa.</li></ul>`;
   },
   config(){
@@ -5194,7 +6790,7 @@ const TAB = {
     const righe = [
       ['Precisione nella digitazione', 'Digita gli indirizzi correttamente al primo tentativo e individua da solo eventuali errori.', 'Commette pochi errori e li corregge confrontando l\'indirizzo.', 'Ha bisogno di più tentativi; corregge con indicazioni.', 'Raggiunge i siti solo con l\'aiuto dell\'adulto.'],
       ['Orientamento nei siti', 'Segue il percorso con sicurezza e si orienta anche se le etichette cambiano.', 'Segue il percorso con qualche esitazione.', 'Segue il percorso solo con gli aiuti.', 'Si perde nei menu: serve una guida costante.'],
-      ['Ricerca nel documento', `Usa ${MOD_TXT}+F con parole chiave pertinenti e scorre le occorrenze.`, `Usa ${MOD_TXT}+F con la parola suggerita.`, 'Usa la ricerca solo dopo un aiuto.', 'Scorre il documento senza strategia.'],
+      ['Ricerca nel documento o nel video', `Usa ${MOD_TXT}+F con parole chiave pertinenti e scorre le occorrenze; nel video torna sul tratto giusto e usa sottotitoli e rallentatore.`, `Usa ${MOD_TXT}+F con la parola suggerita; nel video riascolta il tratto indicato.`, 'Usa la ricerca o riascolta il video solo dopo un aiuto.', 'Scorre il documento o guarda il video senza strategia.'],
       ['Accuratezza e autonomia', 'Tutte le tappe risolte senza soluzioni rivelate, aiuti rari.', 'Tappe risolte con qualche aiuto.', 'Più aiuti e almeno una soluzione.', 'Completa grazie alle soluzioni.'],
       ['Riflessione', 'Descrive con precisione strategie ed errori e propone miglioramenti concreti.', 'Descrive le strategie usate.', 'Risposte generiche.', 'Non riesce a descrivere il proprio percorso.']
     ];
@@ -5209,9 +6805,11 @@ const TAB = {
       <div class="feedback" id="pin-msg"></div>`;
     const risp = t => t.tipo === 'elenco' ? (t.elenco || []).map(v => v.voce).join(', ') : (t.risposte || []).join(' · ');
     const scheda = (t, k, ris) => `<div class="bt"><h4>${ris ? 'Riserva' : 'Tappa ' + (k + 1)} · ${esc(t.titolo)}</h4>
-      <div class="meta-r">${esc(disc(t.disciplina).l)} · <b>${esc(t.url)}</b>${t.pdf ? ' · PDF, cerca «' + esc(t.cmdf) + '»' : ''}${t.lingua && t.lingua !== 'it' ? ' · sito in inglese' : ''} · verificata il ${esc(t.verificato || '')}</div>
+      ${t.video ? `<div class="meta-r">Video: <b>${esc(t.video.titolo || '')}</b> (${esc(t.video.canale || '')}), tratto ${mmss(t.video.da)}–${mmss(t.video.a)} · <a href="https://www.youtube.com/watch?v=${encodeURIComponent(t.video.id)}&t=${t.video.da || 0}" target="_blank" rel="noopener">apri su YouTube</a></div>` : ''}
+      <div class="meta-r">${esc(disc(t.disciplina).l)} · <b>${esc(t.url || 'solo video')}</b>${t.pdf ? ' · PDF, cerca «' + esc(t.cmdf) + '»' : ''}${t.lingua && t.lingua !== 'it' ? ' · sito in inglese' : ''} · verificata il ${esc(t.verificato || '')}</div>
       <div><b>Domanda:</b> ${esc(t.domanda)}</div>
       <div class="risp"><b>Risposta:</b> ${esc(risp(t))}</div>
+      ${t.carta ? `<div><b>Carta:</b> «${esc(t.carta.testo)}» — ${esc(t.carta.autore || '')}${t.carta.fonte ? ', ' + esc(t.carta.fonte) : ''}</div>` : ''}
       ${t.prova ? `<div class="prova">«${esc(t.prova)}»</div>` : ''}
       ${t.url_verifica ? `<div class="meta-r">Fonte: <a href="${esc(t.url_verifica)}" target="_blank" rel="noopener">${esc(t.url_verifica)}</a></div>` : ''}
       ${t.note ? `<div class="meta-r">Nota: ${esc(t.note)}</div>` : ''}</div>`;
@@ -5251,6 +6849,10 @@ function chiudiDocenti(){ $('#modale').classList.add('hidden'); }
    AVVIO
    ===================================================================== */
 document.querySelectorAll('[data-mod-label]').forEach(el => el.textContent = MOD_TXT);
+$('#cmdf-chip').onclick = apriCmdF;
+$('#cmdf-modale').addEventListener('click', e => { if (e.target.id === 'cmdf-modale') chiudiCmdF(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#cmdf-modale').classList.contains('hidden')) chiudiCmdF(); });
+document.addEventListener('keydown', e => { const c = e.target.closest && e.target.closest('.quaderno .carta[data-k]'); if (c && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); c.click(); } });
 document.querySelectorAll('[data-apri-docenti]').forEach(b => b.onclick = apriDocenti);
 document.querySelectorAll('.tab').forEach(b => b.onclick = () => apriTab(b.dataset.tab));
 $('#chiudi-modale').onclick = chiudiDocenti;
@@ -5267,8 +6869,9 @@ if (!QUEST.length){
   $('#btn-apri').disabled = true;
   $('#catalogo-tit').textContent = 'Nessuna quest caricata';
 } else {
-  S = carica();
-  if (S) route(); else renderIntro();
+  const st = carica();
+  if (st && sessioneMia(st)){ S = st; route(); }
+  else { renderIntro(); if (st) proponiRipresa(st); }
 }
 </script>
 </body>

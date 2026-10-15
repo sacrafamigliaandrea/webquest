@@ -401,6 +401,137 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
   .slots,.tiles{gap:6px}
   .avviso-finestre .schema{display:none}
 }
+/* ---------- SIMULATORE: ricerca di prova su uno schermo diviso finto ---------- */
+.sim-invito{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:18px;background:var(--card);border:2px dashed var(--brd2);border-radius:var(--r);padding:14px 18px}
+.sim-invito .ico{width:48px;height:48px;border-radius:13px;background:var(--ink);color:#fff;display:grid;place-items:center;flex:0 0 auto}
+.sim-invito .ico svg.i{width:28px;height:28px}
+.sim-invito div{flex:1 1 280px}
+.sim-invito b{font-family:var(--head);font-weight:600;color:var(--ink);display:block;font-size:18px}
+.sim-invito span{font-size:16px;color:var(--muted)}
+.sim-testa{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:12px}
+.sim-testa h2{font-size:24px;display:flex;align-items:center;gap:10px}
+.sim-testa h2 svg.i{width:28px;height:28px;color:var(--rossoD)}
+.sim-modi{display:flex;gap:8px;flex-wrap:wrap}
+.sim-modo{background:var(--card);border:2px solid var(--brd2);border-radius:999px;padding:7px 16px;font-family:var(--head);font-weight:600;font-size:15px;color:var(--ink);min-height:44px}
+.sim-modo.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.sim-testa .btn{margin-left:auto;min-height:44px;font-size:15px;padding:8px 14px}
+.sim-dida{display:flex;gap:12px 16px;align-items:center;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:14px;border-left:6px solid var(--oro);padding:12px 16px;margin-bottom:12px;min-height:66px}
+.sim-dida .testo{flex:1 1 320px}
+.sim-dida .num{display:block;font-family:var(--head);font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--oro)}
+.sim-dida p{margin:2px 0 0;font-size:17px;line-height:1.5}
+.sim-dida b{color:#fff}
+.sim-dida kbd.kc{color:var(--ink)}
+.sim-dida .ctrl{display:flex;gap:8px;flex-wrap:wrap}
+.sim-dida .ctrl button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:10px;padding:7px 12px;font-size:14.5px;min-height:44px}
+.sim-dida .ctrl .guida-ok{background:var(--oro);color:var(--ink);border:none}
+.sim-monitor{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:6px;background:#2B2326;border-radius:16px;padding:6px;height:min(72vh,660px);min-height:520px}
+.sim-lato{position:relative;background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 0 3px transparent;transition:box-shadow .2s}
+.sim-lato.attivo{box-shadow:0 0 0 3px #4A86E8}
+.sim-lato .chip-attivo{position:absolute;right:8px;bottom:8px;z-index:5;background:#4A86E8;color:#fff;font:600 11.5px/1 system-ui,sans-serif;border-radius:999px;padding:5px 9px;opacity:0;transition:opacity .2s;pointer-events:none}
+.sim-lato.attivo .chip-attivo{opacity:1}
+.sim-sx{overflow:auto}
+.sim-tappa{padding:14px 16px 18px;font-size:15px}
+.sim-tappa .t-head{margin-bottom:8px}
+.sim-tappa h4{font-size:20px;margin:2px 0 6px}
+.sim-tappa .contesto{font-size:15px;margin-bottom:6px}
+.sim-tappa .etichetta{font-size:15px;margin:14px 0 7px}
+.sim-tappa .etichetta .n{width:24px;height:24px;font-size:12.5px}
+.sim-tappa .barra{padding:8px 12px;border-radius:11px}
+.sim-tappa .url-txt{font-size:18px}
+.sim-tappa .passi{gap:6px}
+.sim-tappa .passi li{font-size:14.5px;padding:7px 10px}
+.sim-tappa .passi li::before{width:22px;height:22px;font-size:12.5px}
+.sim-tappa .cerca{padding:10px 12px}
+.sim-tappa .cerca p{font-size:14.5px}
+.sim-tappa .rompicapo{padding:12px;margin-top:14px}
+.sim-tappa .domanda{font-size:16px;margin-bottom:10px}
+.sim-tappa .campo{font-size:16px;min-height:44px;padding:9px 11px;flex-basis:160px}
+.sim-tappa .btn{min-height:44px;font-size:15px;padding:8px 14px}
+.sim-tappa .feedback{font-size:15px}
+.sim-nota{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:40;max-width:min(560px,90%);background:var(--ambraL);color:var(--ambra);border:1px solid var(--ambraB);border-radius:12px;padding:10px 14px;font-size:15px;box-shadow:var(--shadow)}
+.sim-cursore{position:absolute;left:50%;top:50%;width:26px;height:30px;z-index:45;pointer-events:none;transition:left .7s cubic-bezier(.3,.7,.3,1),top .7s cubic-bezier(.3,.7,.3,1);filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.sim-cursore.clic::after{content:"";position:absolute;left:-10px;top:-10px;width:26px;height:26px;border-radius:50%;border:3px solid var(--oro);animation:anello .45s ease-out forwards}
+@keyframes anello{from{transform:scale(.3);opacity:1}to{transform:scale(1.4);opacity:0}}
+.sim-freccia{position:absolute;z-index:44;width:28px;height:36px;pointer-events:none;color:var(--oro);fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;animation:freccia-giu 1s ease-in-out infinite}
+.sim-freccia.su{transform:rotate(180deg);animation-name:freccia-su}
+.sim-tasti{position:absolute;z-index:46;right:24px;top:96px;background:rgba(43,35,38,.92);border-radius:14px;padding:12px 16px;display:flex;gap:6px;align-items:center;pointer-events:none}
+.sim-tasti kbd.kc{font-size:18px;height:40px;min-width:46px}
+.sim-tasti .piu{color:#fff}
+/* browser finto (stile generico, non di un marchio) */
+.fb{position:relative;display:flex;flex-direction:column;height:100%;font:14px/1.45 system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color:#202124}
+.fb-tabs{background:#DFE1E5;padding:6px 8px 0;display:flex}
+.fb-tab{display:flex;align-items:center;gap:6px;background:#fff;border-radius:9px 9px 0 0;padding:7px 14px;font-size:12.5px;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fb-bar{display:flex;align-items:center;gap:6px;background:#fff;padding:6px 8px;border-bottom:1px solid #E3E3E3}
+.fb-btn{width:36px;height:36px;border-radius:50%;border:none;background:transparent;color:#5F6368;display:grid;place-items:center;flex:0 0 auto;padding:0}
+.fb-btn:hover:not(:disabled){background:#F1F3F4}
+.fb-btn:disabled{opacity:.35}
+.fb-btn svg.i{width:20px;height:20px}
+.fb-btn svg.i.ruota{transform:rotate(90deg)}
+.fb-url{flex:1;display:flex;align-items:center;gap:6px;background:#F1F3F4;border-radius:999px;padding:0 12px;height:36px;min-width:0}
+.fb-url svg.i{width:15px;height:15px;color:#5F6368}
+.fb-url input{flex:1;border:none;background:transparent;font:15px system-ui,-apple-system,sans-serif;color:#202124;outline:none;min-width:0}
+.fb-url:focus-within{background:#fff;box-shadow:0 0 0 2px #4A86E8}
+.fb-find{position:absolute;right:10px;top:92px;z-index:20;display:flex;align-items:center;gap:4px;background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.22);padding:6px 6px 6px 12px}
+.fb-find input{border:none;outline:none;font:15px system-ui,sans-serif;width:150px}
+.fb-find .conta{font-size:13px;color:#5F6368;min-width:46px;text-align:right;padding-right:4px;border-right:1px solid #E3E3E3}
+.fb-find .fb-btn{width:34px;height:34px}
+.fb-view{flex:1;overflow:auto;position:relative;background:#fff}
+.fb-nuova,.fb-err{padding:56px 28px;text-align:center;color:#5F6368}
+.fb-nuova svg.i{width:46px;height:46px;color:#BDC1C6;margin-bottom:10px}
+.fb-err{text-align:left;max-width:520px;margin:0 auto;color:#3C4043}
+.fb-err h3{font:600 21px system-ui,sans-serif;color:#202124;margin:0 0 10px}
+.fb-err .digitato{font:600 17px ui-monospace,Menlo,monospace;letter-spacing:.04em;background:#F1F3F4;border-radius:8px;padding:6px 10px;display:inline-block;margin:6px 0}
+.fb-err .digitato mark{background:var(--ambraB);color:#202124;border-radius:3px}
+.fb-err .atteso{font:600 17px ui-monospace,Menlo,monospace;letter-spacing:.04em}
+/* sito del museo inventato */
+.ms{min-height:100%;background:#F6F2EA;color:#2D2A26}
+.ms-head{background:#234E52;color:#fff;padding:10px 16px 0}
+.ms-logo{display:flex;align-items:center;gap:10px;padding-bottom:8px}
+.ms-logo svg.i{width:32px;height:32px;color:#F2C14E}
+.ms-logo b{font:700 17px Georgia,serif;display:block}
+.ms-logo small{font-size:12px;opacity:.85}
+.ms-nav{display:flex;flex-wrap:wrap;gap:2px}
+.ms-nav button{background:transparent;color:#fff;border:none;padding:9px 12px;font:600 14px system-ui,sans-serif;border-radius:8px 8px 0 0;min-height:40px}
+.ms-nav button:hover,.ms-drop.aperto>button{background:rgba(255,255,255,.14)}
+.ms-drop{position:relative}
+.ms-drop>button svg.i{width:13px;height:13px;vertical-align:-1px;margin-left:3px;transform:rotate(90deg)}
+.ms-sub{display:none;position:absolute;left:0;top:100%;z-index:10;background:#fff;border-radius:0 10px 10px 10px;box-shadow:0 8px 22px rgba(0,0,0,.2);padding:6px;min-width:190px}
+.ms-drop.aperto .ms-sub{display:block}
+.ms-sub button{display:block;width:100%;text-align:left;color:#234E52;border-radius:7px}
+.ms-sub button:hover{background:#EAF1EF}
+.ms-corpo{padding:18px 18px 70px}
+.ms-corpo h3{font:700 21px Georgia,serif;color:#234E52;margin:0 0 8px}
+.ms-corpo p{font-size:14.5px;margin:0 0 10px}
+.ms-briciole{font-size:12.5px;color:#6B6B6B;margin-bottom:8px}
+.ms-carte{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
+.ms-carta{background:#fff;border-radius:10px;padding:12px;font-size:13.5px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.ms-carta b{display:block;color:#234E52;font-size:14px;margin-bottom:3px}
+.ms-doc{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:1px solid #E2DACB;border-radius:10px;padding:10px 12px;margin-bottom:8px;font:600 14.5px system-ui,sans-serif;color:#234E52;min-height:48px}
+.ms-doc svg.i{width:22px;height:22px;color:#B3261E}
+.ms-doc small{display:block;font-weight:400;color:#6B6B6B;font-size:12.5px}
+.ms-cookie{position:sticky;bottom:0;z-index:15;background:#1F2A2B;color:#fff;padding:12px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13.5px}
+.ms-cookie p{margin:0;flex:1 1 220px}
+.ms-cookie button{border:none;border-radius:8px;padding:8px 14px;font:600 14px system-ui,sans-serif;min-height:40px}
+.ms-cookie .nega{background:#fff;color:#1F2A2B}
+.ms-cookie .accetta{background:#F2C14E;color:#1F2A2B}
+/* PDF finto */
+.pdf{background:#525659;min-height:100%;padding:12px 12px 30px}
+.pdf-barra{color:#fff;font-size:12.5px;text-align:center;margin-bottom:10px;opacity:.9}
+.pdf-pag{background:#fff;max-width:520px;margin:0 auto 14px;padding:26px 28px 20px;font:13.5px/1.6 Georgia,serif;color:#222;box-shadow:0 2px 8px rgba(0,0,0,.35);min-height:300px;position:relative}
+.pdf-pag h1{font:700 22px Georgia,serif;margin:0 0 8px}
+.pdf-pag h2{font:700 16px Georgia,serif;margin:0 0 8px}
+.pdf-pag p{margin:0 0 9px}
+.pdf-pag .idx{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted #bbb;margin:0 0 6px}
+.pdf-pag .cap{font-style:italic;font-size:12.5px;color:#555;border-left:3px solid #ccc;padding-left:8px}
+.pdf-pag .npag{position:absolute;right:16px;bottom:8px;font-size:11px;color:#888}
+.pdf-pag .evid{outline:3px solid var(--oro);outline-offset:4px;border-radius:3px}
+mark.fm{background:#FDE68A;color:inherit;border-radius:2px}
+mark.fm.cur{background:#F59E0B;color:#000}
+@media (max-width:760px){
+  .sim-monitor{grid-template-columns:1fr;height:auto;min-height:0}
+  .sim-lato{height:520px}
+  .sim-testa .btn{margin-left:0}
+}
 /* ---------- GUIDA PASSO PASSO (primi livelli): bordo lampeggiante + freccia con istruzione ---------- */
 .guida-on,.lampeggia{outline:3px solid var(--oro);outline-offset:4px;animation:lampeggia 1.1s ease-in-out infinite}
 .mappa .guida-on{outline-offset:2px}
@@ -464,6 +595,9 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
     <symbol id="i-chiudi" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-sx" viewBox="0 0 24 24"><path d="M14.5 5.5L8 12l6.5 6.5"/></symbol>
     <symbol id="i-dx" viewBox="0 0 24 24"><path d="M9.5 5.5L16 12l-6.5 6.5"/></symbol>
+    <symbol id="i-schermo" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="1.8"/><path d="M12 4v13M9 21h6M12 17v4M5 8h4.5M5 11h3M14.5 8h4.5M14.5 11h3.5"/></symbol>
+    <symbol id="i-ingranaggio" viewBox="0 0 24 24"><path d="M12 2.8l1.5 2.4 2.8-.6.6 2.8 2.4 1.5-1.4 2.5 1.4 2.5-2.4 1.5-.6 2.8-2.8-.6L12 21.2l-1.5-2.4-2.8.6-.6-2.8-2.4-1.5 1.4-2.5-1.4-2.5 2.4-1.5.6-2.8 2.8.6z"/><circle cx="12" cy="12" r="3.2"/></symbol>
+    <symbol id="i-ricarica" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4v4h-4"/></symbol>
     <symbol id="i-freccia" viewBox="0 0 24 32"><path d="M12 3v25M4 19l8 9 8-9"/></symbol>
     <symbol id="i-tastiera" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h1M9.5 10h1M13 10h1M16.5 10h1M7 14h10"/></symbol>
   </defs>
@@ -542,6 +676,9 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 
   <!-- ======================= 5. FINE ======================= -->
   <section class="scr" id="scr-fine"></section>
+
+  <!-- ======================= SIMULATORE (ricerca di prova) ======================= -->
+  <section class="scr" id="scr-sim" aria-labelledby="titolo-sim"></section>
 
 </main>
 
@@ -3984,6 +4121,12 @@ function bloccoTecniche(){
       <li>Su iPad, per cercare nella pagina: tocca la barra degli indirizzi, scrivi la parola e scegli <b>«In questa pagina»</b>.</li>
     </ul></details>`;
 }
+/* invito (facoltativo) al simulatore: una ricerca di prova su schermo diviso finto */
+function invitoSimulatore(){
+  return `<div class="sim-invito"><span class="ico">${ico('i-schermo')}</span>
+    <div><b>Prima volta? Guarda una ricerca di prova</b><span>Nel simulatore vedi come si cerca un dato su uno schermo diviso, poi provi tu su un museo inventato.</span></div>
+    <button class="btn btn-scuro" type="button" data-apri-sim>${ico('i-schermo')}Apri il simulatore</button></div>`;
+}
 /* PRIMA DI PARTIRE: la visualizzazione divisa di Chrome (menu Scheda > Aggiungi scheda alla nuova
    visualizzazione divisa, option+cmd+N). La quest resta a sinistra, la ricerca si fa nella scheda di destra.
    In Chrome la barra degli indirizzi e' unica e vale per il lato attivo: per questo le istruzioni dicono
@@ -4036,7 +4179,7 @@ function schemaFinestre(){
 function renderBrief(){
   const q = quest(), t = tappe();
   const haPdf = t.some(x => x.pdf), haEn = t.some(x => x.lingua && x.lingua !== 'it');
-  $('#scr-brief').innerHTML = testaTema() + pannelloDivisa() + `
+  $('#scr-brief').innerHTML = testaTema() + invitoSimulatore() + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
         <p>Sei un esploratore del web. La busta ti ha affidato la spedizione «${esc(q.breve)}»: ${t.length} tappe su siti ufficiali, come musei, enti pubblici, federazioni e biblioteche.</p>
@@ -4282,6 +4425,7 @@ function strumentiTappa(i){
   return `<div class="strumenti">
     <div class="sost"><span class="mini">${info}</span>
       <button class="btn btn-linea" type="button" id="btn-sost" ${risolta || S.sost[i] >= 0 || restanti <= 0 ? 'disabled' : ''}>${ico('i-scambia')}Sostituisci tappa</button></div>
+    <button class="btn btn-linea" type="button" data-apri-sim>${ico('i-schermo')}Rivedi l'esempio</button>
     <button class="btn btn-linea" type="button" id="btn-guida">${ico('i-freccia')}${guidaAttiva() ? 'Spegni' : 'Accendi'} la guida</button>
     <div id="conferma-sost"></div>
   </div>`;
@@ -4537,6 +4681,472 @@ function renderFine(){
 }
 
 /* =====================================================================
+   SIMULATORE — ricerca di prova su uno schermo diviso finto
+   Modello "io faccio, tu fai": prima «Guarda» (dimostrazione animata: cursore finto + didascalie),
+   poi «Prova tu» (lo studente rifa' gli stessi gesti, con bordo lampeggiante e freccia sul passo).
+   Il sito e' INVENTATO (dominio .prova, inesistente) e vive tutto qui dentro: nessun collegamento esterno.
+   Allena: barra degli indirizzi, avviso cookie, menu a tendina, freccia indietro, PDF, cmd+F con piu'
+   occorrenze, lato attivo dello schermo diviso (l'errore tipico di Chrome), risposta e verifica.
+   Il passo della prova e' DERIVATO dallo stato (passoCorrente), non dagli eventi: lo studente puo'
+   anche saltare o tornare indietro e la guida resta coerente.
+   ===================================================================== */
+const PROVA = {
+  dominio: 'museo-invenzioni.prova',
+  titolo: 'Il robot Bartolo',
+  contesto: "Questa è una tappa di prova su un museo inventato: serve solo per allenarti. Nel Museo delle Invenzioni del Campus c'è un automa famoso, il robot Bartolo, e la guida del museo racconta chi lo ha costruito.",
+  percorso: ['Se compare l\'avviso sui cookie, clicca "Nega".', 'Nel menu in alto porta il mouse su "Visita" e clicca "Documenti".', 'Clicca "Guida del museo (PDF)".'],
+  cmdf: 'Bartolo',
+  domanda: "Chi costruì il robot Bartolo? Scrivi il cognome dell'orologiaio.",
+  risposte: ['Rotelli', 'Anselmo Rotelli'],
+  trappola: ['Ferri', 'Giulia Ferri']
+};
+/* la "Guida del museo": blocchi [tipo, testo, extra]; la parola Bartolo compare 3 volte, la risposta e' alla terza */
+const PROVA_PDF = [
+  [['h1', 'Guida del museo'], ['p', 'Museo delle Invenzioni del Campus: un museo inventato, creato solo per la ricerca di prova.'],
+   ['p', 'Benvenuto! In questa guida trovi le sale del museo, dalle antiche macchine per contare fino al famoso robot Bartolo.'],
+   ['h2', 'Indice'], ['idx', 'Sala 1 · Macchine per contare', '2'], ['idx', 'Sala 2 · Strumenti per misurare', '3'],
+   ['idx', 'Sala 3 · Giochi meccanici', '4'], ['idx', 'Sala 4 · Gli automi', '5'], ['idx', 'Informazioni per la visita', '6']],
+  [['h2', 'Sala 1 · Macchine per contare'], ['p', 'Prima delle calcolatrici elettroniche si contava con abachi, pallottolieri e regoli. In questa sala puoi provare un pallottoliere gigante con cento palline colorate.'],
+   ['p', "Nella vetrina centrale c'è una calcolatrice meccanica a manovella: per fare una somma bisognava girarla più volte, come un macinino."]],
+  [['h2', 'Sala 2 · Strumenti per misurare'], ['p', 'Bilance a due piatti, metri pieghevoli, clessidre e termometri raccontano come le persone hanno imparato a misurare il mondo.'],
+   ['p', "La clessidra più grande della sala misura un quarto d'ora: prova a indovinare quando cadrà l'ultimo granello di sabbia."]],
+  [['h2', 'Sala 3 · Giochi meccanici'], ['p', 'Trottole, carillon e giocattoli a molla mostrano come gli ingranaggi trasformano una piccola spinta in un movimento lungo e preciso.'],
+   ['cap', 'Nella foto: i ragazzi della scuola davanti al robot Bartolo durante la festa del museo.']],
+  [['h2', 'Sala 4 · Gli automi'], ['p', 'Gli automi sono macchine che si muovono da sole grazie a molle, ingranaggi e camme, senza elettricità.'],
+   ['p', "Il robot Bartolo è l'automa più amato del museo. Lo costruì l'orologiaio Anselmo Rotelli, che ci lavorò per tre anni nella sua bottega. Nel 2010 la restauratrice Giulia Ferri lo ha pulito e rimesso in funzione.", 'pdf-risposta'],
+   ['p', "Oggi l'automa alza il braccio, gira la testa e suona un piccolo campanello."]],
+  [['h2', 'Informazioni per la visita'], ['p', 'Il museo è inventato: non cercarlo sulla mappa! Serve solo per allenarti a trovare le informazioni prima della spedizione vera.'],
+   ['p', 'Nella spedizione vera i siti sono reali: musei, enti pubblici, federazioni e biblioteche.']]
+];
+const SIM_PAGINE = {
+  home: {tit: 'Museo delle Invenzioni', path: ''},
+  museo: {tit: 'Il museo · Museo delle Invenzioni', path: '/il-museo'},
+  collezioni: {tit: 'Collezioni · Museo delle Invenzioni', path: '/collezioni'},
+  orari: {tit: 'Orari e biglietti · Museo delle Invenzioni', path: '/visita/orari'},
+  contatti: {tit: 'Contatti · Museo delle Invenzioni', path: '/contatti'},
+  documenti: {tit: 'Documenti · Museo delle Invenzioni', path: '/visita/documenti'},
+  pdf: {tit: 'Guida-del-museo.pdf', path: '/documenti/guida-del-museo.pdf'}
+};
+const FUORI_PERCORSO = '<p>Questa pagina non è nel percorso della tappa: torna indietro con la <b>freccia indietro</b> in alto a sinistra del browser, oppure usa il menu «Visita».</p>';
+const MS_PAGINE = {
+  home: () => `<h3>Benvenuti al Museo delle Invenzioni!</h3>
+    <p>Macchine per contare, strumenti per misurare, giochi meccanici e il famoso robot Bartolo: quattro sale per scoprire come funzionano le cose.</p>
+    <div class="ms-carte"><div class="ms-carta"><b>Sale e collezioni</b>Quattro sale, più di cento oggetti.</div>
+      <div class="ms-carta"><b>Per le scuole</b>Visite guidate e laboratori.</div>
+      <div class="ms-carta"><b>Un museo inventato</b>Esiste solo in questo simulatore.</div></div>`,
+  museo: () => `<div class="ms-briciole">Home › Il museo</div><h3>Il museo</h3><p>Il Museo delle Invenzioni del Campus raccoglie macchine e strumenti di ogni epoca. È un museo inventato: esiste solo in questo simulatore.</p>${FUORI_PERCORSO}`,
+  collezioni: () => `<div class="ms-briciole">Home › Collezioni</div><h3>Collezioni</h3><p>Macchine per contare, strumenti per misurare, giochi meccanici e automi.</p>${FUORI_PERCORSO}`,
+  orari: () => `<div class="ms-briciole">Home › Visita › Orari e biglietti</div><h3>Orari e biglietti</h3><p>Il museo è aperto ogni giorno, ma solo nella fantasia: è un museo inventato.</p>${FUORI_PERCORSO}`,
+  contatti: () => `<div class="ms-briciole">Home › Contatti</div><h3>Contatti</h3><p>Per le visite delle classi rivolgiti al tuo docente.</p>${FUORI_PERCORSO}`,
+  documenti: () => `<div class="ms-briciole">Home › Visita › Documenti</div><h3>Documenti</h3><p>Scarica le guide e i regolamenti del museo.</p>
+    <button class="ms-doc" type="button" data-ms-doc="regolamento">${ico('i-doc')}<span>Regolamento di visita (PDF)<small>2 pagine</small></span></button>
+    <button class="ms-doc" type="button" id="ms-guida" data-ms-doc="guida">${ico('i-doc')}<span>Guida del museo (PDF)<small>6 pagine</small></span></button>
+    <button class="ms-doc" type="button" data-ms-doc="mappa">${ico('i-doc')}<span>Mappa delle sale (PDF)<small>1 pagina</small></span></button>`
+};
+/* passi della prova guidata (fuori e fatto non sono contati) */
+const SIM_PASSI = [
+  {id: 'barra', sel: '#fb-url-box', testo: () => 'Clicca nella barra degli indirizzi della <b>scheda di destra</b>.'},
+  {id: 'digita', sel: '#fb-url-box', testo: () => "Scrivi l'indirizzo della tappa lettera per lettera, poi premi <b>Invio</b>."},
+  {id: 'cookie', sel: '#ms-nega', testo: () => "Il sito mostra l'avviso sui cookie: clicca <b>«Nega»</b>, la scelta che protegge i tuoi dati."},
+  {id: 'menu', sel: '#ms-visita', testo: () => 'Segui il percorso: porta il mouse su <b>«Visita»</b> nel menu del sito (su iPad toccalo).'},
+  {id: 'documenti', sel: '#ms-documenti', testo: () => 'Nel menu che si apre clicca <b>«Documenti»</b>.'},
+  {id: 'pdf', sel: '#ms-guida', testo: () => 'Clicca <b>«Guida del museo (PDF)»</b>.'},
+  {id: 'trova', sel: '#fb-trova', testo: () => `Il PDF è lungo: non scorrerlo tutto. Premi ${combo('F')} oppure tocca la lente in alto a destra.`},
+  {id: 'parola', sel: '#fb-find-input', testo: () => 'Scrivi la parola da cercare: <b>Bartolo</b>.'},
+  {id: 'occorrenza', sel: '#fb-find-next', testo: () => 'La parola compare più volte. Premi <b>Invio</b> (o la freccia giù) finché arrivi al paragrafo della <b>Sala 4</b>.'},
+  {id: 'risposta', sel: '#sim-campo', testo: () => 'Leggi la frase evidenziata: chi <b>costruì</b> il robot? Attenzione, nel paragrafo ci sono due nomi. Poi clicca nella <b>scheda di sinistra</b> e scrivi il cognome.'},
+  {id: 'verifica', sel: '#sim-check', testo: () => 'Ricontrolla quello che hai scritto e premi <b>Verifica</b>.'},
+  {id: 'fuori', sel: '#fb-indietro', testo: () => 'Sei in una pagina che non è nel percorso: usa la <b>freccia indietro</b> del browser, oppure riparti dal menu «Visita».'},
+  {id: 'fatto', sel: null, testo: () => `Ricerca completata! Hai usato tutti i gesti di una tappa vera: indirizzo, cookie, menu, PDF, ricerca con ${combo('F')} e risposta.`}
+];
+const DEMO_N = 13;
+let SIM = null;
+
+function statoSim(modo){
+  return {modo, pagina: 'nuova', storia: [], digitato: '', cookie: true, menu: false, barraToccata: false,
+          trova: {aperto: false, testo: '', i: -1, n: 0}, trovato: false, scritto: false, esito: null, lato: 'dx'};
+}
+function apriSimulatore(){
+  SIM = Object.assign(statoSim('guarda'), {demo: {token: 0, ferma: false}});
+  renderSim();
+  mostra('scr-sim');
+  setTimeout(() => { if (SIM && SIM.modo === 'guarda') avviaDemo(); }, 600);
+}
+function esciSimulatore(){
+  if (SIM) SIM.demo.token++;              // ferma la dimostrazione in corso
+  SIM = null;
+  if (S) route(); else renderIntro();
+}
+function simModo(m){
+  if (m === 'guarda') return avviaDemo();
+  const demo = SIM.demo; demo.token++; demo.ferma = false;
+  SIM = Object.assign(statoSim('prova'), {demo});
+  renderSim();
+}
+
+/* ---------- disegno ---------- */
+function renderSim(){
+  $('#scr-sim').innerHTML = `
+    <div class="sim-testa">
+      <h2 id="titolo-sim">${ico('i-schermo')}Simulatore · ricerca di prova</h2>
+      <div class="sim-modi">
+        <button class="sim-modo ${SIM.modo === 'guarda' ? 'on' : ''}" type="button" data-sim-modo="guarda">1 · Guarda</button>
+        <button class="sim-modo ${SIM.modo === 'prova' ? 'on' : ''}" type="button" data-sim-modo="prova">2 · Prova tu</button>
+      </div>
+      <button class="btn btn-linea" type="button" id="sim-esci">${ico('i-sx')}Esci dal simulatore</button>
+    </div>
+    <div class="sim-dida" id="sim-dida" aria-live="polite"></div>
+    <div class="sim-monitor" id="sim-monitor">
+      <div class="sim-lato sim-sx" data-lato="sx" aria-label="Scheda di sinistra: la tappa di prova">${simTappaHTML()}<span class="chip-attivo">lato attivo</span></div>
+      <div class="sim-lato sim-dx" data-lato="dx" aria-label="Scheda di destra: il browser per la ricerca"><div class="fb" id="fb"></div><span class="chip-attivo">lato attivo</span></div>
+      <svg class="sim-freccia hidden" id="sim-freccia" aria-hidden="true"><use href="#i-freccia"/></svg>
+      <div class="sim-cursore hidden" id="sim-cursore" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="30"><path d="M5 2.5l12.5 11.2-5.6.6 3.3 6.6-2.6 1.3-3.3-6.6L5 19.6z" fill="#fff" stroke="#33272A" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+      <div class="sim-tasti hidden" id="sim-tasti" aria-hidden="true">${combo('F')}</div>
+      <div class="sim-nota hidden" id="sim-nota" role="status"></div>
+    </div>`;
+  $('#sim-esci').onclick = esciSimulatore;
+  document.querySelectorAll('[data-sim-modo]').forEach(b => b.onclick = () => simModo(b.dataset.simModo));
+  const mon = $('#sim-monitor');
+  mon.addEventListener('click', simClic);
+  mon.addEventListener('pointerdown', e => { const l = e.target.closest('[data-lato]'); if (l && e.isTrusted && SIM.modo === 'prova') simLato(l.dataset.lato); });
+  mon.addEventListener('mouseover', e => { if (SIM.modo === 'prova' && !SIM.menu && e.target.closest('.ms-drop')) simMenu(true); });
+  mon.addEventListener('submit', e => { e.preventDefault(); if (SIM.modo === 'prova' && e.target.id === 'fb-url-box'){ SIM.barraToccata = true; simLato('dx'); simVai($('#fb-url').value); } });
+  mon.addEventListener('focusin', e => {
+    if (SIM.modo !== 'prova') return;
+    if (e.target.id === 'fb-url'){ simLato('dx'); SIM.barraToccata = true; e.target.select(); simGuida(); }
+    if (e.target.id === 'sim-campo') simLato('sx');
+    if (e.target.id === 'fb-find-input') simLato('dx');
+  });
+  mon.addEventListener('input', e => {
+    if (SIM.modo !== 'prova') return;
+    if (e.target.id === 'fb-find-input') simCerca(e.target.value);
+    if (e.target.id === 'fb-url' && !SIM.barraToccata){ SIM.barraToccata = true; simLato('dx'); simGuida(); }
+    if (e.target.id === 'sim-campo'){ SIM.scritto = !!e.target.value.trim(); simGuida(); }
+  });
+  mon.addEventListener('keydown', e => {
+    if (SIM.modo !== 'prova') return;
+    if (e.target.id === 'fb-find-input' && e.key === 'Enter'){ e.preventDefault(); simProssima(e.shiftKey ? -1 : 1); }
+    if (e.target.id === 'fb-find-input' && e.key === 'Escape') simTrova(false);
+    if (e.target.id === 'sim-campo' && e.key === 'Enter') simVerifica();
+  });
+  let raf = 0;
+  mon.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(riposizionaFreccia); }, true);
+  /* il box indirizzo della tappa di prova non si copia, come nelle tappe vere */
+  const barra = mon.querySelector('[data-url]');
+  ['copy', 'cut', 'contextmenu', 'dragstart', 'selectstart'].forEach(ev => barra.addEventListener(ev, e => e.preventDefault()));
+  renderFb();
+  simLato(SIM.lato);
+  if (SIM.modo === 'prova') simGuida();
+  else dida('Dimostrazione', 'Guarda come si fa una ricerca: il cursore farà tutti i passaggi al posto tuo.', []);
+}
+function simTappaHTML(){
+  return `<div class="sim-tappa">
+    <div class="t-head"><div class="badges"><span class="badge disc">${ico('i-schermo')}Tappa di prova</span><span class="badge pdf">${ico('i-doc')}PDF · ${MOD_TXT}+F</span></div></div>
+    <h4>${esc(PROVA.titolo)}</h4>
+    <p class="contesto">${esc(PROVA.contesto)}</p>
+    <h5 class="etichetta"><span class="n">1</span>Digita questo indirizzo</h5>
+    <div class="barra" data-url aria-label="Indirizzo da digitare: ${esc(PROVA.dominio)}">${ico('i-lucchetto')}<span class="url-txt">${esc(PROVA.dominio)}</span></div>
+    <h5 class="etichetta"><span class="n">2</span>Segui il percorso</h5>
+    <ol class="passi">${PROVA.percorso.map(p => `<li><span>${conEtichette(p)}</span></li>`).join('')}</ol>
+    <h5 class="etichetta"><span class="n">3</span>Cerca nel documento</h5>
+    <div class="cerca"><p>Clicca nella scheda di destra, premi ${combo('F')} e cerca <mark>${esc(PROVA.cmdf)}</mark></p></div>
+    <div class="rompicapo"><p class="domanda">${esc(PROVA.domanda)}</p>
+      <div class="risposta"><input class="campo" id="sim-campo" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Scrivi il cognome" aria-label="Risposta alla tappa di prova">
+        <button class="btn btn-primario" type="button" id="sim-check">${ico('i-check')}Verifica</button></div>
+      <div class="feedback" id="sim-feedback" aria-live="polite"></div></div>
+  </div>`;
+}
+const simIndirizzo = () => SIM.pagina === 'nuova' ? '' : SIM.pagina === 'errore' ? SIM.digitato : PROVA.dominio + SIM_PAGINE[SIM.pagina].path;
+function renderFb(){
+  const p = SIM.pagina;
+  const tit = p === 'nuova' ? 'Nuova scheda' : p === 'errore' ? 'Sito non raggiungibile' : SIM_PAGINE[p].tit;
+  const t = SIM.trova;
+  $('#fb').innerHTML = `
+    <div class="fb-tabs"><span class="fb-tab">${p === 'pdf' ? ico('i-doc') : ''}${esc(tit)}</span></div>
+    <div class="fb-bar">
+      <button class="fb-btn" type="button" id="fb-indietro" aria-label="Pagina precedente" ${SIM.storia.length ? '' : 'disabled'}>${ico('i-sx')}</button>
+      <button class="fb-btn" type="button" id="fb-ricarica" aria-label="Ricarica la pagina" ${p === 'nuova' ? 'disabled' : ''}>${ico('i-ricarica')}</button>
+      <form class="fb-url" id="fb-url-box" autocomplete="off">${ico(p === 'nuova' || p === 'errore' ? 'i-lente' : 'i-lucchetto')}
+        <input id="fb-url" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Barra degli indirizzi della scheda di destra" placeholder="Scrivi un indirizzo" value="${esc(simIndirizzo())}"></form>
+      <button class="fb-btn" type="button" id="fb-trova" aria-label="Trova nella pagina">${ico('i-lente')}</button>
+    </div>
+    ${t.aperto ? `<div class="fb-find" id="fb-find">
+      <input id="fb-find-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Trova nella pagina" placeholder="Trova nella pagina" value="${esc(t.testo)}">
+      <span class="conta" id="fb-conta"></span>
+      <button class="fb-btn" type="button" id="fb-find-prev" aria-label="Occorrenza precedente">${ico('i-sx', 'ruota')}</button>
+      <button class="fb-btn" type="button" id="fb-find-next" aria-label="Occorrenza successiva">${ico('i-dx', 'ruota')}</button>
+      <button class="fb-btn" type="button" id="fb-find-chiudi" aria-label="Chiudi la ricerca">${ico('i-chiudi')}</button></div>` : ''}
+    <div class="fb-view" id="fb-view"></div>`;
+  renderVista(false);
+}
+function simPaginaHTML(){
+  const p = SIM.pagina;
+  if (p === 'nuova') return `<div class="fb-nuova">${ico('i-lente')}<p>Scrivi un indirizzo nella barra in alto.</p></div>`;
+  if (p === 'errore') return `<div class="fb-err"><h3>Impossibile raggiungere il sito</h3>
+      <p>Hai scritto:</p><div class="digitato">${diffIndirizzo(SIM.digitato, PROVA.dominio)}</div>
+      <p>L'indirizzo della tappa è: <span class="atteso">${esc(PROVA.dominio)}</span></p>
+      <p>Controlla lettera per lettera, soprattutto quelle evidenziate, e riprova.</p></div>`;
+  if (p === 'pdf') return `<div class="pdf"><div class="pdf-barra">Guida-del-museo.pdf · ${PROVA_PDF.length} pagine</div>${PROVA_PDF.map((pag, k) =>
+    `<div class="pdf-pag">${pag.map(([t, x, y]) => t === 'idx' ? `<div class="idx"><span>${esc(x)}</span><span>pag. ${esc(y)}</span></div>`
+      : t === 'cap' ? `<p class="cap">${esc(x)}</p>` : (t === 'h1' || t === 'h2') ? `<${t}>${esc(x)}</${t}>`
+      : `<p${y ? ` id="${y}"` : ''}>${esc(x)}</p>`).join('')}<span class="npag">${k + 1}</span></div>`).join('')}</div>`;
+  return `<div class="ms"><header class="ms-head">
+      <div class="ms-logo">${ico('i-ingranaggio')}<div><b>Museo delle Invenzioni</b><small>del Campus · sito di prova, museo inventato</small></div></div>
+      <nav class="ms-nav" aria-label="Menu del sito di prova"><button type="button" data-ms="museo">Il museo</button><button type="button" data-ms="collezioni">Collezioni</button>
+        <div class="ms-drop ${SIM.menu ? 'aperto' : ''}"><button type="button" id="ms-visita" aria-expanded="${SIM.menu}">Visita${ico('i-dx')}</button>
+          <div class="ms-sub"><button type="button" data-ms="orari">Orari e biglietti</button><button type="button" id="ms-documenti" data-ms="documenti">Documenti</button></div></div>
+        <button type="button" data-ms="contatti">Contatti</button></nav></header>
+    <div class="ms-corpo">${MS_PAGINE[p]()}</div>
+    ${SIM.cookie ? `<div class="ms-cookie" role="dialog" aria-label="Avviso sui cookie"><p>Questo sito di prova usa i cookie per ricordare le tue preferenze. Puoi accettarli o negarli.</p>
+      <button type="button" class="nega" id="ms-nega">Nega</button><button type="button" class="accetta" id="ms-accetta">Accetta</button></div>` : ''}</div>`;
+}
+/* ridisegna solo l'area della pagina (la barra di ricerca resta: non perde il cursore mentre si scrive) */
+function renderVista(primo){
+  const v = $('#fb-view'); if (!v) return;
+  v.innerHTML = simPaginaHTML();
+  const t = SIM.trova;
+  if (t.aperto && t.testo.trim()) evidenziaTesto(v, t.testo.trim());
+  const marks = [...v.querySelectorAll('mark.fm')];
+  t.n = marks.length;
+  if (primo || t.i >= t.n) t.i = t.n ? 0 : -1;
+  marks.forEach((m, k) => m.classList.toggle('cur', k === t.i));
+  const c = $('#fb-conta'); if (c) c.textContent = t.testo.trim() ? (t.n ? `${t.i + 1} di ${t.n}` : '0 di 0') : '';
+  if (t.i >= 0 && marks[t.i]){ scrollDentro(marks[t.i], v, true); if (marks[t.i].closest('#pdf-risposta')) SIM.trovato = true; }
+  if (SIM.trovato && SIM.pagina === 'pdf'){ const r = $('#pdf-risposta'); if (r) r.classList.add('evid'); }
+  simGuida();
+}
+/* come la ricerca del browser: evidenzia ogni occorrenza nei nodi di testo, senza toccare i tag */
+function evidenziaTesto(root, termine){
+  const rx = new RegExp(termine.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), nodi = [];
+  while (w.nextNode()) if (w.currentNode.nodeValue.trim()) nodi.push(w.currentNode);
+  nodi.forEach(n => {
+    const s = n.nodeValue; rx.lastIndex = 0;
+    if (!rx.test(s)) return;
+    rx.lastIndex = 0;
+    const f = document.createDocumentFragment(); let last = 0, m;
+    while ((m = rx.exec(s))){ f.append(s.slice(last, m.index)); const mk = document.createElement('mark'); mk.className = 'fm'; mk.textContent = m[0]; f.append(mk); last = m.index + m[0].length; }
+    f.append(s.slice(last)); n.replaceWith(f);
+  });
+}
+/* evidenzia solo il tratto sbagliato: prefisso e suffisso uguali restano normali;
+   se mancano lettere compare un segnaposto nel punto esatto in cui mancano */
+function diffIndirizzo(a, b){
+  const x = a.toLowerCase();
+  let p = 0; while (p < x.length && p < b.length && x[p] === b[p]) p++;
+  let q = 0; while (q < x.length - p && q < b.length - p && x[x.length - 1 - q] === b[b.length - 1 - q]) q++;
+  const mezzo = a.slice(p, a.length - q);
+  return esc(a.slice(0, p)) + (mezzo ? `<mark>${esc(mezzo)}</mark>` : '<mark>&nbsp;</mark>') + esc(a.slice(a.length - q));
+}
+function scrollDentro(el, box, centra){
+  const b = box.getBoundingClientRect(), r = el.getBoundingClientRect();
+  if (!centra && r.top >= b.top + 8 && r.bottom <= b.bottom - 8) return;
+  box.scrollTop += r.top - b.top - box.clientHeight / 3;
+}
+
+/* ---------- azioni (usate sia dalla dimostrazione sia dallo studente) ---------- */
+const normIndirizzo = s => String(s || '').trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/+$/, '');
+function simVai(testo){
+  const u = normIndirizzo(testo); if (!u) return;
+  const dest = Object.keys(SIM_PAGINE).find(k => u === PROVA.dominio + SIM_PAGINE[k].path);
+  if (dest) simPagina(dest);
+  else { SIM.digitato = u; simPagina('errore'); }
+}
+function simPagina(p){
+  if (SIM.pagina !== 'nuova') SIM.storia.push({pagina: SIM.pagina, digitato: SIM.digitato});
+  SIM.pagina = p; SIM.menu = false;
+  SIM.trova = {aperto: false, testo: '', i: -1, n: 0};
+  renderFb();
+}
+function simIndietro(){
+  const prec = SIM.storia.pop(); if (!prec) return;
+  Object.assign(SIM, prec, {menu: false, trova: {aperto: false, testo: '', i: -1, n: 0}});
+  renderFb();
+}
+function simCookie(nega){
+  SIM.cookie = false; renderVista(false);
+  if (!nega) simNota('Va bene lo stesso, ma «Nega» è la scelta che protegge meglio i tuoi dati.');
+}
+function simMenu(aperto){
+  SIM.menu = aperto;
+  const d = $('.ms-drop'); if (d){ d.classList.toggle('aperto', aperto); $('#ms-visita').setAttribute('aria-expanded', aperto); }
+  simGuida();
+}
+function simTrova(apri){
+  SIM.trova = apri ? Object.assign(SIM.trova, {aperto: true}) : {aperto: false, testo: '', i: -1, n: 0};
+  renderFb();
+  const f = $('#fb-find-input'); if (apri && f && SIM.modo === 'prova') f.focus();
+}
+function simCerca(testo){ SIM.trova.testo = testo; renderVista(true); }
+function simProssima(dir){
+  const t = SIM.trova; if (!t.n) return;
+  t.i = (t.i + dir + t.n) % t.n;
+  renderVista(false);
+}
+function simLato(l){
+  SIM.lato = l;
+  document.querySelectorAll('#sim-monitor .sim-lato').forEach(x => x.classList.toggle('attivo', x.dataset.lato === l));
+}
+function simVerifica(){
+  const v = $('#sim-campo').value, fb = $('#sim-feedback');
+  const scrivi = (tipo, html) => { fb.className = 'feedback ' + tipo; fb.innerHTML = (tipo === 'ok' ? ico('i-check') : ico('i-attenzione')) + `<span>${html}</span>`; };
+  if (!norm(v)) scrivi('no', 'Scrivi prima la risposta nel campo.');
+  else if (confrontaTesto(v, PROVA.trappola).ok) scrivi('no', 'Hai scritto chi ha <b>restaurato</b> il robot nel 2010, non chi lo ha <b>costruito</b>: rileggi la frase con attenzione.');
+  else if (!confrontaTesto(v, PROVA.risposte).ok) scrivi('no', 'Non corrisponde al dato del documento: rileggi la frase evidenziata nel PDF.');
+  else { SIM.esito = 'ok'; scrivi('ok', 'Dato trovato: l\'orologiaio <b>Anselmo Rotelli</b> costruì il robot Bartolo. Nelle tappe vere funziona allo stesso modo.'); }
+  simGuida();
+}
+function simNota(html){
+  const n = $('#sim-nota'); if (!n) return;
+  n.innerHTML = html; n.classList.remove('hidden');
+  clearTimeout(simNota.t); simNota.t = setTimeout(() => n.classList.add('hidden'), 4500);
+}
+function simClic(e){
+  const b = e.target.closest('button'); if (!b) return;
+  if (SIM.modo === 'guarda' && e.isTrusted){ simNota('Questa è la dimostrazione: guarda il cursore. Poi scegli <b>«2 · Prova tu»</b>.'); return; }
+  if (SIM.menu && !b.closest('.ms-drop')) simMenu(false);
+  if (b.id === 'fb-indietro') simIndietro();
+  else if (b.id === 'fb-ricarica') renderFb();
+  else if (b.id === 'fb-trova') simTrova(true);
+  else if (b.id === 'fb-find-next') simProssima(1);
+  else if (b.id === 'fb-find-prev') simProssima(-1);
+  else if (b.id === 'fb-find-chiudi') simTrova(false);
+  else if (b.id === 'ms-nega' || b.id === 'ms-accetta') simCookie(b.id === 'ms-nega');
+  else if (b.id === 'ms-visita') simMenu(!SIM.menu);
+  else if (b.dataset.ms) simPagina(b.dataset.ms);
+  else if (b.dataset.msDoc) b.dataset.msDoc === 'guida' ? simPagina('pdf') : simNota('In questa prova si apre solo la <b>Guida del museo</b>: è il documento indicato dal percorso.');
+  else if (b.id === 'sim-check') simVerifica();
+}
+
+/* ---------- prova guidata: il passo si ricava dallo stato ---------- */
+function passoCorrente(){
+  if (SIM.esito === 'ok') return 'fatto';
+  if (SIM.pagina === 'nuova' || SIM.pagina === 'errore') return SIM.barraToccata ? 'digita' : 'barra';
+  if (SIM.cookie) return 'cookie';
+  if (['museo', 'collezioni', 'orari', 'contatti'].includes(SIM.pagina)) return 'fuori';
+  if (SIM.pagina === 'home') return SIM.menu ? 'documenti' : 'menu';
+  if (SIM.pagina === 'documenti') return 'pdf';
+  if (SIM.trovato) return SIM.scritto ? 'verifica' : 'risposta';
+  if (!SIM.trova.aperto) return 'trova';
+  if (norm(SIM.trova.testo) !== norm(PROVA.cmdf)) return 'parola';
+  return 'occorrenza';
+}
+function dida(num, testo, bottoni){
+  const d = $('#sim-dida'); if (!d) return;
+  d.innerHTML = `<div class="testo"><span class="num">${esc(num)}</span><p>${testo}</p></div>
+    <div class="ctrl">${(bottoni || []).map((b, k) => `<button type="button" class="${b[2] ? 'guida-ok' : ''}" data-dida="${k}">${b[0]}</button>`).join('')}</div>`;
+  d.querySelectorAll('[data-dida]').forEach(x => x.onclick = () => bottoni[+x.dataset.dida][1]());
+}
+function simGuida(){
+  const mon = $('#sim-monitor'); if (!mon || !SIM || SIM.modo !== 'prova') return;
+  mon.querySelectorAll('.guida-on').forEach(x => x.classList.remove('guida-on'));
+  const id = passoCorrente(), p = SIM_PASSI.find(x => x.id === id);
+  const contati = SIM_PASSI.filter(x => x.id !== 'fuori' && x.id !== 'fatto'), k = contati.findIndex(x => x.id === id);
+  const testo = id === 'digita' && SIM.pagina === 'errore'
+    ? "L'indirizzo non è giusto: confronta le lettere evidenziate con quello della tappa, correggi e premi <b>Invio</b>." : p.testo();
+  dida(id === 'fatto' ? 'Prova tu · completata' : id === 'fuori' ? 'Prova tu · fuori percorso' : `Prova tu · passo ${k + 1} di ${contati.length}`, testo,
+    id === 'fatto' ? [['Rivedi la dimostrazione', () => simModo('guarda')], ['Esci dal simulatore', esciSimulatore, true]]
+                   : [['Ricomincia la prova', () => simModo('prova')]]);
+  const el = p.sel ? $(p.sel) : null;
+  if (el){ el.classList.add('guida-on'); const box = el.closest('.fb-view, .sim-sx'); if (box) scrollDentro(el, box, false); }
+  riposizionaFreccia();
+}
+function riposizionaFreccia(){
+  const fr = $('#sim-freccia'), mon = $('#sim-monitor'); if (!fr || !mon) return;
+  const el = mon.querySelector('.guida-on');
+  if (!el || SIM.modo !== 'prova'){ fr.classList.add('hidden'); return; }
+  const m = mon.getBoundingClientRect(), r = el.getBoundingClientRect();
+  if (!r.width){ fr.classList.add('hidden'); return; }
+  let top = r.top - m.top - 42, su = false;
+  if (top < 4){ top = r.bottom - m.top + 4; su = true; }
+  fr.style.left = (r.left - m.left + Math.min(r.width / 2, 60) - 14) + 'px';
+  fr.style.top = top + 'px';
+  fr.classList.toggle('su', su); fr.classList.remove('hidden');
+}
+
+/* ---------- dimostrazione animata ---------- */
+/* attesa della dimostrazione: conta il tempo reale (le schede in secondo piano rallentano i timer),
+   si sospende con «Pausa» e si interrompe se la dimostrazione viene fermata o riavviata.
+   window.__simVel accelera la dimostrazione solo per il collaudo (default 1). */
+function pausa(ms){
+  const tok = SIM && SIM.demo.token;
+  return new Promise((ok, ko) => {
+    let resto = ms, prima = performance.now();
+    const tick = () => {
+      if (!SIM || SIM.demo.token !== tok) return ko(new Error('stop'));
+      const ora = performance.now();
+      if (!SIM.demo.ferma) resto -= (ora - prima) * (window.__simVel || 1);
+      prima = ora;
+      if (resto <= 0) return ok();
+      setTimeout(tick, 40);
+    };
+    tick();
+  });
+}
+async function vaiCursore(sel){
+  const el = $(sel), c = $('#sim-cursore'), mon = $('#sim-monitor'); if (!el || !c) return;
+  const box = el.closest('.fb-view, .sim-sx'); if (box) scrollDentro(el, box, false);
+  await pausa(120);
+  const m = mon.getBoundingClientRect(), r = el.getBoundingClientRect();
+  c.classList.remove('hidden');
+  c.style.left = (r.left - m.left + Math.min(r.width / 2, 50)) + 'px';
+  c.style.top = (r.top - m.top + r.height / 2) + 'px';
+  await pausa(850);
+}
+function clic(){ const c = $('#sim-cursore'); if (!c) return; c.classList.remove('clic'); void c.offsetWidth; c.classList.add('clic'); }
+async function digita(sel, testo, ogniLettera){
+  const el = $(sel); if (!el) return;
+  el.value = '';
+  for (const ch of testo){ el.value += ch; if (ogniLettera) ogniLettera(el.value); await pausa(120); }
+}
+const togglePausa = () => { SIM.demo.ferma = !SIM.demo.ferma; const b = $('#sim-dida [data-dida="0"]'); if (b) b.textContent = SIM.demo.ferma ? 'Riprendi' : 'Pausa'; };
+async function passoDemo(n, testo, ms){
+  $('#sim-monitor').querySelectorAll('.guida-on').forEach(x => x.classList.remove('guida-on'));
+  dida(`Dimostrazione · passo ${n} di ${DEMO_N}`, testo,
+    [[SIM.demo.ferma ? 'Riprendi' : 'Pausa', togglePausa], ['Ricomincia', avviaDemo], ['Salta alla prova', () => simModo('prova'), true]]);
+  if (ms) await pausa(ms);
+}
+async function avviaDemo(){
+  const demo = SIM.demo; demo.token++; demo.ferma = false;
+  SIM = Object.assign(statoSim('guarda'), {demo});
+  renderSim();
+  try { await scriptDemo(); } catch (e) { if (e.message !== 'stop') throw e; }
+}
+async function scriptDemo(){
+  await passoDemo(1, 'Ecco lo schermo diviso: a <b>sinistra</b> la tappa, a <b>destra</b> la scheda per cercare. Guarda come si fa una ricerca, passo per passo.', 3200);
+  await passoDemo(2, "Leggo l'indirizzo nella scheda della tappa, a sinistra."); $('#sim-monitor .sim-tappa .barra').classList.add('guida-on'); await vaiCursore('#sim-monitor .sim-tappa .barra'); await pausa(1600);
+  await passoDemo(3, 'Clicco nella barra degli indirizzi della <b>scheda di destra</b>: ora è lei il lato attivo.'); await vaiCursore('#fb-url-box'); clic(); simLato('dx'); await pausa(1000);
+  await passoDemo(4, "Scrivo l'indirizzo lettera per lettera e premo <b>Invio</b>."); await digita('#fb-url', PROVA.dominio); await pausa(600); simVai(PROVA.dominio); await pausa(1500);
+  await passoDemo(5, "Compare l'avviso sui cookie: scelgo <b>«Nega»</b>."); await vaiCursore('#ms-nega'); clic(); simCookie(true); await pausa(1300);
+  await passoDemo(6, 'Seguo il percorso: porto il mouse su <b>«Visita»</b>…'); await vaiCursore('#ms-visita'); simMenu(true); await pausa(1300);
+  await passoDemo(7, '…e clicco <b>«Documenti»</b>.'); await vaiCursore('#ms-documenti'); clic(); simPagina('documenti'); await pausa(1500);
+  await passoDemo(8, 'Apro la <b>«Guida del museo (PDF)»</b>: è lunga sei pagine.'); await vaiCursore('#ms-guida'); clic(); simPagina('pdf'); await pausa(1700);
+  await passoDemo(9, `Non scorro tutto il PDF: premo ${combo('F')}…`); $('#sim-tasti').classList.remove('hidden'); await pausa(1400); $('#sim-tasti').classList.add('hidden'); simTrova(true); await pausa(600);
+  await passoDemo(10, '…e scrivo la parola da cercare: <b>Bartolo</b>. Il browser la evidenzia in giallo.'); await vaiCursore('#fb-find-input'); await digita('#fb-find-input', PROVA.cmdf, simCerca); await pausa(1800);
+  await passoDemo(11, 'La parola compare più volte. Premo <b>Invio</b> per passare alla successiva, finché arrivo al paragrafo della <b>Sala 4</b>.');
+  for (let giri = 0; !SIM.trovato && giri < 6; giri++){ await vaiCursore('#fb-find-next'); clic(); simProssima(1); await pausa(1500); }
+  await passoDemo(12, "Eccolo! Leggo con attenzione: chi <b>costruì</b> il robot? Nel paragrafo c'è anche chi lo ha <b>restaurato</b>: non devo confondermi.", 3800);
+  await passoDemo(13, 'Torno nella <b>scheda di sinistra</b>, scrivo il cognome e premo <b>Verifica</b>.'); await vaiCursore('#sim-campo'); clic(); simLato('sx'); await digita('#sim-campo', 'Rotelli'); await pausa(500);
+  await vaiCursore('#sim-check'); clic(); simVerifica(); await pausa(2200);
+  $('#sim-cursore').classList.add('hidden');
+  dida('Dimostrazione completata', 'Ora tocca a te: rifai la stessa ricerca da solo. Una freccia e un bordo lampeggiante ti indicano ogni passo.',
+    [['Rivedi', avviaDemo], ['Prova tu', () => simModo('prova'), true]]);
+}
+/* cmd+F e cmd+L nel simulatore: valgono per il LATO ATTIVO, come nella visualizzazione divisa di Chrome */
+document.addEventListener('keydown', e => {
+  if (!SIM || !$('#scr-sim').classList.contains('on')) return;
+  const k = (e.key || '').toLowerCase();
+  if (!(e.metaKey || e.ctrlKey) || (k !== 'f' && k !== 'l')) return;
+  e.preventDefault();
+  if (SIM.modo !== 'prova') return;
+  if (SIM.lato === 'sx'){ simNota(`Hai premuto ${MOD_TXT}+${k.toUpperCase()} mentre era attiva la <b>scheda di sinistra</b>: clicca prima nella scheda di destra, poi riprova.`); return; }
+  if (k === 'f') simTrova(true);
+  else { const u = $('#fb-url'); if (u){ u.focus(); u.select(); } }
+});
+window.addEventListener('resize', () => { if (SIM) riposizionaFreccia(); });
+document.addEventListener('click', e => { if (e.target.closest('[data-apri-sim]')) apriSimulatore(); });
+
+/* =====================================================================
    INFO DOCENTI (modale a tab)
    ===================================================================== */
 let pinOk = false;
@@ -4554,7 +5164,8 @@ const TAB = {
       <h3>Organizzazione</h3>
       <ul><li>Postazione: <b>visualizzazione divisa di Chrome</b> (menu «Scheda» &gt; «Aggiungi scheda alla nuova visualizzazione divisa», option+cmd+N). La Web Quest a sinistra, la ricerca nella scheda di destra; l'impaginazione è pensata per metà schermo. Su iPad: vista affiancata di Safari. Il briefing mostra i passi e controlla da solo se la quest occupa metà schermo.</li>
         <li>Attenzione: in Chrome la barra degli indirizzi è unica e vale per il lato attivo. Se uno studente scrive l'indirizzo con la quest attiva, il browser chiede conferma prima di lasciare la pagina; ricaricando, la partita riprende da dove era.</li>
-        <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief.</li>
+        <li><b>Simulatore</b> (facoltativo, dal briefing o da «Rivedi l'esempio» in fondo a ogni tappa): una ricerca di prova su uno schermo diviso finto, con un museo inventato. Prima «Guarda» (dimostrazione animata, adatta anche alla LIM), poi «Prova tu» con la guida passo passo: barra degli indirizzi, cookie, menu, freccia indietro, PDF, ${MOD_TXT}+F con più occorrenze, lato attivo, risposta con un nome-trappola.</li>
+        <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
         <li>Debrief consigliato: confrontare i codici finali (aiuti e soluzioni), discutere quale tecnica è servita di più, quali errori di digitazione sono stati più frequenti.</li></ul>

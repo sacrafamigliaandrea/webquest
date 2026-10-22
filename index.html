@@ -365,6 +365,8 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .form-riga{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin:10px 0}
 .form-riga label{display:flex;flex-direction:column;gap:5px;font-family:var(--head);font-size:14px;font-weight:600;color:var(--ink)}
 .form-riga select,.form-riga input{font:17px var(--body);padding:10px 12px;border:2px solid var(--brd2);border-radius:10px;min-height:48px;background:#fff}
+.passi-pagina{margin:10px 0 4px;padding-left:22px;font-size:16px;line-height:1.5}
+.passi-pagina li{margin:3px 0}
 .nota-rete{display:flex;align-items:center;gap:8px;color:var(--ambra);background:var(--ambraL);border-radius:10px;padding:8px 12px;margin:8px 0 12px;font-size:15px}
 .nota-rete svg.i{width:18px;height:18px;flex:0 0 auto}
 .rete-q{border:1px solid var(--brd);border-left:6px solid var(--verde);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
@@ -444,7 +446,7 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .v-info .btn{min-height:44px;font-size:14.5px;padding:7px 12px;background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
 .special{margin-top:18px;text-align:left;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px}
 .special .ico{width:48px;height:48px;border-radius:13px;background:var(--rosso);display:grid;place-items:center;flex:0 0 auto}
-.special .ico svg.i{width:26px;height:26px;margin-left:3px}
+.special .ico svg.i{width:28px;height:28px;--ico-bg:var(--rosso)}
 .special div{flex:1 1 220px}
 .special b{font-family:var(--head);font-size:17px;display:block}
 .special small{display:block;font-family:var(--head);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--oro)}
@@ -676,6 +678,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
     <symbol id="t-citazioni" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M10.2 5.5C6.9 6.4 4.3 9 4.3 12.9a3.1 3.1 0 1 0 3.1-3.1c-.3 0-.6 0-.8.1.6-1.5 2-2.7 3.9-3.3z"/><path d="M19.7 5.5c-3.3.9-5.9 3.5-5.9 7.4a3.1 3.1 0 1 0 3.1-3.1c-.3 0-.6 0-.8.1.6-1.5 2-2.7 3.9-3.3z"/></g></symbol>
     <symbol id="t-canzoni" viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M6 10.5a6 6 0 0 0 12 0M12 16.5V21M8.5 21h7"/><path d="M9 6.5h2M9 9.5h2" stroke-width="1.4"/></symbol>
     <symbol id="t-nobel-italiani" viewBox="0 0 24 24"><path d="M8 2.5l3 6M16 2.5l-3 6"/><circle cx="12" cy="15" r="6"/><path d="M12 11.6l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="t-testo-storia" viewBox="0 0 24 24"><path d="M6 2.5h8.5L19 7v14.5H6z"/><path d="M14.5 2.5V7H19"/><path d="M8.8 10.5h7.4M8.8 13.5h7.4M8.8 16.5h4.6"/></symbol>
     <symbol id="t-video" viewBox="0 0 24 24"><rect x="2.5" y="4" width="15.5" height="11" rx="2"/><path d="M8.6 7.2v4.6l4-2.3z" fill="currentColor" stroke="none"/><circle cx="17" cy="16.3" r="3.7" fill="var(--ico-bg,#fff)"/><path d="M19.7 19L22 21.3"/></symbol>
     <!-- discipline -->
     <symbol id="d-arte" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.9-1 1.5-2l-.4-1.1a1.7 1.7 0 0 1 1.6-2.3H17a4 4 0 0 0 4-4C21 7 17 3 12 3z"/><g fill="currentColor" stroke="none"><circle cx="7.5" cy="11" r="1.2"/><circle cx="9.5" cy="7" r="1.2"/><circle cx="14.5" cy="7" r="1.2"/></g></symbol>
@@ -5201,11 +5204,388 @@ const QUEST = [
    }
   ],
   "special": true
+ },
+ {
+  "tema": "testo-storia",
+  "sigla": "SEN",
+  "breve": "Un testo da detective",
+  "icona": "t-testo-storia",
+  "titolo": "Un testo da detective: la storia del Senato",
+  "sottotitolo": "Una sola pagina, nessuna immagine: dal 1848 alla Repubblica. Titoletti, parole chiave, cmd+F e numeri scritti in lettere: impari a leggere un testo lungo senza perderti.",
+  "parole": [
+   "SENATORE",
+   "CAPITALE",
+   "ELEZIONI"
+  ],
+  "indovinelli": {
+   "SENATORE": "Siede a Palazzo Madama: ai tempi del Re era nominato a vita, oggi quasi sempre è eletto dai cittadini.",
+   "CAPITALE": "Torino, Firenze e poi Roma: è il titolo che queste città si sono passate, e il Senato le ha seguite.",
+   "ELEZIONI": "Con loro i cittadini scelgono chi li rappresenta: il Senato del Re non le conosceva, quello della Repubblica sì."
+  },
+  "tappe": [
+   {
+    "id": "senato-tre-capitali",
+    "titolo": "Le tre case del Senato",
+    "disciplina": "geografia",
+    "contesto": "Prima di cercare un dato, un buon lettore guarda come è costruito il testo. Questa pagina è divisa in parti, ognuna con un titoletto in grassetto che indica un periodo e una città. Il Senato, infatti, ha cambiato sede più volte, seguendo la capitale del Regno.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Non leggere ancora il testo: scorri la pagina e guarda solo i titoletti in grassetto.",
+     "Ogni titoletto contiene un periodo tra parentesi e, spesso, il nome di una città."
+    ],
+    "domanda": "In quali tre città ha avuto sede il Senato del Regno? Scrivile tutte: i titoletti ti bastano.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "Torino",
+      "varianti": []
+     },
+     {
+      "voce": "Firenze",
+      "varianti": []
+     },
+     {
+      "voce": "Roma",
+      "varianti": []
+     }
+    ],
+    "aiuti": [
+     "Guarda i titoletti che cominciano con «Il Senato subalpino di ...» e «Il Senato del Regno a ...».",
+     "Le città sono, in ordine di tempo: To..., Fi..., Ro... Sono le tre capitali dell'Italia unita."
+    ],
+    "soluzione": "Torino (1848-1865), Firenze (1865-1871) e Roma (dal 1871): il Senato seguiva la capitale del Regno.",
+    "prova": "Il Senato subalpino di Torino (1848-1860) · Il Senato del Regno a Firenze (1865-1871) · Il Senato del Regno a Roma (1871-1947)",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   },
+   {
+    "id": "senato-statuto-data",
+    "titolo": "Il giorno dello Statuto",
+    "disciplina": "storia",
+    "contesto": "Nel 1848 molti sovrani europei furono costretti a concedere una costituzione. Nel Regno di Sardegna il re Carlo Alberto emanò lo Statuto, che creò il Senato e restò la legge fondamentale del Regno d'Italia per quasi cento anni.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "Carlo Alberto",
+    "percorso": [
+     "Clicca dentro la pagina e cerca con cmd+F il nome del re.",
+     "Leggi la frase dove compare: c'è la data completa."
+    ],
+    "domanda": "In che giorno, mese e anno Carlo Alberto emanò lo Statuto Albertino?",
+    "tipo": "testo",
+    "risposte": [
+     "4 marzo 1848",
+     "4 marzo del 1848",
+     "il 4 marzo 1848",
+     "4/3/1848",
+     "04/03/1848"
+    ],
+    "aiuti": [
+     "La data è nella primissima frase del testo, subito dopo «Carlo Alberto di Savoia-Carignano».",
+     "Il giorno è il 4, l'anno il 1848: manca solo il mese."
+    ],
+    "soluzione": "Il 4 marzo 1848: lo Statuto Albertino creò un Parlamento con una Camera eletta e un Senato nominato dal Re.",
+    "prova": "La nascita del Senato subalpino venne sancita dallo Statuto Albertino, emanato da Carlo Alberto di Savoia-Carignano il 4 marzo del 1848.",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   },
+   {
+    "id": "senato-grandi-cultura",
+    "titolo": "Sei grandi in Senato",
+    "disciplina": "lingue",
+    "contesto": "Ai tempi del Re i senatori non erano eletti: li nominava il sovrano, scegliendoli tra 21 categorie di persone. Tra queste c'era chi aveva dato lustro alla Patria «con servizii e meriti eminenti»: così entrarono in Senato anche scrittori, musicisti e scienziati che studi a scuola.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "cultura italiana",
+    "percorso": [
+     "Cerca con cmd+F le parole «cultura italiana».",
+     "Subito dopo c'è un elenco di nomi separati da virgole: leggilo fino al punto."
+    ],
+    "domanda": "Il testo cita sei grandi personaggi della cultura italiana nominati senatori del Regno. Scrivili tutti (basta il cognome).",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "Manzoni",
+      "varianti": [
+       "Alessandro Manzoni"
+      ]
+     },
+     {
+      "voce": "Verdi",
+      "varianti": [
+       "Giuseppe Verdi"
+      ]
+     },
+     {
+      "voce": "Carducci",
+      "varianti": [
+       "Giosuè Carducci",
+       "Giosue Carducci"
+      ]
+     },
+     {
+      "voce": "Croce",
+      "varianti": [
+       "Benedetto Croce"
+      ]
+     },
+     {
+      "voce": "Marconi",
+      "varianti": [
+       "Guglielmo Marconi"
+      ]
+     },
+     {
+      "voce": "Gentile",
+      "varianti": [
+       "Giovanni Gentile"
+      ]
+     }
+    ],
+    "aiuti": [
+     "L'elenco comincia con «insigni personaggi della cultura italiana come ...».",
+     "Uno scrittore dei Promessi sposi, un musicista dell'Aida, un poeta premio Nobel, due filosofi e l'inventore della radio."
+    ],
+    "soluzione": "Alessandro Manzoni, Giuseppe Verdi, Giosuè Carducci, Benedetto Croce, Guglielmo Marconi e Giovanni Gentile.",
+    "prova": "vennero chiamati a far parte del Senato del Regno, nel corso del tempo, insigni personaggi della cultura italiana come Alessandro Manzoni, Giuseppe Verdi, Giosuè Carducci, Benedetto Croce, Guglielmo Marconi e Giovanni Gentile.",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   },
+   {
+    "id": "senato-requisiti-donne",
+    "titolo": "Le regole non scritte",
+    "disciplina": "cittadinanza",
+    "contesto": "Per diventare senatore del Regno bisognava appartenere a una delle 21 categorie e avere almeno 40 anni. Ma c'erano anche regole che lo Statuto non scriveva: il testo le chiama requisiti «impliciti». Una di queste teneva fuori dal Senato metà della popolazione.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "impliciti",
+    "percorso": [
+     "Cerca con cmd+F la parola «impliciti».",
+     "Dopo i due punti c'è l'elenco dei requisiti non scritti: leggili uno per uno."
+    ],
+    "domanda": "Quale requisito «implicito», non scritto nello Statuto, escludeva tutte le donne dal Senato del Regno?",
+    "tipo": "testo",
+    "risposte": [
+     "il sesso maschile",
+     "sesso maschile",
+     "essere di sesso maschile",
+     "essere maschio",
+     "essere maschi",
+     "essere uomo",
+     "essere uomini",
+     "maschile",
+     "maschio"
+    ],
+    "aiuti": [
+     "I requisiti impliciti sono quattro: la cittadinanza, i diritti civili e politici, un requisito che riguarda le donne, la «dignità».",
+     "Il requisito è il «sesso ...»: quale sesso era ammesso?"
+    ],
+    "soluzione": "Il sesso maschile: le donne non potevano diventare senatrici. In Italia le donne hanno votato per la prima volta nel 1946 e oggi siedono in Parlamento con gli stessi diritti degli uomini.",
+    "prova": "erano richiesti altri requisiti, detti impliciti perché non menzionati dallo Statuto: la cittadinanza del Regno, il godimento dei diritti civili e politici, il sesso maschile ed il requisito generico della dignità",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto). Spunto per Educazione civica: articolo 3 e articolo 51 della Costituzione."
+   },
+   {
+    "id": "senato-infornate",
+    "titolo": "Una parola dalla cucina",
+    "disciplina": "lingue",
+    "contesto": "Il Governo aveva bisogno che il Senato votasse le sue leggi. Quando i senatori erano contrari, c'era un trucco: far nominare dal Re tanti nuovi senatori amici tutti insieme. Il testo chiama queste nomine con una parola presa dalla cucina, scritta tra virgolette perché è un modo di dire.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "Cavour",
+    "percorso": [
+     "Cerca con cmd+F «Cavour»: compare più volte, premi Invio per passare alla volta successiva.",
+     "Fermati sul paragrafo che comincia con «Per attenuare le tensioni» e cerca la parola tra virgolette."
+    ],
+    "domanda": "Come si chiamavano, tra virgolette nel testo, le nomine di tanti senatori favorevoli al Governo fatte tutte insieme?",
+    "tipo": "testo",
+    "risposte": [
+     "infornate",
+     "le infornate",
+     "infornata",
+     "le cosiddette infornate"
+    ],
+    "aiuti": [
+     "La parola è nella frase «il Governo fece allora ricorso alla nomina di senatori a sé favorevoli in gran numero: le cosiddette ...».",
+     "In cucina si mette nel forno un'intera teglia di biscotti in una volta sola: è un'... ."
+    ],
+    "soluzione": "Le «infornate»: come una teglia messa in forno tutta insieme. Cavour, in otto anni di governo, fece nominare 158 senatori.",
+    "prova": "il Governo fece allora ricorso alla nomina di senatori a sé favorevoli in gran numero: le cosiddette \"infornate\".",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   },
+   {
+    "id": "senato-firenze-gradini",
+    "titolo": "Su per lo scalone degli Uffizi",
+    "disciplina": "storia",
+    "contesto": "Dal 1865 al 1871 la capitale fu Firenze. La Camera andò in Palazzo Vecchio, il Senato agli Uffizi, in un'aula all'ultimo piano. I senatori, nominati a vita, erano spesso molto anziani, e la scelta non piacque. Attenzione: nel testo il numero è scritto in lettere, non in cifre.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "gradini",
+    "percorso": [
+     "Cerca con cmd+F la parola «gradini».",
+     "Leggi il numero che la precede: è scritto in lettere. Trasformalo in cifre."
+    ],
+    "domanda": "Quanti gradini dovevano salire i senatori per arrivare all'aula del Senato agli Uffizi? Scrivi il numero in cifre.",
+    "tipo": "numero",
+    "risposte": [
+     "97"
+    ],
+    "aiuti": [
+     "Il numero è nella frase «costretti ad affrontare uno scalone di ben ... gradini».",
+     "«Novantasette» in cifre: nove decine e sette unità."
+    ],
+    "soluzione": "97 gradini: «uno scalone di ben novantasette gradini», vissuto dai senatori più anziani come una beffa.",
+    "prova": "costretti ad affrontare uno scalone di ben novantasette gradini",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   },
+   {
+    "id": "senato-croce-due-volte",
+    "titolo": "Un nome che torna",
+    "disciplina": "storia",
+    "contesto": "Durante il fascismo anche il Senato fu riempito di senatori fedeli al regime. Ma alcuni senatori continuarono a dire no. Un lettore attento si accorge che uno di loro è già comparso molto prima nel testo, tra i grandi della cultura: per trovarlo bisogna collegare due punti lontani della pagina.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "dissenzienti",
+    "percorso": [
+     "Cerca con cmd+F «dissenzienti»: trovi i senatori che non si piegarono al fascismo.",
+     "Poi torna all'elenco dei grandi della cultura (cerca «cultura italiana») e confronta i cognomi."
+    ],
+    "domanda": "Un filosofo compare due volte nel testo: tra i grandi della cultura nominati senatori e tra le «coraggiose voci dissenzienti» durante il fascismo. Chi è?",
+    "tipo": "testo",
+    "risposte": [
+     "Croce",
+     "Benedetto Croce"
+    ],
+    "aiuti": [
+     "Le voci dissenzienti sono sei: Albertini, Ruffini, Casati, Bergamini, Einaudi e ... L'ultimo nome è anche nell'elenco dei grandi della cultura.",
+     "È il cognome del filosofo Benedetto, lo stesso di un simbolo cristiano."
+    ],
+    "soluzione": "Benedetto Croce: nominato senatore come grande della cultura, durante il fascismo fu tra le «coraggiose voci dissenzienti».",
+    "prova": "Nondimeno, rimasero a Palazzo Madama coraggiose voci dissenzienti, come quelle di Albertini, Ruffini, Casati, Bergamini, Einaudi e Croce.",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto). ATTENZIONE: anche «Casati» compare due volte (Gabrio Casati presidente del Senato a Firenze; Casati tra i dissenzienti) ma non è nell'elenco dei grandi della cultura: la domanda chiede il filosofo presente in entrambi gli elenchi."
+   },
+   {
+    "id": "senato-repubblica-durata",
+    "titolo": "Il Senato della Repubblica",
+    "disciplina": "cittadinanza",
+    "contesto": "Con il referendum del 2 giugno 1946 l'Italia diventò una Repubblica e il Senato nominato dal Re fu sciolto. La Costituzione volle due camere elette dai cittadini, con gli stessi poteri ma con qualche differenza: per esempio, all'inizio non duravano lo stesso numero di anni.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "durata",
+    "percorso": [
+     "Cerca con cmd+F la parola «durata»: compare tre volte, premi Invio per passare alla successiva.",
+     "Fermati sulla volta in cui, tra parentesi, ci sono gli anni della Camera e del Senato."
+    ],
+    "domanda": "Nella Costituzione del 1948, all'inizio, la Camera durava 5 anni. Quanti anni durava il Senato?",
+    "tipo": "numero",
+    "risposte": [
+     "6"
+    ],
+    "aiuti": [
+     "Il dato è tra parentesi, dopo le parole «la durata».",
+     "Il testo dice «5 anni per la Camera e ... per il Senato»: un anno in più della Camera."
+    ],
+    "soluzione": "6 anni (5 per la Camera). Dal 1963 una modifica della Costituzione ha reso uguale la durata: oggi entrambe durano 5 anni.",
+    "prova": "la durata (5 anni per la Camera e 6 per il Senato: le rispettive elezioni avrebbero dovuto quindi essere sfalsate)",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   }
+  ],
+  "riserve": [
+   {
+    "id": "senato-1939-nomine",
+    "titolo": "Il Senato e il fascismo",
+    "disciplina": "storia",
+    "contesto": "Il regime fascista trasformò la Camera dei deputati in Camera dei Fasci e delle Corporazioni. Per controllare anche il Senato usò il vecchio sistema delle nomine in massa: nel 1939 ne fece una enorme.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "1939",
+    "percorso": [
+     "Cerca con cmd+F il numero «1939».",
+     "Leggi il numero di nomine scritto subito prima."
+    ],
+    "domanda": "Quante nomine di senatori furono fatte nel 1939, portando alla «quasi completa fascistizzazione» del Senato?",
+    "tipo": "numero",
+    "risposte": [
+     "211"
+    ],
+    "aiuti": [
+     "La frase è «ma anche e soprattutto le ... nomine del 1939».",
+     "È un numero di tre cifre che comincia con 2."
+    ],
+    "soluzione": "211 nomine nel 1939: il Senato fu quasi del tutto fascistizzato, anche se rimasero alcune voci contrarie.",
+    "prova": "ma anche e soprattutto le 211 nomine del 1939",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   },
+   {
+    "id": "senato-madama-roma",
+    "titolo": "Due palazzi, due Madame",
+    "disciplina": "arte",
+    "contesto": "A Torino e a Roma il Senato ha avuto sede in due palazzi con lo stesso nome: Palazzo Madama. Molti pensano che la «Madama» sia la stessa, ma il testo spiega che sono due donne diverse, vissute in epoche diverse.",
+    "url": "www.senato.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "Margherita",
+    "percorso": [
+     "Cerca con cmd+F il nome «Margherita».",
+     "Leggi la frase: spiega chi diede il nome al palazzo di Roma."
+    ],
+    "domanda": "Da quale donna prende il nome il Palazzo Madama di Roma, sede del Senato della Repubblica?",
+    "tipo": "testo",
+    "risposte": [
+     "Margherita d'Austria",
+     "Margherita di Austria",
+     "Margherita"
+    ],
+    "aiuti": [
+     "Cerca la frase «Ma colei che doveva legare il suo nome al Palazzo fu ...».",
+     "Si chiamava Margherita ed era figlia dell'imperatore Carlo V: veniva dall'Austria."
+    ],
+    "soluzione": "Margherita d'Austria, figlia di Carlo V. La «Madama» di Torino è invece Cristina di Francia, un secolo dopo.",
+    "prova": "Ma colei che doveva legare il suo nome al Palazzo fu Margherita d'Austria",
+    "url_verifica": "https://www.senato.it/istituzione/il-senato-nel-sistema-bicamerale/la-storia-del-senato",
+    "verificato": "2026-10-22",
+    "note": "PAGINA: senato.it, Istituzione > Il Senato nel sistema bicamerale > La storia del Senato; circa 3400 parole, nessuna immagine nel testo; verificata nel browser il 2026-10-22 (agli script il sito risponde 202 senza contenuto)."
+   }
+  ],
+  "special": true,
+  "pagina_unica": {
+   "url": "www.senato.it",
+   "titolo": "La storia del Senato",
+   "percorso": [
+    "Se compare l'avviso sui cookie, clicca «Chiudi».",
+    "Nel menu in alto clicca «Istituzione».",
+    "Clicca «Il Senato nel sistema bicamerale», poi «La storia del Senato»."
+   ]
+  },
+  "intro": "8 tappe dentro una sola pagina di testo, la storia del Senato dallo Statuto Albertino del 1848 alla Repubblica. Non si cambia sito: si impara a leggere un testo lungo e difficile senza perdersi."
  }
 ];
 /* </QUEST_DATA> */
 /* <SONDE> */
-const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/home_banner/bannerhome-social10-2026.jpg?sfvrsn=d973eb22_2","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.memorialeshoah.it": "/wp-content/uploads/2016/12/Memoriale-favicon.jpg","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
+const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/home_banner/bannerhome-social10-2026.jpg?sfvrsn=d973eb22_2","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fia.com": "/sites/all/themes/penceo_theme/favicon-16x16.png","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.memorialeshoah.it": "/wp-content/uploads/2016/12/Memoriale-favicon.jpg","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
 /* </SONDE> */
 
 const DISC = {
@@ -5429,12 +5809,12 @@ function confrontaElenco(valori, voci, gia){
    1. INTRO E BUSTA
    ===================================================================== */
 function renderCatalogo(scelto){
-  const sp = QUEST.find(q => q.special);
-  $('#special').innerHTML = sp ? `<div class="special"><span class="ico">${ico('i-play')}</span>
+  /* le special edition non escono dalla busta: si scelgono qui, una scheda ciascuna */
+  $('#special').innerHTML = QUEST.filter(q => q.special).map(sp => `<div class="special"><span class="ico">${ico(sp.icona)}</span>
     <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span>${esc(sp.sottotitolo || '')}</span>
-      ${RETE.esiti && !questGiocabile(sp) ? `<span class="nota-rete">${ico('i-attenzione')}Da questo computer i video di YouTube non risultano raggiungibili.</span>` : ''}</div>
-    <button class="btn btn-primario" type="button" id="btn-special">Apri la special edition</button></div>` : '';
-  if (sp) $('#btn-special').onclick = () => apriBusta(sp.tema);
+      ${RETE.esiti && !questGiocabile(sp) ? `<span class="nota-rete">${ico('i-attenzione')}${sp.tappe.some(t => t.video) ? 'Da questo computer i video di YouTube non risultano raggiungibili.' : 'Da questo computer il sito di questa quest non risulta raggiungibile.'}</span>` : ''}</div>
+    <button class="btn btn-primario" type="button" data-special="${esc(sp.tema)}">Scegli questa quest</button></div>`).join('');
+  document.querySelectorAll('[data-special]').forEach(b => b.onclick = () => apriBusta(b.dataset.special));
   $('#catalogo').innerHTML = QUEST.filter(q => !q.special).map(q =>
     `<div class="chip-tema ${q.tema === scelto ? 'scelto' : ''}">${ico(q.icona)}<span>${esc(q.breve)}</span></div>`).join('');
 }
@@ -5482,6 +5862,9 @@ function infoQuest(){
   const vs = t.filter(x => x.video && x.url).length;   // tappe "video + sito"
   if (vs) f.push(vs === 1 ? '1 con verifica sul sito' : `${vs} con verifica sul sito`);
   if (pdf) f.push(pdf === 1 ? '1 documento PDF' : `${pdf} documenti PDF`);
+  if (quest().pagina_unica) f.push('1 sola pagina di testo');
+  const cf = t.filter(x => x.cmdf && !x.pdf).length;
+  if (cf) f.push(`${cf} ricerche con ${MOD_TXT}+F`);
   if (el) f.push(el === 1 ? '1 tappa elenco' : `${el} tappe elenco`);
   if (en) f.push(en === 1 ? '1 sito in inglese' : `${en} siti in inglese`);
   return f;
@@ -5582,14 +5965,16 @@ function renderBrief(){
   $('#scr-brief').innerHTML = testaTema() + invitoSimulatore() + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
-        <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`
+        <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${q.intro ? esc(q.intro) : `${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`}`
           : `Sei un esploratore del web. La busta ti ha affidato la spedizione «${esc(q.breve)}»: ${t.length} tappe su siti ufficiali, come musei, enti pubblici, federazioni e biblioteche.`}</p>
-        <p class="mini">${q.special ? 'I video vengono da canali ufficiali e si guardano dentro la Web Quest, senza video consigliati né commenti. Se prima del video compare una breve pubblicità di YouTube, aspetta qualche secondo.'
+        <p class="mini">${q.special && t.some(x => x.video) ? 'I video vengono da canali ufficiali e si guardano dentro la Web Quest, senza video consigliati né commenti. Se prima del video compare una breve pubblicità di YouTube, aspetta qualche secondo.'
           : 'Sono siti sicuri e senza pubblicità: impari dove si trovano le informazioni affidabili.'}</p></div>
       <div class="card momento"><span class="num">2</span><h3>Gli obiettivi</h3>
         <ul>${t.some(x => x.video) ? '<li>ascoltare un video con una domanda in testa e trovare il dato nel tratto giusto;</li>' : ''}
-          <li>${t.every(x => x.url) ? 'raggiungere ogni sito' : 'raggiungere i siti di verifica'} digitando l'indirizzo senza errori;</li>
-          <li>orientarti nei menu seguendo il percorso;</li>
+          ${q.pagina_unica ? `<li>leggere un testo lungo da detective: titoletti, parole chiave, ${MOD_TXT}+F, numeri scritti in lettere, collegamenti tra parti lontane;</li>
+          <li>raggiungere la pagina una sola volta, dal menu del sito, e restarci per tutte le tappe;</li>`
+          : `<li>${t.every(x => x.url) ? 'raggiungere ogni sito' : 'raggiungere i siti di verifica'} digitando l'indirizzo senza errori;</li>
+          <li>orientarti nei menu seguendo il percorso;</li>`}
           ${haPdf ? `<li>trovare un dato in un PDF lungo con ${MOD_TXT}+F;</li>` : ''}
           <li>scrivere il dato esatto, controllando prima di verificare.</li></ul></div>
       <div class="card momento"><span class="num">3</span><h3>Come si gioca</h3>
@@ -5686,10 +6071,12 @@ function renderTappa(){
     if (t.video) montaVideo(t, $('#tappa-video'));
   }
   if (t.video) n = 1;           // il blocco 1 e' "Guarda il video"
+  const pu = quest().pagina_unica;     // quest dentro una sola pagina: indirizzo e percorso comuni a tutte le tappe
   $('#t-testa').innerHTML = `
       <div class="t-head">
         <div class="badges"><span class="badge disc">${ico(d.i)}${esc(d.l)}</span>
           ${t.pdf ? `<span class="badge pdf">${ico('i-doc')}PDF · ${MOD_TXT}+F</span>` : ''}
+          ${t.cmdf && !t.pdf ? `<span class="badge pdf">${ico('i-lente')}Testo · ${MOD_TXT}+F</span>` : ''}
           ${t.video ? `<span class="badge pdf">${ico('i-play')}Video${t.url ? ' + sito' : ''}</span>` : ''}
           ${t.tipo === 'elenco' ? `<span class="badge en">${ico('i-mappa')}Tappa elenco</span>` : ''}
           ${en ? `<span class="badge en">${ico('d-lingue')}Sito in inglese</span>` : ''}</div>
@@ -5698,18 +6085,23 @@ function renderTappa(){
       <h2 id="tit-tappa">${esc(t.titolo)}</h2>
       <p class="contesto">${esc(t.contesto)}</p>`;
   $('#t-corpo').innerHTML = `
-      ${t.url ? `<section class="blocco"><h3 class="etichetta">${num()}${t.video ? 'Confronta con il sito' : 'Digita questo indirizzo'}</h3>
+      ${t.url && pu ? `<section class="blocco"><h3 class="etichetta">${num()}La pagina del testo: sempre la stessa</h3>
+        <div class="barra" data-url aria-label="Indirizzo da digitare: ${esc(pu.url)}">${ico('i-lucchetto')}<span class="url-txt">${esc(pu.url)}</span></div>
+        <ol class="passi-pagina">${(pu.percorso || []).map(p => `<li>${conEtichette(p)}</li>`).join('')}</ol>
+        <p class="nota">Tutte le tappe sono dentro la pagina «${esc(pu.titolo || '')}»: se è già aperta nella <b>scheda di destra</b>, non riscriverla e passa al punto successivo.</p>
+      </section>` : ''}
+      ${t.url && !pu ? `<section class="blocco"><h3 class="etichetta">${num()}${t.video ? 'Confronta con il sito' : 'Digita questo indirizzo'}</h3>
         <div class="barra" data-url aria-label="Indirizzo da digitare: ${esc(t.url)}">${ico('i-lucchetto')}<span class="url-txt">${esc(t.url).replace(/\//g, '/<wbr>')}</span></div>
         <p class="nota">Clicca nella <b>scheda di destra</b>, poi nella barra degli indirizzi in alto (oppure premi ${combo('L')}), e scrivilo lettera per lettera. Non serve scrivere https://</p>
         ${en ? `<p class="nota en">${ico('d-lingue')}Il sito è in inglese: se ti serve, attiva il traduttore del browser. Le etichette del percorso sono quelle originali.</p>` : ''}
       </section>` : ''}
 
-      <section class="blocco"><h3 class="etichetta">${num()}${t.video && !t.url ? 'Segui i passi' : 'Segui il percorso'}</h3>
+      <section class="blocco"><h3 class="etichetta">${num()}${pu ? 'Leggi da detective' : t.video && !t.url ? 'Segui i passi' : 'Segui il percorso'}</h3>
         <ol class="passi">${(t.percorso || []).map(p => `<li><span>${conEtichette(p)}</span></li>`).join('')}</ol>
       </section>
 
-      ${t.pdf ? `<section class="blocco"><h3 class="etichetta">${num()}Cerca nel documento</h3>
-        <div class="cerca"><p>Il PDF è lungo: non scorrerlo tutto. Clicca nella scheda di destra, premi ${combo('F')} e cerca <mark>${esc(t.cmdf || '')}</mark></p>
+      ${t.cmdf ? `<section class="blocco"><h3 class="etichetta">${num()}${t.pdf ? 'Cerca nel documento' : 'Cerca nel testo'}</h3>
+        <div class="cerca"><p>${t.pdf ? 'Il PDF è lungo: non scorrerlo tutto.' : 'Il testo è lungo: non leggerlo tutto dall\'inizio.'} Clicca nella scheda di destra, premi ${combo('F')} e cerca <mark>${esc(t.cmdf || '')}</mark></p>
         <p class="nota">Su iPad: tocca la barra degli indirizzi, scrivi la parola e scegli «In questa pagina».</p></div></section>` : ''}
 
       <section class="blocco rompicapo"><h3 class="etichetta">${num()}Il rompicapo</h3>
@@ -5837,14 +6229,14 @@ const CMDF_VISTO = new Set();
 function tappaCmdF(){
   if (!S || S.fase !== 'g' || !$('#scr-game').classList.contains('on') || S.ris[S.cur]) return null;
   const t = tappe()[S.cur];
-  return (t.pdf && t.cmdf) || t.video ? t : null;
+  return t.cmdf || t.video ? t : null;
 }
 function promemoriaCmdF(){
   const chip = $('#cmdf-chip'), t = tappaCmdF();
   if (!t){ chip.classList.add('hidden'); $('#cmdf-modale').classList.add('hidden'); return; }
   chip.innerHTML = t.video ? `${ico('i-play')}<span class="t">Come si cerca in un video</span>`
     : `${tasto('mod')}<span class="piu">+</span>${tasto('F')}<span class="t">Come si cerca «${esc(t.cmdf)}»</span>`;
-  chip.setAttribute('aria-label', t.video ? 'Promemoria: come si cerca un\'informazione in un video' : `Promemoria: come si cerca ${t.cmdf} nel PDF con ${MOD_TXT}+F`);
+  chip.setAttribute('aria-label', t.video ? 'Promemoria: come si cerca un\'informazione in un video' : `Promemoria: come si cerca ${t.cmdf} ${t.pdf ? 'nel PDF' : 'nella pagina'} con ${MOD_TXT}+F`);
   chip.classList.remove('hidden');
   const chiave = S.seed + '~' + S.cur + '~' + t.id;
   if (!CMDF_VISTO.has(chiave)){ CMDF_VISTO.add(chiave); apriCmdF(); }
@@ -5874,11 +6266,12 @@ function apriCmdF(){
   }
   m.innerHTML = `<div class="cmdf-card lampeggia">
     <span class="eyebrow">Promemoria</span>
-    <h2 id="cmdf-tit">${ico('i-lente')}Come si cerca in un PDF lungo</h2>
-    <p class="mini">In questa tappa la risposta è dentro un documento PDF di molte pagine: non scorrerlo tutto, fai cercare la parola al browser.</p>
+    <h2 id="cmdf-tit">${ico('i-lente')}${t.pdf ? 'Come si cerca in un PDF lungo' : 'Come si cerca in una pagina lunga'}</h2>
+    <p class="mini">${t.pdf ? 'In questa tappa la risposta è dentro un documento PDF di molte pagine: non scorrerlo tutto, fai cercare la parola al browser.'
+      : 'In questa tappa la risposta è dentro un testo lungo: non leggerlo tutto dall\'inizio, fai cercare la parola al browser.'}</p>
     <div class="cmdf-tasti" aria-hidden="true"><kbd class="kc premi1">${IS_APPLE ? ico('i-cmd') + 'cmd' : 'Ctrl'}</kbd><span class="piu">+</span><kbd class="kc premi2">F</kbd></div>
     <ol class="cmdf-passi">
-      <li>Apri il PDF nella <b>scheda di destra</b> e <b>clicca dentro il documento</b>.</li>
+      <li>${t.pdf ? 'Apri il PDF nella <b>scheda di destra</b> e <b>clicca dentro il documento</b>.' : 'Nella <b>scheda di destra</b>, <b>clicca dentro la pagina</b> (su un punto senza link).'}</li>
       <li>Premi insieme ${combo('F')}: in alto a destra compare una casella di ricerca.</li>
       <li>Scrivi <mark>${esc(t.cmdf)}</mark> e premi <b>Invio</b>: il browser colora la parola. Premi ancora Invio per passare alla volta successiva.</li>
       <li><b>Leggi la frase</b> intorno alla parola colorata: lì c'è la risposta.</li>
@@ -6040,18 +6433,22 @@ function strumentiTappa(i){
 const GUIDA = {modo: 'auto', tappa: -1, passo: null, mappa: false};
 const guidaAttiva = () => !!S && (GUIDA.modo === 'on' || (GUIDA.modo === 'auto' && S.ris.filter(Boolean).length < CONFIG.TAPPE_GUIDATE));
 const passiGuida = t => t.video ? ['video', ...(t.url ? ['url', 'percorso'] : []), 'risposta', 'verifica']
-                                 : ['url', 'percorso', ...(t.pdf ? ['cerca'] : []), 'risposta', 'verifica'];
+                                 : ['url', 'percorso', ...(t.cmdf ? ['cerca'] : []), 'risposta', 'verifica'];
 function passoGuida(passo, t){
   const el = t.tipo === 'elenco';
   return ({
     video: {sel: '.vplayer', dove: 'prima', ok: 'Fatto: ho ascoltato il tratto',
       testo: "Premi <b>play</b> e guarda con attenzione il <b>tratto dorato</b> sulla barra: lì c'è l'informazione. Tieni accesi i sottotitoli; se ti sfugge qualcosa torna indietro di 10 secondi o rallenta a 0,75×."},
-    url: {sel: '[data-url]', dove: 'dopo', ok: 'Fatto: il sito è aperto',
+    url: quest().pagina_unica ? {sel: '[data-url]', dove: 'dopo', ok: 'Fatto: la pagina è aperta',
+      testo: `Apri il sito nella <b>scheda di destra</b> e segui i passi qui sotto fino alla pagina del testo. Ti servirà per <b>tutte le tappe</b>: se è già aperta, premi «Fatto».`}
+      : {sel: '[data-url]', dove: 'dopo', ok: 'Fatto: il sito è aperto',
       testo: `Clicca dentro la <b>scheda di destra</b>, poi nella barra degli indirizzi in alto (oppure premi ${combo('L')}). Scrivi questo indirizzo lettera per lettera e premi Invio.`},
-    percorso: {sel: '.passi', dove: 'prima', ok: 'Fatto: sono sulla pagina giusta',
+    percorso: quest().pagina_unica ? {sel: '.passi', dove: 'prima', ok: 'Fatto: so dove guardare',
+      testo: 'Questi passi ti dicono <b>come leggere</b>: dove guardare nella pagina e che cosa cercare. Seguili uno alla volta.'}
+      : {sel: '.passi', dove: 'prima', ok: 'Fatto: sono sulla pagina giusta',
       testo: 'Nella scheda di destra segui questi passi <b>uno alla volta</b>, leggendo con attenzione le etichette dei menu. I passi restano sempre qui a sinistra.'},
     cerca: {sel: '.cerca', dove: 'prima', ok: 'Fatto: ho trovato la parola',
-      testo: `Nel PDF non scorrere le pagine: clicca dentro la scheda di destra, premi ${combo('F')} e scrivi la parola evidenziata. Il browser ti porta dove compare.`},
+      testo: `${t.pdf ? 'Nel PDF non scorrere le pagine' : 'Non leggere tutta la pagina dall\'inizio'}: clicca dentro la scheda di destra, premi ${combo('F')} e scrivi la parola evidenziata. Il browser ti porta dove compare.`},
     risposta: {sel: el ? '.elenco-grid' : '#campo', ancora: el ? '#btn-check' : '.risposta', dove: 'dopo',
       testo: el ? 'Scrivi qui le voci trovate, <b>una per casella</b>, come sono scritte sul sito.'
                 : 'Scrivi qui il dato che hai trovato, <b>come è scritto sul sito</b>.'},
@@ -6795,6 +7192,7 @@ const TAB = {
         <li><b>Simulatore</b> (facoltativo, dal briefing o da «Rivedi l'esempio» in fondo a ogni tappa): una ricerca di prova su uno schermo diviso finto, con un museo inventato. Prima «Guarda» (dimostrazione animata, adatta anche alla LIM), poi «Prova tu» con la guida passo passo: barra degli indirizzi, cookie, menu, freccia indietro, PDF, ${MOD_TXT}+F con più occorrenze, lato attivo, risposta con un nome-trappola.</li>
         <li><b>Quest con le carte</b> («Parole che restano», «Versi che cantano»): ogni tappa risolta consegna la carta con la frase o i versi trovati, con autore e occasione. Nella schermata finale lo studente sceglie la carta preferita nel quaderno e scrive perché: è il materiale per il debrief (lettura ad alta voce, confronto tra le scelte). Alcune frasi toccano temi forti (la deportazione nella testimonianza di Liliana Segre): conviene introdurle.</li>
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
+        <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
@@ -6852,7 +7250,7 @@ const TAB = {
     const risp = t => t.tipo === 'elenco' ? (t.elenco || []).map(v => v.voce).join(', ') : (t.risposte || []).join(' · ');
     const scheda = (t, k, ris) => `<div class="bt"><h4>${ris ? 'Riserva' : 'Tappa ' + (k + 1)} · ${esc(t.titolo)}</h4>
       ${t.video ? `<div class="meta-r">Video: <b>${esc(t.video.titolo || '')}</b> (${esc(t.video.canale || '')}), tratto ${mmss(t.video.da)}–${mmss(t.video.a)} · <a href="https://www.youtube.com/watch?v=${encodeURIComponent(t.video.id)}&t=${t.video.da || 0}" target="_blank" rel="noopener">apri su YouTube</a></div>` : ''}
-      <div class="meta-r">${esc(disc(t.disciplina).l)} · <b>${esc(t.url || 'solo video')}</b>${t.pdf ? ' · PDF, cerca «' + esc(t.cmdf) + '»' : ''}${t.lingua && t.lingua !== 'it' ? ' · sito in inglese' : ''} · verificata il ${esc(t.verificato || '')}</div>
+      <div class="meta-r">${esc(disc(t.disciplina).l)} · <b>${esc(t.url || 'solo video')}</b>${t.pdf ? ' · PDF, cerca «' + esc(t.cmdf) + '»' : t.cmdf ? ' · cerca «' + esc(t.cmdf) + '»' : ''}${t.lingua && t.lingua !== 'it' ? ' · sito in inglese' : ''} · verificata il ${esc(t.verificato || '')}</div>
       <div><b>Domanda:</b> ${esc(t.domanda)}</div>
       <div class="risp"><b>Risposta:</b> ${esc(risp(t))}</div>
       ${t.carta ? `<div><b>Carta:</b> «${esc(t.carta.testo)}» — ${esc(t.carta.autore || '')}${t.carta.fonte ? ', ' + esc(t.carta.fonte) : ''}</div>` : ''}

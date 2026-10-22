@@ -38,6 +38,7 @@
   --verde:#1F7A43; --verdeD:#165C32; --verdeL:#E7F3EB; --verdeB:#B5D9C2;
   --ambra:#8A6508; --ambraM:#B8860B; --ambraL:#FBF3DF; --ambraB:#E7CF95;
   --oro:#D4A017;
+  --blu:#1F4E8C; --bluL:#E9F0F9; --bluB:#BACDE8;
   --head:'Lexend',system-ui,sans-serif;
   --body:'Atkinson Hyperlegible',Helvetica,Arial,sans-serif;
   --r:16px; --r2:11px;
@@ -364,6 +365,17 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .form-riga{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin:10px 0}
 .form-riga label{display:flex;flex-direction:column;gap:5px;font-family:var(--head);font-size:14px;font-weight:600;color:var(--ink)}
 .form-riga select,.form-riga input{font:17px var(--body);padding:10px 12px;border:2px solid var(--brd2);border-radius:10px;min-height:48px;background:#fff}
+.nota-rete{display:flex;align-items:center;gap:8px;color:var(--ambra);background:var(--ambraL);border-radius:10px;padding:8px 12px;margin:8px 0 12px;font-size:15px}
+.nota-rete svg.i{width:18px;height:18px;flex:0 0 auto}
+.rete-q{border:1px solid var(--brd);border-left:6px solid var(--verde);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fff}
+.rete-q.parz{border-left-color:var(--ambraM)}
+.rete-q.no{border-left-color:var(--blu)}
+.rete-q h4{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--head);font-size:17px;margin:0 0 4px}
+.rete-q ul{margin:6px 0 0;padding-left:20px;font-size:15px}
+.rete-stato{font-family:var(--head);font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--verdeL);color:var(--verdeD)}
+.parz .rete-stato{background:var(--ambraL);color:var(--ambra)}
+.no .rete-stato{background:var(--bluL);color:var(--blu)}
+.rete-h{font-weight:700}.rete-h.bloccato{color:var(--ambra)}.rete-h.lento{color:var(--blu)}
 .link-out{background:var(--soft);border-radius:12px;padding:12px 14px;font-weight:700;word-break:break-all;margin:12px 0;color:var(--ink)}
 .bacino-tema{border:1px solid var(--brd);border-radius:14px;margin-bottom:12px;overflow:hidden}
 .bacino-tema summary{padding:13px 16px;font-family:var(--head);font-weight:600;cursor:pointer;background:var(--paper);display:flex;align-items:center;gap:10px;min-height:48px}
@@ -800,6 +812,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
     <div class="tabs" role="tablist">
       <button class="tab on" type="button" role="tab" data-tab="metodo">Metodologia</button>
       <button class="tab" type="button" role="tab" data-tab="config">Configura partita</button>
+      <button class="tab" type="button" role="tab" data-tab="rete">Controllo rete</button>
       <button class="tab" type="button" role="tab" data-tab="rubrica">Rubrica</button>
       <button class="tab" type="button" role="tab" data-tab="bacino">Bacino e risposte</button>
     </div>
@@ -2409,7 +2422,7 @@ const QUEST = [
     "percorso": [
      "Se compare l'avviso sui cookie, clicca \"Nega\".",
      "Nel menu in alto passa con il mouse su \"Autodromo\" e clicca \"Storia\".",
-     "Scorri fino al primo periodo, intitolato \"1922 – 1928\".",
+     "Scorri fino al primo periodo, intitolato \"1922 – 1928\", e clicca sul segno + a destra di \"La costruzione e le prime corse sui tracciati originari\": il testo si apre sotto.",
      "Leggi il paragrafo che inizia con \"I lavori iniziarono il 15 maggio\"."
     ],
     "domanda": "In quanti giorni fu costruito l'Autodromo di Monza nel 1922?",
@@ -2425,8 +2438,8 @@ const QUEST = [
     "soluzione": "110 giorni (centodieci): i lavori iniziarono il 15 maggio 1922 e l'Autodromo fu costruito nel tempo record di centodieci giorni.",
     "prova": "L’Autodromo fu costruito nel tempo record di centodieci giorni e la pista fu percorsa nell’intero suo sviluppo per la prima volta il 28 luglio da Pietro Bordino e Felice Nazzaro a bordo di una Fiat 57",
     "url_verifica": "https://www.monzanet.it/autodromo-di-monza-storia/",
-    "verificato": "2026-10-14",
-    "note": "Non usare la scorciatoia monzanet.it/storia: reindirizza a un altro articolo. Sito dell'organizzatore ufficiale: banner per biglietti e loghi di sponsor, nessuna scommessa."
+    "verificato": "2026-10-22",
+    "note": "Non usare la scorciatoia monzanet.it/storia: reindirizza a un altro articolo. Sito dell'organizzatore ufficiale: banner per biglietti e loghi di sponsor, nessuna scommessa. AGGIORNAMENTO 2026-10-22: il testo dei periodi è ora chiuso in una fisarmonica (segno + a destra del sottotitolo) e si carica solo al clic: la frase c'è ancora, verificata nel browser."
    },
    {
     "id": "gp-estate-2026",
@@ -5191,6 +5204,9 @@ const QUEST = [
  }
 ];
 /* </QUEST_DATA> */
+/* <SONDE> */
+const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/home_banner/bannerhome-social10-2026.jpg?sfvrsn=d973eb22_2","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.memorialeshoah.it": "/wp-content/uploads/2016/12/Memoriale-favicon.jpg","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
+/* </SONDE> */
 
 const DISC = {
   arte:{l:'Arte',i:'d-arte'}, storia:{l:'Storia',i:'d-storia'}, scienze:{l:'Scienze',i:'d-scienze'},
@@ -5229,6 +5245,8 @@ const BOZZE = {};             // risposte scritte ma non ancora verificate (solo
 const ELENCO_OK = {};         // voci gia' trovate nelle tappe "elenco" (solo in memoria)
 let DEC = {arr: [], locked: new Set()};
 const PARAMS = Object.fromEntries(new URLSearchParams(location.search));
+/* ?temi=a,b,c: la busta pesca solo tra questi temi (link generato dal Controllo rete con le quest giocabili su quella rete) */
+const TEMI = (() => { const t = (PARAMS.temi || '').split(',').filter(x => QUEST.some(q => q.tema === x && !q.special)); return t.length ? t : null; })();
 const FASI = {i:'intro', b:'brief', g:'game', d:'dec', f:'fine'};
 
 const quest = () => QUEST.find(q => q.tema === S.tema);
@@ -5413,7 +5431,8 @@ function confrontaElenco(valori, voci, gia){
 function renderCatalogo(scelto){
   const sp = QUEST.find(q => q.special);
   $('#special').innerHTML = sp ? `<div class="special"><span class="ico">${ico('i-play')}</span>
-    <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span>${esc(sp.sottotitolo || '')}</span></div>
+    <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span>${esc(sp.sottotitolo || '')}</span>
+      ${RETE.esiti && !questGiocabile(sp) ? `<span class="nota-rete">${ico('i-attenzione')}Da questo computer i video di YouTube non risultano raggiungibili.</span>` : ''}</div>
     <button class="btn btn-primario" type="button" id="btn-special">Apri la special edition</button></div>` : '';
   if (sp) $('#btn-special').onclick = () => apriBusta(sp.tema);
   $('#catalogo').innerHTML = QUEST.filter(q => !q.special).map(q =>
@@ -5425,10 +5444,21 @@ function renderIntro(){
   if (S && S.fase === 'i'){ palco.classList.add('aperta'); renderCatalogo(S.tema); renderRivela(); $('#btn-apri').classList.add('hidden'); }
   else { palco.classList.remove('aperta'); renderCatalogo(null); $('#rivela').classList.add('hidden'); $('#btn-apri').classList.remove('hidden'); }
 }
-function apriBusta(forza){
+let bustaInCorso = false;
+async function apriBusta(forza){
+  if (bustaInCorso) return;
   const forzato = typeof forza === 'string' && questDa(forza) ? forza : (PARAMS.q && questDa(PARAMS.q) ? PARAMS.q : null);
   const seed = PARAMS.seed && /^[A-Z0-9]{4,8}$/i.test(PARAMS.seed) ? PARAMS.seed.toUpperCase() : nuovoSeed();
-  const busta = QUEST.filter(q => !q.special);        // la special edition non esce a caso: ha il suo pulsante
+  if (!RETE.esiti){                       // il controllo dei siti parte all'apertura della pagina: qui al massimo si attende la fine
+    bustaInCorso = true;
+    const b = $('#btn-apri'), prima = b.innerHTML;
+    b.disabled = true; b.innerHTML = `${ico('i-ricarica')}Controllo i siti da questo computer…`;
+    await entro(avviaControlloRete(), 12000);
+    b.disabled = false; b.innerHTML = prima; bustaInCorso = false;
+  }
+  let busta = QUEST.filter(q => !q.special && (!TEMI || TEMI.includes(q.tema)));  // la special edition ha il suo pulsante; ?temi= limita la busta
+  const giocabili = busta.filter(questGiocabile);
+  if (giocabili.length) busta = giocabili;   // se la rete blocca tutto, si pesca comunque: restano «Sostituisci tappa» e il docente
   const tema = forzato || busta[Math.floor(rngDa(seed, 'tema')() * busta.length)].tema;
   const n = CONFIG.TAPPE;
   S = {seed, tema, fase: 'i', cur: 0, ris: Array(n).fill(0), aiu: Array(n).fill(0), sost: Array(n).fill(-1), dec: 0};
@@ -5436,6 +5466,7 @@ function apriBusta(forza){
   DEC = {arr: [], locked: new Set()};
   Object.assign(GUIDA, {modo: 'auto', tappa: -1, passo: null, mappa: false});
   CMDF_VISTO.clear();
+  AUTO_SOST = sostituisciBloccate();
   $('#ripresa').innerHTML = '';
   rimuoviSeedDaUrl(); salva();
   $('#btn-apri').classList.add('hidden');
@@ -5462,6 +5493,7 @@ function renderRivela(){
       <div><span class="eyebrow">La tua spedizione</span><h2 style="margin-top:8px">${esc(q.titolo)}</h2></div></div>
     <p class="sotto">${esc(q.sottotitolo)}</p>
     <div class="fatti">${infoQuest().map(f => `<span>${esc(f)}</span>`).join('')}</div>
+    ${AUTO_SOST ? `<p class="mini nota-rete">${ico('i-scambia')}Da questo computer ${AUTO_SOST === 1 ? 'un sito risulta bloccato: la sua tappa è già stata sostituita' : AUTO_SOST + ' siti risultano bloccati: le loro tappe sono già state sostituite'} con una riserva.</p>` : ''}
     <p class="mini" style="margin-bottom:14px"><span class="codice">${ico('i-chiave')}Codice partita ${esc(q.sigla)}-${esc(S.seed)}</span></p>
     <button class="btn btn-primario lampeggia" type="button" id="btn-brief">Leggi il briefing ${ico('i-dx')}</button>`;
   r.classList.remove('hidden');
@@ -6091,7 +6123,9 @@ function chiediSostituzione(){
   $('#si-sost').onclick = () => {
     const i = S.cur;
     if (S.ris[i] || S.sost[i] >= 0 || sostUsate() >= maxSost()) return;
-    S.sost[i] = sostUsate(); S.aiu[i] = 0; delete BOZZE[i]; delete ELENCO_OK[i]; delete tentativi[i];
+    const k = riservaLibera(quest());
+    if (k < 0) return;
+    S.sost[i] = k; S.aiu[i] = 0; delete BOZZE[i]; delete ELENCO_OK[i]; delete tentativi[i];
     salva(); vaiTappa(i);
     feedback('ok', 'Tappa sostituita: la lettera resta la stessa, cambia solo il sito da visitare.');
   };
@@ -6766,10 +6800,22 @@ const TAB = {
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
         <li>Debrief consigliato: confrontare i codici finali (aiuti e soluzioni), discutere quale tecnica è servita di più, quali errori di digitazione sono stati più frequenti.</li></ul>
       <h3>Prima della lezione</h3>
-      <ul><li>Aprire i siti del tema dalla rete della scuola: alcuni filtri bloccano domini. Se un sito non si apre, lo studente usa «Sostituisci tappa» (massimo ${CONFIG.MAX_SOST} per partita).</li>
+      <ul><li><b>Siti bloccati dalla rete</b>: all'apertura della pagina ogni computer prova da solo, in sottofondo, i siti di tutte le quest (circa 6 secondi). La busta pesca solo tra le quest giocabili da quel computer e le tappe con un sito bloccato passano subito a una riserva raggiungibile (lo studente vede un avviso; nel codice finale contano come «sostituite»). Non serve fare nulla.</li>
+        <li><b>Controllo rete</b>: per vedere il dettaglio, da un computer degli studenti aprire «Info docenti» &gt; «Controllo rete» e premere il pulsante. In meno di un minuto la pagina prova tutti i siti come farebbe lo studente e dice quali quest sono giocabili su quella rete; il link generato apre una busta che pesca solo tra quelle. Il filtro della scuola può trattare diversamente i computer dei docenti e quelli degli studenti. Se un sito non si apre durante la partita, lo studente usa «Sostituisci tappa» (massimo ${CONFIG.MAX_SOST} per partita).</li>
         <li>I siti cambiano: ogni tappa riporta la data di verifica nella scheda «Bacino e risposte».</li>
         <li>Nessun dato personale viene raccolto: lo stato della partita vive nell'indirizzo della pagina e, solo per riconoscere la scheda in cui si gioca, nella memoria di sessione del browser, che si cancella chiudendo la scheda. La special edition carica i video da YouTube (youtube.com/embed), che può usare propri cookie.</li>
         <li>Studenti under 14: nessuna consegna richiede strumenti di intelligenza artificiale generativa.</li></ul>`;
+  },
+  rete(){
+    return `<h3>Controllo della rete della scuola</h3>
+      <p>Apri questa scheda <b>su un computer degli studenti</b>, collegato alla rete della scuola, e premi il pulsante: la pagina prova a raggiungere i siti di tutte le quest, come farebbe lo studente. Ci vuole meno di un minuto; non si apre nessun sito e non resta nessuna traccia.</p>
+      <p class="mini">Il filtro può trattare in modo diverso i computer dei docenti e quelli degli studenti: il risultato vale per il computer su cui lo fai.</p>
+      <div class="form-riga"><button class="btn btn-primario" type="button" id="rete-via">${ico('i-ricarica')}Controlla i siti da questo computer</button>
+        <span class="mini" id="rete-stato" aria-live="polite"></span></div>
+      <div id="rete-esito"></div>
+      <h3>Per il tecnico della rete</h3>
+      <p>Se il filtro blocca dei siti, il tecnico può aggiungerli all'elenco dei siti consentiti (o chiedere a FortiGuard di classificarli, dal link nella pagina di blocco). Questo pulsante copia l'elenco completo dei domini usati dalle quest, compresi quelli che servono ai video.</p>
+      <button class="btn btn-linea" type="button" id="rete-domini">Copia l'elenco dei domini</button>`;
   },
   config(){
     const opt = QUEST.map(q => `<option value="${esc(q.tema)}">${esc(q.titolo)}</option>`).join('');
@@ -6819,6 +6865,98 @@ const TAB = {
       </details>`).join('');
   }
 };
+/* =====================================================================
+   CONTROLLO RETE — gira nel browser del computer da controllare, cioè sulla rete della scuola.
+   Per ogni dominio: immagine-sonda (SONDE, scelta da build) + richiesta no-cors alla home.
+   La pagina di blocco del filtro (FortiGuard) è HTML: l'immagine-sonda non si carica nemmeno quando il
+   certificato del firewall è installato sul computer e la richiesta no-cors va a buon fine.
+   ===================================================================== */
+const hostDi = u => { try { return new URL(/^https?:/.test(u) ? u : 'https://' + u).hostname; } catch (e) { return ''; } };
+function hostTappa(t){
+  const h = new Set([t.url && hostDi(t.url), t.url_verifica && !/youtube\.com\/watch/.test(t.url_verifica) && hostDi(t.url_verifica)]);
+  if (t.video){ h.add('www.youtube.com'); h.add('i.ytimg.com'); }
+  h.delete(''); h.delete(false); h.delete(undefined);
+  return [...h];
+}
+const RETE_ATTESA = 6000;      // ms per dominio: oltre, il sito "non risponde in tempo" (un sito spento non risponde mai)
+const entro = (p, ms, val) => Promise.race([p, new Promise(r => setTimeout(() => r(val), ms))]);
+const provaImmagine = src => new Promise(r => { const i = new Image(); i.referrerPolicy = 'no-referrer'; i.onload = () => r('ok'); i.onerror = () => r('no'); i.src = src + (src.includes('?') ? '&' : '?') + 'rete=' + Date.now(); });  // senza referer: alcuni siti bloccano le immagini richieste da altre pagine
+async function provaHost(h){
+  const s = SONDE[h], src = s ? (/^https:/.test(s) ? s : 'https://' + h + s) : null;
+  const [img, req] = await Promise.all([
+    src ? entro(provaImmagine(src), RETE_ATTESA, 'lento') : null,
+    entro(fetch('https://' + h + '/', {mode: 'no-cors', cache: 'no-store'}).then(() => 'ok', () => 'no'), RETE_ATTESA, 'lento')]);
+  if (img === 'ok') return 'ok';
+  if (req === 'no') return 'bloccato';               // connessione rifiutata o certificato del firewall: bloccato (o sito spento)
+  if (req === 'lento' || img === 'lento') return 'lento';
+  return img === 'no' ? 'bloccato' : 'ok';           // risponde ma la sonda non è un'immagine: pagina di blocco
+}
+async function controllaRete(avanza){
+  const hosts = [...new Set(QUEST.flatMap(q => [...q.tappe, ...(q.riserve || [])].flatMap(hostTappa)))];
+  const esiti = {}; let fatti = 0, k = 0;
+  await Promise.all(Array.from({length: 10}, async () => {
+    while (k < hosts.length){ const h = hosts[k++]; esiti[h] = await provaHost(h); avanza(++fatti, hosts.length); }
+  }));
+  return esiti;
+}
+/* CONTROLLO AUTOMATICO: all'apertura della pagina i siti di tutte le quest si provano in sottofondo da questo
+   computer (la rete degli studenti può essere più filtrata di quella del docente). La busta evita le quest non
+   giocabili e le tappe bloccate passano subito a una riserva raggiungibile. Senza esiti (controllo non finito o
+   fallito) tutto funziona come prima. */
+const RETE = {esiti: null, pronto: null};
+let AUTO_SOST = 0;
+function avviaControlloRete(){
+  if (!RETE.pronto) RETE.pronto = controllaRete(() => {}).then(e => {
+    RETE.esiti = e;
+    if (S === null || S.fase === 'i') renderCatalogo(S ? S.tema : null);   // aggiorna l'avviso della special edition
+    return e;
+  }).catch(() => null);
+  return RETE.pronto;
+}
+const tappaRaggiungibile = t => !RETE.esiti || hostTappa(t).every(h => RETE.esiti[h] === 'ok');
+const questGiocabile = q => !RETE.esiti || bilancioRete(q, RETE.esiti).stato !== 'no';
+function riservaLibera(q){
+  const libere = (q.riserve || []).map((r, k) => k).filter(k => !S.sost.includes(k));
+  const k = libere.find(k => tappaRaggiungibile(q.riserve[k]));
+  return k !== undefined ? k : (libere.length ? libere[0] : -1);
+}
+function sostituisciBloccate(){
+  if (!RETE.esiti) return 0;
+  const q = quest(); let n = 0;
+  q.tappe.slice(0, CONFIG.TAPPE).forEach((t, i) => {
+    if (tappaRaggiungibile(t) || sostUsate() >= maxSost()) return;
+    const k = riservaLibera(q);
+    if (k >= 0 && tappaRaggiungibile(q.riserve[k])){ S.sost[i] = k; n++; }
+  });
+  return n;
+}
+const ESITO_RETE = {ok: 'raggiungibile', bloccato: 'non raggiungibile (bloccato dal filtro o sito spento)', lento: 'non risponde in tempo'};
+function bilancioRete(q, esiti){
+  const ko = t => hostTappa(t).filter(h => esiti[h] !== 'ok');
+  const tappeKo = q.tappe.filter(t => ko(t).length), riserveOk = (q.riserve || []).filter(t => !ko(t).length);
+  const stato = !tappeKo.length ? 'ok' : (tappeKo.length <= Math.min(riserveOk.length, CONFIG.MAX_SOST) ? 'parz' : 'no');
+  return {stato, tappeKo, riserveOk, ko};
+}
+function renderRete(esiti){
+  const righe = QUEST.map(q => ({q, ...bilancioRete(q, esiti)}));
+  const pronte = righe.filter(r => r.stato !== 'no' && !r.q.special).map(r => r.q.tema);
+  const etich = {ok: 'Pronta', parz: 'Giocabile con le sostituzioni', no: 'Da evitare su questa rete'};
+  const link = location.origin + location.pathname + '?temi=' + pronte.join(',');
+  const testo = ['Controllo rete Web Quest · ' + new Date().toLocaleString('it-IT'), ''].concat(righe.map(r =>
+    `${r.q.titolo}: ${etich[r.stato]} (${r.q.tappe.length - r.tappeKo.length}/${r.q.tappe.length} tappe, riserve ok ${r.riserveOk.length})` +
+    r.tappeKo.map(t => `\n  - ${t.titolo}: ${r.ko(t).map(h => h + ' ' + esiti[h]).join(', ')}`).join(''))).join('\n');
+  $('#rete-esito').innerHTML = `
+    <p>${pronte.length ? `Su questo computer sono giocabili <b>${pronte.length} quest su ${QUEST.filter(q => !q.special).length}</b>. Il link qui sotto apre una busta che pesca solo tra queste:` : 'Nessuna quest è giocabile per intero su questo computer.'}</p>
+    ${pronte.length ? `<div class="link-out">${esc(link)}</div>` : ''}
+    <div class="form-riga">${pronte.length ? `<button class="btn btn-primario" type="button" id="rete-link">Copia il link</button>` : ''}
+      <button class="btn btn-linea" type="button" id="rete-copia">Copia il resoconto</button></div>
+    ${righe.map(r => `<div class="rete-q ${r.stato}"><h4>${ico(r.q.icona)}${esc(r.q.titolo)}<span class="rete-stato">${etich[r.stato]}</span></h4>
+      <div class="mini">${r.q.tappe.length - r.tappeKo.length} tappe su ${r.q.tappe.length} raggiungibili · riserve raggiungibili: ${r.riserveOk.length}</div>
+      ${r.tappeKo.length ? `<ul>${r.tappeKo.map(t => `<li>${esc(t.titolo)}: ${r.ko(t).map(h => `<span class="rete-h ${esiti[h]}">${esc(h)}</span> ${esc(ESITO_RETE[esiti[h]])}`).join('; ')}</li>`).join('')}</ul>` : ''}</div>`).join('')}`;
+  const copia = (id, txt, ok) => { const b = $(id); if (b) b.onclick = () => navigator.clipboard && navigator.clipboard.writeText(txt).then(() => { b.textContent = ok; }); };
+  copia('#rete-link', link, 'Link copiato');
+  copia('#rete-copia', testo, 'Resoconto copiato');
+}
 function apriTab(nome){
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.tab === nome));
   $('#tab-body').innerHTML = TAB[nome]();
@@ -6831,6 +6969,18 @@ function apriTab(nome){
       $('#cfg-link').textContent = url; $('#cfg-link').classList.remove('hidden');
       $('#cfg-copia').classList.remove('hidden');
       $('#cfg-copia').onclick = () => navigator.clipboard && navigator.clipboard.writeText(url).then(() => { $('#cfg-copia').textContent = 'Link copiato'; });
+    };
+  }
+  if (nome === 'rete'){
+    $('#rete-domini').onclick = () => {
+      const d = [...new Set(QUEST.flatMap(q => [...q.tappe, ...(q.riserve || [])].flatMap(hostTappa)))]
+        .concat(QUEST.some(q => q.special) ? ['s.ytimg.com', '*.googlevideo.com'] : []).sort();   // il player YouTube scarica il video da googlevideo.com
+      navigator.clipboard && navigator.clipboard.writeText(d.join('\n')).then(() => { $('#rete-domini').textContent = `Elenco copiato (${d.length} domini)`; });
+    };
+    $('#rete-via').onclick = async () => {
+      const b = $('#rete-via'); b.disabled = true; $('#rete-esito').innerHTML = '';
+      const esiti = await controllaRete((n, tot) => { $('#rete-stato').textContent = `Siti controllati: ${n} di ${tot}`; });
+      b.disabled = false; renderRete(esiti);
     };
   }
   if (nome === 'bacino' && !pinOk){
@@ -6872,6 +7022,7 @@ if (!QUEST.length){
   const st = carica();
   if (st && sessioneMia(st)){ S = st; route(); }
   else { renderIntro(); if (st) proponiRipresa(st); }
+  avviaControlloRete();
 }
 </script>
 </body>

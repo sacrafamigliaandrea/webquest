@@ -267,6 +267,10 @@ kbd.kc svg.i{width:15px;height:15px;stroke-width:2.2}
 .campo.no{border-color:var(--ambraM);background:var(--ambraL)}
 .elenco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;width:100%;margin-bottom:10px}
 .elenco-grid .campo{flex:none;width:100%;font-size:17px;padding:9px 11px;min-height:44px}
+.tabella-grid{display:grid;gap:8px;width:100%;margin-bottom:10px}
+.tab-riga{display:grid;grid-template-columns:minmax(150px,38%) 1fr;align-items:center;gap:12px;font-family:var(--head);font-weight:600;font-size:16px;color:var(--ink)}
+.tab-riga .campo{flex:none;width:100%;font-size:17px;padding:9px 11px;min-height:44px}
+@media (max-width:620px){.tab-riga{grid-template-columns:1fr;gap:4px}}
 .elenco-info{font-size:15px;color:var(--muted);margin:-4px 0 12px}
 .feedback{margin-top:12px;border-radius:12px;padding:12px 14px;font-size:17px;display:flex;gap:10px;align-items:flex-start}
 .feedback:empty{display:none}
@@ -679,6 +683,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
     <symbol id="t-canzoni" viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M6 10.5a6 6 0 0 0 12 0M12 16.5V21M8.5 21h7"/><path d="M9 6.5h2M9 9.5h2" stroke-width="1.4"/></symbol>
     <symbol id="t-nobel-italiani" viewBox="0 0 24 24"><path d="M8 2.5l3 6M16 2.5l-3 6"/><circle cx="12" cy="15" r="6"/><path d="M12 11.6l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z" fill="currentColor" stroke="none"/></symbol>
     <symbol id="t-testo-storia" viewBox="0 0 24 24"><path d="M6 2.5h8.5L19 7v14.5H6z"/><path d="M14.5 2.5V7H19"/><path d="M8.8 10.5h7.4M8.8 13.5h7.4M8.8 16.5h4.6"/></symbol>
+    <symbol id="t-orzinuovi" viewBox="0 0 24 24"><path d="M4 21V8h3V5h2.5v3h2V5h3v3h2V5H19v3h1v13z"/><path d="M10 21v-3.5a2 2 0 0 1 4 0V21M7.5 12.5h1.5M15 12.5h1.5"/></symbol>
     <symbol id="t-video" viewBox="0 0 24 24"><rect x="2.5" y="4" width="15.5" height="11" rx="2"/><path d="M8.6 7.2v4.6l4-2.3z" fill="currentColor" stroke="none"/><circle cx="17" cy="16.3" r="3.7" fill="var(--ico-bg,#fff)"/><path d="M19.7 19L22 21.3"/></symbol>
     <!-- discipline -->
     <symbol id="d-arte" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.9-1 1.5-2l-.4-1.1a1.7 1.7 0 0 1 1.6-2.3H17a4 4 0 0 0 4-4C21 7 17 3 12 3z"/><g fill="currentColor" stroke="none"><circle cx="7.5" cy="11" r="1.2"/><circle cx="9.5" cy="7" r="1.2"/><circle cx="14.5" cy="7" r="1.2"/></g></symbol>
@@ -5581,11 +5586,468 @@ const QUEST = [
    ]
   },
   "intro": "8 tappe dentro una sola pagina di testo, la storia del Senato dallo Statuto Albertino del 1848 alla Repubblica. Non si cambia sito: si impara a leggere un testo lungo e difficile senza perdersi."
+ },
+ {
+  "tema": "orzinuovi",
+  "sigla": "ORZ",
+  "breve": "Orzinuovi",
+  "icona": "t-orzinuovi",
+  "titolo": "Orzinuovi, istruzioni per l'uso",
+  "sottotitolo": "Farmacie, posta, rifiuti, mercatino, pizzeria, negozi ed eventi: cerca sui siti veri le informazioni che servono ogni giorno nel nostro paese.",
+  "parole": [
+   "FORTEZZA",
+   "BASTIONE",
+   "SERVIZIO"
+  ],
+  "indovinelli": {
+   "FORTEZZA": "Mura, fossati e una rocca: Orzinuovi è nata come borgo fortificato. Un luogo costruito per difendersi si chiama così.",
+   "BASTIONE": "Sporge dalle mura come la punta di una stella: serviva a difendere le città fortificate dai colpi di cannone.",
+   "SERVIZIO": "Farmacia, posta, raccolta dei rifiuti: ognuno di questi è un ... che il paese offre ai suoi cittadini."
+  },
+  "tappe": [
+   {
+    "id": "orzi-ecosportello",
+    "titolo": "A che ora apre l'Ecosportello?",
+    "disciplina": "cittadinanza",
+    "contesto": "L'Ecosportello è l'ufficio del Comune dove si ritirano i bidoni e i sacchi della raccolta differenziata e si segnalano i problemi del servizio. Non è aperto tutti i giorni: prima di andarci bisogna controllare gli orari sul sito del Comune.",
+    "url": "www.comune.orzinuovi.bs.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Nel menu in alto clicca «Servizi», poi la categoria «Ambiente».",
+     "Clicca «Raccolta differenziata».",
+     "Scorri la pagina fino agli orari e cerca il riquadro «ECOSPORTELLO servizio igiene urbana»."
+    ],
+    "domanda": "Il martedì e il venerdì l'Ecosportello è aperto la mattina. A che ora apre?",
+    "tipo": "testo",
+    "risposte": [
+     "8:45",
+     "8.45",
+     "08:45",
+     "alle 8:45",
+     "alle 8.45"
+    ],
+    "aiuti": [
+     "Gli orari sono in fondo alla pagina «Raccolta differenziata». Non confonderli con quelli dell'Ufficio Ecologia o del Punto Ecologico: cerca il riquadro dell'ECOSPORTELLO.",
+     "Accanto a «Mar» e a «Ven» c'è lo stesso orario: 8.45-12.45. Ti serve il primo numero."
+    ],
+    "soluzione": "Alle 8.45 (martedì e venerdì 8.45-12.45). Il mercoledì apre solo il pomeriggio, dalle 14.00 alle 18.00; lunedì, giovedì e sabato è chiuso.",
+    "prova": "ECOSPORTELLO servizio igiene urbana Lun Chiuso , Chiuso Mar 8.45-12.45 , Chiuso Mer Chiuso , 14.00-18.00",
+    "url_verifica": "https://www.comune.orzinuovi.bs.it/Servizi/Raccolta-differenziata",
+    "verificato": "2026-10-23",
+    "note": "Orario valido dal 07/04/2026 (pagina del Comune, ultimo aggiornamento 30/09/2026). La locandina PDF dell'Ecosportello è un'immagine: non si può cercare con cmd+F."
+   },
+   {
+    "id": "orzi-carta-giovedi",
+    "titolo": "Il giorno della carta",
+    "disciplina": "scienze",
+    "contesto": "A Orzinuovi la raccolta dei rifiuti è porta a porta: ogni tipo di rifiuto ha il suo giorno, e i contenitori si mettono fuori la sera prima. Il Comune pubblica ogni anno il calendario preparato da Aprica, l'azienda che fa il servizio.",
+    "url": "www.comune.orzinuovi.bs.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "Carta",
+    "percorso": [
+     "Vai a «Servizi» > «Ambiente» > «Raccolta differenziata» e scorri fino a «Ulteriori informazioni».",
+     "Clicca «INFORMAZIONI APPALTO IGIENE URBANA - GESTIONE RIFIUTI» e apri il documento «CALENDARIO 2026» (PDF).",
+     "Nella seconda pagina del calendario cerca «Carta e Cartone»: a destra c'è il giorno della raccolta."
+    ],
+    "domanda": "In quale giorno della settimana viene raccolta la carta (con il cartone) a Orzinuovi?",
+    "tipo": "testo",
+    "risposte": [
+     "giovedì",
+     "giovedi",
+     "il giovedì",
+     "ogni giovedì"
+    ],
+    "aiuti": [
+     "Nel calendario i rifiuti sono divisi in gruppi; ogni gruppo ha un giorno scritto in un riquadro azzurro.",
+     "La carta e il cartone sono nello stesso gruppo dell'indifferenziato e dell'organico: è un giorno tra mercoledì e venerdì."
+    ],
+    "soluzione": "Il giovedì, insieme a indifferenziato e organico. I contenitori si espongono dalle 20 del giorno prima ed entro le 6 del giorno di raccolta.",
+    "prova": "Carta e Cartone",
+    "url_verifica": "https://www.comune.orzinuovi.bs.it/ocmultibinary/download/1781/41631/12/74717b47dd543e8af6e0c35b7a786b4c.pdf/file/CALENDARIO%2B2026.pdf",
+    "verificato": "2026-10-23",
+    "note": "Calendario 2026 (Comune di Orzinuovi, servizio Aprica - gruppo A2A): lunedì organico, vetro e metalli, sfalci; martedì plastica; giovedì indifferenziato, organico, carta e cartone; sabato organico (1/4-30/9). Verificato anche sull'immagine della pagina 2. Per il 2027 sostituire il PDF."
+   },
+   {
+    "id": "orzi-mercatino-domenica",
+    "titolo": "Il mercatino della piazza",
+    "disciplina": "storia",
+    "contesto": "In piazza Vittorio Emanuele II, la piazza del Municipio, da decenni arrivano bancarelle di mobili antichi, monete, francobolli, dischi e giocattoli d'epoca. Quando si svolge? Lo stabilisce un regolamento del Comune: un documento ufficiale, più affidabile dei siti di eventi.",
+    "url": "www.comune.orzinuovi.bs.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "domenica",
+    "percorso": [
+     "In alto clicca «Cerca» (la lente) e scrivi la parola mercatino.",
+     "Tra i risultati apri «Regolamento Svolgimento Mercatino Antiquariato», poi il documento «Allegato definitivo» (PDF).",
+     "Cerca con cmd+F la parola «domenica» e leggi l'articolo 4, «Modalità di svolgimento»."
+    ],
+    "domanda": "Quando si tiene il mercatino dell'antiquariato in piazza Vittorio Emanuele II? Scrivi quale domenica del mese.",
+    "tipo": "testo",
+    "risposte": [
+     "prima domenica del mese",
+     "la prima domenica di ogni mese",
+     "prima domenica",
+     "ogni prima domenica del mese",
+     "1 domenica del mese"
+    ],
+    "aiuti": [
+     "La risposta è all'articolo 4 del regolamento: «Il Mercatino si svolge ...».",
+     "Non è la seconda né l'ultima: è la ... domenica di ogni mese (di solito non ad agosto)."
+    ],
+    "soluzione": "La prima domenica di ogni mese, di norma escluso agosto. Orario: da ottobre a marzo 8-17, da aprile a settembre 8-18. Oltre alla piazza Vittorio Emanuele II occupa piazza Garibaldi e l'anello del Parco Alcide De Gasperi.",
+    "prova": "la prima domenica di ogni mese e, di norma è escluso il mese di Agosto",
+    "url_verifica": "https://www.comune.orzinuovi.bs.it/ocmultibinary/download/1373/32436/1/6b1e95504ce95300fceec7ad7130ba33.pdf/file/Allegato_definitivo.pdf",
+    "verificato": "2026-10-23",
+    "note": "Regolamento comunale, art. 4. ATTENZIONE: alcuni siti di eventi indicano la terza domenica o orari diversi (9-18, 9-19): la fonte valida è il regolamento. Le pagine del Comune per ogni edizione confermano (es. domenica 3 maggio 2026)."
+   },
+   {
+    "id": "orzi-farmacie-orari",
+    "titolo": "Le farmacie nel fine settimana",
+    "disciplina": "scienze",
+    "contesto": "Gli orari di tutte le farmacie della provincia sono raccolti dall'ATS di Brescia, l'agenzia della Regione che controlla la sanità sul territorio, in un unico documento ufficiale aggiornato ogni anno. Nel fine settimana gli orari cambiano da una farmacia all'altra: compila la tabella delle tre farmacie del centro.",
+    "url": "www.ats-brescia.it/turni-orari-settimanali-e-ferie-farmacie",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "Orzinuovi",
+    "percorso": [
+     "Nella pagina clicca sul documento «Allegato 2_Ferie_Orari_Aperture_Farmacie e Dispensari 2026-2027 Brescia e Provincia»: si apre un PDF di 43 pagine.",
+     "Le farmacie sono in ordine alfabetico di Comune: cerca con cmd+F la parola «Orzinuovi».",
+     "Attenzione alla trappola: «Orzinuovi» compare anche come nome di una via in altri paesi. Conta solo la prima colonna, COMUNE."
+    ],
+    "domanda": "Compila la tabella con gli orari del sabato e della domenica delle tre farmacie del centro di Orzinuovi.",
+    "tipo": "tabella",
+    "campi": [
+     {
+      "etichetta": "Farmacia Adua, sabato",
+      "orario": "8:30-13:00/15:00-19:30"
+     },
+     {
+      "etichetta": "Farmacia Adua, domenica",
+      "orario": "9:00-12:00"
+     },
+     {
+      "etichetta": "Farmacia Tinti, sabato",
+      "orario": "8:30-12:30/15:00-19:30"
+     },
+     {
+      "etichetta": "Farmacia Tinti, domenica",
+      "orario": "chiuso"
+     },
+     {
+      "etichetta": "Farmacia Magli, sabato",
+      "orario": "8:30-12:30/15:00-19:30"
+     },
+     {
+      "etichetta": "Farmacia Magli, domenica",
+      "orario": "chiuso"
+     }
+    ],
+    "aiuti": [
+     "Ogni farmacia ha una riga: leggi la colonna «Orario di apertura». Per Tinti e Magli vale «da lunedì a sabato», quindi anche il sabato.",
+     "Adua: sabato 8:30-13:00/15:00-19:30, domenica 9:00-...; Tinti e Magli: da lunedì a sabato 8:30-12:30/15:00-19:30, domenica ..."
+    ],
+    "soluzione": "Adua: sabato 8:30-13:00 e 15:00-19:30, domenica 9:00-12:00. Tinti e Magli: sabato 8:30-12:30 e 15:00-19:30, domenica chiuse. Dal lunedì al venerdì la Adua fa orario continuato 8:30-19:30.",
+    "prova": "Sabato 8:30-13:00/ 15:00-19:30 · Domenica 9:00-12:00 · da lunedì a sabato 8:30-12:30/15:00-19:30 · Domenica chiuso",
+    "url_verifica": "https://www.ats-brescia.it/system/files/pagina_standard/files/1509/26785/22.10.26.%20All%202_%20Ferie_Orari_Aperture_Farmacie%20e%20Dispensari%202026-2027%20Brescia%20e%20Provincia.pdf",
+    "verificato": "2026-10-23",
+    "note": "Righe del Comune di Orzinuovi nell'Allegato 2 ATS (aggiornamento 22/10/2026): F. ADUA (via Bracesco 3/B), FARMACIA TINTI (p.zza Vittorio Emanuele II 43), FARMACIA MAGLI (p.zza Vittorio Emanuele 77); la quarta, FORNARI, è a Coniolo. «Orzinuovi» compare 6 volte (2 sono «Via Orzinuovi» in altri paesi)."
+   },
+   {
+    "id": "orzi-poste-sostitutivo",
+    "titolo": "Le Poste sono chiuse?",
+    "disciplina": "cittadinanza",
+    "contesto": "Per spedire un pacco o pagare un bollettino si va all'ufficio postale. Ma prima conviene controllare sul sito di Poste Italiane: gli uffici possono chiudere per lavori, e il sito indica dove andare nel frattempo. In paese ci sono anche i «Punti Poste» nelle tabaccherie.",
+    "url": "www.poste.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Se compare l'avviso sui cookie, clicca «Non accetto».",
+     "Nella sezione «Cerca un ufficio e prenota» clicca «Cerca un Ufficio Postale o un Punto Poste».",
+     "Nella casella «Cerca nella mappa» scrivi Orzinuovi e scegli il primo suggerimento, «Orzinuovi» (le «Via Orzinuovi» sono in altri paesi), poi clicca «Vista elenco».",
+     "Trova l'Ufficio Postale di via Giuseppe Mazzini 1, leggi che cosa c'è scritto e clicca «Vai all'ufficio sostitutivo»."
+    ],
+    "domanda": "Che cosa scopri sull'ufficio postale di via Mazzini a Orzinuovi? In quale paese si trova l'ufficio che lo sostituisce?",
+    "tipo": "testo",
+    "risposte": [
+     "Roccafranca"
+    ],
+    "aiuti": [
+     "Sotto l'indirizzo di via Mazzini c'è scritto «Chiuso al pubblico» e c'è il pulsante «Vai all'ufficio sostitutivo»: cliccalo.",
+     "L'ufficio sostitutivo è in via Santi Gervasio e Protasio 30, in un paese vicino che comincia con «Rocca»."
+    ],
+    "soluzione": "Roccafranca: l'ufficio di Orzinuovi risulta «chiuso al pubblico» e l'ufficio sostitutivo è a Roccafranca (via Santi Gervasio e Protasio 30), aperto dal lunedì al venerdì 8:20-13:45 e il sabato 8:20-12:45. A Orzinuovi restano i Punti Poste nelle tabaccherie.",
+    "prova": "Chiuso al pubblico · Vai all'ufficio sostitutivo · Roccafranca · Via Santi Gervasio E Protasio 30 25030 - Roccafranca (BS)",
+    "url_verifica": "https://www.poste.it/prenotazione/vieni-in-poste/?search=Orzinuovi",
+    "verificato": "2026-10-23",
+    "note": "DATO TEMPORANEO, verificato nel browser il 2026-10-23 (la ricerca di poste.it è un'applicazione: gli script non la leggono). Quando l'ufficio di via Mazzini riaprirà, cambiare la domanda (es. orario di chiusura del sabato). Orari di Roccafranca dalla scheda «Orari» dell'ufficio sostitutivo; nella scheda compare anche «Sportello AmicoPolis» (progetto Polis di Poste Italiane)."
+   },
+   {
+    "id": "orzi-pizza-conto",
+    "titolo": "Il conto della pizzeria",
+    "disciplina": "matematica",
+    "contesto": "Il menù di una pizzeria è un documento da leggere con attenzione: nomi, ingredienti, prezzi e supplementi. La Madonnina, in via Milano, pubblica sul suo sito il menù aggiornato in PDF. Prima di ordinare con gli amici, fate due conti.",
+    "url": "www.lamadonninaristorante.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "Margherita",
+    "percorso": [
+     "Nel menu in alto clicca «PIZZERIA».",
+     "Scorri e clicca il pulsante «SCOPRI IL MENU'»: si apre il menù in PDF.",
+     "Cerca con cmd+F le pizze che ti servono e leggi il prezzo a destra."
+    ],
+    "domanda": "Alla pizzeria La Madonnina ordinate 2 margherite e 1 marinara. Quanto spendete in tutto, in euro?",
+    "tipo": "numero",
+    "risposte": [
+     "18",
+     "18,00",
+     "18.00"
+    ],
+    "aiuti": [
+     "Le due pizze sono all'inizio delle «Pizze Classiche». Scrivi i due prezzi, poi fai il conto.",
+     "Margherita 6,50 €, marinara 5,00 €: 6,50 + 6,50 + 5,00 = ?"
+    ],
+    "soluzione": "18,00 €: 6,50 + 6,50 + 5,00. Attenzione: la pizza senza glutine costa 2,00 € in più.",
+    "prova": "Margherita (pomodoro, mozzarella) € 6,50",
+    "url_verifica": "https://irp.cdn-website.com/069c7302/files/uploaded/Men%C3%B9+carta+11+settembre+2026+pizze+e+bevande.pdf",
+    "verificato": "2026-10-23",
+    "note": "Menù «carta 11 settembre 2026 pizze e bevande» (7 pagine). Marinara € 5,00. I prezzi cambiano: riverificare."
+   },
+   {
+    "id": "orzi-action-orari",
+    "titolo": "Gli orari di Action a Orzivecchi",
+    "disciplina": "matematica",
+    "contesto": "Action è una catena di negozi che vende prodotti per la casa, il bricolage, la scuola e i giochi a prezzi bassi. Ha aperto da poco un negozio a Orzivecchi, il paese accanto a Orzinuovi, in viale Tovini. Prima di andarci con la famiglia, controlla sul sito ufficiale quando è aperto.",
+    "url": "www.action.com",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Se compare l'avviso sui cookie in olandese, clicca «Weigeren»: vuol dire «Rifiuta». Poi scegli «Italia».",
+     "In alto clicca «Negozi» (o «Cerca un negozio») e nell'elenco dei paesi clicca «Orzivecchi».",
+     "Nella pagina del negozio leggi il riquadro «Orari di apertura»: l'elenco dei giorni comincia da oggi, non dal lunedì."
+    ],
+    "domanda": "Compila la tabella con gli orari di apertura del negozio Action di Orzivecchi, giorno per giorno.",
+    "tipo": "tabella",
+    "campi": [
+     {
+      "etichetta": "Lunedì",
+      "orario": "8:45-20:30"
+     },
+     {
+      "etichetta": "Martedì",
+      "orario": "8:45-20:30"
+     },
+     {
+      "etichetta": "Mercoledì",
+      "orario": "8:45-20:30"
+     },
+     {
+      "etichetta": "Giovedì",
+      "orario": "8:45-20:30"
+     },
+     {
+      "etichetta": "Venerdì",
+      "orario": "8:45-20:30"
+     },
+     {
+      "etichetta": "Sabato",
+      "orario": "8:45-20:30"
+     },
+     {
+      "etichetta": "Domenica",
+      "orario": "9:00-20:00"
+     }
+    ],
+    "aiuti": [
+     "L'elenco degli orari parte dal giorno di oggi: cerca ogni giorno per nome, non andare in ordine.",
+     "Sei giorni hanno lo stesso orario, 08:45 - 20:30. Uno solo è diverso: è il giorno di festa."
+    ],
+    "soluzione": "Dal lunedì al sabato 8:45-20:30, la domenica 9:00-20:00.",
+    "prova": "Venerdì 08:45 - 20:30 Sabato 08:45 - 20:30 Domenica 09:00 - 20:00 Lunedì 08:45 - 20:30",
+    "url_verifica": "https://www.action.com/it-it/negozi/orzivecchi-viale-g-tovini-1/",
+    "verificato": "2026-10-23",
+    "note": "Verificato nel browser il 2026-10-23 (action.com risponde 403 agli script): negozio «Orzivecchi Viale G. Tovini», viale G. Tovini 1, 25030 Orzivecchi. Sito di un negozio (catalogo e offerte del marchio), senza pubblicità di terzi. La pagina mostra in alto eventuali avvisi di sicurezza sui prodotti."
+   },
+   {
+    "id": "orzi-street-food",
+    "titolo": "Street Food Party: quale edizione?",
+    "disciplina": "storia",
+    "contesto": "Ogni anno a Orzinuovi arrivano i food truck per lo Street Food Party. Ma attenzione: le pagine sul web restano online anche dopo l'evento, e non sempre vengono aggiornate. Confronta due fonti e controlla sempre l'anno. La seconda fonte è un giornale online con pubblicità: non cliccare banner e annunci.",
+    "url": "www.comune.orzinuovi.bs.it",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Sul sito del Comune clicca «Cerca» (la lente), scrivi street food e apri l'evento «Street Food Party».",
+     "Leggi «Luogo» e «Date e orari»: di quale anno è l'edizione che vedi?",
+     "Poi digita nella scheda di destra l'indirizzo www.bresciatoday.it/eventi/sagre/orzinuovi-street-food-festival-2026.html e leggi i riquadri «Dove» e «Quando»."
+    ],
+    "domanda": "Confronta le due fonti e compila la tabella: l'anno dell'edizione sul sito del Comune, e quando e dove si è svolto l'Orzinuovi Street Food Party 2026.",
+    "tipo": "tabella",
+    "campi": [
+     {
+      "etichetta": "Sito del Comune: anno dell'edizione",
+      "risposte": [
+       "2025"
+      ],
+      "contiene": {
+       "numeri": [
+        "2025"
+       ]
+      }
+     },
+     {
+      "etichetta": "Edizione 2026: quando",
+      "risposte": [
+       "dal 27 al 29 marzo 2026"
+      ],
+      "contiene": {
+       "numeri": [
+        "27",
+        "29"
+       ],
+       "parole": [
+        "marzo"
+       ]
+      }
+     },
+     {
+      "etichetta": "Edizione 2026: dove",
+      "risposte": [
+       "piazza Garibaldi",
+       "Piazza Giuseppe Garibaldi",
+       "Garibaldi"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Sul sito del Comune le date sono nel riquadro «Date e orari»: guarda l'anno scritto accanto ai giorni. Su BresciaToday cerca i riquadri «Dove» e «Quando» sotto il titolo.",
+     "Il Comune mostra ancora l'edizione di settembre 2025, alla Rocca di San Giorgio. Nel 2026 la festa è stata a fine marzo, in una piazza che porta il nome dell'eroe dei Due Mondi."
+    ],
+    "soluzione": "Il sito del Comune mostra l'edizione 2025 (25-28 settembre, Rocca di San Giorgio). L'Orzinuovi Street Food Party 2026 si è svolto dal 27 al 29 marzo 2026 in piazza Garibaldi.",
+    "prova": "Dove Piazza Garibaldi Piazza Giuseppe Garibaldi Orzinuovi Quando Dal 27/03/2026 al 29/03/2026",
+    "url_verifica": "https://www.bresciatoday.it/eventi/sagre/orzinuovi-street-food-festival-2026.html",
+    "verificato": "2026-10-23",
+    "note": "ECCEZIONE alla regola «niente pubblicità», scelta da Andrea il 23/10/2026 («due fonti a confronto»): l'edizione 2026 è solo su BresciaToday (testata locale). Pagina del Comune: www.comune.orzinuovi.bs.it/Vivere-il-comune/Eventi/Street-Food-Party (25/09/2025-28/09/2025, Rocca di San Giorgio). BresciaToday blocca a volte i browser automatici e la propria ricerca interna («Riprova tra un attimo #403»): per questo si digita l'indirizzo dell'articolo. Nel testo dell'articolo: «dal 27 al 29 marzo arriva l'Orzinuovi Street Food Party ... Sarà Piazza Garibaldi a trasformarsi»."
+   }
+  ],
+  "riserve": [
+   {
+    "id": "orzi-farmacie-tre",
+    "titolo": "Le tre farmacie del centro",
+    "disciplina": "cittadinanza",
+    "contesto": "Gli orari di tutte le farmacie della provincia sono raccolti dall'ATS di Brescia, l'agenzia della Regione che controlla la sanità sul territorio, in un unico documento ufficiale aggiornato ogni anno. Il Comune di Orzinuovi ha quattro farmacie: una è nella frazione di Coniolo.",
+    "url": "www.ats-brescia.it/turni-orari-settimanali-e-ferie-farmacie",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "Orzinuovi",
+    "percorso": [
+     "Nella pagina clicca sul documento «Allegato 2_Ferie_Orari_Aperture_Farmacie e Dispensari 2026-2027 Brescia e Provincia»: si apre un PDF di 43 pagine.",
+     "Le farmacie sono in ordine alfabetico di Comune: cerca con cmd+F la parola «Orzinuovi».",
+     "Attenzione alla trappola: «Orzinuovi» compare anche come nome di una via in altri paesi. Conta solo la prima colonna, COMUNE."
+    ],
+    "domanda": "Come si chiamano le tre farmacie del centro di Orzinuovi (non quella di Coniolo)? Basta il nome principale.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "Adua",
+      "varianti": [
+       "F. Adua",
+       "Farmacia Adua"
+      ]
+     },
+     {
+      "voce": "Tinti",
+      "varianti": [
+       "Farmacia Tinti"
+      ]
+     },
+     {
+      "voce": "Magli",
+      "varianti": [
+       "Farmacia Magli"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Le righe giuste hanno «Orzinuovi» nella prima colonna. La farmacia con l'indirizzo «Via BEMBO 15 - Coniolo» è quella della frazione: non contarla.",
+     "Due farmacie sono in piazza Vittorio Emanuele II, una in via Bracesco. I nomi sono Adua, Tinti e ...: guarda la riga di piazza Vittorio Emanuele 77."
+    ],
+    "soluzione": "F. Adua (via Bracesco 3/B), Farmacia Tinti (piazza Vittorio Emanuele II 43) e Farmacia Magli (piazza Vittorio Emanuele 77). La quarta, Fornari, è a Coniolo.",
+    "prova": "F. ADUA S.A.S. di Sarta Paola e C.",
+    "url_verifica": "https://www.ats-brescia.it/system/files/pagina_standard/files/1509/26785/22.10.26.%20All%202_%20Ferie_Orari_Aperture_Farmacie%20e%20Dispensari%202026-2027%20Brescia%20e%20Provincia.pdf",
+    "verificato": "2026-10-23",
+    "note": "Allegato 2 ATS Brescia, Ferie/Orari/Aperture farmacie 2026-2027, aggiornamento 22/10/2026 (43 pagine). «Orzinuovi» compare 6 volte: 4 righe del Comune di Orzinuovi + «Via Orzinuovi» a Brescia (Farmacia Varoli) e a Lograto (Farmacia Mazzola). Il nome del file cambia a ogni aggiornamento: l'etichetta del link («Allegato 2_Ferie_Orari...») resta."
+   },
+   {
+    "id": "orzi-pizza-allergeni",
+    "titolo": "Il numero degli allergeni",
+    "disciplina": "scienze",
+    "contesto": "Per legge i menù devono indicare i 14 allergeni, le sostanze che in alcune persone causano reazioni anche gravi. Nel menù di GustAvo, a Barco di Orzinuovi, accanto a ogni piatto ci sono dei numeri: in fondo al menù c'è la legenda che li spiega.",
+    "url": "www.gustavoristorantepizzeria.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "NINJA",
+    "percorso": [
+     "Nel menu in alto clicca «IL MENù»: si apre il menù in PDF.",
+     "Cerca con cmd+F la pizza «NINJA» e guarda i numeri dopo gli ingredienti.",
+     "In fondo al menù c'è l'«ELENCO DEI 14 ALLERGENI ALIMENTARI»: cerca il numero che ti serve."
+    ],
+    "domanda": "La pizza Ninja (wurstel e patatine fritte) ha gli allergeni 1, 5 e 7; la margherita solo 1 e 7. Che cosa indica il numero 5?",
+    "tipo": "testo",
+    "risposte": [
+     "arachidi",
+     "arachidi e derivati",
+     "le arachidi",
+     "noccioline"
+    ],
+    "aiuti": [
+     "La legenda è nell'ultima pagina: ogni allergene ha un nome e un numero, per esempio «GLUTINE - 1».",
+     "Cerca con cmd+F «- 5»: è un legume che si mangia anche tostato, come le noccioline americane."
+    ],
+    "soluzione": "Arachidi e derivati. Chi è allergico deve leggere i numeri degli allergeni (1 = glutine, 7 = latte) o chiedere sempre al personale.",
+    "prova": "ARACHIDI E DERIVATI - 5",
+    "url_verifica": "https://gustavoristorantepizzeria.it/images/menu-2026.pdf",
+    "verificato": "2026-10-23",
+    "note": "Menù 2026 di GustAvo (9 pagine): «NINJA pomodoro, mozzarella, patatine fritte, wurstel 1 -5 - 7», 8.50 €. Legenda: 1 glutine, 5 arachidi e derivati, 7 latte e derivati."
+   },
+   {
+    "id": "orzi-gustavo-margherita",
+    "titolo": "Una margherita a Barco",
+    "disciplina": "matematica",
+    "contesto": "GustAvo è una pizzeria di Barco, una frazione di Orzinuovi, nel Palazzo Martinengo. Sul suo sito c'è il menù completo in PDF, con i prezzi delle pizze classiche, bianche e speciali.",
+    "url": "www.gustavoristorantepizzeria.it",
+    "lingua": "it",
+    "pdf": true,
+    "cmdf": "MARGHERITA",
+    "percorso": [
+     "Nel menu in alto clicca «IL MENù»: si apre il menù in PDF.",
+     "Cerca con cmd+F «MARGHERITA» e leggi il prezzo a destra."
+    ],
+    "domanda": "Quanto costa una pizza margherita da GustAvo, in euro?",
+    "tipo": "numero",
+    "risposte": [
+     "7",
+     "7,00",
+     "7.00"
+    ],
+    "aiuti": [
+     "La margherita è la prima delle pizze «CLASSICHE».",
+     "Il prezzo è scritto con il punto: «.00 €». Le cifre prima del punto sono quelle che ti servono."
+    ],
+    "soluzione": "7,00 €. Da GustAvo si paga anche il coperto (2,50 €) e l'impasto senza glutine costa 3 € in più.",
+    "prova": "MARGHERITA pomodoro, mozzarella 1 -7 7.00 €",
+    "url_verifica": "https://gustavoristorantepizzeria.it/images/menu-2026.pdf",
+    "verificato": "2026-10-23"
+   }
+  ],
+  "special": true,
+  "intro": "8 tappe a Orzinuovi e dintorni: le informazioni pratiche che servono davvero, cercate sui siti del Comune, dell'ATS, delle Poste, di una pizzeria, di un negozio e di un giornale locale. Orari, giorni e prezzi cambiano: per questo si controlla sempre la fonte e la sua data."
  }
 ];
 /* </QUEST_DATA> */
 /* <SONDE> */
-const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/home_banner/bannerhome-social10-2026.jpg?sfvrsn=d973eb22_2","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fia.com": "/sites/all/themes/penceo_theme/favicon-16x16.png","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.memorialeshoah.it": "/wp-content/uploads/2016/12/Memoriale-favicon.jpg","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
+const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","asimmetrie.it": "https://www.asimmetrie.it/wp-content/uploads/as_favicon-64-w.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","gustavoristorantepizzeria.it": "https://www.gustavoristorantepizzeria.it/images/favicon.png","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.action.com": "/favicon.ico","www.asimmetrie.it": "/wp-content/uploads/as_favicon-64-w.png","www.ats-brescia.it": "/themes/custom/edc_web/dist/assets/img/logo-rl-bianco.png","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/home_banner/bannerhome-social10-2026.jpg?sfvrsn=d973eb22_2","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.comune.orzinuovi.bs.it": "/favicon","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.gustavoristorantepizzeria.it": "/images/favicon.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.istat.it": "/wp-content/themes/EGPbs5-child/images/istat.svg","www.lamadonninaristorante.it": "/favicon.ico","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.memorialeshoah.it": "/wp-content/uploads/2016/12/Memoriale-favicon.jpg","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.poste.it": "/assets-custom/favicons/apple-touch-icon-57x57.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
 /* </SONDE> */
 
 const DISC = {
@@ -5622,6 +6084,7 @@ function nuovoSeed(){
    ===================================================================== */
 let S = null;                 // {seed, tema, fase, cur, ris[], aiu[], sost[], dec}
 const BOZZE = {};             // risposte scritte ma non ancora verificate (solo in memoria)
+const TAB_OK = {};            // righe gia' esatte nelle tappe "tabella" (solo in memoria)
 const ELENCO_OK = {};         // voci gia' trovate nelle tappe "elenco" (solo in memoria)
 let DEC = {arr: [], locked: new Set()};
 const PARAMS = Object.fromEntries(new URLSearchParams(location.search));
@@ -5793,6 +6256,29 @@ function confrontaNumero(input, varianti){
   const ok = varianti.some(v => numeri(v)[0] === nin[0]);
   return {ok, esatta: true, v: varianti[0]};
 }
+/* ORARI: «8:45-20:30», «8.45 - 20.30», «08,45/20,30», «9-20» = «9:00-20:00»: si confrontano i minuti.
+   «13 e 15» vale come due orari (le 13 e le 15), non come 13:15: le fasce si uniscono spesso con «e» */
+function orari(s){
+  const out = [], re = /(\d{1,2})(?:\s*[:.,h]\s*(\d{2}))?(?!\d)/g;
+  let m; while ((m = re.exec(String(s || '').toLowerCase()))){ const h = +m[1], mi = m[2] ? +m[2] : 0; if (h <= 24 && mi < 60) out.push(h * 60 + mi); }
+  return out;
+}
+/* un campo di una tappa "tabella": orario (anche «chiuso»), oppure numeri e parole che devono esserci, oppure risposte */
+function confrontaCampo(val, r){
+  if (!norm(val)) return false;
+  if (r.orario){
+    if (r.orario === 'chiuso') return /chius/.test(norm(val)) && !orari(val).length;
+    const a = orari(r.orario), b = orari(val);
+    return a.length === b.length && a.every((x, j) => x === b[j]);
+  }
+  if (r.contiene){
+    const nn = numeri(val), ww = norm(val).split(' ');
+    return (r.contiene.numeri || []).every(x => nn.includes(String(+x)))
+      && (r.contiene.parole || []).every(p => ww.some(w => lev(w, norm(p)) <= tolleranza(norm(p).length)));
+  }
+  return confrontaTesto(val, r.risposte || []).ok;
+}
+const attesoCampo = r => r.orario || (r.risposte || [''])[0];
 function confrontaElenco(valori, voci, gia){
   const usate = new Set(gia), esito = valori.map(() => null);
   valori.forEach((val, i) => {
@@ -5842,7 +6328,7 @@ async function apriBusta(forza){
   const tema = forzato || busta[Math.floor(rngDa(seed, 'tema')() * busta.length)].tema;
   const n = CONFIG.TAPPE;
   S = {seed, tema, fase: 'i', cur: 0, ris: Array(n).fill(0), aiu: Array(n).fill(0), sost: Array(n).fill(-1), dec: 0};
-  Object.keys(BOZZE).forEach(k => delete BOZZE[k]); Object.keys(ELENCO_OK).forEach(k => delete ELENCO_OK[k]);
+  Object.keys(BOZZE).forEach(k => delete BOZZE[k]); Object.keys(ELENCO_OK).forEach(k => delete ELENCO_OK[k]); Object.keys(TAB_OK).forEach(k => delete TAB_OK[k]);
   DEC = {arr: [], locked: new Set()};
   Object.assign(GUIDA, {modo: 'auto', tappa: -1, passo: null, mappa: false});
   CMDF_VISTO.clear();
@@ -5866,6 +6352,8 @@ function infoQuest(){
   const cf = t.filter(x => x.cmdf && !x.pdf).length;
   if (cf) f.push(`${cf} ricerche con ${MOD_TXT}+F`);
   if (el) f.push(el === 1 ? '1 tappa elenco' : `${el} tappe elenco`);
+  const tb = t.filter(x => x.tipo === 'tabella').length;
+  if (tb) f.push(tb === 1 ? '1 tabella da compilare' : `${tb} tabelle da compilare`);
   if (en) f.push(en === 1 ? '1 sito in inglese' : `${en} siti in inglese`);
   return f;
 }
@@ -6053,7 +6541,7 @@ function renderTappa(){
   const i = S.cur, t = tappe()[i], d = disc(t.disciplina), en = t.lingua && t.lingua !== 'it';
   let n = 0; const num = () => `<span class="n">${++n}</span>`;
   const risolta = !!S.ris[i];
-  const campi = t.tipo === 'elenco' ? campiElenco(i, t, risolta) : `
+  const campi = t.tipo === 'elenco' ? campiElenco(i, t, risolta) : t.tipo === 'tabella' ? campiTabella(i, t, risolta) : `
       <div class="risposta">
         <input class="campo ${risolta ? 'ok' : ''}" id="campo" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
           inputmode="${t.tipo === 'numero' ? 'numeric' : 'text'}" placeholder="${t.tipo === 'numero' ? 'Scrivi il numero in cifre' : 'Scrivi la risposta'}"
@@ -6079,6 +6567,7 @@ function renderTappa(){
           ${t.cmdf && !t.pdf ? `<span class="badge pdf">${ico('i-lente')}Testo · ${MOD_TXT}+F</span>` : ''}
           ${t.video ? `<span class="badge pdf">${ico('i-play')}Video${t.url ? ' + sito' : ''}</span>` : ''}
           ${t.tipo === 'elenco' ? `<span class="badge en">${ico('i-mappa')}Tappa elenco</span>` : ''}
+          ${t.tipo === 'tabella' ? `<span class="badge en">${ico('i-mappa')}Tabella da compilare</span>` : ''}
           ${en ? `<span class="badge en">${ico('d-lingue')}Sito in inglese</span>` : ''}</div>
         <span class="t-num">Tappa ${i + 1} di ${CONFIG.TAPPE}</span>
       </div>
@@ -6127,13 +6616,15 @@ function renderTappa(){
   $('#btn-sost').onclick = chiediSostituzione;
   $('#btn-guida').onclick = () => { GUIDA.modo = guidaAttiva() ? 'off' : 'on'; GUIDA.tappa = -1; GUIDA.mappa = false; aggiornaGioco(); };
   if (risolta) return;
-  if (t.tipo === 'elenco'){
-    const pieno = () => [...document.querySelectorAll('.campo-el:not([readonly])')].some(x => x.value.trim());
-    document.querySelectorAll('.campo-el').forEach(c => {
-      c.addEventListener('input', () => { BOZZE[i] = [...document.querySelectorAll('.campo-el')].map(x => x.value); guidaSuInput(pieno()); });
+  if (t.tipo === 'elenco' || t.tipo === 'tabella'){
+    const sel = t.tipo === 'elenco' ? '.campo-el' : '.campo-tab', verifica = () => (t.tipo === 'elenco' ? verificaElenco : verificaTabella)(i);
+    const pieno = () => [...document.querySelectorAll(sel + ':not([readonly])')].some(x => x.value.trim());
+    document.querySelectorAll(sel).forEach(c => {
+      c.addEventListener('input', () => { BOZZE[i] = [...document.querySelectorAll(sel)].map(x => x.value); c.classList.remove('no'); guidaSuInput(pieno()); });
       c.addEventListener('focus', () => guidaSuInput(pieno()));
+      if (t.tipo === 'tabella') c.addEventListener('keydown', e => { if (e.key === 'Enter') verifica(); });
     });
-    $('#btn-check').onclick = () => verificaElenco(i);
+    $('#btn-check').onclick = verifica;
   } else {
     const campo = $('#campo');
     campo.addEventListener('input', () => { BOZZE[i] = campo.value; campo.classList.remove('no'); guidaSuInput(!!campo.value.trim()); });
@@ -6153,6 +6644,18 @@ function campiElenco(i, t, risolta){
   return `<p class="elenco-info">Le voci da trovare sono <b>${voci.length}</b>, in qualunque ordine. Le voci esatte restano verdi; correggi le altre.</p>
     <div class="elenco-grid">${celle}</div>
     ${risolta ? '' : `<button class="btn btn-primario" type="button" id="btn-check">${ico('i-check')}Verifica l'elenco</button>`}`;
+}
+/* TABELLA: un campo per ogni riga (es. un giorno della settimana); ogni riga si corregge da sola e, se giusta, resta verde */
+function campiTabella(i, t, risolta){
+  const righe = t.campi || [], fatti = TAB_OK[i] || new Set(), bozza = BOZZE[i] || [], orario = righe.some(r => r.orario);
+  const celle = righe.map((r, k) => {
+    const ok = risolta || fatti.has(k), v = ok ? attesoCampo(r) : (bozza[k] || '');
+    return `<label class="tab-riga"><span>${esc(r.etichetta)}</span><input class="campo campo-tab ${ok ? 'ok' : ''}" type="text" data-k="${k}" value="${esc(v)}" ${ok ? 'readonly' : ''}
+      autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${r.orario ? 'es. 9:00-12:00 oppure chiuso' : 'Scrivi qui'}"></label>`;
+  }).join('');
+  return `<p class="elenco-info">Compila <b>tutte le ${righe.length} righe</b>.${orario ? ' Per ogni orario scrivi apertura e chiusura, per esempio 9:00-12:00 (con la pausa: 8:30-12:30/15:00-19:00); se è chiuso scrivi «chiuso».' : ''} Le righe esatte restano verdi.</p>
+    <div class="tabella-grid">${celle}</div>
+    ${risolta ? '' : `<button class="btn btn-primario" type="button" id="btn-check">${ico('i-check')}Verifica la tabella</button>`}`;
 }
 function boxRisolta(i, t){
   const via = S.aiu[i] >= 3 ? 'con la soluzione' : (S.aiu[i] ? `con ${S.aiu[i]} ${S.aiu[i] === 1 ? 'aiuto' : 'aiuti'}` : 'in autonomia');
@@ -6209,6 +6712,25 @@ function verificaElenco(i){
   const fonte = t.video ? (t.url ? ['alle fonti', 'nel video e sul sito'] : ['al video', 'nel tratto dorato']) : ['alla pagina', 'sul sito'];
   feedback('no', `Hai trovato <b>${gia.size} voci su ${voci.length}</b>.` +
     (sbagliate ? ` ${sbagliate === 1 ? `Una voce non corrisponde ${fonte[0]} (o è ripetuta): controlla come è scritta` : `${sbagliate} voci non corrispondono ${fonte[0]} (o sono ripetute): controlla come sono scritte`} ${fonte[1]}.` : ' Continua a cercare le altre.') + consiglioDopoErrori(i));
+}
+function verificaTabella(i){
+  const t = tappe()[i], righe = t.campi || [];
+  const campi = [...document.querySelectorAll('.campo-tab')];
+  const fatti = TAB_OK[i] || new Set();
+  const daControllare = campi.filter(c => !fatti.has(+c.dataset.k));
+  if (!daControllare.some(c => norm(c.value))) return feedback('no', 'Compila almeno una riga prima di verificare.');
+  daControllare.forEach(c => {
+    const k = +c.dataset.k;
+    if (confrontaCampo(c.value, righe[k])){ fatti.add(k); c.readOnly = true; c.classList.add('ok'); c.classList.remove('no'); }
+    else if (norm(c.value)) c.classList.add('no');
+  });
+  TAB_OK[i] = fatti;
+  BOZZE[i] = campi.map(c => c.value);
+  if (fatti.size === righe.length) return risolvi(i, '');
+  const sbagliate = campi.filter(c => c.classList.contains('no')).length, vuote = campi.filter(c => !c.value.trim()).length;
+  feedback('no', `Righe esatte: <b>${fatti.size} su ${righe.length}</b>.` +
+    (sbagliate ? ` ${sbagliate === 1 ? 'Una riga non corrisponde' : sbagliate + ' righe non corrispondono'} alla fonte: ${righe.some(r => r.orario) ? 'ricontrolla gli orari riga per riga, anche le pause e i giorni di chiusura.' : 'ricontrolla riga per riga.'}` : '') +
+    (vuote ? ` ${vuote === 1 ? 'Manca ancora una riga.' : 'Mancano ancora ' + vuote + ' righe.'}` : '') + consiglioDopoErrori(i));
 }
 function risolvi(i, nota){
   if (guidaAttiva()){ GUIDA.mappa = true; GUIDA.tappa = -1; }
@@ -6435,7 +6957,7 @@ const guidaAttiva = () => !!S && (GUIDA.modo === 'on' || (GUIDA.modo === 'auto' 
 const passiGuida = t => t.video ? ['video', ...(t.url ? ['url', 'percorso'] : []), 'risposta', 'verifica']
                                  : ['url', 'percorso', ...(t.cmdf ? ['cerca'] : []), 'risposta', 'verifica'];
 function passoGuida(passo, t){
-  const el = t.tipo === 'elenco';
+  const el = t.tipo === 'elenco' || t.tipo === 'tabella', tab = t.tipo === 'tabella';
   return ({
     video: {sel: '.vplayer', dove: 'prima', ok: 'Fatto: ho ascoltato il tratto',
       testo: "Premi <b>play</b> e guarda con attenzione il <b>tratto dorato</b> sulla barra: lì c'è l'informazione. Tieni accesi i sottotitoli; se ti sfugge qualcosa torna indietro di 10 secondi o rallenta a 0,75×."},
@@ -6449,8 +6971,9 @@ function passoGuida(passo, t){
       testo: 'Nella scheda di destra segui questi passi <b>uno alla volta</b>, leggendo con attenzione le etichette dei menu. I passi restano sempre qui a sinistra.'},
     cerca: {sel: '.cerca', dove: 'prima', ok: 'Fatto: ho trovato la parola',
       testo: `${t.pdf ? 'Nel PDF non scorrere le pagine' : 'Non leggere tutta la pagina dall\'inizio'}: clicca dentro la scheda di destra, premi ${combo('F')} e scrivi la parola evidenziata. Il browser ti porta dove compare.`},
-    risposta: {sel: el ? '.elenco-grid' : '#campo', ancora: el ? '#btn-check' : '.risposta', dove: 'dopo',
-      testo: el ? 'Scrivi qui le voci trovate, <b>una per casella</b>, come sono scritte sul sito.'
+    risposta: {sel: tab ? '.tabella-grid' : el ? '.elenco-grid' : '#campo', ancora: el ? '#btn-check' : '.risposta', dove: 'dopo',
+      testo: tab ? 'Compila la tabella <b>una riga alla volta</b>: leggi l\'etichetta a sinistra e scrivi il dato che le corrisponde.'
+                : el ? 'Scrivi qui le voci trovate, <b>una per casella</b>, come sono scritte sul sito.'
                 : 'Scrivi qui il dato che hai trovato, <b>come è scritto sul sito</b>.'},
     verifica: {sel: '#btn-check', ancora: el ? '#btn-check' : '.risposta', dove: 'dopo',
       testo: 'Ricontrolla quello che hai scritto, poi premi <b>Verifica</b>.'}
@@ -6522,7 +7045,7 @@ function chiediSostituzione(){
     if (S.ris[i] || S.sost[i] >= 0 || sostUsate() >= maxSost()) return;
     const k = riservaLibera(quest());
     if (k < 0) return;
-    S.sost[i] = k; S.aiu[i] = 0; delete BOZZE[i]; delete ELENCO_OK[i]; delete tentativi[i];
+    S.sost[i] = k; S.aiu[i] = 0; delete BOZZE[i]; delete ELENCO_OK[i]; delete TAB_OK[i]; delete tentativi[i];
     salva(); vaiTappa(i);
     feedback('ok', 'Tappa sostituita: la lettera resta la stessa, cambia solo il sito da visitare.');
   };
@@ -7193,6 +7716,7 @@ const TAB = {
         <li><b>Quest con le carte</b> («Parole che restano», «Versi che cantano»): ogni tappa risolta consegna la carta con la frase o i versi trovati, con autore e occasione. Nella schermata finale lo studente sceglie la carta preferita nel quaderno e scrive perché: è il materiale per il debrief (lettura ad alta voce, confronto tra le scelte). Alcune frasi toccano temi forti (la deportazione nella testimonianza di Liliana Segre): conviene introdurle.</li>
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
+        <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
@@ -7247,7 +7771,8 @@ const TAB = {
     if (!pinOk) return `<h3>Area riservata</h3><p>Contiene le risposte di tutte le tappe. Inserisci il PIN docente.</p>
       <div class="form-riga"><label>PIN<input type="password" id="pin" autocomplete="off"></label><button class="btn btn-primario" type="button" id="pin-ok">Apri</button></div>
       <div class="feedback" id="pin-msg"></div>`;
-    const risp = t => t.tipo === 'elenco' ? (t.elenco || []).map(v => v.voce).join(', ') : (t.risposte || []).join(' · ');
+    const risp = t => t.tipo === 'elenco' ? (t.elenco || []).map(v => v.voce).join(', ')
+      : t.tipo === 'tabella' ? (t.campi || []).map(r => r.etichetta + ': ' + attesoCampo(r)).join(' · ') : (t.risposte || []).join(' · ');
     const scheda = (t, k, ris) => `<div class="bt"><h4>${ris ? 'Riserva' : 'Tappa ' + (k + 1)} · ${esc(t.titolo)}</h4>
       ${t.video ? `<div class="meta-r">Video: <b>${esc(t.video.titolo || '')}</b> (${esc(t.video.canale || '')}), tratto ${mmss(t.video.da)}–${mmss(t.video.a)} · <a href="https://www.youtube.com/watch?v=${encodeURIComponent(t.video.id)}&t=${t.video.da || 0}" target="_blank" rel="noopener">apri su YouTube</a></div>` : ''}
       <div class="meta-r">${esc(disc(t.disciplina).l)} · <b>${esc(t.url || 'solo video')}</b>${t.pdf ? ' · PDF, cerca «' + esc(t.cmdf) + '»' : t.cmdf ? ' · cerca «' + esc(t.cmdf) + '»' : ''}${t.lingua && t.lingua !== 'it' ? ' · sito in inglese' : ''} · verificata il ${esc(t.verificato || '')}</div>

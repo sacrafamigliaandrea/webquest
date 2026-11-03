@@ -145,6 +145,7 @@ main:has(#scr-intro.on){padding-bottom:16px}
 
 /* ---------- BRIEFING ---------- */
 .testa-tema{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.btn-home{padding:8px 14px;min-height:44px;font-size:15px}
 .testa-tema .tema-ico{width:54px;height:54px;border-radius:15px}
 .testa-tema .tema-ico svg.i{width:30px;height:30px}
 .testa-tema h2{font-size:30px;letter-spacing:-.4px}
@@ -480,6 +481,7 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .special b{font-family:var(--head);font-size:16px;line-height:1.25;display:block}
 .special small{display:none}
 .special span.sotto-sp{font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.82);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px}
+.special.scelta{outline:3px solid var(--oro);outline-offset:2px}
 .special .btn{flex:0 0 auto;padding:8px 14px;min-height:42px;font-size:15px}
 .special .nota-rete{margin:6px 0 0;font-size:13px;padding:5px 9px}
 .vmock{display:flex;justify-content:center;gap:8px;margin:14px 0 16px;flex-wrap:wrap}
@@ -6873,7 +6875,7 @@ function confrontaElenco(valori, voci, gia){
    ===================================================================== */
 function renderCatalogo(scelto){
   /* le special edition non escono dalla busta: si scelgono qui, una scheda ciascuna */
-  $('#special').innerHTML = QUEST.filter(q => q.special).map(sp => `<div class="special"><span class="ico">${ico(sp.icona)}</span>
+  $('#special').innerHTML = QUEST.filter(q => q.special).map(sp => `<div class="special ${sp.tema === scelto ? 'scelta' : ''}"><span class="ico">${ico(sp.icona)}</span>
     <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span class="sotto-sp" title="${esc(sp.sottotitolo || '')}">${esc(sp.sottotitolo || '')}</span>
       ${RETE.esiti && !questGiocabile(sp) ? `<span class="nota-rete">${ico('i-attenzione')}${sp.tappe.some(t => t.video) ? 'Da questo computer i video di YouTube non risultano raggiungibili.' : 'Da questo computer il sito di questa quest non risulta raggiungibile.'}</span>` : ''}</div>
     <button class="btn btn-primario" type="button" data-special="${esc(sp.tema)}" aria-label="Scegli la special edition ${esc(sp.titolo)}">Scegli</button></div>`).join('');
@@ -6887,9 +6889,10 @@ function renderIntro(){
   if (S && S.fase === 'i'){ palco.classList.add('aperta'); renderCatalogo(S.tema); renderRivela(); $('#btn-apri').classList.add('hidden'); }
   else { palco.classList.remove('aperta', 'rivelata'); renderCatalogo(null); $('#rivela').classList.add('hidden'); $('#btn-apri').classList.remove('hidden'); }
 }
-let bustaInCorso = false;
+let bustaInCorso = false, sceltaInAttesa = null;
 async function apriBusta(forza){
-  if (bustaInCorso) return;
+  /* se, mentre la busta aspetta il controllo dei siti, lo studente sceglie una special edition, vince la special */
+  if (bustaInCorso){ if (typeof forza === 'string' && questDa(forza)) sceltaInAttesa = forza; return; }
   const forzato = typeof forza === 'string' && questDa(forza) ? forza : (PARAMS.q && questDa(PARAMS.q) ? PARAMS.q : null);
   const seed = PARAMS.seed && /^[A-Z0-9]{4,8}$/i.test(PARAMS.seed) ? PARAMS.seed.toUpperCase() : nuovoSeed();
   if (!RETE.esiti){                       // il controllo dei siti parte all'apertura della pagina: qui al massimo si attende la fine
@@ -6898,6 +6901,7 @@ async function apriBusta(forza){
     b.disabled = true; b.innerHTML = `${ico('i-ricarica')}Controllo i siti da questo computer…`;
     await entro(avviaControlloRete(), 12000);
     b.disabled = false; b.innerHTML = prima; bustaInCorso = false;
+    if (sceltaInAttesa){ const sp = sceltaInAttesa; sceltaInAttesa = null; return apriBusta(sp); }
   }
   let busta = QUEST.filter(q => !q.special && (!TEMI || TEMI.includes(q.tema)));  // la special edition ha il suo pulsante; ?temi= limita la busta
   const giocabili = busta.filter(questGiocabile);
@@ -6946,7 +6950,7 @@ function renderRivela(){
     <button class="btn btn-primario lampeggia" type="button" id="btn-brief">Leggi il briefing ${ico('i-dx')}</button>`;
   r.classList.remove('hidden');
   $('#palco').classList.add('rivelata');          // al posto della busta compare la quest scelta (la home resta in una schermata)
-  $('#catalogo-tit').textContent = 'La busta ha scelto';
+  $('#catalogo-tit').textContent = q.special ? 'Hai scelto una special edition' : 'La busta ha scelto';
   $('#btn-brief').onclick = () => { S.fase = 'b'; salva(); route(); };
 }
 
@@ -6957,7 +6961,8 @@ function testaTema(){
   const q = quest();
   return `<div class="testa-tema"><span class="tema-ico">${ico(q.icona)}</span>
     <div><span class="eyebrow">Briefing</span><h2 id="titolo-brief" style="margin-top:6px">${esc(q.titolo)}</h2></div>
-    <span class="codice" style="margin-left:auto">${ico('i-chiave')}${esc(q.sigla)}-${esc(S.seed)}</span></div>`;
+    <span class="codice" style="margin-left:auto">${ico('i-chiave')}${esc(q.sigla)}-${esc(S.seed)}</span>
+    <button class="btn btn-linea btn-home" type="button" id="btn-home" aria-label="Torna alla pagina iniziale: la quest resta questa, ma puoi scegliere una special edition">${ico('i-sx')}Pagina iniziale</button></div>`;
 }
 function bloccoTecniche(){
   return `<ul class="tasti">
@@ -7062,6 +7067,8 @@ function renderBrief(){
   mostra('scr-brief');
   statoDivisa();
   $('#btn-via').onclick = () => { S.fase = 'g'; salva(); route(); };
+  /* prima di partire si puo' tornare alla home: la busta non si riapre (niente nuovo tema a caso), ma si puo' scegliere una special edition */
+  $('#btn-home').onclick = () => { S.fase = 'i'; salva(); route(); };
 }
 
 /* =====================================================================

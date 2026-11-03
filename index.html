@@ -93,39 +93,52 @@ footer{border-top:1px solid var(--brd);padding:16px 24px;text-align:center;font-
 .btn:disabled{opacity:.45;transform:none}
 
 /* ---------- INTRO ---------- */
-.intro{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:44px;align-items:center;min-height:calc(100vh - 230px)}
-.intro h1{font-size:clamp(38px,4.4vw,62px);font-weight:700;letter-spacing:-1.2px;margin:16px 0 18px}
-.intro h1 em{font-style:normal;color:var(--rosso)}
-.lead{font-size:21px;color:var(--muted);max-width:34em}
-.ingredienti{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:14px}
-.ingredienti li{display:flex;gap:14px;align-items:flex-start}
-.ingredienti .ico{width:44px;height:44px;border-radius:12px;background:var(--rossoL);color:var(--rossoD);display:grid;place-items:center;flex:0 0 auto}
-.ingredienti b{font-family:var(--head);font-weight:600;color:var(--ink);display:block;font-size:17px}
-.ingredienti span{font-size:16px;color:var(--muted)}
-.palco{background:var(--card);border:1px solid var(--brd);border-radius:22px;box-shadow:var(--shadow);padding:28px;text-align:center}
-.busta-svg{width:min(330px,80%);height:auto;display:block;margin:6px auto 4px;overflow:visible}
+.home{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:start}
+.home-testa h1{font-size:clamp(28px,2.9vw,40px);font-weight:700;letter-spacing:-.8px;margin:10px 0 6px}
+.home-testa h1 em{font-style:normal;color:var(--rosso)}
+.lead{font-size:17px;color:var(--muted);margin:0;max-width:34em}
+.busta-riga{display:flex;align-items:center;gap:20px;margin:14px 0 4px}
+.busta-azione{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.ingredienti{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px;width:100%}
+.ingredienti li{display:flex;gap:8px;align-items:center;font-family:var(--head);font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.25}
+.ingredienti .ico{width:30px;height:30px;border-radius:9px;background:var(--rossoL);color:var(--rossoD);display:grid;place-items:center;flex:0 0 auto}
+.ingredienti .ico svg.i{width:17px;height:17px}
+.palco{background:var(--card);border:1px solid var(--brd);border-radius:22px;box-shadow:var(--shadow);padding:22px 24px}
+.palco.rivelata .busta-riga{display:none}
+.palco.rivelata .home-testa .eyebrow,.palco.rivelata .home-testa .lead{display:none}
+.palco.rivelata .home-testa h1{font-size:clamp(24px,2.4vw,32px);margin:0}
+#scr-intro .rivela .fatti span{font-size:14px;padding:2px 10px}
+.busta-svg{width:min(180px,36%);height:auto;display:block;margin:0;overflow:visible;flex:0 0 auto}
+main:has(#scr-intro.on){padding-bottom:16px}
+.busta-azione .btn-grande{white-space:nowrap;padding:14px 22px}
+#scr-intro .chip-tema{font-size:12.5px}
+.home-dx{background:var(--paper);border:1px solid var(--brd);border-radius:22px;padding:20px 20px 16px}
+.home-dx h2{font-size:22px;font-weight:700;letter-spacing:-.3px}
+.home-dx .mini{margin:4px 0 4px}
 .busta-svg .b-up,.busta-svg .b-carta{opacity:0;transition:opacity .3s}
 .busta-svg .b-carta{transform:translateY(46px);transition:transform .8s cubic-bezier(.2,.8,.2,1) .25s,opacity .2s .2s}
 .busta-svg .b-chiusa{transition:opacity .25s}
 .palco.aperta .b-chiusa{opacity:0}
 .palco.aperta .b-up,.palco.aperta .b-carta{opacity:1}
 .palco.aperta .b-carta{transform:translateY(0)}
-.catalogo-tit{font-family:var(--head);font-size:15px;font-weight:600;color:var(--muted);margin:18px 0 12px;text-transform:uppercase;letter-spacing:.06em}
-.catalogo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.chip-tema{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border:1px solid var(--brd);border-radius:12px;background:var(--paper);font-family:var(--head);font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.25;transition:opacity .4s,transform .4s,background .3s,border-color .3s}
+.catalogo-tit{font-family:var(--head);font-size:13.5px;font-weight:600;color:var(--muted);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.catalogo{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px}
+.chip-tema{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:8px 3px;border:1px solid var(--brd);border-radius:12px;background:var(--paper);font-family:var(--head);font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.25;transition:opacity .4s,transform .4s,background .3s,border-color .3s}
 .chip-tema{--ico-bg:var(--paper)}
-.chip-tema svg.i{width:26px;height:26px;color:var(--rossoD)}
+.chip-tema svg.i{width:22px;height:22px;color:var(--rossoD)}
 .palco.aperta .chip-tema{opacity:.28}
 .palco.aperta .chip-tema.scelto{opacity:1;background:var(--rosso);border-color:var(--rosso);color:#fff;transform:scale(1.06)}
 .palco.aperta .chip-tema.scelto svg.i{color:#fff}
 .palco.aperta .chip-tema.scelto{--ico-bg:var(--rosso)}
 .bacino-tema summary{--ico-bg:var(--paper)}
-.rivela{margin-top:22px;text-align:left;border-top:1px solid var(--brd);padding-top:22px}
+.rivela{margin-top:14px;text-align:left}
 .rivela-head{display:flex;gap:16px;align-items:center}
 .tema-ico{--ico-bg:var(--rosso);width:64px;height:64px;border-radius:18px;background:var(--rosso);color:#fff;display:grid;place-items:center;flex:0 0 auto}
 .tema-ico svg.i{width:36px;height:36px;stroke-width:1.8}
-.rivela h2{font-size:28px;font-weight:700;letter-spacing:-.4px}
-.rivela .sotto{color:var(--muted);margin:12px 0 14px}
+.rivela h2{font-size:24px;font-weight:700;letter-spacing:-.4px}
+.rivela .sotto{color:var(--muted);margin:8px 0 10px;font-size:16px}
+.rivela .tema-ico{width:52px;height:52px;border-radius:15px}
+.rivela .fatti{margin-bottom:10px}
 .codice{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-weight:600;font-size:15px;background:var(--soft);color:var(--ink);border-radius:8px;padding:5px 11px}
 .fatti{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
 .fatti span{font-size:15px;border:1px solid var(--brd2);border-radius:999px;padding:3px 12px;color:var(--ink)}
@@ -398,11 +411,23 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
   .momenti{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}
   .fine-top{grid-template-columns:1fr}
 }
+@media (max-width:720px){.home{grid-template-columns:1fr}}
+/* schermi bassi: via le parti accessorie della home, cosi' resta tutto in una schermata */
+@media (max-height:820px) and (min-width:721px){
+  .home-testa .lead{display:none}
+  .home-testa h1{margin-bottom:0}
+  .busta-svg{width:min(140px,30%)}
+  .home-dx .mini{display:none}
+  .palco.rivelata .catalogo,.palco.rivelata .catalogo-tit{display:none}   /* aperta la busta, la griglia non serve piu' */
+}
+@media (max-height:700px) and (min-width:721px){
+  .special .sotto-sp{-webkit-line-clamp:1}
+  main{padding-top:14px}
+}
 @media (max-width:860px){
   main{padding:20px 16px 32px}
   .topnav{margin:-20px -16px 18px;padding:8px 16px 10px}
-  .intro,.fine-top,.fine-bot{grid-template-columns:1fr}
-  .intro{min-height:0;gap:26px}
+  .fine-top,.fine-bot{grid-template-columns:1fr}
   .tappa{padding:22px 18px}
   .tappa h2{font-size:25px}
   .slot,.tile{width:54px;height:62px;font-size:28px}
@@ -448,14 +473,15 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .v-info{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:6px 12px 12px;color:rgba(255,255,255,.88);font-size:14.5px}
 .v-info svg.i{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
 .v-info .btn{min-height:44px;font-size:14.5px;padding:7px 12px;background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
-.special{margin-top:18px;text-align:left;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px}
-.special .ico{width:48px;height:48px;border-radius:13px;background:var(--rosso);display:grid;place-items:center;flex:0 0 auto}
-.special .ico svg.i{width:28px;height:28px;--ico-bg:var(--rosso)}
-.special div{flex:1 1 220px}
-.special b{font-family:var(--head);font-size:17px;display:block}
-.special small{display:block;font-family:var(--head);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--oro)}
-.special span{font-size:15px;color:rgba(255,255,255,.85)}
-.palco.aperta .special{display:none}
+.special{margin-top:10px;text-align:left;display:flex;gap:12px;align-items:center;background:var(--ink);color:#fff;border-radius:14px;padding:12px 14px}
+.special .ico{width:42px;height:42px;border-radius:12px;background:var(--rosso);display:grid;place-items:center;flex:0 0 auto}
+.special .ico svg.i{width:24px;height:24px;--ico-bg:var(--rosso)}
+.special > div{flex:1 1 auto;min-width:0}
+.special b{font-family:var(--head);font-size:16px;line-height:1.25;display:block}
+.special small{display:none}
+.special span.sotto-sp{font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.82);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px}
+.special .btn{flex:0 0 auto;padding:8px 14px;min-height:42px;font-size:15px}
+.special .nota-rete{margin:6px 0 0;font-size:13px;padding:5px 9px}
 .vmock{display:flex;justify-content:center;gap:8px;margin:14px 0 16px;flex-wrap:wrap}
 .vmock span{background:#1C1517;color:#fff;border-radius:10px;padding:9px 14px;font-family:var(--head);font-weight:600;font-size:15px}
 .vmock span.zona{background:var(--oro);color:var(--ink)}
@@ -741,23 +767,17 @@ mark.fm.cur{background:#F59E0B;color:#000}
 
   <!-- ======================= 1. INTRO / BUSTA ======================= -->
   <section class="scr" id="scr-intro" aria-labelledby="titolo-intro">
-    <div class="intro">
-      <div>
-        <div id="ripresa"></div>
-        <span class="eyebrow">Caccia al tesoro digitale</span>
-        <h1 id="titolo-intro">Web Quest <em>del Campus</em></h1>
-        <p class="lead">Otto tappe su siti ufficiali, una parola segreta da ricomporre. Il tema della tua spedizione è chiuso nella busta: lo scoprirai solo aprendola.</p>
-        <ul class="ingredienti">
-          <li><span class="ico"><svg class="i"><use href="#i-tastiera"/></svg></span><div><b>Indirizzi da digitare a mano</b><span>Niente link da cliccare: copi l'indirizzo lettera per lettera, con attenzione.</span></div></li>
-          <li><span class="ico"><svg class="i"><use href="#i-lente"/></svg></span><div><b>Ricerca veloce nei documenti</b><span>In un PDF lungo non si scorre tutto: si usa la scorciatoia <span data-mod-label></span>+F.</span></div></li>
-          <li><span class="ico"><svg class="i"><use href="#i-mappa"/></svg></span><div><b>Schermo diviso in due</b><span>A sinistra la Web Quest, a destra la scheda per cercare: la prepari nel briefing.</span></div></li>
-          <li><span class="ico"><svg class="i"><use href="#i-chiave"/></svg></span><div><b>Una lettera per ogni tappa</b><span>Ogni risposta esatta ti consegna una lettera. Alla fine apri il tesoro.</span></div></li>
-        </ul>
-        <button class="btn btn-primario btn-grande lampeggia" type="button" id="btn-apri"><svg class="i"><use href="#i-busta"/></svg>Apri la busta</button>
-      </div>
-
+    <!-- HOME in due colonne, senza scorrimento: a sinistra la busta (quest a caso), a destra le special edition (scelte) -->
+    <div class="home">
       <div class="palco" id="palco">
-        <svg class="busta-svg" viewBox="0 -4 200 150" role="img" aria-label="La busta della spedizione">
+        <div id="ripresa"></div>
+        <div class="home-testa">
+          <span class="eyebrow">Caccia al tesoro digitale</span>
+          <h1 id="titolo-intro">Web Quest <em>del Campus</em></h1>
+          <p class="lead">Otto tappe su siti ufficiali, una lettera per ogni risposta esatta, una parola segreta da ricomporre.</p>
+        </div>
+        <div class="busta-riga">
+          <svg class="busta-svg" viewBox="0 -4 200 150" role="img" aria-label="La busta della spedizione">
           <rect x="20" y="40" width="160" height="100" rx="10" fill="#F4ECEC" stroke="#33272A" stroke-width="3"/>
           <path class="b-up" d="M22 42L100 0L178 42" fill="#F4ECEC" stroke="#33272A" stroke-width="3" stroke-linejoin="round"/>
           <g class="b-carta">
@@ -775,11 +795,19 @@ mark.fm.cur{background:#F59E0B;color:#000}
             <path d="M100 92.5l2.3 4.7 5.2.8-3.8 3.6.9 5.1-4.6-2.4-4.6 2.4.9-5.1-3.8-3.6 5.2-.8z" fill="#fff"/>
           </g>
         </svg>
+          <div class="busta-azione">
+            <button class="btn btn-primario btn-grande lampeggia" type="button" id="btn-apri"><svg class="i"><use href="#i-busta"/></svg>Apri la busta</button>
+          </div>
+        </div>
+        <div class="rivela hidden" id="rivela" aria-live="polite"></div>
         <div class="catalogo-tit" id="catalogo-tit">Una di queste spedizioni ti aspetta</div>
         <div class="catalogo" id="catalogo"></div>
-        <div id="special"></div>
-        <div class="rivela hidden" id="rivela" aria-live="polite"></div>
       </div>
+      <aside class="home-dx" aria-labelledby="tit-special">
+        <h2 id="tit-special">Special edition</h2>
+        <p class="mini">Non escono dalla busta: si scelgono, di solito su indicazione del docente.</p>
+        <div id="special"></div>
+      </aside>
     </div>
   </section>
 
@@ -6044,11 +6072,559 @@ const QUEST = [
   ],
   "special": true,
   "intro": "8 tappe a Orzinuovi e dintorni: le informazioni pratiche che servono davvero, cercate sui siti del Comune, dell'ATS, delle Poste, di una pizzeria, di un negozio e di un giornale locale. Orari, giorni e prezzi cambiano: per questo si controlla sempre la fonte e la sua data."
+ },
+ {
+  "tema": "cyber-frigo",
+  "sigla": "FRI",
+  "breve": "Hacker nei frigoriferi",
+  "icona": "t-cyber-frigo",
+  "titolo": "Hacker nei frigoriferi",
+  "sottotitolo": "Un attacco informatico ha scaldato i frigoriferi dei supermercati di mezza Europa, Italia compresa. Ricostruisci i fatti con video e siti ufficiali e scopri le conseguenze: per il cibo, per chi fa la spesa, per tutti noi.",
+  "parole": [
+   "PASSWORD",
+   "INTERNET",
+   "FIRMWARE"
+  ],
+  "indovinelli": {
+   "PASSWORD": "È la chiave segreta di ogni account e di ogni apparecchio: quella di fabbrica va sempre cambiata con una lunga e personale.",
+   "INTERNET": "La rete che collega computer, telefoni e ormai anche i frigoriferi: comodissima, ma da proteggere.",
+   "FIRMWARE": "Il programma nascosto dentro un apparecchio, come un frigorifero o un router: va aggiornato, altrimenti restano aperte le sue falle."
+  },
+  "tappe": [
+   {
+    "id": "frigo-italia-allarme",
+    "titolo": "L'allarme che non è suonato",
+    "disciplina": "tecnologia",
+    "contesto": "Nella notte tra il 1° e il 2 novembre 2026 anche alcuni supermercati italiani hanno trovato i frigoriferi caldi e il cibo rovinato: casi in Sicilia, Toscana ed Emilia-Romagna. Il Tg1 racconta che cosa è successo. Un impianto di refrigerazione ha delle soglie di temperatura: se vengono superate, dovrebbe avvisare subito qualcuno.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:55.",
+     "Ascolta che cosa NON è successo mentre le temperature salivano oltre le soglie previste."
+    ],
+    "domanda": "Mentre le temperature dei frigoriferi salivano oltre le soglie previste, che cosa non è scattato?",
+    "tipo": "testo",
+    "risposte": [
+     "allarme",
+     "l'allarme",
+     "alert",
+     "l'alert",
+     "l'alert previsto",
+     "l'allarme previsto",
+     "il segnale di allarme"
+    ],
+    "aiuti": [
+     "Ascolta da 0:57: «L'attacco ha colpito supermercati, stabilimenti e centri di distribuzione senza che scattasse ...».",
+     "È una parola inglese che vuol dire «avviso, allarme»: comincia con «al»."
+    ],
+    "soluzione": "L'alert, cioè l'allarme: le temperature sono salite fino a 50° per tutta la notte senza che nessuno venisse avvisato, e all'apertura dei punti vendita gli alimenti erano da buttare.",
+    "video": {
+     "id": "2_rXC1o9ikE",
+     "titolo": "Attacchi hacker ai frigo dei supermercati in mezza Europa: colpita anche l'Italia",
+     "canale": "Tg1",
+     "durata": 77,
+     "da": 55,
+     "a": 77
+    },
+    "prova": "«L'attacco ha colpito supermercati, stabilimenti e centri di distribuzione senza che scattasse l'alert previsto quando le temperature salgono oltre le soglie previste» (0:57-1:06) · «All'apertura dei punti vendita gli alimenti erano da buttare» (1:11-1:14)",
+    "url_verifica": "https://www.youtube.com/watch?v=2_rXC1o9ikE&t=55",
+    "verificato": "2026-11-03",
+    "note": "VIDEO: canale ufficiale Tg1 (Rai); incorporabile, adatto ai ragazzi, nessuno slot pubblicitario pre-roll sulla pagina (controllo del 2026-11-03). Sottotitoli automatici italiani catturati il 2026-11-03 (video/trascrizioni.txt). Nello stesso servizio (0:26-0:35): «Tre punti vendita a Catania, uno a Palermo e altri fra Firenze e Bologna». Lo stesso servizio è stato ripreso da Rai 1mattina il 3/11 (QHpNLPVT9Ts, con pubblicità)."
+   },
+   {
+    "id": "frigo-europa-paesi",
+    "titolo": "Una notte, tanti Paesi",
+    "disciplina": "geografia",
+    "contesto": "Il primo grande attacco ai frigoriferi dei supermercati era avvenuto in Francia, a metà ottobre. Tre settimane dopo, in una sola notte, gli hacker hanno colpito supermercati e centri logistici in diversi Paesi europei. La RSI, il servizio pubblico radiotelevisivo della Svizzera italiana, li elenca in un articolo del 2 novembre.",
+    "url": "www.rsi.ch",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "almeno sei",
+    "percorso": [
+     "Se compare l'avviso sui cookie, clicca «Accetta solo i servizi strettamente necessari».",
+     "In alto clicca «Cerca», scrivi frigoriferi hacker e premi Invio.",
+     "Apri l'articolo «Attacchi hacker a supermercati europei, l'UE: vogliono colpire gli approvvigionamenti alimentari» (2 novembre).",
+     "Cerca con cmd+F le parole «almeno sei»."
+    ],
+    "domanda": "Quali sono i Paesi europei colpiti nella notte tra il 1° e il 2 novembre, secondo l'articolo della RSI? Scrivili tutti.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "Belgio",
+      "varianti": []
+     },
+     {
+      "voce": "Svezia",
+      "varianti": []
+     },
+     {
+      "voce": "Estonia",
+      "varianti": []
+     },
+     {
+      "voce": "Lussemburgo",
+      "varianti": []
+     },
+     {
+      "voce": "Irlanda",
+      "varianti": []
+     },
+     {
+      "voce": "Paesi Bassi",
+      "varianti": [
+       "Olanda",
+       "Paesi bassi"
+      ]
+     }
+    ],
+    "aiuti": [
+     "La frase comincia con «Gli Stati colpiti sono almeno sei:» e poi c'è l'elenco, separato da virgole.",
+     "Due sono vicini alla Francia (B... e L...), due sono nel Nord (S... ed E...), uno è un'isola (I...), l'ultimo si chiama anche Olanda."
+    ],
+    "soluzione": "Belgio, Svezia, Estonia, Lussemburgo, Irlanda e Paesi Bassi. Più tardi, la stessa sera, hanno segnalato problemi anche alcuni supermercati siciliani.",
+    "prova": "Gli Stati colpiti sono almeno sei: Belgio, Svezia, Estonia, Lussemburgo, Irlanda e Paesi Bassi.",
+    "url_verifica": "https://www.rsi.ch/info/mondo/Attacchi-hacker-a-supermercati-europei-l%E2%80%99UE-vogliono-colpire-gli-approvvigionamenti-alimentari--4211730.html",
+    "verificato": "2026-11-03",
+    "note": "RSI, 2/11/2026 15:49 (aggiornato 20:52), senza pubblicità. Il titolo è cambiato nella giornata (prima «Frigoriferi hackerati in sei paesi europei»): per questo si arriva con la ricerca interna. ALTRE FONTI DANNO NUMERI DIVERSI (7 Paesi con la Lettonia nel comunicato ACN riportato da AGI; «otto paesi, Italia compresa» per Il Post): buon tema di discussione."
+   },
+   {
+    "id": "frigo-francia-cliente",
+    "titolo": "La spesa senza prodotti freschi",
+    "disciplina": "cittadinanza",
+    "contesto": "Le conseguenze di un attacco informatico non restano dentro i computer: arrivano fino al carrello della spesa. In Francia, dopo l'attacco di ottobre, molti banchi frigo erano vuoti. La RSI ha intervistato un cliente. Un prodotto «deperibile» è un prodotto che si rovina in fretta, come latte, carne o yogurt.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:18, quando parla un cliente del supermercato.",
+     "Ascolta che cosa ha potuto comprare, visto che i prodotti freschi erano pochi."
+    ],
+    "domanda": "Il cliente intervistato non ha potuto comprare tutto quello che voleva. Che tipo di prodotti ha acquistato?",
+    "tipo": "testo",
+    "risposte": [
+     "prodotti non deperibili",
+     "non deperibili",
+     "solo prodotti non deperibili",
+     "prodotti che non si rovinano"
+    ],
+    "aiuti": [
+     "Ascolta da 0:28: «Ho acquistato solo prodotti ...».",
+     "È il contrario di «deperibili»: aggiungi una piccola parola davanti."
+    ],
+    "soluzione": "Prodotti non deperibili: c'erano ancora frutta e verdura, ma pochi prodotti freschi. In Francia sono finiti nella spazzatura carne, yogurt e surgelati per milioni di euro.",
+    "video": {
+     "id": "JuMbfyt3bL8",
+     "titolo": "Quando gli hacker passano dal frigorifero",
+     "canale": "RSI Info",
+     "durata": 98,
+     "da": 18,
+     "a": 33
+    },
+    "prova": "«Questa mattina c'erano pochi prodotti freschi, si trovava ancora frutta e verdura, ma sono stato penalizzato nei miei acquisti, non ho potuto comprare tutto quello che volevo. Ho acquistato solo prodotti non deperibili.» (0:20-0:30)",
+    "url_verifica": "https://www.youtube.com/watch?v=JuMbfyt3bL8&t=18",
+    "verificato": "2026-11-03",
+    "note": "VIDEO: canale ufficiale RSI Info (Radiotelevisione svizzera); incorporabile, adatto ai ragazzi, nessuno slot pubblicitario pre-roll sulla pagina (controllo del 2026-11-03). Sottotitoli automatici italiani catturati il 2026-11-03 (video/trascrizioni.txt). Nello stesso servizio il numero dei supermercati francesi colpiti è 700 (0:09); il Tg1 del 13/10 dice «circa 500»: le fonti non coincidono."
+   },
+   {
+    "id": "frigo-acn-sbrinamento",
+    "titolo": "L'avviso dell'Agenzia per la cybersicurezza",
+    "disciplina": "tecnologia",
+    "contesto": "In Italia l'Agenzia per la Cybersicurezza Nazionale (ACN) protegge le reti e i sistemi informatici del Paese. Il giorno dopo l'attacco in Francia ha pubblicato un bollettino per supermercati e aziende del freddo. Il trucco degli hacker è stato usare una funzione normale dei frigoriferi, che serve a togliere il ghiaccio dalle serpentine.",
+    "url": "www.acn.gov.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "sbrinamento",
+    "percorso": [
+     "In alto clicca la lente di ricerca e scrivi filiera del freddo.",
+     "Apri il risultato «Misure urgenti di verifica e mitigazione per operatori della distribuzione alimentare e della filiera del freddo».",
+     "Cerca con cmd+F la parola «sbrinamento»."
+    ],
+    "domanda": "Secondo il bollettino dell'ACN, quale funzione dei frigoriferi è stata attivata a distanza dagli hacker?",
+    "tipo": "testo",
+    "risposte": [
+     "sbrinamento",
+     "lo sbrinamento",
+     "cicli di sbrinamento",
+     "i cicli di sbrinamento",
+     "lo sbrinamento automatico"
+    ],
+    "aiuti": [
+     "Nella frase che comincia con «Tramite lo sfruttamento di installazioni obsolete» c'è scritto che cosa ha consentito l'attacco: «l'attivazione remota dei cicli di ...».",
+     "È la funzione che toglie la brina: s-brina-mento."
+    ],
+    "soluzione": "Lo sbrinamento: l'attacco ha attivato a distanza i cicli di sbrinamento, che scaldano le serpentine per togliere il ghiaccio. Tenuti accesi per ore, hanno fatto salire la temperatura dei banchi fino a 50 °C.",
+    "prova": "l'attacco ha consentito l'attivazione remota dei cicli di sbrinamento e la modifica dei parametri operativi degli impianti",
+    "url_verifica": "https://www.acn.gov.it/portale/w/misure-urgenti-di-verifica-e-mitigazione-per-operatori-della-distribuzione-alimentare-e-della-filiera-del-freddo",
+    "verificato": "2026-11-03",
+    "note": "Bollettino BL01/261013/CSIRT-ITA, pubblicato il 13-10-2026 (sito acn.gov.it, senza pubblicità). Il comunicato ACN del 2/11 sui casi italiani non è sul sito (riportato da AGI). Il bollettino contiene anche gli impatti: «interruzioni della catena del freddo, deterioramento delle merci, indisponibilità degli impianti, sospensione delle attività e costi di ripristino»."
+   },
+   {
+    "id": "frigo-catena-temperature",
+    "titolo": "Quanto freddo serve?",
+    "disciplina": "scienze",
+    "contesto": "Dalla fabbrica al supermercato fino al frigorifero di casa, i cibi deperibili devono restare sempre freddi: è la «catena del freddo». Se si spezza anche un solo anello, il cibo può diventare pericoloso. Gli hacker hanno portato i banchi a 50 °C: scopri dal video quali sono invece le temperature giuste.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:35, quando parla di refrigerazione e surgelazione.",
+     "Ascolta le temperature e scrivile nella tabella: i surgelati non devono mai superare una certa temperatura sotto lo zero."
+    ],
+    "domanda": "Compila la tabella con le temperature della catena del freddo indicate nel video.",
+    "tipo": "tabella",
+    "campi": [
+     {
+      "etichetta": "Refrigerazione: da (°C)",
+      "risposte": [
+       "0 °C"
+      ],
+      "contiene": {
+       "numeri": [
+        "0"
+       ]
+      }
+     },
+     {
+      "etichetta": "Refrigerazione: fino a (°C)",
+      "risposte": [
+       "4 °C"
+      ],
+      "contiene": {
+       "numeri": [
+        "4"
+       ]
+      }
+     },
+     {
+      "etichetta": "Surgelati: mai sopra (°C)",
+      "risposte": [
+       "-18 °C"
+      ],
+      "contiene": {
+       "numeri": [
+        "18"
+       ]
+      }
+     }
+    ],
+    "aiuti": [
+     "Verso 0:37: «refrigerazione conservando il cibo tra ... e ...». Poi, verso 1:17, la catena del freddo «comunque non può superare i ...».",
+     "La refrigerazione va da zero a quattro gradi; i surgelati non devono mai salire sopra i diciotto gradi sotto zero."
+    ],
+    "soluzione": "Refrigerazione tra 0 °C e 4 °C; i surgelati non devono superare -18 °C. Nei supermercati attaccati i banchi hanno raggiunto 50 °C: quasi 70 gradi in più dei surgelati.",
+    "video": {
+     "id": "L5lWO1XdpiA",
+     "titolo": "Video - Funzionamento della catena del freddo",
+     "canale": "HUB Scuola",
+     "durata": 259,
+     "da": 35,
+     "a": 85
+    },
+    "prova": "«refrigerazione conservando il cibo tra 0° c e 4° c» (0:37-0:40) · «catena del freddo nella quale sono ammesse minime variazioni di temperatura Che comunque non può superare i - 18° c» (1:13-1:19)",
+    "url_verifica": "https://www.youtube.com/watch?v=L5lWO1XdpiA&t=35",
+    "verificato": "2026-11-03",
+    "note": "VIDEO: canale ufficiale HUB Scuola; incorporabile, adatto ai ragazzi, nessuno slot pubblicitario pre-roll sulla pagina (controllo del 2026-11-03). Sottotitoli automatici italiani catturati il 2026-11-03 (video/trascrizioni.txt). La legge italiana sui surgelati (D.Lgs. 110/1992) dice «pari o inferiori a - 18»; l'EFSA scrive «-17°C» per il congelatore di casa: piccola discordanza da far notare."
+   },
+   {
+    "id": "frigo-microbi",
+    "titolo": "Il pericolo invisibile",
+    "disciplina": "scienze",
+    "contesto": "Perché i supermercati hanno dovuto buttare tonnellate di cibo, anche quando i frigoriferi sono tornati freddi? Perché nei cibi rimasti al caldo possono moltiplicarsi dei microrganismi pericolosi. Lo spiega Umberto Agrimi dell'Istituto Superiore di Sanità, in un video del Ministero della Salute.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:23.",
+     "Ascolta i nomi dei microrganismi che possono moltiplicarsi negli alimenti che restano fuori dal frigorifero: sono tre."
+    ],
+    "domanda": "Quali tre microrganismi possono moltiplicarsi negli alimenti deperibili che restano fuori dal frigorifero? Scrivili tutti.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "salmonella",
+      "varianti": []
+     },
+     {
+      "voce": "listeria",
+      "varianti": []
+     },
+     {
+      "voce": "escherichia coli",
+      "varianti": [
+       "escherichia",
+       "e. coli",
+       "e coli",
+       "escherichia colli"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Ascolta da 0:37: «Più tempo rimangono fuori dal frigorifero più è il rischio che microrganismi quali ...».",
+     "Sono salmonella, listeria e un terzo con due parole: escherichia ..."
+    ],
+    "soluzione": "Salmonella, listeria ed Escherichia coli. Per questo il bollettino dell'ACN ricorda che, quando la temperatura torna normale, non basta: le merci vanno valutate dai responsabili della sicurezza alimentare.",
+    "video": {
+     "id": "JCmf1hyygaE",
+     "titolo": "Estate in sicurezza: la catena del freddo",
+     "canale": "Ministero della Salute",
+     "durata": 116,
+     "da": 23,
+     "a": 52
+    },
+    "prova": "«Più tempo rimangono fuori dal frigorifero più è il rischio che microrganismi quali salmonella, listeria, escherichia coli possano proliferare» (0:37-0:46)",
+    "url_verifica": "https://www.youtube.com/watch?v=JCmf1hyygaE&t=23",
+    "verificato": "2026-11-03",
+    "note": "VIDEO: canale ufficiale Ministero della Salute; incorporabile, adatto ai ragazzi, nessuno slot pubblicitario pre-roll sulla pagina (controllo del 2026-11-03). Sottotitoli automatici italiani catturati il 2026-11-03 (video/trascrizioni.txt). Il video è della campagna estiva 2026: parla del caldo, non dell'attacco; il collegamento lo fa il contesto della tappa."
+   },
+   {
+    "id": "frigo-ue-conseguenze",
+    "titolo": "Danni reali, cibo sicuro",
+    "disciplina": "cittadinanza",
+    "contesto": "Dopo l'attacco del 2 novembre è intervenuta anche l'Unione europea. Un buon lettore distingue con cura due cose: che cosa è stato danneggiato davvero e che cosa invece non è a rischio. Torna all'articolo della RSI del 2 novembre e leggi le conseguenze dell'attacco.",
+    "url": "www.rsi.ch",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "Hansen",
+    "percorso": [
+     "Se compare l'avviso sui cookie, clicca «Accetta solo i servizi strettamente necessari».",
+     "In alto clicca «Cerca», scrivi frigoriferi hacker e premi Invio.",
+     "Apri l'articolo «Attacchi hacker a supermercati europei, l'UE: vogliono colpire gli approvvigionamenti alimentari».",
+     "Cerca con cmd+F il nome «Hansen», il commissario europeo all'agricoltura, e leggi anche il paragrafo sui supermercati svedesi (cerca «ICA»)."
+    ],
+    "domanda": "Compila la tabella con le conseguenze dell'attacco descritte nell'articolo della RSI del 2 novembre.",
+    "tipo": "tabella",
+    "campi": [
+     {
+      "etichetta": "Secondo Hansen, che cosa NON è a rischio?",
+      "risposte": [
+       "la sicurezza alimentare",
+       "sicurezza alimentare"
+      ]
+     },
+     {
+      "etichetta": "Secondo Hansen, che cosa invece è reale?",
+      "risposte": [
+       "i danni al settore e la quantità di cibo gettato"
+      ],
+      "contiene": {
+       "parole": [
+        "danni",
+        "cibo"
+       ]
+      }
+     },
+     {
+      "etichetta": "Catene svedesi con supermercati chiusi",
+      "risposte": [
+       "ICA e COOP"
+      ],
+      "contiene": {
+       "parole": [
+        "ICA",
+        "COOP"
+       ]
+      }
+     }
+    ],
+    "aiuti": [
+     "Dopo il nome di Hansen c'è la frase «La sicurezza alimentare non è attualmente a rischio, ha affermato, ma ...». Le catene svedesi sono nel paragrafo «Cibo da gettare via».",
+     "Reali sono «i danni al settore e la quantità di cibo gettato»; le catene sono due sigle di tre e quattro lettere: I.. e C...."
+    ],
+    "soluzione": "Non è a rischio la sicurezza alimentare; sono reali i danni al settore e la quantità di cibo gettato. In Svezia alcuni supermercati delle catene ICA e COOP sono rimasti chiusi per gestire la crisi.",
+    "prova": "La sicurezza alimentare non è attualmente a rischio, ha affermato, ma i danni al settore e la quantità di cibo gettato sono reali. · Alcuni supermercati delle catene ICA e COOP sono rimasti chiusi per gestire la crisi.",
+    "url_verifica": "https://www.rsi.ch/info/mondo/Attacchi-hacker-a-supermercati-europei-l%E2%80%99UE-vogliono-colpire-gli-approvvigionamenti-alimentari--4211730.html",
+    "verificato": "2026-11-03",
+    "note": "Christophe Hansen, commissario UE all'agricoltura. Il cibo rovinato è stato buttato: la frase «la sicurezza alimentare non è a rischio» vuol dire che i controlli hanno funzionato, non che il cibo andasse bene."
+   },
+   {
+    "id": "frigo-prevenzione",
+    "titolo": "Come si chiude la porta agli hacker",
+    "disciplina": "tecnologia",
+    "contesto": "Dopo l'attacco, l'autorità francese per la cybersicurezza ha dato tre consigli ai supermercati. Sono gli stessi che valgono anche per gli apparecchi di casa collegati a internet: la televisione, la console, il router. Il «firmware» è il programma che fa funzionare un apparecchio dall'interno.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video salta a 0:14.",
+     "Ascolta le tre cose che l'autorità francese chiede di fare ai negozi e scrivile, una per casella."
+    ],
+    "domanda": "Quali tre cose l'autorità francese per la cybersicurezza ha chiesto di fare ai negozi? Scrivile tutte.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "rete protetta",
+      "varianti": [
+       "VPN",
+       "connessione VPN",
+       "connessione sicura",
+       "rete sicura",
+       "VPN sicura",
+       "collegarsi solo tramite VPN"
+      ]
+     },
+     {
+      "voce": "aggiornamenti",
+      "varianti": [
+       "aggiornare il firmware",
+       "installare gli aggiornamenti",
+       "aggiornamenti del firmware",
+       "aggiornare"
+      ]
+     },
+     {
+      "voce": "cambiare le password",
+      "varianti": [
+       "password",
+       "cambiare password",
+       "cambiare la password",
+       "nuove password"
+      ]
+     }
+    ],
+    "aiuti": [
+     "Ascolta da 0:21: «esortando i negozi a ricollegare i frigoriferi a internet solo tramite ..., a installare ... e a cambiare ...».",
+     "Una riguarda la connessione (una VPN sicura o una rete protetta), una gli aggiornamenti del firmware, una le password."
+    ],
+    "soluzione": "Ricollegare i frigoriferi a internet solo con una VPN sicura o una rete protetta, installare gli aggiornamenti del firmware e cambiare le password. A casa vale lo stesso: la password di fabbrica va sempre cambiata.",
+    "video": {
+     "id": "UKSR5FpHTdc",
+     "titolo": "Cosa sappiamo sull'attacco hacker ai supermercati di Francia e Olanda",
+     "canale": "euronews (in italiano)",
+     "durata": 85,
+     "da": 14,
+     "a": 30
+    },
+    "prova": "«esortando i negozi a ricollegare i frigoriferi a internet solo tramite una connessione VPN sicura o una rete protetta, a installare gli aggiornamenti del firmware e a cambiare le password» (0:21-0:28)",
+    "url_verifica": "https://www.youtube.com/watch?v=UKSR5FpHTdc&t=14",
+    "verificato": "2026-11-03",
+    "note": "VIDEO: canale ufficiale euronews (in italiano); incorporabile, adatto ai ragazzi, nessuno slot pubblicitario pre-roll sulla pagina (controllo del 2026-11-03). Sottotitoli automatici italiani catturati il 2026-11-03 (video/trascrizioni.txt). Il doppione kTOJYSzLuD4 dello stesso servizio ha la pubblicità: usare questo."
+   }
+  ],
+  "riserve": [
+   {
+    "id": "frigo-iot",
+    "titolo": "L'Internet delle cose",
+    "disciplina": "tecnologia",
+    "contesto": "Una volta a internet si collegavano solo i computer. Oggi si collegano telefoni, orologi, televisori e anche i frigoriferi dei supermercati: per questo gli hacker hanno potuto raggiungerli da lontano. Un ricercatore del CNR spiega in un video della Rai come si chiama questo mondo di oggetti connessi.",
+    "lingua": "it",
+    "pdf": false,
+    "percorso": [
+     "Premi «Vai al tratto»: il video comincia da 0:00.",
+     "Ascolta che cosa vuol dire la sigla inglese IoT, in italiano."
+    ],
+    "domanda": "Che cosa vuol dire la sigla IoT, tradotta in italiano?",
+    "tipo": "testo",
+    "risposte": [
+     "Internet delle cose",
+     "l'Internet delle cose",
+     "Internet degli oggetti",
+     "Internet degli oggetti intelligenti"
+    ],
+    "aiuti": [
+     "In inglese è «Internet of Things». Ascolta la traduzione che dice subito dopo.",
+     "«Things» vuol dire «cose»: Internet delle ..."
+    ],
+    "soluzione": "L'Internet delle cose (o degli oggetti intelligenti): oggetti come lo smartphone, la TV o un frigorifero che percepiscono, calcolano e si collegano a internet.",
+    "video": {
+     "id": "E-3A6lhxThc",
+     "titolo": "Cosa vuol dire IoT?",
+     "canale": "Rai",
+     "durata": 104,
+     "da": 0,
+     "a": 25
+    },
+    "prova": "«si intende Internet of Things, l'Internet delle cose o anche l'Internet degli oggetti intelligenti» (0:06-0:12) · «Può essere un frigorifero intelligente» (0:22)",
+    "url_verifica": "https://www.youtube.com/watch?v=E-3A6lhxThc&t=0",
+    "verificato": "2026-11-03",
+    "note": "VIDEO: canale ufficiale Rai («Domande snack», CNR); incorporabile, adatto ai ragazzi, nessuno slot pubblicitario pre-roll sulla pagina (controllo del 2026-11-03). Sottotitoli automatici italiani catturati il 2026-11-03 (video/trascrizioni.txt). Video del 2020: spiega il concetto, non parla dell'attacco."
+   },
+   {
+    "id": "frigo-cause-esperto",
+    "titolo": "Le due cause",
+    "disciplina": "tecnologia",
+    "contesto": "Un esperto di sicurezza informatica della SUPSI (la scuola universitaria della Svizzera italiana) ha spiegato alla RSI perché l'attacco in Francia è riuscito. Le cause sono due e riguardano anche i nostri telefoni e computer.",
+    "url": "www.rsi.ch",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "password deboli",
+    "percorso": [
+     "Se compare l'avviso sui cookie, clicca «Accetta solo i servizi strettamente necessari».",
+     "In alto clicca «Cerca», scrivi frigoriferi hacker e premi Invio.",
+     "Apri l'articolo «Dai frigoriferi agli ospedali, tutto può finire nel mirino degli hacker» (21 ottobre).",
+     "Cerca con cmd+F le parole «password deboli» e leggi tutta la frase."
+    ],
+    "domanda": "Secondo l'esperto, quali sono le due cause che hanno reso possibile l'attacco? Scrivile tutte e due.",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "mancanza di aggiornamenti",
+      "varianti": [
+       "aggiornamenti",
+       "aggiornamenti software",
+       "software non aggiornato",
+       "mancanza di aggiornamenti software",
+       "nessun aggiornamento"
+      ]
+     },
+     {
+      "voce": "password deboli",
+      "varianti": [
+       "password",
+       "accessi poco sicuri",
+       "sistemi di accesso poco sicuri"
+      ]
+     }
+    ],
+    "aiuti": [
+     "La frase comincia con «la mancanza di ...» e finisce con «in particolare ...».",
+     "Una riguarda il software che non veniva aggiornato, l'altra le password troppo facili."
+    ],
+    "soluzione": "La mancanza di aggiornamenti del software (alcune falle erano note da oltre un anno) e sistemi di accesso poco sicuri, in particolare password deboli. Il risultato: tonnellate di cibo da buttare e danni per decine di milioni.",
+    "prova": "la mancanza di aggiornamenti software, nonostante alcune falle fossero note da oltre un anno, e sistemi di accesso poco sicuri, in particolare password deboli.",
+    "url_verifica": "https://www.rsi.ch/info/mondo/Dai-frigoriferi-agli-ospedali-tutto-pu%C3%B2-finire-nel-mirino-degli-hacker--4179241.html",
+    "verificato": "2026-11-03",
+    "note": "RSI, 21/10/2026, intervista ad Angelo Consoli (SUPSI). Senza pubblicità."
+   },
+   {
+    "id": "frigo-surgelati-brina",
+    "titolo": "Il surgelato sospetto",
+    "disciplina": "scienze",
+    "contesto": "Dopo un attacco come questo, il consumatore può fare la sua parte: imparare a riconoscere al supermercato un surgelato che si è scaldato e poi ricongelato. Il Ministero della Salute spiega a che cosa fare attenzione.",
+    "url": "www.salute.gov.it",
+    "lingua": "it",
+    "pdf": false,
+    "cmdf": "brina",
+    "percorso": [
+     "Nel menu blu in alto apri «Ambiente, alimenti, animali» e clicca «Sistema di controllo della sicurezza alimentare».",
+     "Nella pagina clicca «Malattie trasmesse da alimenti (MTA)».",
+     "Cerca con cmd+F la parola «brina»."
+    ],
+    "domanda": "Quando compri un surgelato, la confezione NON deve essere coperta di due cose. Quali?",
+    "tipo": "elenco",
+    "elenco": [
+     {
+      "voce": "brina",
+      "varianti": []
+     },
+     {
+      "voce": "ghiaccio",
+      "varianti": []
+     }
+    ],
+    "aiuti": [
+     "La frase è: «le confezioni non siano coperte di ... o di ..., bagnate o, comunque, alterate nella forma».",
+     "Sono due forme dell'acqua gelata: una è sottile come zucchero a velo, l'altra è dura."
+    ],
+    "soluzione": "Brina e ghiaccio: sono il segno che il prodotto si è scongelato e poi ricongelato. Il Ministero ricorda anche di evitare prodotti esposti su banchi non refrigerati.",
+    "prova": "le confezioni non siano coperte di brina o di ghiaccio, bagnate o, comunque, alterate nella forma",
+    "url_verifica": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/malattie-trasmesse-da-alimenti-mta/",
+    "verificato": "2026-11-03",
+    "note": "Ministero della Salute, pagina aggiornata il 20/01/2025, senza pubblicità. Percorso dal menu verificato il 03/11/2026 (la ricerca interna del sito non dà risultati affidabili)."
+   }
+  ],
+  "special": true,
+  "intro": "8 tappe tra video e siti ufficiali su una notizia di questi giorni: gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre 2026). Che cosa è successo, perché, con quali conseguenze, e come ci si protegge. È una notizia ancora in evoluzione: controlla sempre la data delle fonti."
  }
 ];
 /* </QUEST_DATA> */
 /* <SONDE> */
-const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","asimmetrie.it": "https://www.asimmetrie.it/wp-content/uploads/as_favicon-64-w.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","gustavoristorantepizzeria.it": "https://www.gustavoristorantepizzeria.it/images/favicon.png","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.action.com": "/favicon.ico","www.asimmetrie.it": "/wp-content/uploads/as_favicon-64-w.png","www.ats-brescia.it": "/themes/custom/edc_web/dist/assets/img/logo-rl-bianco.png","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/home_banner/bannerhome-social10-2026.jpg?sfvrsn=d973eb22_2","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.comune.orzinuovi.bs.it": "/favicon","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.gustavoristorantepizzeria.it": "/images/favicon.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.istat.it": "/wp-content/themes/EGPbs5-child/images/istat.svg","www.lamadonninaristorante.it": "/favicon.ico","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.memorialeshoah.it": "/wp-content/uploads/2016/12/Memoriale-favicon.jpg","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.poste.it": "/assets-custom/favicons/apple-touch-icon-57x57.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
+const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","asimmetrie.it": "https://www.asimmetrie.it/wp-content/uploads/as_favicon-64-w.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","gustavoristorantepizzeria.it": "https://www.gustavoristorantepizzeria.it/images/favicon.png","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.acn.gov.it": "/portale/documents/20119/0/LOGO_ACN_NEW/200cf56e-dd00-02e0-cc85-7e5a8ba30b56","www.action.com": "/favicon.ico","www.asimmetrie.it": "/wp-content/uploads/as_favicon-64-w.png","www.ats-brescia.it": "/themes/custom/edc_web/dist/assets/img/logo-rl-bianco.png","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/default-album/4novembre2026.jpg?sfvrsn=cb72e822_0","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.comune.orzinuovi.bs.it": "/favicon","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.gustavoristorantepizzeria.it": "/images/favicon.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.istat.it": "/wp-content/themes/EGPbs5-child/images/istat.svg","www.lamadonninaristorante.it": "/favicon.ico","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.poste.it": "/assets-custom/favicons/apple-touch-icon-57x57.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.rsi.ch": "/icons/favicon-production.png","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
 /* </SONDE> */
 
 const DISC = {
@@ -6298,9 +6874,9 @@ function confrontaElenco(valori, voci, gia){
 function renderCatalogo(scelto){
   /* le special edition non escono dalla busta: si scelgono qui, una scheda ciascuna */
   $('#special').innerHTML = QUEST.filter(q => q.special).map(sp => `<div class="special"><span class="ico">${ico(sp.icona)}</span>
-    <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span>${esc(sp.sottotitolo || '')}</span>
+    <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span class="sotto-sp" title="${esc(sp.sottotitolo || '')}">${esc(sp.sottotitolo || '')}</span>
       ${RETE.esiti && !questGiocabile(sp) ? `<span class="nota-rete">${ico('i-attenzione')}${sp.tappe.some(t => t.video) ? 'Da questo computer i video di YouTube non risultano raggiungibili.' : 'Da questo computer il sito di questa quest non risulta raggiungibile.'}</span>` : ''}</div>
-    <button class="btn btn-primario" type="button" data-special="${esc(sp.tema)}">Scegli questa quest</button></div>`).join('');
+    <button class="btn btn-primario" type="button" data-special="${esc(sp.tema)}" aria-label="Scegli la special edition ${esc(sp.titolo)}">Scegli</button></div>`).join('');
   document.querySelectorAll('[data-special]').forEach(b => b.onclick = () => apriBusta(b.dataset.special));
   $('#catalogo').innerHTML = QUEST.filter(q => !q.special).map(q =>
     `<div class="chip-tema ${q.tema === scelto ? 'scelto' : ''}">${ico(q.icona)}<span>${esc(q.breve)}</span></div>`).join('');
@@ -6309,7 +6885,7 @@ function renderIntro(){
   mostra('scr-intro');
   const palco = $('#palco');
   if (S && S.fase === 'i'){ palco.classList.add('aperta'); renderCatalogo(S.tema); renderRivela(); $('#btn-apri').classList.add('hidden'); }
-  else { palco.classList.remove('aperta'); renderCatalogo(null); $('#rivela').classList.add('hidden'); $('#btn-apri').classList.remove('hidden'); }
+  else { palco.classList.remove('aperta', 'rivelata'); renderCatalogo(null); $('#rivela').classList.add('hidden'); $('#btn-apri').classList.remove('hidden'); }
 }
 let bustaInCorso = false;
 async function apriBusta(forza){
@@ -6369,6 +6945,7 @@ function renderRivela(){
     <p class="mini" style="margin-bottom:14px"><span class="codice">${ico('i-chiave')}Codice partita ${esc(q.sigla)}-${esc(S.seed)}</span></p>
     <button class="btn btn-primario lampeggia" type="button" id="btn-brief">Leggi il briefing ${ico('i-dx')}</button>`;
   r.classList.remove('hidden');
+  $('#palco').classList.add('rivelata');          // al posto della busta compare la quest scelta (la home resta in una schermata)
   $('#catalogo-tit').textContent = 'La busta ha scelto';
   $('#btn-brief').onclick = () => { S.fase = 'b'; salva(); route(); };
 }
@@ -7718,6 +8295,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>

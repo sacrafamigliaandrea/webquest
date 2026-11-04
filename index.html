@@ -803,6 +803,8 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-stato.interrotta{background:rgba(243,196,75,.16);color:#F3C44B}
 .sf-stato.perso{background:rgba(214,158,46,.2);color:#FFC94D}
 .sf-riga-frigo{background:#0a0f16;border-radius:9px;padding:5px 7px;margin:2px 0 9px;overflow:hidden}
+.sf-drop{animation:sf-drip 1.15s ease-in infinite}
+@keyframes sf-drip{0%{transform:translateY(-2px);opacity:0}22%{opacity:1}82%{opacity:1}100%{transform:translateY(9px);opacity:0}}
 .sf-cmd{display:flex;gap:7px;flex-wrap:wrap}
 .sf-cmd button{background:#1b2634;border:1px solid #2d3d52;color:#d7e5f3;border-radius:9px;padding:8px 12px;font-family:var(--head);font-weight:600;font-size:13px;min-height:42px;display:flex;align-items:center;gap:6px}
 .sf-cmd button svg{width:15px;height:15px;flex:0 0 auto}
@@ -8731,6 +8733,11 @@ function sfDisegno(u){
     <g>${cabs}</g>
     <rect id="sf-heat-${u.id}" x="${x0}" y="2" width="${u.n * cab}" height="88" rx="3" fill="url(#sf-heatg-${u.id})" opacity="0"/>
     <g id="sf-ice-${u.id}">${ice}</g>
+    <g id="sf-drip-${u.id}" style="opacity:0">
+      ${Array.from({length: u.n}, (_, i) => { const x = x0 + i * cab + 13; return `<g transform="translate(${x},82)"><path class="sf-drop" d="M0 0 C2.3 3 2.3 6.6 0 6.6 C-2.3 6.6 -2.3 3 0 0 Z" fill="#8fd0f0" stroke="#d6f1ff" stroke-width=".4" style="animation-delay:${(i % 5) * 0.23}s"/><circle class="sf-drop" cx="-0.6" cy="4.4" r="0.9" fill="#eafaff" style="animation-delay:${(i % 5) * 0.23}s"/></g>`; }).join('')}
+      <rect x="${x0 - 2}" y="92.4" width="${u.n * cab + 4}" height="3.2" rx="1.6" fill="#4f9fc8" opacity=".75"/>
+      <rect x="${x0 - 2}" y="92.4" width="${u.n * cab + 4}" height="1" rx=".8" fill="#cdeeff" opacity=".6"/>
+    </g>
   </svg>`;
 }
 function sfColore(t){
@@ -8771,6 +8778,7 @@ function sfAggiorna(){
     const led = $('#sf-led-' + u.id); if (led) led.setAttribute('fill', col);
     const ice = $('#sf-ice-' + u.id); if (ice) ice.style.opacity = (u.freezer ? Math.max(0, Math.min(1, (1 - u.t) / 12)) : Math.max(0, Math.min(0.4, (u.set + 1 - u.t) / 3))).toFixed(2);
     const heat = $('#sf-heat-' + u.id); if (heat) heat.setAttribute('opacity', Math.max(0, Math.min(0.85, (u.t - (u.set + 4)) / 45)).toFixed(2));
+    const drip = $('#sf-drip-' + u.id); if (drip) drip.style.opacity = Math.max(0, Math.min(1, (u.t - (u.set + 3)) / 8)).toFixed(2);
     const st = $('#sf-stato-' + u.id);
     if (st){
       if (u.t <= u.set + 3){ st.className = 'sf-stato freddo'; st.innerHTML = ico('i-check') + 'A norma, catena del freddo integra'; }
@@ -8811,8 +8819,8 @@ function renderSFlezione(c, entrato){
 function invitoSimFrigo(){
   if (quest().tema !== 'cyber-frigo') return '';
   return `<div class="sf-invito"><span class="ico">${ico('t-cyber-frigo')}</span>
-    <div><b>Prova il muro degli hacker</b><span>Un simulatore: attacchi la password del pannello di una catena inventata, entri e scaldi i frigoriferi. Serve a capire perché una password debole è pericolosa.</span></div>
-    <button class="btn sf-btn-chiaro" type="button" data-apri-simfrigo>${ico('i-chiave')}Apri il simulatore</button></div>`;
+    <div><b>Il muro degli hacker</b><span>Simulatore d'attacco: provi a scoprire la password del pannello di una catena inventata, entri e scaldi i frigoriferi. Serve a capire perché una password debole è pericolosa.</span></div>
+    <button class="btn sf-btn-chiaro" type="button" data-apri-simfrigo>${ico('i-chiave')}Apri «Il muro degli hacker»</button></div>`;
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-apri-simfrigo]')) apriSimFrigo(); });
 /* tastiera fisica: nel muro si può cercare una lettera o un numero anche digitandolo */

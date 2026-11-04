@@ -1226,7 +1226,63 @@ button.sq-riga:hover,button.sq-riga:focus-visible{background:rgba(20,52,98,.96);
 .st-t b{font:800 46px/1.05 var(--mono);letter-spacing:-.05em;color:var(--col);text-shadow:0 0 14px var(--col);transition:color .5s}
 .st-t small{font:600 20px/1 var(--head);color:var(--col);transition:color .5s}
 .st-t.caldo{--col:#FFC94D}
-@media(prefers-reduced-motion:reduce){.sq-riga.sotto,.st-top i{animation:none}}
+/* --- il colpo di scena (sfColpo): su tutta la finestra, fuori dalla scena scalata --- */
+.sc{position:absolute;inset:0;z-index:20;overflow:hidden;color:#7CF2A8;font-family:var(--mono);transition:background .5s ease}
+.sc.nero{background:#000}
+.sc.buio{cursor:none}
+.sc.calma{background:#0a1830;transition:background 1.4s ease}
+.sc [hidden]{display:none!important}
+.sc-tear{position:absolute;left:-2%;width:104%;pointer-events:none;mix-blend-mode:screen}
+.sc-cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sc-hud{position:absolute;left:clamp(14px,2.6vw,46px);top:clamp(12px,3vh,38px);display:flex;flex-direction:column;gap:clamp(6px,1.6vh,18px);pointer-events:none;text-shadow:0 2px 12px #000}
+.sc-hud small{display:block;font:600 clamp(12px,1.9vh,19px)/1.2 var(--head);color:#9fd6ff}
+.sc-hud b{display:block;font:800 clamp(24px,6vh,60px)/1.06 var(--mono);letter-spacing:-.03em;color:#FFC94D;font-variant-numeric:tabular-nums}
+.sc-tit{position:absolute;left:6%;right:6%;bottom:clamp(64px,17vh,160px);text-align:center;font:700 clamp(22px,4.6vh,48px)/1.2 var(--head);color:#fff;text-shadow:0 2px 18px #000}
+.sc-reg{position:absolute;left:0;right:0;bottom:clamp(14px,4vh,44px);text-align:center;font:800 clamp(30px,9vh,92px)/1 var(--head);letter-spacing:.05em;text-transform:uppercase;color:#fff;text-shadow:0 0 34px rgba(255,176,46,.85)}
+.sc-reg.pw{font-family:var(--mono);letter-spacing:0;text-transform:none;color:#FFC94D}
+@media(min-aspect-ratio:3/2){   /* a finestra larga l'Europa sta a destra: le scritte non la coprono */
+  .sc-reg{left:clamp(14px,2.6vw,46px);right:auto;text-align:left}
+  .sc-tit.fin{left:clamp(14px,2.6vw,46px);right:auto;width:36vw;text-align:left}
+}
+.sc-term{position:absolute;left:clamp(18px,7vw,130px);right:clamp(18px,7vw,130px);top:clamp(20px,9vh,100px);font:500 max(15px,min(2.25vw,3.7vh))/1.45 var(--mono);text-shadow:0 0 12px rgba(61,220,132,.45)}
+.sc-term .riga{min-height:1.45em;white-space:pre-wrap}
+.sc-term>.riga:last-child::after{content:"";display:inline-block;width:.55em;height:1em;margin-left:.12em;vertical-align:-.12em;background:currentColor;animation:scCaret 1s steps(2) infinite}
+@keyframes scCaret{to{opacity:0}}
+.sc-dati{display:grid;grid-template-columns:max-content 1fr;gap:.08em 1.4em;margin:.5em 0 .7em}
+.sc-dati span{color:#46a56c}
+.sc-dati b{font-weight:700;color:#d8ffe8}
+.sc-mira{position:absolute;left:0;top:0;width:0;height:0;color:#FFC94D;pointer-events:none}
+.sc-mira svg{position:absolute;left:min(-5.5vh,-44px);top:min(-5.5vh,-44px);width:max(11vh,88px);height:max(11vh,88px);filter:drop-shadow(0 0 8px currentColor)}
+.sc-mira span{position:absolute;left:max(6.5vh,52px);top:-.7em;white-space:nowrap;font:600 max(13px,1.9vh) var(--mono)}
+.sc-mira.sx span{left:auto;right:max(6.5vh,52px)}
+.sc-maschera{position:absolute;right:clamp(14px,5vw,90px);top:50%;width:min(32vw,58vh);aspect-ratio:200/260;transform:translateY(-50%);opacity:0;transition:opacity 1.6s ease,transform 1.6s ease;filter:drop-shadow(0 0 22px rgba(124,242,168,.45));pointer-events:none}
+.sc-maschera.on{opacity:.95}
+.sc-maschera.via{opacity:0;transform:translateY(-50%) scale(.8)}
+.sc-maschera svg{display:block;width:100%;height:100%}
+@media(max-aspect-ratio:3/2){.sc-maschera.on{opacity:.3}.sc-maschera.via{opacity:0}}
+.sc-grande{margin:.25em 0 .35em;font:800 2.3em/1.15 var(--head);text-shadow:none}
+.sc-term>.sc-grande:last-child::after{display:none}
+.sc-amb{color:#FFC94D;text-shadow:0 0 26px rgba(255,201,77,.75)}
+.sc-ver{color:#7CF2A8;text-shadow:0 0 26px rgba(124,242,168,.7)}
+.sc-barra{width:min(560px,80%);height:.5em;margin-top:.5em;background:rgba(124,242,168,.14);border:1px solid rgba(124,242,168,.5);border-radius:99px;overflow:hidden}
+.sc-barra i{display:block;width:0;height:100%;background:#7CF2A8}
+.sc-verita{max-width:44em;margin-top:1.1em;font:400 max(15px,.72em)/1.5 var(--body);color:#dbe8f6;text-shadow:none}
+.sc-verita p{margin:0 0 .55em}
+.sc-angolo{cursor:auto;position:absolute;right:12px;top:10px;z-index:3;display:flex;align-items:center;gap:8px;font:600 13px/1 var(--head);color:#F3D37A;text-shadow:0 1px 4px #000}
+.sc-angolo svg.i{width:15px;height:15px}
+.sc-angolo button{min-height:32px;padding:5px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);border-radius:8px;color:#fff;font:600 13px var(--head);cursor:pointer}
+.sc-angolo button:hover{background:rgba(255,255,255,.22)}
+/* il game over (sfBeccato): pioggia Matrix e allarme, sempre ambra e mai rosso */
+.sc-cv.dim{opacity:.16;transition:opacity .9s ease}
+.sc.calma .sc-cv{opacity:0;transition:opacity 1.2s ease}   /* «Sei in salvo!»: il game over sparisce */
+.sb-allarme{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 18vh rgba(255,176,46,.62);animation:sbAllarme .7s ease-in-out infinite alternate}
+@keyframes sbAllarme{from{opacity:1}to{opacity:.25}}
+.sb-fascia{position:absolute;left:0;right:0;top:0;height:max(20px,3.2vh);background:repeating-linear-gradient(-45deg,#FFB02E 0 22px,#17140c 22px 44px)}
+.sb-fascia.giu{top:auto;bottom:0}
+.sb-az{display:flex;flex-wrap:wrap;gap:10px;margin-top:1em}
+.sb-az .sfh-btn{min-height:48px;padding:10px 18px;font-size:16.5px}
+.sc-angolo{background:rgba(0,0,0,.6);padding:4px 5px 4px 9px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.sq-riga.sotto,.st-top i,.sc-term>.riga:last-child::after,.sb-allarme{animation:none}}
 /* lezione finale (debrief) */
 .sf-lezione{background:var(--card);border:1px solid var(--brd);border-radius:18px;padding:22px 24px}
 .sf-lezione .eyebrow{background:var(--verde)}
@@ -7651,7 +7707,7 @@ function renderBrief(){
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
         <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${q.intro ? esc(q.intro) : `${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`}`
-          : `Sei un esploratore del web. La busta ti ha affidato la spedizione «${esc(q.breve)}»: ${t.length} tappe su siti ufficiali, come musei, enti pubblici, federazioni e biblioteche.`}</p>
+          : `Oggi esplori il web: la busta ti ha affidato la spedizione «${esc(q.breve)}»: ${t.length} tappe su siti ufficiali, come musei, enti pubblici, federazioni e biblioteche.`}</p>
         <p class="mini">${q.special && t.some(x => x.video) ? 'I video vengono da canali ufficiali e si guardano dentro la Web Quest, senza video consigliati né commenti. Se prima del video compare una breve pubblicità di YouTube, aspetta qualche secondo.'
           : 'Sono siti sicuri e senza pubblicità: impari dove si trovano le informazioni affidabili.'}</p></div>
       <div class="card momento"><span class="num">2</span><h3>Gli obiettivi</h3>
@@ -9959,16 +10015,24 @@ async function sfCerca(ch){
 }
 function sfScoperto(c){
   SIMF.bloccato = true;
+  SIMF.scoperte = (SIMF.scoperte || 0) + 1;   // blocchi di fila: si azzera quando il muro cade
   document.querySelectorAll('#sf-kbd button.sf-key').forEach(b => b.disabled = true);
   sfLog('intrusione rilevata: troppi tentativi falliti', 'warn');
   sfLog('ACCESSO BLOCCATO dall\'amministratore', 'warn');
   $('#sf-cont').textContent = 'Accesso bloccato';
   const r = $('#sf-lg-r'); r.textContent = 'ACCESSO BLOCCATO'; r.className = 'lg-r no';
   const t = $('#sf-lock-t'); if (t) t.textContent = 'ALLARME';
+  /* il game over arriva a sorpresa, ma solo a chi sbaglia: probabilità crescente a ogni blocco di fila, al terzo è certo.
+     Dopo averlo visto (una volta per caricamento della pagina) torna solo al terzo blocco, per non consumare la sorpresa */
+  if (Math.random() < (sfBeccatoVisto ? [0, 0, 1] : SF_BECCATO_PROB)[Math.min(SIMF.scoperte, 3) - 1]){
+    sfBeccato(c).catch(err => { if (err.message !== 'stop') throw err; });
+    return;
+  }
   sfFlash('#F3A72E', .55); sfScossa();
-  sfMissione('Scoperto: l\'amministratore ha bloccato l\'accesso', 2);
+  sfMissione('Ti hanno scoperto: l\'amministratore ha bloccato l\'accesso', 2);
   sfAzioni([]);
-  sfAvviso({tipo: 'amb', icona: 'i-attenzione', tit: 'Scoperto', testo: 'Troppi caratteri sbagliati: l\'amministratore ti ha bloccato. <b>Bloccare chi sbaglia troppe volte è una vera difesa.</b> Con un po\' di strategia (prima le vocali, poi l\'anno) saresti entrato.',
+  const ultimo = SIMF.scoperte === 2 ? ' <b>Attenzione: stai facendo troppo rumore. Qualcuno ti ha notato.</b>' : '';
+  sfAvviso({tipo: 'amb', icona: 'i-attenzione', tit: SIMF.scoperte === 2 ? 'Ti hanno scoperto di nuovo' : 'Ti hanno scoperto', testo: 'Troppi caratteri sbagliati: l\'amministratore ti ha bloccato. <b>Bloccare chi sbaglia troppe volte è una vera difesa.</b> Con un po\' di strategia (prima le vocali, poi l\'anno) ce l\'avresti fatta.' + ultimo,
     azioni: [{label: 'Riprova (nuova password)', pri: true, fn: () => renderSFattacco(c.id)}, {label: 'Altro supermercato', fn: renderSFelenco}]});
 }
 async function sfAttaccoForte(){
@@ -9999,7 +10063,7 @@ async function sfAttaccoForte(){
   sfMuroTiene(c);
 }
 function sfMuroCaduto(c){
-  SIMF.bloccato = true;
+  SIMF.bloccato = true; SIMF.scoperte = 0;
   $('#sf-in').classList.remove('allerta');
   $('#sf-reel').classList.add('forzata');
   const r = $('#sf-lg-r'); r.textContent = 'ACCESSO CONSENTITO'; r.className = 'lg-r ok';
@@ -10036,7 +10100,7 @@ function renderSFpannello(){
     <div class="cz-cards">${SIMF.unita.map(sfCartaHTML).join('')}</div></div>`;
   sfTastiera(false); $('#sf-ril').hidden = true;
   sfMissione('Sul cruscotto scegli «Sbrinamento» in una corsia', 3);
-  sfAzioni([{label: 'Che cosa ho imparato?', ico: 'i-luce', id: 'sf-lezione', fn: () => renderSFlezione(c, true)}, {label: 'Altro supermercato', fn: renderSFelenco}]);
+  sfAzioni([{label: 'Che cosa ho imparato?', ico: 'i-luce', id: 'sf-lezione', fn: () => sfVaiLezione(c)}, {label: 'Altro supermercato', fn: renderSFelenco}]);
   const L = $('#sf-lock'); if (L){ if (sfMoto()) L.animate([{opacity: 1}, {opacity: 0}], {duration: 600, fill: 'forwards'}); else L.style.opacity = 0; }
   sfCmd('apri-cruscotto');
   sfLog(`${totCelle} frigoriferi collegati. Nessuno se n'è accorto`, 'warn');
@@ -10113,21 +10177,493 @@ function sfGuidaAvanti(passo, u){
   }
 }
 
+/* =====================================================================
+   IL COLPO DI SCENA: parte quando chi ha sabotato un negozio chiede la lezione e crede che sia finita.
+   1) la scena si incanta e la finestra va a tutto schermo; 2) il blackout si allarga da Orzinuovi a provincia,
+   Lombardia, Italia, Europa (mappa a punti su canvas: ogni punto chiaro è un negozio, contato davvero nei numeri);
+   3) tutto si spegne e il «sistema» si rivolge allo studente con i dati veri del suo browser e il suo cursore;
+   4) il finale di Andrea (sfScFinale): il dato certo, qualche attimo di suspense, la salvezza; 5) solo in fondo, la verità.
+   La password dello studente non si chiede né si indovina. Resta tutto in questa pagina: niente rete, niente salvataggi.
+   Una volta per caricamento: ricaricando (compagno successivo) la sorpresa torna.
+   ===================================================================== */
+let sfColpoVisto = false;
+function sfVaiLezione(c){
+  if (sfColpoVisto || !SIMF.unita.some(u => u.danno > 0)) return renderSFlezione(c, true);
+  sfColpoVisto = true;
+  sfColpo(c).catch(err => { if (err.message !== 'stop') throw err; });
+}
+/* coste semplificate (lon, lat): bastano per una mappa a punti */
+const SF_EU = [
+  [[-9,37],[-8.8,38.4],[-9.5,38.8],[-8.9,40.2],[-8.7,41.8],[-9.3,43],[-8,43.8],[-5.8,43.6],[-3.8,43.5],[-1.8,43.4],[-1.2,44.7],[-1.2,45.8],[-2.2,47.1],[-4.6,47.9],[-4.8,48.5],[-3,48.9],[-1.5,48.7],[-1.8,49.7],[.1,49.5],[1.6,50.9],[3.4,51.4],[4.6,52.4],[5,53.2],[7,53.5],[8.7,53.9],[8.6,54.9],[8.1,55.6],[8.2,57],[10.6,57.7],[10.4,56.4],[9.9,55],[11,54],[12.5,54.4],[14.2,53.9],[16.6,54.5],[18.6,54.7],[19.7,54.4],[21,55.4],[21,57],[22.6,57.7],[24.1,57.1],[24.4,58.3],[23.4,59.2],[25.5,59.6],[28,59.5],[30.2,59.9],[28.5,60.6],[25,60.2],[22.9,59.9],[21.4,60.7],[21.4,62],[21.3,63.1],[24.6,64.9],[25.3,65.4],[24.2,65.8],[22.2,65.7],[21.2,64.7],[19,63.2],[17.4,62],[17.2,60.8],[18.8,60],[16.7,58.6],[16.5,57],[15.8,56.1],[14.3,55.5],[12.9,55.4],[12.6,56.3],[11.8,57.7],[11.2,59],[10.7,59.6],[9.5,58.9],[8,58.1],[6.6,58.1],[5.5,58.9],[5,60.5],[5,62],[7.5,63],[10,64],[12,65.2],[13,66.6],[15,68.2],[18.5,69.7],[22,70.4],[25.7,71],[28.5,71],[31,70.2],[36,69.2],[36,47],[33.5,46.1],[31,46.6],[29.7,45.3],[28.7,44.2],[27.9,43],[28.1,41.9],[29,41.2],[27.5,40.95],[26.2,40.6],[24.4,40.9],[23.7,40.2],[22.9,40.5],[22.8,39.3],[24,38.1],[23.1,37.9],[23.2,36.5],[22.4,36.5],[21.7,36.8],[21.2,37.9],[20.8,38.7],[20.2,39.6],[19.4,40.5],[19.5,41.8],[18.5,42.4],[16.4,43.5],[15.2,44.2],[14.5,45.2],[13.9,44.8],[13.6,45.7],[12.4,45.4],[12.4,44.3],[13.6,43.6],[14.2,42.4],[15.2,41.9],[16.2,41.85],[16,41.4],[16.9,41.1],[18.5,40.15],[18.35,39.8],[17,40.45],[16.6,39.7],[17.15,39],[16.5,38.4],[16,37.92],[15.65,38.1],[15.9,38.7],[16.2,39],[15.7,40],[14.95,40.4],[14.4,40.6],[14.2,40.85],[13,41.25],[12.25,41.75],[11.1,42.4],[10.5,42.95],[10.3,43.55],[9.8,44.05],[8.9,44.4],[8.2,44],[7.5,43.8],[6.2,43.05],[4.9,43.35],[3.9,43.5],[3.05,43.05],[3.2,42.35],[2.2,41.35],[.8,40.75],[-.3,39.45],[.2,38.75],[-.7,37.6],[-2.1,36.75],[-4.4,36.7],[-5.6,36],[-6.4,36.8],[-7.4,37.2]],
+  [[-5.7,50.1],[-3,50.7],[1.3,51.2],[.6,51.5],[1.7,52.6],[.3,53],[-.1,54],[-1.6,55.3],[-2.2,56],[-2,57.6],[-3.5,57.7],[-3,58.6],[-5,58.6],[-6,57.5],[-5.6,56.3],[-4.9,55],[-3.2,54.9],[-3,53.5],[-4.6,53.3],[-4.2,52.4],[-5.2,51.8],[-3.2,51.4],[-4.4,51.1]],
+  [[-10,52],[-8.5,51.6],[-6.3,52.2],[-6.1,53.5],[-5.5,54.5],[-6.5,55.2],[-8.3,55.2],[-8.6,54.3],[-10,54.2],[-9.5,53.2]],
+  [[12.4,37.9],[13.4,38.2],[15.6,38.3],[15.1,36.7],[14.4,37],[12.6,37.6]],
+  [[8.2,40.9],[9.2,41.25],[9.8,40.5],[9.6,39.2],[8.9,38.9],[8.4,39.2]],
+  [[8.6,42.4],[9.4,43],[9.55,42.1],[9.2,41.4],[8.7,41.7]],
+  [[23.5,35.5],[26.3,35.2],[26.2,35],[23.6,35.2]],
+  [[11.1,55.7],[12.6,56],[12.4,55.2],[11.6,54.9]],
+];
+/* lon, lat, nome, da quale a quale zoom si vede (semilarghezza della vista) */
+const SF_EU_CITTA = [[10.22,45.54,'Brescia',.3,3.4],[10.02,45.13,'Cremona',.5,2.6],[9.67,45.7,'Bergamo',.5,3],[9.19,45.46,'Milano',.7,7],[11,45.44,'Verona',1,5],[7.69,45.07,'Torino',2,9],[12.33,45.44,'Venezia',2,9],[11.34,44.49,'Bologna',2.2,9],[8.93,44.41,'Genova',2.2,8],[11.25,43.77,'Firenze',3,10],[12.5,41.9,'Roma',3.4,16],[14.27,40.85,'Napoli',4,13],[16.87,41.12,'Bari',5,13],[13.36,38.12,'Palermo',6,14],[8.55,47.37,'Zurigo',6,14],[2.35,48.85,'Parigi',8,99],[16.37,48.2,'Vienna',9,99],[-.12,51.5,'Londra',10,99],[13.4,52.52,'Berlino',10,99],[-3.7,40.42,'Madrid',12,99],[21,52.23,'Varsavia',12,99],[23.73,37.98,'Atene',12,99],[18.07,59.33,'Stoccolma',14,99],[-9.14,38.72,'Lisbona',14,99],[26.1,44.43,'Bucarest',14,99]];
+function sfMappaDati(){
+  if (sfMappaDati.d) return sfMappaDati.d;
+  const K = .67, OX = 9.92 * K, OY = 45.4, P = [];
+  const dentro = (lo, la) => SF_EU.some(p => { let d = false; for (let i = 0, j = p.length - 1; i < p.length; j = i++){ const [xi, yi] = p[i], [xj, yj] = p[j]; if ((yi > la) !== (yj > la) && lo < (xj - xi) * (la - yi) / (yj - yi) + xi) d = !d; } return d; });
+  const metti = (lo, la, fine) => {
+    const it = lo > 6.5 && lo < 18.6 && la > 36.5 && la < 47, n = fine ? Math.random() < .07 : lo < 29 && Math.random() < (it ? .34 : .2);
+    const x = lo * K, d = Math.hypot(x - OX, la - OY);
+    if (fine && d > 1.15) return;        // i punti fitti stanno in un cerchio che sfuma, senza bordi
+    P.push({x, y: la, f: fine, n, k: fine ? 1 - (d / 1.15) ** 2 : 1, d: d * (1 + Math.random() * .14) + Math.random() * .02, t: 0});
+  };
+  for (let la = 35; la <= 71.2; la += .22) for (let lo = -11; lo <= 36; lo += .33) if ((lo <= 27 || Math.random() > (lo - 27) / 8) && dentro(lo, la)) metti(lo, la, false);    // tutta l'Europa, che a est si dissolve
+  for (let la = 44.2; la <= 46.6; la += .05) for (let lo = 8.1; lo <= 11.8; lo += .075) if (dentro(lo, la)) metti(lo, la, true);  // punti fitti attorno a casa: si vedono solo da vicino
+  return sfMappaDati.d = {P, K, OX, OY, max: P.reduce((m, p) => Math.max(m, p.d), 0)};
+}
+function sfColpoMappa(c, tok){
+  const M = sfMoto(), cv = $('#sc-cv'), ctx = cv.getContext('2d'), {P, K, OX, OY, max} = sfMappaDati();
+  const tit = $('#sc-tit'), reg = $('#sc-reg'), h1 = $('#sc-h1'), h2 = $('#sc-h2'), h3 = $('#sc-h3');
+  const scrivi = (el, t) => { if (el.textContent !== t) el.textContent = t; };
+  const ATTESA = 4400, ZOOM = M ? 10000 : 1, FINE = 3200, OFF = M ? 1300 : 1, COL = ['#12304d', '#4a2f0c', '#4fb6ee', '#FFB02E', '#FFF1C9'];
+  const liscio = v => { v = sfClamp(v); return v * v * (3 - 2 * v); };
+  const B = [[], [], [], [], []], T0 = performance.now();
+  let negozi = 1, R = 0, Roff = 0, archi = [];
+  P.forEach(p => { p.t = 0; });
+  return new Promise((ok, ko) => {
+    const frame = now => {
+      if (!SIMF || SIMF.demo.token !== tok || !cv.isConnected) return ko(new Error('stop'));
+      const t = now - T0, dpr = Math.min(1.5, window.devicePixelRatio || 1), W = Math.round(cv.clientWidth * dpr), H = Math.round(cv.clientHeight * dpr);
+      if (cv.width !== W || cv.height !== H){ cv.width = W; cv.height = H; }
+      const asp = W / H, V0 = .34, V1 = Math.max(16.5, 19.5 * asp), u = sfClamp((t - ATTESA) / ZOOM), e = u * .65 + liscio(u) * .35, V = V0 * Math.pow(V1 / V0, e);
+      /* la vista parte da casa, scende sullo stivale, poi si centra sull'Europa (a finestra larga va a destra: i numeri stanno a sinistra) */
+      const a = liscio((e - .38) / .24), b = liscio((e - .72) / .28), sh = asp > 1.5 ? V1 * .2 : 0;
+      const ix = 12.3 * K, iy = 42.4, cx = OX + (ix - OX) * a + (12.5 * K - sh - ix) * b, cy = OY + (iy - OY) * a + (53 - iy) * b, k = W / (2 * V);
+      const X = x => W / 2 + (x - cx) * k, Y = y => H / 2 - (y - cy) * k, ox = X(OX), oy = Y(OY);
+      if (u > 0) R = Math.max(R, V * (.62 + Math.max(0, max * 1.02 / V1 - .62) * u * u * u * u));
+      const t1 = ATTESA + ZOOM + FINE;
+      if (t > t1) Roff = max * 1.1 * sfClamp((t - t1) / OFF);
+      const fitti = sfClamp((4.6 - V) / 2.4);
+      B.forEach(l => { l.length = 0; });
+      for (const p of P){
+        if (!p.t && p.d <= R){ p.t = now; if (p.n){ negozi++; if (archi.length < 70 && Math.random() < .3) archi.push({x: p.x, y: p.y, t: now}); } }
+        if (p.d < Roff || (p.f && fitti <= 0)) continue;
+        const sx = X(p.x), sy = Y(p.y);
+        if (sx < -20 || sx > W + 20 || sy < -20 || sy > H + 20) continue;
+        let s = Math.max(Math.min((p.f ? .05 : .22) * k * .5, 9 * dpr), 1.2 * dpr);
+        if (p.n) s *= 1.35;
+        if (p.f) s *= fitti * p.k;
+        B[!p.t ? (p.n ? 2 : 0) : now - p.t < 260 ? 4 : p.n ? 3 : 1].push(sx, sy, s);
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = '#01060d'; ctx.fillRect(0, 0, W, H);
+      B.forEach((b, i) => {
+        ctx.fillStyle = COL[i]; ctx.beginPath();
+        for (let j = 0; j < b.length; j += 3){ const s = b[j + 2]; if (s > 3 * dpr){ ctx.moveTo(b[j] + s / 2, b[j + 1]); ctx.arc(b[j], b[j + 1], s / 2, 0, 6.2832); } else ctx.rect(b[j] - s / 2, b[j + 1] - s / 2, s, s); }
+        ctx.fill();
+      });
+      ctx.globalCompositeOperation = 'lighter';
+      if (R > 0 && R < max && t < t1){
+        const r = R * k, g = ctx.createRadialGradient(ox, oy, r * .8, ox, oy, r * 1.04);
+        g.addColorStop(0, 'rgba(255,176,46,0)'); g.addColorStop(.85, 'rgba(255,176,46,.16)'); g.addColorStop(1, 'rgba(255,176,46,0)');
+        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      }
+      archi = archi.filter(a => now - a.t < 620);
+      ctx.lineWidth = 1.4 * dpr;
+      for (const a of archi){
+        const ax = X(a.x), ay = Y(a.y);
+        ctx.strokeStyle = `rgba(255,190,90,${((1 - (now - a.t) / 620) * .75).toFixed(2)})`;
+        ctx.beginPath(); ctx.moveTo(ox, oy); ctx.quadraticCurveTo((ox + ax) / 2, (oy + ay) / 2 - Math.hypot(ax - ox, ay - oy) * .22, ax, ay); ctx.stroke();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      if (t < t1){
+        const puls = (1 + Math.sin(now / 240)) / 2;
+        ctx.fillStyle = '#FFB02E'; ctx.beginPath(); ctx.arc(ox, oy, 7 * dpr, 0, 6.2832); ctx.fill();
+        ctx.strokeStyle = `rgba(255,176,46,${(.9 - puls * .6).toFixed(2)})`; ctx.lineWidth = 2.5 * dpr;
+        ctx.beginPath(); ctx.arc(ox, oy, (12 + puls * 16) * dpr, 0, 6.2832); ctx.stroke();
+        const fp = Math.round(Math.max(13, Math.min(W / dpr / 80, 19)) * dpr);
+        ctx.font = `600 ${fp}px Lexend,system-ui,sans-serif`;
+        if (V < 5){ ctx.fillStyle = `rgba(255,214,140,${sfClamp((5 - V) / 2).toFixed(2)})`; ctx.fillText('Orzinuovi: tu sei qui', ox + 34 * dpr, oy + fp * .35); }
+        for (const [lo, la, nome, da, fin] of SF_EU_CITTA){
+          const al = Math.min(sfClamp((V - da) / (da * .4)), sfClamp((fin - V) / (fin * .3)));
+          if (al <= 0) continue;
+          const sx = X(lo * K), sy = Y(la);
+          ctx.fillStyle = `rgba(215,235,255,${al.toFixed(2)})`; ctx.fillText(nome, sx + 7 * dpr, sy + fp * .35);
+        }
+      }
+      const kg = negozi * (c.kgNeg || 1800);
+      scrivi(h1, sfNum(negozi)); scrivi(h2, kg < 100000 ? sfNum(kg) + ' kg' : sfNum(kg / 1000) + ' tonnellate'); scrivi(h3, sfNum(kg / .4));
+      const finale = t >= ATTESA + ZOOM;
+      scrivi(tit, t < 1900 ? 'Il primo negozio al buio. Proprio qui.' : t < ATTESA ? 'E se la stessa password aprisse tutti i negozi della catena?' : finale && t < t1 ? 'Tutta la catena al buio. Con una password sola:' : '');
+      scrivi(reg, u > 0 && !finale ? (V < .9 ? 'Orzinuovi' : V < 1.6 ? 'Provincia di Brescia' : V < 3.2 ? 'Lombardia' : V < 13 ? 'Italia' : 'Europa') : finale && t < t1 ? c.pass : '');
+      reg.classList.toggle('pw', finale); tit.classList.toggle('fin', finale);
+      if (t > t1 + OFF + 200){ ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H); return ok(); }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  });
+}
+/* solo ciò che il browser dice a ogni sito, più i numeri della partita: non esce da qui */
+async function sfChiSei(kgMio){
+  const ua = navigator.userAgent, d = new Date(), sec = Math.round(performance.now() / 1000), min = Math.round(sec / 60);
+  const sis = /iPad/.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1) ? 'iPad' : /Mac/.test(ua) ? 'Mac' : /CrOS/.test(ua) ? 'Chromebook' : /Windows/.test(ua) ? 'Windows' : /Android/.test(ua) ? 'Android' : /Linux/.test(ua) ? 'Linux' : 'Computer';
+  const nav = /Edg\//.test(ua) ? 'Edge' : /OPR\//.test(ua) ? 'Opera' : /Firefox\//.test(ua) ? 'Firefox' : /Chrome\//.test(ua) ? 'Chrome' : /Safari\//.test(ua) ? 'Safari' : 'Browser';
+  const R = [['Computer', sis], ['Browser', nav], ['Schermo', `${screen.width} × ${screen.height}`],
+    ['Ora', `${d.toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit'})} di ${d.toLocaleDateString('it-IT', {weekday: 'long'})}`]];
+  try {
+    const b = navigator.getBattery && await navigator.getBattery();
+    if (b && !(b.charging && b.level === 1)) R.push(['Batteria', Math.round(b.level * 100) + '%' + (b.charging ? ', in carica' : '')]);
+  } catch (e) {}
+  R.push(['Sei qui da', sec < 60 ? sec + ' secondi' : min === 1 ? '1 minuto' : min + ' minuti']);
+  if (kgMio >= 1) R.push(['Cibo buttato', sfNum(kgMio) + ' kg']);
+  return R;
+}
+/* la maschera di Anonymous: disegno originale semplificato, in viewBox 200x260. Gli stessi tracciati fanno l'icona (SVG)
+   e il volto che si compone nella pioggia (canvas). «meta» è la metà sinistra: la destra è speculare. */
+const SF_MASCHERA = {
+  viso: 'M100 10C60 10 26 32 19 82C15 116 21 150 44 184C58 206 78 234 100 252C122 234 142 206 156 184C179 150 185 116 181 82C174 32 140 10 100 10Z',
+  meta: ['M28 86C38 60 64 52 90 80C68 66 46 70 28 86Z', 'M42 102C54 88 72 88 84 104C70 102 56 102 42 102Z', 'M100 158C84 150 62 158 44 150C36 146 31 138 34 128C27 148 38 172 62 174C78 176 92 170 100 165Z', 'M52 170C66 192 86 196 100 195V200C84 201 62 194 52 170Z'],
+  pizzetto: 'M100 206C92 206 87 209 87 214C90 228 96 242 100 250C104 242 110 228 113 214C113 209 108 206 100 206Z',
+};
+function sfMascheraSVG(){
+  const V = SF_MASCHERA, meta = V.meta.map(d => `<path d="${d}"/>`).join('');
+  return `<svg viewBox="0 0 200 260" aria-hidden="true"><path d="${V.viso}" fill="#eaf7ee"/>
+    <g fill="#e9b0a3" opacity=".55"><circle cx="50" cy="130" r="13"/><circle cx="150" cy="130" r="13"/></g>
+    <path d="M93 98C91 116 89 130 86 142C90 149 95 151 100 151C105 151 110 149 114 142C111 130 109 116 107 98" fill="none" stroke="#04140b" stroke-opacity=".32" stroke-width="2.5" stroke-linecap="round"/>
+    <g fill="#04140b">${meta}<g transform="matrix(-1 0 0 1 200 0)">${meta}</g><path d="${V.pizzetto}"/></g></svg>`;
+}
+function sfScMaschera(w){   // compare a destra e fissa lo studente, sotto il testo del terminale
+  const d = document.createElement('div'); d.className = 'sc-maschera'; d.id = 'sc-maschera'; d.innerHTML = sfMascheraSVG();
+  w.insertBefore(d, $('#sc-term'));
+  requestAnimationFrame(() => requestAnimationFrame(() => d.classList.add('on')));
+}
+/* scrive una riga a macchina nel terminale della scena */
+async function sfScRiga(term, att, txt, vel = 42){
+  const d = document.createElement('div'); d.className = 'riga'; term.append(d);
+  for (let i = 1; i <= txt.length; i++){ d.textContent = txt.slice(0, i); await att(vel); }
+  return d;
+}
+const sfScGrande = (term, txt, cls) => { const d = document.createElement('div'); d.className = 'riga sc-grande ' + cls; d.textContent = txt; term.append(d); return d; };
+/* il finale comune dei due spaventi. Parla l'hacker, Anonymous: ti becca, cerca il nome del tuo insegnante e, scoperto che è ACERIO,
+   ti lascia stare. Non va ammesso subito che è uno scherzo: prima il dato certo, poi qualche attimo di suspense, poi la
+   salvezza; la spiegazione la aggiunge chi chiama, ancora dopo. Tutti i testi valgono sia per ragazzi sia per ragazze. */
+async function sfScFinale(w, term, att){
+  const M = sfMoto();
+  await att(900);
+  await sfScRiga(term, att, 'So chi sei.', 80);
+  await att(1600);
+  await sfScRiga(term, att, 'Studi alla Scuola Sacra Famiglia di Orzinuovi.', 55);
+  await att(1500);
+  const bec = sfScGrande(term, 'Ti ho beccato!', 'sc-amb');
+  if (M){
+    bec.animate([{transform: 'scale(1.5)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], {duration: 260, easing: 'ease-out'});
+    bec.style.transformOrigin = '0 50%';
+    w.animate([{backgroundColor: '#3a2600'}, {backgroundColor: '#000'}], {duration: 700, easing: 'ease-out'});
+  }
+  await att(2800);
+  await sfScRiga(term, att, 'Sto cercando il nome del tuo insegnante…', 38);
+  const barra = document.createElement('div'); barra.className = 'sc-barra'; barra.innerHTML = '<i></i>'; term.append(barra);
+  const riem = barra.firstChild;
+  if (M) riem.animate([{width: '0%'}, {width: '64%', offset: .4}, {width: '68%', offset: .62}, {width: '94%', offset: .86}, {width: '100%'}], {duration: 3900, fill: 'forwards'});
+  else riem.style.width = '100%';
+  await att(4300);
+  term.innerHTML = '';
+  await att(800);
+  await sfScRiga(term, att, 'Un momento…', 75);
+  await att(1200);
+  await sfScRiga(term, att, 'Il tuo insegnante è ACERIO?', 58);
+  const via = $('#sc-maschera'); if (via) via.classList.add('via');   // davanti a quel nome, l'hacker si ritira
+  await att(1500);
+  await sfScRiga(term, att, 'Hai avuto fortuna.', 58);
+  await att(900);
+  w.classList.add('calma');
+  const salvo = sfScGrande(term, 'Sei in salvo!', 'sc-ver');
+  if (M){ salvo.style.transformOrigin = '0 50%'; salvo.animate([{transform: 'scale(.8)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], {duration: 420, easing: 'ease-out'}); }
+  await att(1400);
+  await sfScRiga(term, att, 'Segui le sue lezioni: imparerai a difenderti.', 46);
+  await att(1800);
+}
+async function sfColpo(c){
+  /* il tutto schermo richiede il clic appena fatto: deve restare la prima cosa, prima di ogni attesa */
+  const entra = !document.fullscreenElement && !!document.documentElement.requestFullscreen;
+  if (entra) document.documentElement.requestFullscreen().catch(() => {});
+  const chiudi = () => { if (entra && document.fullscreenElement) document.exitFullscreen().catch(() => {}); };
+  const kgMio = SIMF.unita.reduce((s, u) => s + u.kgPieno * u.danno, 0), M = sfMoto();
+  sfStop(); SIMF.demo.token++; sfGuidaVia();
+  SIMF.atto = 'colpo';
+  const tok = SIMF.demo.token, att = ms => new Promise((ok, ko) => setTimeout(() => (SIMF && SIMF.demo.token === tok ? ok() : ko(new Error('stop'))), ms));
+  const w = document.createElement('div');
+  w.className = 'sc'; w.id = 'sf-colpo';
+  w.innerHTML = `<canvas class="sc-cv" id="sc-cv" aria-hidden="true"></canvas>
+    <div class="sc-hud" id="sc-hud" hidden><div><small>Negozi al buio</small><b id="sc-h1">1</b></div><div><small>Cibo da buttare</small><b id="sc-h2"></b></div><div><small>Pasti persi</small><b id="sc-h3"></b></div></div>
+    <div class="sc-tit" id="sc-tit" aria-live="polite"></div><div class="sc-reg" id="sc-reg"></div>
+    <div class="sc-term" id="sc-term" aria-live="polite"></div>
+    <div class="sc-mira" id="sc-mira" hidden aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><circle cx="50" cy="50" r="30"/><path d="M50 4v22M50 74v22M4 50h22M74 50h22"/><circle cx="50" cy="50" r="3" fill="currentColor"/></svg><span></span></div>
+    <div class="sc-angolo">${ico('i-attenzione')}Scenario di fantasia<button type="button" id="sc-salta">Salta</button></div>`;
+  $('#sf-stage').append(w);
+  const fine = () => { chiudi(); renderSFlezione(c, true); };
+  $('#sc-salta').onclick = fine;
+
+  /* 1. la scena si incanta */
+  sfAzioni([]); sfMissione('Disconnessione in corso…', 3);
+  sfCmd('scollega');
+  const strisce = [];
+  if (M){
+    for (let i = 0; i < 4; i++){ const d = document.createElement('i'); d.className = 'sc-tear'; w.append(d); strisce.push(d); }
+    const tinte = ['rgba(61,220,132,.26)', 'rgba(255,176,46,.26)', 'rgba(90,190,255,.26)'];
+    SIMF._spin = setInterval(() => strisce.forEach(d => { d.style.opacity = Math.random() < .6 ? 1 : 0; d.style.top = Math.random() * 100 + '%'; d.style.height = 1 + Math.random() * 2.5 + 'vh'; d.style.background = sfRnd(tinte); d.style.transform = `translateX(${(Math.random() - .5) * 6}%)`; }), 120);
+    $('#sf-in').animate([{filter: 'none', opacity: 1}, {filter: 'hue-rotate(40deg) contrast(1.25)', opacity: 1, offset: .14}, {filter: 'none', opacity: 1, offset: .24}, {filter: 'hue-rotate(-60deg) saturate(1.7)', opacity: 1, offset: .4}, {filter: 'contrast(1.4) brightness(.8)', opacity: .9, offset: .56}, {filter: 'hue-rotate(90deg) saturate(1.9)', opacity: .8, offset: .72}, {filter: 'contrast(1.5) brightness(.6)', opacity: .6, offset: .88}, {filter: 'brightness(.2)', opacity: .3}], {duration: 1700, easing: 'steps(2)', fill: 'forwards'});
+  }
+  await att(800);
+  sfLog('disconnessione negata', 'warn'); sfMissione('Disconnessione negata', 3);
+  await att(900);
+  clearInterval(SIMF._spin); SIMF._spin = 0; strisce.forEach(d => d.remove());
+  w.classList.add('nero');
+  await att(650);
+
+  /* 2. il blackout si allarga */
+  $('#sc-hud').hidden = false;
+  await sfColpoMappa(c, tok);
+  $('#sc-hud').hidden = true; $('#sc-cv').remove(); $('#sc-tit').remove(); $('#sc-reg').remove();
+
+  /* 3. lo schermo nero, poi il sistema si rivolge allo studente */
+  w.classList.add('buio');
+  await att(1700);
+  const term = $('#sc-term');
+  await sfScRiga(term, att, 'Ti diverti a fare l\'hacker?');
+  await att(1300);
+  await sfScRiga(term, att, 'Io lo sono davvero.', 60);
+  await att(1000);
+  sfScMaschera(w);
+  await sfScRiga(term, att, 'Sono Anonymous.', 75);
+  await att(1700);
+  await sfScRiga(term, att, 'Credi che i tuoi dati siano al sicuro?', 52);
+  await att(1100);
+  const dati = document.createElement('div'); dati.className = 'sc-dati'; term.append(dati);
+  for (const [k, v] of await sfChiSei(kgMio)){
+    dati.insertAdjacentHTML('beforeend', `<span>${esc(k)}</span><b>${esc(v)}</b>`);
+    await att(420);
+  }
+  await att(800);
+  await sfScRiga(term, att, 'Muovi il mouse.', 55);
+  const mira = $('#sc-mira'), etic = mira.querySelector('span');
+  const segui = e => { mira.style.transform = `translate(${e.clientX}px,${e.clientY}px)`; mira.classList.toggle('sx', e.clientX > innerWidth - 240); etic.textContent = `${Math.round(e.clientX)}, ${Math.round(e.clientY)}`; };
+  w.addEventListener('pointermove', segui);
+  const mosso = await new Promise(ok => {
+    const to = setTimeout(() => ok(false), 7000);
+    w.addEventListener('pointermove', () => { clearTimeout(to); ok(true); }, {once: true});
+  });
+  if (mosso){
+    mira.hidden = false;
+    if (M) mira.animate([{scale: 3.2, opacity: 0}, {scale: 1, opacity: 1}], {duration: 340, easing: 'ease-out'});
+    await att(600);
+    await sfScRiga(term, att, 'Ti ho visto.', 70);
+    await att(2200);
+  }
+  w.removeEventListener('pointermove', segui); mira.hidden = true;
+
+  /* 4. il dato certo, gli attimi di suspense, la salvezza */
+  term.innerHTML = '';
+  await sfScFinale(w, term, att);
+
+  /* 5. solo adesso la verità */
+  w.classList.remove('buio');
+  $('#sc-salta').remove();
+  const sv = document.createElement('div'); sv.className = 'sc-verita';
+  sv.innerHTML = `<p>È una simulazione: Anonymous non c'entra, nessuno è entrato nel tuo computer e niente è uscito da questa pagina. Però browser, schermo e ora li può leggere davvero qualsiasi sito.</p>
+    <div class="sb-az"><button class="sfh-btn pri" type="button" id="sc-fine">${ico('i-dx')}Vai alla lezione</button></div>`;
+  term.append(sv);
+  const bf = $('#sc-fine'); bf.onclick = fine; bf.focus();
+}
+/* =====================================================================
+   IL GAME OVER di Anonymous, l'hacker che becca lo studente: scatta a sorpresa quando si viene bloccati al muro (vedi sfScoperto). Allarme, la pioggia Matrix
+   invade lo schermo e la scritta si compone dai caratteri che cadono; poi la verità: è una recita. Niente esce da qui.
+   ===================================================================== */
+const SF_BECCATO_PROB = [.2, .5, 1];   // probabilità al primo, secondo e terzo blocco di fila
+let sfBeccatoVisto = false;
+const SF_SUONO_ALLARME = true;   // sirena breve sintetizzata, nessun file audio: false per toglierla (es. in laboratorio)
+function sfSirena(sec = 3.2){
+  if (!SF_SUONO_ALLARME) return;
+  try {
+    const A = window.AudioContext || window.webkitAudioContext; if (!A) return;
+    const a = new A(), o = a.createOscillator(), g = a.createGain(), t0 = a.currentTime;
+    a.resume();
+    o.type = 'square';
+    for (let t = 0; t < sec; t += .7){ o.frequency.setValueAtTime(620, t0 + t); o.frequency.setValueAtTime(830, t0 + t + .35); }
+    g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(.07, t0 + .05); g.gain.setValueAtTime(.07, t0 + sec - .25); g.gain.linearRampToValueAtTime(0, t0 + sec);
+    o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0 + sec);
+    o.onended = () => a.close();
+  } catch (e) {}
+}
+/* pioggia su canvas: quando una goccia attraversa una casella della scritta, il carattere resta lì e si accende */
+function sfMatrice(cv, tok){
+  const ctx = cv.getContext('2d'), M = sfMoto(), T0 = performance.now();
+  const GL = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ANOYMUS';
+  /* si compone a tappe: da quando le gocce «scrivono» ogni parte, entro quando è completa (ms). La posizione dipende dalla finestra */
+  const LINEE = [{volto: true, da: 1200, a: 6500}, {t: 'GAME OVER', da: 6500, a: 10000}, {t: 'ANONYMOUS', da: 10000, a: 13500}, {t: 'ti ha beccato!', da: 13500, a: 17000}];
+  const gl = () => GL[Math.floor(Math.random() * GL.length)];
+  let W = 0, H = 0, cw, ch, cols, rows, y, v, ult, mask, fatto, resto, st, sc, alone, ultimo = 0;
+  const restoL = LINEE.map(() => 0);
+  const prepara = () => {
+    const dpr = Math.min(1.5, window.devicePixelRatio || 1);
+    W = cv.width = Math.round(cv.clientWidth * dpr); H = cv.height = Math.round(cv.clientHeight * dpr);
+    cw = Math.max(8 * dpr, W / 150); ch = cw * 1.22; cols = Math.ceil(W / cw); rows = Math.ceil(H / ch);
+    y = Array.from({length: cols}, () => -Math.random() * rows * .9); v = y.map(() => .45 + Math.random() * .75); ult = y.map(() => null);
+    const m = document.createElement('canvas'); m.width = cols; m.height = rows;
+    const mc = m.getContext('2d', {willReadFrequently: true});
+    mc.fillStyle = '#fff'; mc.textAlign = 'center'; mc.textBaseline = 'middle';
+    mask = new Uint8Array(cols * rows); fatto = new Uint8Array(cols * rows); resto = 0;
+    /* a finestra larga: volto a sinistra e scritte a destra; a finestra stretta: volto sopra e scritte sotto.
+       Una casella è 1,22 volte più alta che larga: in orizzontale si scala di conseguenza, per non schiacciare il disegno */
+    const largo = W / H >= 1.35, POS = largo
+      ? [{x: .19, y: .5, alt: .88}, {x: .67, y: .24, alt: .24, lar: .58}, {x: .67, y: .5, alt: .22, lar: .58}, {x: .67, y: .74, alt: .14, lar: .58}]
+      : [{x: .5, y: .23, alt: .4}, {x: .5, y: .52, alt: .15, lar: .94}, {x: .5, y: .69, alt: .13, lar: .94}, {x: .5, y: .85, alt: .1, lar: .94}];
+    LINEE.forEach((L, l) => {   // mask: 0 fuori dal disegno, altrimenti il numero della parte + 1
+      const P = POS[l], cx = cols * P.x, cy = rows * P.y;
+      mc.setTransform(1, 0, 0, 1, 0, 0); mc.clearRect(0, 0, cols, rows);
+      if (L.volto){
+        const ky = rows * P.alt / 260, kx = ky * 1.22, V = SF_MASCHERA;
+        mc.setTransform(kx, 0, 0, ky, cx - 100 * kx, cy - 130 * ky);
+        mc.fill(new Path2D(V.viso));
+        mc.globalCompositeOperation = 'destination-out';
+        V.meta.forEach(d => { const q = new Path2D(d); mc.fill(q); mc.save(); mc.transform(-1, 0, 0, 1, 200, 0); mc.fill(q); mc.restore(); });
+        mc.fill(new Path2D(V.pizzetto));
+        mc.globalCompositeOperation = 'source-over';
+      } else {
+        const fam = 'Lexend,"Arial Black",Arial,sans-serif'; let fs = rows * P.alt;
+        mc.font = `700 ${fs}px ${fam}`;
+        const lar = mc.measureText(L.t).width * 1.22;
+        if (lar > cols * P.lar){ fs *= cols * P.lar / lar; mc.font = `700 ${fs}px ${fam}`; }
+        mc.setTransform(1.22, 0, 0, 1, cx, cy);
+        mc.fillText(L.t, 0, 0);
+      }
+      const d = mc.getImageData(0, 0, cols, rows).data;
+      restoL[l] = 0;
+      for (let i = 0; i < mask.length; i++) if (d[i * 4 + 3] > 110 && !mask[i]){ mask[i] = l + 1; restoL[l]++; resto++; }
+    });
+    st = document.createElement('canvas'); st.width = W; st.height = H; sc = st.getContext('2d');
+    sc.font = ctx.font = `700 ${ch}px ui-monospace,Menlo,monospace`; sc.textBaseline = ctx.textBaseline = 'top'; sc.fillStyle = '#9dffc4';
+    alone = null;
+  };
+  const aloneRifai = () => {   // a ogni riga completa: un alone sfocato che pulsa con l'allarme
+    const a = document.createElement('canvas'); a.width = W; a.height = H; const c2 = a.getContext('2d');
+    if ('filter' in c2){ c2.filter = 'blur(7px)'; c2.drawImage(st, 0, 0); alone = a; }
+  };
+  const fissa = i => {
+    const l = mask[i] - 1;
+    fatto[i] = 1; resto--; restoL[l]--;
+    sc.fillText(gl(), (i % cols) * cw, Math.floor(i / cols) * ch);
+    if (M && !restoL[l]) aloneRifai();
+  };
+  prepara();
+  if (!M){ for (let i = 0; i < mask.length; i++) if (mask[i]) fissa(i); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H); ctx.drawImage(st, 0, 0); return; }
+  const frame = now => {
+    if (!SIMF || SIMF.demo.token !== tok || !cv.isConnected || cv.parentNode.classList.contains('calma')) return;
+    requestAnimationFrame(frame);
+    if (now - ultimo < 33) return;
+    ultimo = now;
+    if (cv.width !== Math.round(cv.clientWidth * Math.min(1.5, window.devicePixelRatio || 1))) prepara();
+    const t = now - T0;
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    ctx.fillStyle = 'rgba(0,0,0,.085)'; ctx.fillRect(0, 0, W, H);
+    for (let i = 0; i < cols; i++){
+      const r = Math.floor(y[i]);
+      if (ult[i]){ ctx.fillStyle = '#1fbf5f'; ctx.fillText(ult[i][0], i * cw, ult[i][1] * ch); }
+      if (r >= 0 && r < rows){
+        const g = gl();
+        ctx.fillStyle = '#d7ffe6'; ctx.fillText(g, i * cw, r * ch); ult[i] = [g, r];
+        const q = r * cols + i;
+        if (mask[q] && !fatto[q] && t >= LINEE[mask[q] - 1].da) fissa(q);
+      } else ult[i] = null;
+      y[i] += v[i];
+      if (y[i] > rows && Math.random() < .05) y[i] = -Math.random() * 14;
+    }
+    if (resto > 0) for (let i = 0; i < mask.length; i++){   // le ultime caselle di ogni riga arrivano da sole, entro il suo tempo
+      if (!mask[i] || fatto[i]) continue;
+      const {da, a} = LINEE[mask[i] - 1], p = sfClamp((t - (da + a) / 2) / ((a - da) / 2));
+      if (p >= 1 || Math.random() < p * .09) fissa(i);
+    }
+    for (let k = 0; k < 28; k++){   // la scritta resta viva: qualche carattere cambia
+      const i = Math.floor(Math.random() * mask.length);
+      if (fatto[i]){ const x = (i % cols) * cw, yy = Math.floor(i / cols) * ch; sc.clearRect(x, yy, cw, ch); sc.fillText(gl(), x, yy); }
+    }
+    ctx.drawImage(st, 0, 0);
+    if (alone){ ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = .35 + .35 * Math.sin(now / 112); ctx.drawImage(alone, 0, 0); }
+  };
+  requestAnimationFrame(frame);
+}
+async function sfBeccato(c){
+  const entra = !document.fullscreenElement && !!document.documentElement.requestFullscreen;
+  if (entra) document.documentElement.requestFullscreen().catch(() => {});
+  const chiudi = () => { if (entra && document.fullscreenElement) document.exitFullscreen().catch(() => {}); };
+  SIMF.scoperte = 0; sfBeccatoVisto = true;
+  sfStop(); SIMF.demo.token++; sfGuidaVia();
+  SIMF.atto = 'beccato';
+  let tagliato = false;
+  const tok = SIMF.demo.token, att = ms => new Promise((ok, ko) => setTimeout(() => (SIMF && SIMF.demo.token === tok && !tagliato ? ok() : ko(new Error('stop'))), ms));
+  sfMissione('Allarme: intruso rilevato', 2); sfAzioni([]);
+  sfSirena();
+  const w = document.createElement('div');
+  w.className = 'sc'; w.id = 'sf-colpo';
+  w.innerHTML = `<canvas class="sc-cv" id="sc-cv" role="img" aria-label="Game over. La maschera di Anonymous e la scritta: Anonymous ti ha beccato!"></canvas>
+    <div class="sb-allarme" id="sb-allarme" aria-hidden="true"><div class="sb-fascia"></div><div class="sb-fascia giu"></div></div>
+    <div class="sc-term" id="sc-term" aria-live="polite"></div>
+    <div class="sc-angolo">${ico('i-attenzione')}Scenario di fantasia<button type="button" id="sc-salta">Salta</button></div>`;
+  $('#sf-stage').append(w);
+  const cv = $('#sc-cv'), term = $('#sc-term');
+  sfMatrice(cv, tok);
+  sfFlash('rgba(255,176,46,.6)', .6); sfScossa();
+  setTimeout(() => w.classList.add('nero'), 1600);   // la scena resta visibile solo mentre la pioggia la invade
+  const spegniAllarme = () => { const a = $('#sb-allarme'); if (a) a.remove(); cv.classList.add('dim'); };
+  const recita = (async () => {
+    await att(20000);   // la pioggia dura 20 secondi
+    spegniAllarme(); w.classList.add('buio');
+    sfScMaschera(w);
+    const dati = await sfChiSei(0), val = n => (dati.find(x => x[0] === n) || [])[1];
+    await att(1300);
+    await sfScRiga(term, att, `Ti ho trovato: ${val('Computer')}, ${val('Browser')}, ${val('Ora')}.`, 38);
+    await sfScFinale(w, term, att);
+  })();
+  const salta = new Promise(ok => { $('#sc-salta').onclick = () => { tagliato = true; ok(); }; });
+  await Promise.race([recita, salta]);
+  if (!SIMF || SIMF.demo.token !== tok) return;
+  /* solo adesso la verità */
+  spegniAllarme();
+  w.classList.remove('buio');
+  $('#sc-salta').remove();
+  if (tagliato){
+    term.innerHTML = ''; w.classList.add('nero', 'calma');
+    const ms = $('#sc-maschera'); if (ms) ms.remove();
+    const d = document.createElement('div'); d.className = 'riga'; d.textContent = 'Hai avuto fortuna: il tuo insegnante è ACERIO.'; term.append(d);
+    sfScGrande(term, 'Sei in salvo!', 'sc-ver');
+  }
+  const sv = document.createElement('div'); sv.className = 'sc-verita';
+  sv.innerHTML = `<p>È una simulazione: Anonymous non c'entra e nessuno è entrato nel tuo computer. Però hai sbagliato troppe volte di fila e ti hanno bloccato: è proprio così che ci si difende dagli hacker.</p>
+    <p>Per entrare serve strategia, non fortuna: prima le vocali, poi le cifre dell'anno.</p>
+    <div class="sb-az"><button class="sfh-btn pri" type="button" id="sb-ancora">${ico('i-ricomincia')}Riprova (nuova password)</button>
+      <button class="sfh-btn" type="button" id="sb-altro">Altro supermercato</button>
+      <button class="sfh-btn" type="button" id="sb-difendi">${ico('i-lucchetto')}Gioca come tecnico IT</button></div>`;
+  term.append(sv);
+  const vai = fn => () => { chiudi(); w.remove(); fn(); };
+  $('#sb-ancora').onclick = vai(() => renderSFattacco(c.id));
+  $('#sb-altro').onclick = vai(renderSFelenco);
+  $('#sb-difendi').onclick = vai(renderSFdifesa);
+  $('#sb-ancora').focus();
+}
+
 /* --- 4. la lezione (debrief) --- */
 function renderSFlezione(c, entrato){
   sfStop(); SIMF.demo.token++;
   SIMF.atto = 'lezione';
   const forte = SIMF.catene.find(x => x.forte);
   const apertura = entrato
-    ? `<p>Sei entrato nel pannello di <b>${esc(c.nome)}</b> in pochi secondi e hai potuto scaldare i frigoriferi. Non perché tu sia un esperto: perché il muro era fatto male.</p>`
-    : `<p>Con <b>${esc(c.nome)}</b> non sei entrato. Il muro ha retto e i frigoriferi sono rimasti al freddo.</p>`;
+    ? `<p>Hai aperto il pannello di <b>${esc(c.nome)}</b> in pochi secondi e hai potuto scaldare i frigoriferi. Non serviva essere esperti: il muro era fatto male.</p>`
+    : `<p>Con <b>${esc(c.nome)}</b> non ce l\'hai fatta. Il muro ha retto e i frigoriferi sono rimasti al freddo.</p>`;
   const chiave = entrato ? `<div class="sf-chiave">${ico('i-chiave')}<div><div class="pw">${esc(c.pass)}</div><div class="perche">${esc(c.perche)}</div></div></div>` : '';
   sfMettiPagina(sfTesta('') + `<div class="sf-lezione sf-2col"><div>
     <span class="eyebrow">Che cosa ho imparato</span>
     <h3>${entrato ? 'Un muro debole cade in un lampo' : 'Un muro forte tiene lontano chiunque'}</h3>
     ${apertura}
     ${chiave}
-    <div class="sf-specchio"><b>E la tua password?</b> Molte delle password cadute qui sono fatte come quelle di tanti ragazzi: il proprio <b>nome più l'anno di nascita</b> (per esempio <i>luca2013</i>), una <b>parola</b> sola, una <b>sequenza</b> come 123456. Se la tua somiglia a una di queste, un programma automatico la indovinerebbe con la stessa facilità.</div></div>
+    <div class="sf-specchio"><b>E la tua password?</b> Molte delle password cadute qui sono fatte come quelle di tante ragazze e tanti ragazzi: il proprio <b>nome più l'anno di nascita</b> (per esempio <i>luca2013</i> o <i>giulia2013</i>), una <b>parola</b> sola, una <b>sequenza</b> come 123456. Se la tua somiglia a una di queste, un programma automatico la indovinerebbe con la stessa facilità.</div></div>
     <div><div class="sf-forte-box">${ico('i-check')} <b>${esc(forte.nome)} ha retto.</b> Aveva una password lunga e casuale, per esempio <span class="pw">${esc(sfGenForte())}</span>: ${esc(forte.perche)}<br>Una password sicura è <b>lunga</b> (almeno 12 caratteri), <b>senza parole di senso compiuto</b>, con <b>maiuscole, minuscole, numeri e simboli</b>, e <b>diversa</b> per ogni servizio.</div>
     <label for="sf-rifl" style="font-weight:600;font-family:var(--head);color:var(--ink)">Scrivi una password sicura che riusciresti a ricordare (resta solo qui, non viene salvata):</label>
     <textarea class="sf-rifl" id="sf-rifl" placeholder="Prova qui: una frase con numeri e simboli è più forte di una parola."></textarea>
@@ -10449,7 +10985,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
-        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. La scena è a tutto schermo, come in un videogioco: a sinistra un Mac con l'accesso e poi il cruscotto, a destra un grande frigorifero che reagisce a ogni comando (si sblocca, il ghiaccio si scioglie, i vetri si appannano, l'acqua fa una pozza a terra, il cibo finisce nel bidone con i kg e i pasti sprecati). È una messinscena: centralina e comandi del terminale sono inventati, non c'è nessun vero attacco e nessun dato esce dal dispositivo. Sul cruscotto si alza la «fine sbrinamento» (di fabbrica 6°, 50° nell'attacco vero). Il freddo si può ripristinare, ma il cibo buttato non torna: è il punto sulla catena del freddo. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con la scelta tra <b>due schermi</b> — la zona <b>hacker</b> (stile Matrix, scura) e la zona <b>tecnico IT</b> (una sala di controllo con i monitor della catena del freddo) — così il cambio di ruolo è evidente. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b> di diagnosi e contromisure: lo studente è il tecnico IT e, per ogni minaccia del sistema (password di fabbrica, porte aperte su Internet, software non aggiornato, antivirus vecchio, accesso remoto a ogni ora, nessun controllo fisico), sceglie lo strumento giusto tra sei contromisure reali (password cifrata, firewall/chiudere le porte, aggiornare il sistema, aggiornare l'antivirus, schedulare gli accessi, videosorveglianza). Il punto è capire che ogni strumento serve a una cosa precisa — una password non ferma un virus, le telecamere non fermano un attacco da Internet — e che serve la difesa a strati. Anche questa è una scena a tutto schermo: la scelta si fa sul monitor grande della sala, gli altri schermi reagiscono. «Fai scendere la notte» spegne la sala e fa arrivare gli attacchi uno alla volta: si vede quali strumenti reggono, la cella sulla telecamera si scalda per ogni attacco che entra e crescono i kg di cibo da buttare. Poi il riepilogo: quante falle sono state chiuse e che cosa serviva. Buon aggancio per il debrief sulle competenze digitali e sul ridurre la superficie d'attacco.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. La scena è a tutto schermo, come in un videogioco: a sinistra un Mac con l'accesso e poi il cruscotto, a destra un grande frigorifero che reagisce a ogni comando (si sblocca, il ghiaccio si scioglie, i vetri si appannano, l'acqua fa una pozza a terra, il cibo finisce nel bidone con i kg e i pasti sprecati). È una messinscena: centralina e comandi del terminale sono inventati, non c'è nessun vero attacco e nessun dato esce dal dispositivo. Sul cruscotto si alza la «fine sbrinamento» (di fabbrica 6°, 50° nell'attacco vero). Il freddo si può ripristinare, ma il cibo buttato non torna: è il punto sulla catena del freddo. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con la scelta tra <b>due schermi</b> — la zona <b>hacker</b> (stile Matrix, scura) e la zona <b>tecnico IT</b> (una sala di controllo con i monitor della catena del freddo) — così il cambio di ruolo è evidente. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b> di diagnosi e contromisure: lo studente è il tecnico IT e, per ogni minaccia del sistema (password di fabbrica, porte aperte su Internet, software non aggiornato, antivirus vecchio, accesso remoto a ogni ora, nessun controllo fisico), sceglie lo strumento giusto tra sei contromisure reali (password cifrata, firewall/chiudere le porte, aggiornare il sistema, aggiornare l'antivirus, schedulare gli accessi, videosorveglianza). Il punto è capire che ogni strumento serve a una cosa precisa — una password non ferma un virus, le telecamere non fermano un attacco da Internet — e che serve la difesa a strati. Anche questa è una scena a tutto schermo: la scelta si fa sul monitor grande della sala, gli altri schermi reagiscono. «Fai scendere la notte» spegne la sala e fa arrivare gli attacchi uno alla volta: si vede quali strumenti reggono, la cella sulla telecamera si scalda per ogni attacco che entra e crescono i kg di cibo da buttare. Poi il riepilogo: quante falle sono state chiuse e che cosa serviva. Buon aggancio per il debrief sulle competenze digitali e sul ridurre la superficie d'attacco. <b>Due sorprese, da non anticipare agli studenti.</b> Chi ha sabotato un negozio, quando chiede «Che cosa ho imparato?», vede il blackout allargarsi da Orzinuovi all'Europa; poi lo schermo diventa nero e la pagina «si rivolge» direttamente a chi gioca, mostrando computer, browser, ora e batteria e seguendo il cursore. Chi viene bloccato al muro può invece trovarsi davanti, a sorpresa (1 probabilità su 5 al primo blocco, 1 su 2 al secondo, sempre al terzo), venti secondi di pioggia in stile Matrix con una breve sirena, la maschera di Anonymous e la scritta «GAME OVER - Anonymous ti ha beccato!». In entrambi i casi segue lo stesso finale, con qualche attimo di suspense: l'hacker dice «So chi sei. Studi alla Scuola Sacra Famiglia di Orzinuovi. Ti ho beccato!», cerca il nome dell'insegnante e si ferma: «Il tuo insegnante è ACERIO? Hai avuto fortuna. Sei in salvo! Segui le sue lezioni: imparerai a difenderti». Solo in fondo viene spiegato che è una simulazione: nessun dato esce dalla pagina e la password non viene mai chiesta. Anonymous qui è solo un personaggio: nel debrief conviene dire che è un vero collettivo di attivisti informatici, non un singolo hacker, e che ha compiuto anche azioni illegali. Entrambe vanno a tutto schermo e hanno il pulsante «Salta». Il blackout si vede una volta per ogni caricamento della pagina: per rivederlo, ricaricare.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>

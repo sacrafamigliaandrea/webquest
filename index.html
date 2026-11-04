@@ -145,7 +145,7 @@ main:has(#scr-intro.on){padding-bottom:16px}
 
 /* ---------- BRIEFING ---------- */
 .testa-tema{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
-.btn-home{padding:8px 14px;min-height:44px;font-size:15px}
+.rivela-azioni{display:flex;gap:10px;flex-wrap:wrap}
 .testa-tema .tema-ico{width:54px;height:54px;border-radius:15px}
 .testa-tema .tema-ico svg.i{width:30px;height:30px}
 .testa-tema h2{font-size:30px;letter-spacing:-.4px}
@@ -692,6 +692,136 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .guida-ok{background:var(--oro);color:var(--ink);border:none;border-radius:10px;padding:8px 14px;font-family:var(--head);font-weight:700;font-size:15px;min-height:44px}
 .guida-spegni{background:transparent;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:8px 12px;font-size:14px;min-height:44px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* =====================================================================
+   SIMULATORE «Hacker nei frigoriferi»: terminale + muro di password + pannello
+   ===================================================================== */
+.sf-testa{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:12px}
+.sf-testa h2{font-size:24px;display:flex;align-items:center;gap:10px}
+.sf-testa h2 svg.i{width:28px;height:28px;color:var(--rossoD)}
+.sf-testa .btn{margin-left:auto;min-height:44px;font-size:15px;padding:8px 14px}
+.sf-dida{background:var(--ink);color:#fff;border-radius:14px;border-left:6px solid var(--oro);padding:13px 16px;margin-bottom:14px;font-size:16.5px;line-height:1.5}
+.sf-dida .num{display:block;font-family:var(--head);font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--oro);margin-bottom:3px}
+.sf-dida b{color:#fff}
+.sf-dida .finto{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;color:#F3D9A0}
+.sf-dida .finto svg.i{width:15px;height:15px}
+
+/* --- elenco delle catene da attaccare --- */
+.sf-elenco{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:14px}
+.sf-catena{text-align:left;background:var(--card);border:1px solid var(--brd2);border-radius:16px;padding:0;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.sf-catena:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.sf-catena .insegna{display:flex;align-items:center;gap:11px;padding:15px 16px;color:#fff;font-family:var(--head)}
+.sf-catena .insegna .marchio{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.22);display:grid;place-items:center;flex:0 0 auto}
+.sf-catena .insegna .marchio svg{width:24px;height:24px;color:#fff}
+.sf-catena .insegna b{font-size:18px;line-height:1.1;display:block}
+.sf-catena .insegna small{font-size:12.5px;opacity:.85;font-family:var(--body);font-weight:400}
+.sf-catena .corpo{padding:12px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
+.sf-catena .riga-dato{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted)}
+.sf-catena .riga-dato svg.i{width:16px;height:16px;color:var(--light);flex:0 0 auto}
+.sf-catena .attacca{margin:0;border:none;border-top:1px solid var(--brd);background:var(--soft);color:var(--ink);font-family:var(--head);font-weight:600;font-size:15px;padding:13px;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s,color .15s}
+.sf-catena .attacca:hover{background:var(--ink);color:#fff}
+.sf-catena .attacca svg.i{width:18px;height:18px}
+
+/* --- monitor a due lati: terminale a sinistra, bersaglio a destra --- */
+.sf-monitor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:8px;background:#20242B;border-radius:16px;padding:8px}
+@media(max-width:860px){.sf-monitor{grid-template-columns:1fr}.sf-term{min-height:200px}.sf-login{min-height:0}}
+
+/* terminale */
+.sf-term{position:relative;background:#0C1016;border-radius:10px;padding:14px 14px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#8CF2B6;font-size:13.5px;line-height:1.55;overflow:hidden;min-height:440px;display:flex;flex-direction:column}
+.sf-term::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.16) 2px 3px);opacity:.45}
+.sf-term .sf-barra{display:flex;gap:6px;margin-bottom:10px;flex:0 0 auto;background:none;padding:0;border:none;height:auto}
+.sf-term .sf-barra i{width:11px;height:11px;border-radius:50%;background:#39424f;display:block}
+.sf-term .log{flex:1;overflow:auto;white-space:pre-wrap;word-break:break-word;scrollbar-width:thin}
+.sf-term .riga{opacity:0;animation:sfIn .22s forwards}
+.sf-term .riga.sys{color:#63d1ff}
+.sf-term .riga.warn{color:#F3C44B}
+.sf-term .riga.ok{color:#8CF2B6}
+.sf-term .riga.dim{color:#5a6b7a}
+.sf-term .riga b{color:#fff;font-weight:700}
+.sf-term .cur{display:inline-block;width:8px;height:15px;background:#8CF2B6;vertical-align:-2px;margin-left:2px;animation:sfBlink 1.05s steps(1) infinite}
+@keyframes sfIn{to{opacity:1}}
+@keyframes sfBlink{50%{opacity:0}}
+
+/* schermata di login + rullo della password */
+.sf-login{position:relative;background:#121823;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:16px;color:#E8EEF5;min-height:440px;overflow:hidden}
+.sf-login .marca{display:flex;align-items:center;gap:11px}
+.sf-login .marca .marchio{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff;flex:0 0 auto}
+.sf-login .marca .marchio svg{width:26px;height:26px}
+.sf-login .marca b{font-family:var(--head);font-size:20px;display:block}
+.sf-login .marca small{font-size:12.5px;color:#8da2b8}
+.sf-login .pannello-nome{font-size:14px;color:#aebccd;display:flex;align-items:center;gap:8px}
+.sf-login .pannello-nome svg{width:17px;height:17px;color:#6f8198}
+.sf-campo-pw{display:flex;flex-direction:column;gap:7px}
+.sf-campo-pw .et{font-size:13px;color:#8da2b8;letter-spacing:.02em}
+.sf-reel{display:flex;gap:5px;flex-wrap:wrap;background:#0C1016;border:2px solid #2b3747;border-radius:12px;padding:12px;transition:border-color .3s}
+.sf-reel.forzata{border-color:#F3C44B;box-shadow:0 0 0 3px rgba(243,196,75,.15)}
+.sf-reel.respinta{border-color:#4FC27E;box-shadow:0 0 0 3px rgba(79,194,126,.15)}
+.sf-slot{width:28px;height:44px;border-radius:7px;background:linear-gradient(#1d2836,#0e141d);overflow:hidden;position:relative;display:grid;place-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:22px;font-weight:700;color:#cfe6ff;box-shadow:inset 0 0 0 1px #2b3747}
+.sf-slot.run{color:#9fb6cc;filter:blur(.5px)}
+.sf-slot.lock{color:#FFD86A;box-shadow:inset 0 0 0 1.5px #F3C44B;animation:sfLock .25s ease}
+@keyframes sfLock{0%{transform:scale(1.22)}100%{transform:scale(1)}}
+.sf-contatore{font-family:ui-monospace,monospace;font-size:14px;color:#8da2b8;min-height:20px}
+.sf-contatore b{color:#F3C44B}
+.sf-esito-muro{display:flex;align-items:center;gap:10px;border-radius:12px;padding:12px 14px;font-size:15.5px;line-height:1.4}
+.sf-esito-muro svg.i{width:26px;height:26px;flex:0 0 auto}
+.sf-esito-muro.dentro{background:rgba(243,196,75,.14);color:#F3D37A;border:1px solid rgba(243,196,75,.4)}
+.sf-esito-muro.tiene{background:rgba(79,194,126,.14);color:#86e0a8;border:1px solid rgba(79,194,126,.4)}
+.sf-login .azioni{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.sf-login .azioni .btn{min-height:46px}
+.sf-btn-chiaro{background:#F3C44B;color:#20242B;border:none}
+.sf-btn-chiaro:hover{background:#ffd86a}
+.sf-btn-fantasma{background:transparent;color:#cfe0f0;border:1px solid rgba(255,255,255,.3)}
+.sf-btn-fantasma:hover{border-color:#fff;color:#fff}
+
+/* pannello di controllo dei frigoriferi */
+.sf-pannello{background:#121823;border-radius:10px;padding:14px;min-height:440px;color:#E8EEF5;display:flex;flex-direction:column;gap:11px;overflow:auto}
+.sf-pan-testa{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sf-pan-testa .marchio{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff;flex:0 0 auto}
+.sf-pan-testa .marchio svg{width:18px;height:18px}
+.sf-pan-testa b{font-family:var(--head);font-size:16px}
+.sf-pan-testa .allarme{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12.5px;background:rgba(243,196,75,.14);color:#F3C44B;border:1px solid rgba(243,196,75,.35);border-radius:999px;padding:5px 11px}
+.sf-pan-testa .allarme svg{width:15px;height:15px}
+.sf-unita{display:grid;grid-template-columns:76px 1fr auto;gap:13px;align-items:center;background:#0f141c;border:1px solid #223042;border-radius:13px;padding:12px}
+.sf-unita .disegno{width:76px;height:92px;position:relative}
+.sf-unita .mid{min-width:0}
+.sf-unita .nome{font-family:var(--head);font-weight:600;font-size:15px;margin-bottom:4px}
+.sf-unita .lettura{display:flex;align-items:baseline;gap:8px}
+.sf-temp{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:30px;font-weight:700;line-height:1;letter-spacing:-.01em}
+.sf-set{font-size:12px;color:#7d90a6}
+.sf-stato{display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;border-radius:999px;padding:4px 10px;line-height:1.2}
+.sf-stato svg{width:14px;height:14px;flex:0 0 auto}
+.sf-stato.freddo{background:rgba(99,170,230,.16);color:#9fd0ff}
+.sf-stato.interrotta{background:rgba(243,196,75,.16);color:#F3C44B}
+.sf-stato.perso{background:rgba(214,158,46,.2);color:#FFC94D}
+.sf-cmd{display:flex;flex-direction:column;gap:6px}
+.sf-cmd button{background:#1b2634;border:1px solid #2d3d52;color:#d7e5f3;border-radius:9px;padding:8px 11px;font-family:var(--head);font-weight:600;font-size:13px;min-height:40px;white-space:nowrap;display:flex;align-items:center;gap:6px;justify-content:flex-start}
+.sf-cmd button svg{width:15px;height:15px;flex:0 0 auto}
+.sf-cmd button:hover{border-color:#F3C44B;color:#fff}
+.sf-cmd button.att{background:#F3C44B;color:#20242B;border-color:#F3C44B}
+.sf-cmd button:disabled{opacity:.4}
+@media(max-width:600px){.sf-unita{grid-template-columns:60px 1fr}.sf-cmd{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}}
+
+/* lezione finale (debrief) */
+.sf-lezione{background:var(--card);border:1px solid var(--brd);border-radius:18px;padding:22px 24px}
+.sf-lezione .eyebrow{background:var(--verde)}
+.sf-lezione h3{font-size:21px;margin:10px 0 6px}
+.sf-lezione p{font-size:16px;line-height:1.55;margin:0 0 12px}
+.sf-chiave{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:12px;padding:12px 15px;margin:4px 0 14px}
+.sf-chiave .pw{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:20px;font-weight:700;color:var(--ink)}
+.sf-chiave .perche{font-size:14px;color:var(--muted)}
+.sf-specchio{background:var(--ambraL);border:1px solid var(--ambraB);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+.sf-specchio b{color:var(--ambra)}
+.sf-forte-box{background:var(--verdeL);border:1px solid var(--verdeB);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+.sf-forte-box .pw{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;color:var(--verdeD)}
+.sf-lezione .azioni{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.sf-rifl{width:100%;min-height:72px;border:1px solid var(--brd2);border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;resize:vertical;margin-top:4px}
+/* invito al simulatore frigo nel briefing */
+.sf-invito{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:18px;background:#141922;color:#E8EEF5;border-radius:var(--r);padding:16px 18px}
+.sf-invito .ico{width:48px;height:48px;border-radius:13px;background:#F3C44B;color:#20242B;display:grid;place-items:center;flex:0 0 auto}
+.sf-invito .ico svg.i{width:28px;height:28px}
+.sf-invito div{flex:1 1 280px}
+.sf-invito b{font-family:var(--head);font-weight:600;display:block;font-size:18px}
+.sf-invito span{font-size:15px;color:#aebccd}
+.sf-invito .btn{min-height:46px}
 </style>
 </head>
 <body>
@@ -740,6 +870,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
     <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r="1.2" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-ricomincia" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4v4h4"/></symbol>
     <symbol id="i-chiudi" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11.2L12 4l8.5 7.2"/><path d="M5.8 9.6V20h4.6v-5.6h3.2V20h4.6V9.6"/></symbol>
     <symbol id="i-sx" viewBox="0 0 24 24"><path d="M14.5 5.5L8 12l6.5 6.5"/></symbol>
     <symbol id="i-dx" viewBox="0 0 24 24"><path d="M9.5 5.5L16 12l-6.5 6.5"/></symbol>
     <symbol id="i-schermo" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="1.8"/><path d="M12 4v13M9 21h6M12 17v4M5 8h4.5M5 11h3M14.5 8h4.5M14.5 11h3.5"/></symbol>
@@ -760,6 +891,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
     </div>
     <div class="bb-right">
       <span class="bb-tag">Web Quest · Secondaria di I grado</span>
+      <button class="btn-bianco hidden" type="button" id="btn-home-top" aria-label="Torna alla pagina iniziale (la partita resta salvata)"><svg class="i"><use href="#i-casa"/></svg>Home</button>
       <button class="btn-bianco" type="button" data-apri-docenti><svg class="i"><use href="#i-info"/></svg>Info docenti</button>
     </div>
   </div>
@@ -832,6 +964,9 @@ mark.fm.cur{background:#F59E0B;color:#000}
 
   <!-- ======================= SIMULATORE (ricerca di prova) ======================= -->
   <section class="scr" id="scr-sim" aria-labelledby="titolo-sim"></section>
+
+  <!-- ============ SIMULATORE «Hacker nei frigoriferi» (solo special edition) ============ -->
+  <section class="scr" id="scr-simfrigo" aria-labelledby="titolo-simf"></section>
 
 </main>
 
@@ -6766,10 +6901,29 @@ const comboDivisa = () => `<span class="combo"><kbd class="kc">${IS_APPLE ? 'opt
 const conEtichette = s => esc(s).replace(/(?:&quot;|“|”|«)([^"“”«»]+?)(?:&quot;|”|“|»)/g, '«<b>$1</b>»');
 
 function mostra(id){
+  if (id !== 'scr-simfrigo' && typeof SIMF !== 'undefined' && SIMF){ sfStop(); SIMF = null; }   // esce dal simulatore frigo
   document.querySelectorAll('.scr').forEach(s => s.classList.toggle('on', s.id === id));
+  $('#btn-home-top').classList.toggle('hidden', id === 'scr-intro');
   if (id !== 'scr-game' && typeof promemoriaCmdF === 'function') promemoriaCmdF();
   if (id !== 'scr-game' && typeof pausaVideo === 'function') pausaVideo();
   window.scrollTo({top: 0, behavior: 'smooth'});
+}
+/* HOME dalla barra in alto: la partita resta (si riprende da dove era) e la busta non si riapre;
+   dalla home si puo' scegliere una special edition (con conferma se la spedizione era gia' iniziata) */
+let FASE_PRIMA = null;
+function tornaHome(){
+  if (SIM){ SIM.demo.token++; SIM = null; }          // esce dal simulatore fermando la dimostrazione
+  if (!S){ renderIntro(); return; }
+  if (S.fase !== 'i') FASE_PRIMA = S.fase;
+  S.fase = 'i'; salva(); route();
+}
+const partitaAvviata = () => !!S && (S.ris.some(Boolean) || S.aiu.some(Boolean) || ['g', 'd', 'f'].includes(FASE_PRIMA));
+const partitaFinita = () => !!S && S.ris.every(Boolean) && (FASE_PRIMA === 'f' || FASE_PRIMA === 'd');
+function nuovaBusta(){
+  S = null; FASE_PRIMA = null; AUTO_SOST = 0;
+  history.replaceState(null, '', location.pathname + location.search);
+  try { sessionStorage.removeItem(SESSIONE); } catch (e) {}
+  renderIntro();
 }
 function route(){
   ({i: renderIntro, b: renderBrief, g: renderGame, d: renderDecoder, f: renderFine})[S.fase]();
@@ -6879,7 +7033,12 @@ function renderCatalogo(scelto){
     <div><small>Special edition</small><b>${esc(sp.titolo)}</b><span class="sotto-sp" title="${esc(sp.sottotitolo || '')}">${esc(sp.sottotitolo || '')}</span>
       ${RETE.esiti && !questGiocabile(sp) ? `<span class="nota-rete">${ico('i-attenzione')}${sp.tappe.some(t => t.video) ? 'Da questo computer i video di YouTube non risultano raggiungibili.' : 'Da questo computer il sito di questa quest non risulta raggiungibile.'}</span>` : ''}</div>
     <button class="btn btn-primario" type="button" data-special="${esc(sp.tema)}" aria-label="Scegli la special edition ${esc(sp.titolo)}">Scegli</button></div>`).join('');
-  document.querySelectorAll('[data-special]').forEach(b => b.onclick = () => apriBusta(b.dataset.special));
+  document.querySelectorAll('[data-special]').forEach(b => b.onclick = () => {
+    const tema = b.dataset.special;
+    if (S && S.tema === tema){ S.fase = 'i'; salva(); renderIntro(); return; }       // e' gia' la quest in corso: niente azzeramento
+    if (partitaAvviata() && !partitaFinita() && !confirm(`Hai già iniziato la spedizione «${quest().titolo}»: se scegli un'altra quest perdi i progressi. Vuoi cambiare?`)) return;
+    apriBusta(tema);
+  });
   $('#catalogo').innerHTML = QUEST.filter(q => !q.special).map(q =>
     `<div class="chip-tema ${q.tema === scelto ? 'scelto' : ''}">${ico(q.icona)}<span>${esc(q.breve)}</span></div>`).join('');
 }
@@ -6912,7 +7071,7 @@ async function apriBusta(forza){
   Object.keys(BOZZE).forEach(k => delete BOZZE[k]); Object.keys(ELENCO_OK).forEach(k => delete ELENCO_OK[k]); Object.keys(TAB_OK).forEach(k => delete TAB_OK[k]);
   DEC = {arr: [], locked: new Set()};
   Object.assign(GUIDA, {modo: 'auto', tappa: -1, passo: null, mappa: false});
-  CMDF_VISTO.clear();
+  CMDF_VISTO.clear(); FASE_PRIMA = null;
   AUTO_SOST = sostituisciBloccate();
   $('#ripresa').innerHTML = '';
   rimuoviSeedDaUrl(); salva();
@@ -6947,11 +7106,13 @@ function renderRivela(){
     <div class="fatti">${infoQuest().map(f => `<span>${esc(f)}</span>`).join('')}</div>
     ${AUTO_SOST ? `<p class="mini nota-rete">${ico('i-scambia')}Da questo computer ${AUTO_SOST === 1 ? 'un sito risulta bloccato: la sua tappa è già stata sostituita' : AUTO_SOST + ' siti risultano bloccati: le loro tappe sono già state sostituite'} con una riserva.</p>` : ''}
     <p class="mini" style="margin-bottom:14px"><span class="codice">${ico('i-chiave')}Codice partita ${esc(q.sigla)}-${esc(S.seed)}</span></p>
-    <button class="btn btn-primario lampeggia" type="button" id="btn-brief">Leggi il briefing ${ico('i-dx')}</button>`;
+    <div class="rivela-azioni"><button class="btn btn-primario lampeggia" type="button" id="btn-brief">${partitaAvviata() ? 'Riprendi la spedizione' : 'Leggi il briefing'} ${ico('i-dx')}</button>
+      ${partitaFinita() ? `<button class="btn btn-linea" type="button" id="btn-nuova-busta">${ico('i-busta')}Apri una nuova busta</button>` : ''}</div>`;
   r.classList.remove('hidden');
   $('#palco').classList.add('rivelata');          // al posto della busta compare la quest scelta (la home resta in una schermata)
   $('#catalogo-tit').textContent = q.special ? 'Hai scelto una special edition' : 'La busta ha scelto';
-  $('#btn-brief').onclick = () => { S.fase = 'b'; salva(); route(); };
+  $('#btn-brief').onclick = () => { S.fase = partitaAvviata() ? (['g', 'd', 'f'].includes(FASE_PRIMA) ? FASE_PRIMA : 'g') : 'b'; salva(); route(); };
+  if ($('#btn-nuova-busta')) $('#btn-nuova-busta').onclick = nuovaBusta;
 }
 
 /* =====================================================================
@@ -6961,8 +7122,7 @@ function testaTema(){
   const q = quest();
   return `<div class="testa-tema"><span class="tema-ico">${ico(q.icona)}</span>
     <div><span class="eyebrow">Briefing</span><h2 id="titolo-brief" style="margin-top:6px">${esc(q.titolo)}</h2></div>
-    <span class="codice" style="margin-left:auto">${ico('i-chiave')}${esc(q.sigla)}-${esc(S.seed)}</span>
-    <button class="btn btn-linea btn-home" type="button" id="btn-home" aria-label="Torna alla pagina iniziale: la quest resta questa, ma puoi scegliere una special edition">${ico('i-sx')}Pagina iniziale</button></div>`;
+    <span class="codice" style="margin-left:auto">${ico('i-chiave')}${esc(q.sigla)}-${esc(S.seed)}</span></div>`;
 }
 function bloccoTecniche(){
   return `<ul class="tasti">
@@ -7033,7 +7193,7 @@ function schemaFinestre(){
 function renderBrief(){
   const q = quest(), t = tappe();
   const haPdf = t.some(x => x.pdf), haEn = t.some(x => x.lingua && x.lingua !== 'it');
-  $('#scr-brief').innerHTML = testaTema() + invitoSimulatore() + pannelloDivisa() + `
+  $('#scr-brief').innerHTML = testaTema() + invitoSimFrigo() + invitoSimulatore() + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
         <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${q.intro ? esc(q.intro) : `${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`}`
@@ -7067,8 +7227,6 @@ function renderBrief(){
   mostra('scr-brief');
   statoDivisa();
   $('#btn-via').onclick = () => { S.fase = 'g'; salva(); route(); };
-  /* prima di partire si puo' tornare alla home: la busta non si riapre (niente nuovo tema a caso), ma si puo' scegliere una special edition */
-  $('#btn-home').onclick = () => { S.fase = 'i'; salva(); route(); };
 }
 
 /* =====================================================================
@@ -8262,6 +8420,315 @@ document.addEventListener('keydown', e => {
 window.addEventListener('resize', () => { if (SIM) riposizionaFreccia(); });
 document.addEventListener('click', e => { if (e.target.closest('[data-apri-sim]')) apriSimulatore(); });
 
+/* =====================================================================
+   SIMULATORE «Hacker nei frigoriferi» (solo special edition cyber-frigo)
+   Un muro di password (rullo in stile slot: dramatizzazione, nessun sistema
+   vero e nessun calcolo che indovini davvero) davanti al pannello di
+   controllo dei frigoriferi di catene INVENTATE. Password deboli di tipo
+   diverso (default, nome+anno, nome+anno di nascita, sequenza) e una lunga
+   e casuale che regge: entrati, si vede la temperatura salire e il ghiaccio
+   sciogliersi. Si chiude con la riflessione sulla propria password.
+   ===================================================================== */
+const SF_CATENE = [
+  {id:'freddospesa', nome:'FreddoSpesa', sigla:'F', tinta:'#2E6FB0', paese:'catena francese · 84 punti vendita',
+   pass:'Admin2026', tipo:'le credenziali di fabbrica',
+   perche:'È la password di fabbrica — «admin» con l\'anno — che nessuno ha mai cambiato dopo aver montato l\'impianto. È il primo tentativo in assoluto, lo stesso usato nell\'attacco vero.'},
+  {id:'orzimarket', nome:'Orzimarket', sigla:'O', tinta:'#1F7A43', paese:'catena italiana · 12 punti vendita',
+   pass:'orzimarket26', tipo:'il nome del negozio più l\'anno',
+   perche:'È il nome dell\'insegna con l\'anno in fondo: la prima cosa che prova chiunque, perché è scritta sulla porta.'},
+  {id:'mercatopiu', nome:'MercatoPiù', sigla:'M', tinta:'#B8651F', paese:'catena italiana · 7 punti vendita',
+   pass:'marco1979', tipo:'nome e anno di nascita di una persona',
+   perche:'È il nome del responsabile e il suo anno di nascita. Sono informazioni che si trovano in pochi secondi, e tantissime persone costruiscono così la loro password.'},
+  {id:'spesaviva', nome:'Spesa Viva', sigla:'SV', tinta:'#6D4BB0', paese:'catena belga · 30 punti vendita',
+   pass:'123456', tipo:'una sequenza di numeri',
+   perche:'Sei numeri in fila: è la password più usata al mondo, quindi la prima che un programma automatico mette alla prova.'},
+  {id:'gelonord', nome:'GeloNord', sigla:'GN', tinta:'#36506B', paese:'catena svedese · 55 punti vendita', forte:true,
+   pass:'K7v#Qz9!rX2m', tipo:'lunga, casuale, con simboli',
+   perche:'Dodici caratteri senza parole di senso compiuto, con maiuscole, minuscole, numeri e simboli: le combinazioni possibili sono miliardi di miliardi, e l\'attacco automatico si arrende prima di trovarla.'},
+];
+const SF_POOL = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789#@!?$%&*';
+const SF_UNITA = () => [
+  {id:'latticini', nome:'Banco latticini', freezer:false, set:4,   amb:22},
+  {id:'surgelati', nome:'Cella surgelati', freezer:true,  set:-18, amb:22},
+  {id:'carne',     nome:'Banco carni',     freezer:false, set:2,   amb:22},
+];
+let SIMF = null;
+function sfStop(){ if (!SIMF) return; SIMF.demo.token++; clearInterval(SIMF._spin); SIMF._spin = 0; cancelAnimationFrame(SIMF._raf); SIMF._raf = 0; }
+function apriSimFrigo(){
+  SIMF = {atto:'elenco', catena:null, unita:null, t0:0, demo:{token:0}, _spin:0, _raf:0};
+  mostra('scr-simfrigo');
+  renderSFelenco();
+}
+function esciSimFrigo(){ sfStop(); SIMF = null; if (S) route(); else renderIntro(); }
+function sfAttendi(ms){
+  const tok = SIMF && SIMF.demo.token;
+  return new Promise((ok, ko) => {
+    const start = performance.now();
+    (function tic(){
+      if (!SIMF || SIMF.demo.token !== tok) return ko(new Error('stop'));
+      if (performance.now() - start >= ms) return ok();
+      setTimeout(tic, 50);
+    })();
+  });
+}
+const sfMarchio = (c, d = 26) => `<span class="marchio" style="background:${c.tinta}"><b style="font-family:var(--head);font-size:${c.sigla.length > 1 ? 15 : 20}px">${esc(c.sigla)}</b></span>`;
+
+/* --- testata comune --- */
+function sfTesta(sotto){
+  return `<div class="sf-testa"><h2 id="titolo-simf">${ico('t-cyber-frigo')}Simulatore · il muro degli hacker</h2>
+    <button class="btn btn-linea" type="button" id="sf-esci">${ico('i-sx')}Esci dal simulatore</button></div>
+    ${sotto || ''}`;
+}
+function sfAggancia(){ const b = $('#sf-esci'); if (b) b.onclick = esciSimFrigo; }
+
+/* --- 1. elenco delle catene --- */
+function renderSFelenco(){
+  SIMF.atto = 'elenco'; sfStop(); SIMF.demo.token++;
+  const dida = `<div class="sf-dida"><span class="num">Come funziona</span>
+    Prima di arrivare ai frigoriferi, gli hacker trovano un <b>muro</b>: la password del pannello di controllo. Scegli una catena e lancia l'attacco automatico. Vedrai perché certi muri cadono in un lampo e uno no.
+    <span class="finto">${ico('i-attenzione')}Catene, pannelli e password sono inventati: è una simulazione, non un sistema vero.</span></div>`;
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-elenco">${SF_CATENE.map(c => `
+    <div class="sf-catena">
+      <div class="insegna" style="background:${c.tinta}">${sfMarchio(c)}<span><b>${esc(c.nome)}</b><small>${esc(c.paese)}</small></span></div>
+      <div class="corpo">
+        <span class="riga-dato">${ico('i-lucchetto')}Pannello di refrigerazione centralizzato</span>
+        <span class="riga-dato">${ico('i-attenzione')}Raggiungibile da Internet per la manutenzione</span>
+      </div>
+      <button class="attacca" type="button" data-sf-catena="${c.id}">${ico('i-chiave')}Prova a entrare</button>
+    </div>`).join('')}</div>`;
+  sfAggancia();
+  document.querySelectorAll('[data-sf-catena]').forEach(b => b.onclick = () => renderSFattacco(b.dataset.sfCatena));
+}
+
+/* --- 2. il muro: terminale + rullo della password --- */
+function renderSFattacco(id){
+  sfStop(); SIMF.demo.token++;
+  const c = SIMF.catena = SF_CATENE.find(x => x.id === id);
+  SIMF.atto = 'attacco';
+  const dida = `<div class="sf-dida"><span class="num">Il muro · ${esc(c.nome)}</span>
+    A sinistra il terminale dell'attacco, a destra il pannello della catena. Premi <b>«Lancia l'attacco»</b>: un programma prova da solo migliaia di password al secondo.</div>`;
+  const slot = n => Array.from({length: n}, () => `<span class="sf-slot">•</span>`).join('');
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-monitor">
+    <div class="sf-term"><div class="sf-barra"><i></i><i></i><i></i></div><div class="log" id="sf-log"></div></div>
+    <div class="sf-login">
+      <div class="marca">${sfMarchio(c)}<span><b>${esc(c.nome)}</b><small>pannello di controllo refrigerazione</small></span></div>
+      <div class="pannello-nome">${ico('i-lucchetto')}Accesso riservato ai tecnici</div>
+      <div class="sf-campo-pw"><span class="et">PASSWORD</span>
+        <div class="sf-reel" id="sf-reel">${slot(c.pass.length)}</div>
+        <div class="sf-contatore" id="sf-cont"></div></div>
+      <div id="sf-esito"></div>
+      <div class="azioni" id="sf-azioni"><button class="btn sf-btn-chiaro" type="button" id="sf-lancia">${ico('i-chiave')}Lancia l'attacco</button>
+        <button class="btn sf-btn-fantasma" type="button" id="sf-altra">Scegli un'altra catena</button></div>
+    </div></div>`;
+  sfAggancia();
+  $('#sf-altra').onclick = renderSFelenco;
+  sfLog('> connessione a pannello.' + c.id + '.lan', 'sys');
+  sfLog('> interfaccia web esposta su Internet, porta 443 aperta', 'warn');
+  sfLog('> nessun secondo codice di verifica richiesto', 'warn');
+  sfLog('> pronto. in attesa del comando…<span class="cur"></span>', 'dim');
+  $('#sf-lancia').onclick = () => { sfEseguiAttacco().catch(err => { if (err.message !== 'stop') throw err; }); };
+}
+function sfLog(html, cls){
+  const log = $('#sf-log'); if (!log) return;
+  const prec = log.querySelector('.cur'); if (prec) prec.closest('.riga').remove();
+  const d = document.createElement('div'); d.className = 'riga ' + (cls || ''); d.innerHTML = html;
+  log.appendChild(d); log.scrollTop = log.scrollHeight;
+}
+const sfRandChar = () => SF_POOL[Math.floor(Math.random() * SF_POOL.length)];
+async function sfEseguiAttacco(){
+  const c = SIMF.catena, reel = $('#sf-reel'), slots = [...reel.children];
+  $('#sf-lancia').disabled = true; $('#sf-altra').disabled = true;
+  sfLog('> avvio tentativi automatici sulla password…', 'dim');
+  const locked = slots.map(() => false);
+  slots.forEach(s => { s.textContent = sfRandChar(); s.classList.add('run'); });
+  let tent = 0;
+  SIMF._spin = setInterval(() => {
+    slots.forEach((s, i) => { if (!locked[i]) s.textContent = sfRandChar(); });
+    tent += Math.floor(140 + Math.random() * 520) * (c.forte ? 9000 : 1);
+    const el = $('#sf-cont'); if (el) el.innerHTML = 'tentativi: <b>' + tent.toLocaleString('it-IT') + '</b>';
+  }, 70);
+
+  if (c.forte){
+    reel.classList.add('run');
+    await sfAttendi(1400); sfLog('> provate tutte le parole comuni… nessun risultato', 'dim');
+    await sfAttendi(1500); sfLog('> provati nomi, date, sequenze… nessun risultato', 'dim');
+    await sfAttendi(1600); sfLog('> la password è lunga e senza senso: le combinazioni sono miliardi di miliardi', 'warn');
+    await sfAttendi(1200);
+    sfStopSpin();
+    slots.forEach(s => { s.textContent = '?'; s.classList.remove('run'); });
+    reel.classList.remove('run'); reel.classList.add('respinta');
+    sfLog('> attacco interrotto: tempo stimato oltre un milione di anni', 'ok');
+    sfLog('> ACCESSO NEGATO', 'ok');
+    $('#sf-esito').innerHTML = `<div class="sf-esito-muro tiene">${ico('i-check')}<span><b>Il muro ha retto.</b> La password era troppo lunga e casuale: l'attacco automatico si è arreso.</span></div>`;
+    $('#sf-azioni').innerHTML = `<button class="btn sf-btn-chiaro" type="button" id="sf-perche">${ico('i-luce')}Perché ha resistito?</button>
+      <button class="btn sf-btn-fantasma" type="button" id="sf-altra2">Prova un'altra catena</button>`;
+    $('#sf-perche').onclick = () => renderSFlezione(c, false);
+    $('#sf-altra2').onclick = renderSFelenco;
+    return;
+  }
+
+  await sfAttendi(1300);
+  for (let i = 0; i < slots.length; i++){
+    await sfAttendi(150 + Math.random() * 90);
+    locked[i] = true;
+    slots[i].textContent = c.pass[i];
+    slots[i].classList.remove('run'); slots[i].classList.add('lock');
+    if (i === Math.floor(slots.length / 2)) sfLog('> corrispondenza parziale… proseguo', 'dim');
+  }
+  sfStopSpin();
+  reel.classList.add('forzata');
+  $('#sf-cont').innerHTML = 'password trovata: <b>' + esc(c.pass) + '</b>';
+  sfLog('> password trovata dopo ' + tent.toLocaleString('it-IT') + ' tentativi', 'warn');
+  sfLog('> ACCESSO CONSENTITO', 'warn');
+  $('#sf-esito').innerHTML = `<div class="sf-esito-muro dentro">${ico('i-attenzione')}<span><b>Muro caduto.</b> Era ${esc(c.tipo)}: un attacco automatico la trova in pochi secondi.</span></div>`;
+  $('#sf-azioni').innerHTML = `<button class="btn sf-btn-chiaro" type="button" id="sf-entra">${ico('i-dx')}Entra nel pannello dei frigoriferi</button>`;
+  $('#sf-entra').onclick = () => renderSFpannello();
+}
+function sfStopSpin(){ clearInterval(SIMF._spin); SIMF._spin = 0; }
+
+/* --- 3. pannello dei frigoriferi: manomissione e conseguenze --- */
+function renderSFpannello(){
+  const c = SIMF.catena;
+  SIMF.atto = 'pannello';
+  SIMF.unita = SF_UNITA().map(u => ({...u, t: u.set, modo: 'ok', espo: 0, perso: false}));
+  const dida = `<div class="sf-dida"><span class="num">Dentro il pannello · ${esc(c.nome)}</span>
+    Ora comandi i frigoriferi. <b>Forza lo sbrinamento</b> e guarda la temperatura: lo sbrinamento accende una resistenza dentro una cella chiusa e isolata, così il calore non esce e si superano i 50°. Prova anche a <b>spegnere</b>: lì ci si ferma alla temperatura del negozio.</div>`;
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-pannello">
+    <div class="sf-pan-testa">${sfMarchio(c, 18)}<b>${esc(c.nome)} · ${SIMF.unita.length} impianti</b>
+      <span class="allarme" id="sf-allarme" hidden>${ico('i-attenzione')}<span id="sf-allarme-txt"></span></span></div>
+    ${SIMF.unita.map(sfUnitaHTML).join('')}
+    <p class="mini" style="color:#8da2b8;font-size:13px;margin:2px 2px 0">Nell'attacco vero gli hacker hanno fatto proprio così: sbrinamento impostato a 50°, prolungato fino a otto ore, con l'allarme che scattava in ritardo.</p>
+    <div class="azioni" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+      <button class="btn sf-btn-chiaro" type="button" id="sf-lezione">${ico('i-luce')}Che cosa ho imparato?</button>
+      <button class="btn sf-btn-fantasma" type="button" id="sf-altra3">Attacca un'altra catena</button></div></div>`;
+  sfAggancia();
+  $('#sf-lezione').onclick = () => renderSFlezione(c, true);
+  $('#sf-altra3').onclick = renderSFelenco;
+  $('#scr-simfrigo').querySelectorAll('[data-sf-cmd]').forEach(b => b.onclick = () => sfComando(b.dataset.sfU, b.dataset.sfCmd));
+  SIMF._t = performance.now();
+  SIMF._raf = requestAnimationFrame(sfLoop);
+  sfAggiorna();
+}
+function sfUnitaHTML(u){
+  return `<div class="sf-unita">
+    <div class="disegno">${sfDisegno(u)}</div>
+    <div class="mid"><div class="nome">${esc(u.nome)}</div>
+      <div class="lettura"><span class="sf-temp" id="sf-temp-${u.id}">${Math.round(u.t)}°</span><span class="sf-set">a norma ${u.set}°</span></div>
+      <span class="sf-stato freddo" id="sf-stato-${u.id}">${ico('i-check')}A norma</span></div>
+    <div class="sf-cmd">
+      <button type="button" data-sf-u="${u.id}" data-sf-cmd="sbrina">${ico('i-luce')}Forza sbrinamento</button>
+      <button type="button" data-sf-u="${u.id}" data-sf-cmd="spento">${ico('i-pausa')}Spegni il freddo</button>
+      <button type="button" data-sf-u="${u.id}" data-sf-cmd="ok">${ico('i-ricomincia')}Ripristina</button>
+    </div></div>`;
+}
+function sfDisegno(u){
+  // armadio refrigerato + termometro + strato di ghiaccio (per i surgelati); gli id si aggiornano a ogni frame
+  const g = 'sf-g-' + u.id;
+  return `<svg viewBox="0 0 76 92" width="76" height="92" aria-hidden="true">
+    <defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2d4057"/><stop offset=".55" stop-color="#223247"/><stop offset="1" stop-color="#1b2a3b"/></linearGradient></defs>
+    <rect x="3" y="5" width="46" height="84" rx="6" fill="#182230" stroke="#35485f" stroke-width="1.5"/>
+    <rect x="9" y="12" width="36" height="70" rx="3" fill="url(#${g})"/>
+    <path d="M12 14 L20 14 L12 80 Z" fill="#ffffff" opacity=".06"/>
+    <g stroke="#35485f" stroke-width="1"><path d="M9 34h36M9 56h36"/></g>
+    <g id="sf-ice-${u.id}" fill="#dff1ff"><circle cx="15" cy="20" r="2.4"/><circle cx="24" cy="18" r="1.8"/><circle cx="33" cy="21" r="2.1"/><circle cx="39" cy="19" r="1.5"/><rect x="9" y="12" width="36" height="7" rx="2" opacity=".55"/></g>
+    <rect id="sf-drip-${u.id}" x="9" y="78" width="36" height="4" rx="2" fill="#8fb6d8" opacity="0"/>
+    <rect x="55" y="12" width="9" height="62" rx="4.5" fill="#0c1016" stroke="#35485f" stroke-width="1.3"/>
+    <circle cx="59.5" cy="80" r="7" fill="#0c1016" stroke="#35485f" stroke-width="1.3"/>
+    <rect id="sf-merc-${u.id}" x="57" y="40" width="5" height="34" fill="#4FA3E8"/>
+    <circle id="sf-bulb-${u.id}" cx="59.5" cy="80" r="5" fill="#4FA3E8"/>
+  </svg>`;
+}
+function sfColore(t){
+  if (t <= 2) return '#4FA3E8';
+  if (t <= 10) return '#7FB2D6';
+  if (t <= 25) return '#E0A93A';
+  if (t <= 40) return '#F3C44B';
+  return '#F39A1F';
+}
+function sfComando(id, cmd){
+  const u = SIMF.unita.find(x => x.id === id); if (!u) return;
+  if (u.modo === cmd) return;
+  u.modo = cmd; if (cmd === 'ok'){ u.perso = false; u.espo = 0; }
+  const nomi = {sbrina: 'sbrinamento forzato', spento: 'freddo spento', ok: 'ripristino del freddo'};
+  // il terminale resta visibile solo nella fase attacco; qui aggiorno solo i pulsanti
+  $('#scr-simfrigo').querySelectorAll(`[data-sf-u="${id}"]`).forEach(b => b.classList.toggle('att', b.dataset.sfCmd === cmd));
+  sfAggiorna();
+}
+function sfLoop(){
+  if (!SIMF || SIMF.atto !== 'pannello') return;
+  const now = performance.now(), dt = Math.min(0.12, (now - SIMF._t) / 1000); SIMF._t = now;
+  let muovi = false;
+  SIMF.unita.forEach(u => {
+    const target = u.modo === 'sbrina' ? 52 : u.modo === 'spento' ? u.amb : u.set;
+    const k = u.modo === 'sbrina' ? 0.5 : u.modo === 'spento' ? 0.3 : 0.9;
+    u.t += (target - u.t) * (1 - Math.exp(-k * dt));
+    if (Math.abs(target - u.t) > 0.15) muovi = true;
+    if (u.t > u.set + 6){ u.espo += dt; if (u.t > 34 || u.espo > 7) u.perso = true; }
+  });
+  sfAggiorna();
+  SIMF._raf = requestAnimationFrame(sfLoop);
+}
+function sfAggiorna(){
+  if (!SIMF || !SIMF.unita) return;
+  let sbrina = false;
+  SIMF.unita.forEach(u => {
+    if (u.modo === 'sbrina') sbrina = true;
+    const col = sfColore(u.t);
+    const tN = $('#sf-temp-' + u.id); if (tN){ tN.textContent = Math.round(u.t) + '°'; tN.style.color = col; }
+    const frac = Math.max(0, Math.min(1, (u.t + 25) / 80));
+    const alto = 62 * frac, merc = $('#sf-merc-' + u.id);
+    if (merc){ merc.setAttribute('y', (74 - alto).toFixed(1)); merc.setAttribute('height', alto.toFixed(1)); merc.setAttribute('fill', col); }
+    const bulb = $('#sf-bulb-' + u.id); if (bulb) bulb.setAttribute('fill', col);
+    const ice = $('#sf-ice-' + u.id); if (ice) ice.style.opacity = u.freezer ? Math.max(0, Math.min(1, (0 - u.t) / 12)).toFixed(2) : '0';
+    const drip = $('#sf-drip-' + u.id); if (drip) drip.style.opacity = (u.freezer && u.t > 2) ? '.7' : '0';
+    const st = $('#sf-stato-' + u.id);
+    if (st){
+      if (u.t <= u.set + 3){ st.className = 'sf-stato freddo'; st.innerHTML = ico('i-check') + 'A norma, catena del freddo integra'; }
+      else if (u.perso){ st.className = 'sf-stato perso'; st.innerHTML = ico('i-attenzione') + 'Prodotti da buttare'; }
+      else { st.className = 'sf-stato interrotta'; st.innerHTML = ico('i-attenzione') + 'Catena del freddo interrotta'; }
+    }
+  });
+  const al = $('#sf-allarme');
+  if (al){
+    al.hidden = !sbrina;
+    if (sbrina) $('#sf-allarme-txt').textContent = 'Allarme ritardato: scatterà tra circa 6 ore';
+  }
+}
+
+/* --- 4. la lezione (debrief) --- */
+function renderSFlezione(c, entrato){
+  sfStop(); SIMF.demo.token++;
+  SIMF.atto = 'lezione';
+  const forte = SF_CATENE.find(x => x.forte);
+  const apertura = entrato
+    ? `<p>Sei entrato nel pannello di <b>${esc(c.nome)}</b> in pochi secondi e hai potuto scaldare i frigoriferi. Non perché tu sia un esperto: perché il muro era fatto male.</p>`
+    : `<p>Con <b>${esc(c.nome)}</b> non sei entrato. Il muro ha retto e i frigoriferi sono rimasti al freddo.</p>`;
+  const chiave = entrato ? `<div class="sf-chiave">${ico('i-chiave')}<div><div class="pw">${esc(c.pass)}</div><div class="perche">${esc(c.perche)}</div></div></div>` : '';
+  $('#scr-simfrigo').innerHTML = sfTesta('') + `<div class="sf-lezione">
+    <span class="eyebrow">Che cosa ho imparato</span>
+    <h3>${entrato ? 'Un muro debole cade in un lampo' : 'Un muro forte tiene lontano chiunque'}</h3>
+    ${apertura}
+    ${chiave}
+    <div class="sf-specchio"><b>E la tua password?</b> Molte delle password cadute qui sono fatte come quelle di tanti ragazzi: il proprio <b>nome più l'anno di nascita</b> (per esempio <i>luca2013</i>), una <b>parola</b> sola, una <b>sequenza</b> come 123456. Se la tua somiglia a una di queste, un programma automatico la indovinerebbe con la stessa facilità.</div>
+    <div class="sf-forte-box">${ico('i-check')} <b>GeloNord ha resistito.</b> La sua password era <span class="pw">${esc(forte.pass)}</span>: ${esc(forte.perche)}<br>Una password sicura è <b>lunga</b> (almeno 12 caratteri), <b>senza parole di senso compiuto</b>, con <b>maiuscole, minuscole, numeri e simboli</b>, e <b>diversa</b> per ogni servizio.</div>
+    <label for="sf-rifl" style="font-weight:600;font-family:var(--head);color:var(--ink)">Scrivi una password sicura che riusciresti a ricordare (resta solo qui, non viene salvata):</label>
+    <textarea class="sf-rifl" id="sf-rifl" placeholder="Prova qui: una frase con numeri e simboli è più forte di una parola."></textarea>
+    <div class="azioni">
+      <button class="btn btn-primario" type="button" id="sf-ancora">${ico('i-ricomincia')}Prova un'altra catena</button>
+      <button class="btn btn-linea" type="button" id="sf-fine">${ico('i-sx')}Torna al briefing</button></div></div>`;
+  sfAggancia();
+  $('#sf-ancora').onclick = renderSFelenco;
+  $('#sf-fine').onclick = esciSimFrigo;
+}
+/* invito al simulatore frigo (solo nella special edition cyber-frigo) */
+function invitoSimFrigo(){
+  if (quest().tema !== 'cyber-frigo') return '';
+  return `<div class="sf-invito"><span class="ico">${ico('t-cyber-frigo')}</span>
+    <div><b>Prova il muro degli hacker</b><span>Un simulatore: attacchi la password del pannello di una catena inventata, entri e scaldi i frigoriferi. Serve a capire perché una password debole è pericolosa.</span></div>
+    <button class="btn sf-btn-chiaro" type="button" data-apri-simfrigo>${ico('i-chiave')}Apri il simulatore</button></div>`;
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-apri-simfrigo]')) apriSimFrigo(); });
+
 /* QUADERNO: le carte conquistate (citazioni o versi); lo studente sceglie la sua preferita e dice perche'.
    Come le altre risposte metacognitive, resta solo sulla pagina (nessun dato salvato). */
 function quadernoHTML(q, t){
@@ -8302,7 +8769,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
-        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente attacca la password del pannello di controllo di catene inventate (una di fabbrica «Admin2026», una col nome del negozio, una col nome e l'anno di nascita, una sequenza, e una lunga e casuale che resiste), entra e vede la temperatura salire e il ghiaccio sciogliersi. Password, catene e pannelli sono finti e nessun dato esce dal dispositivo; il rullo in stile slot è una dramatizzazione, non un vero attacco. Chiude con la riflessione sulla propria password. Utile per spiegare perché i frigoriferi sono stati portati a 50° (sbrinamento acceso in una cella chiusa) e perché una password debole è il vero punto fragile.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
@@ -8513,6 +8980,7 @@ $('#cmdf-modale').addEventListener('click', e => { if (e.target.id === 'cmdf-mod
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#cmdf-modale').classList.contains('hidden')) chiudiCmdF(); });
 document.addEventListener('keydown', e => { const c = e.target.closest && e.target.closest('.quaderno .carta[data-k]'); if (c && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); c.click(); } });
 document.querySelectorAll('[data-apri-docenti]').forEach(b => b.onclick = apriDocenti);
+$('#btn-home-top').onclick = tornaHome;
 document.querySelectorAll('.tab').forEach(b => b.onclick = () => apriTab(b.dataset.tab));
 $('#chiudi-modale').onclick = chiudiDocenti;
 $('#modale').addEventListener('click', e => { if (e.target.id === 'modale') chiudiDocenti(); });

@@ -811,6 +811,21 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-cmd button:hover{border-color:#F3C44B;color:#fff}
 .sf-cmd button.att{background:#F3C44B;color:#20242B;border-color:#F3C44B}
 .sf-cmd button:disabled{opacity:.4}
+.sf-dev{display:flex;align-items:center;gap:6px;font-size:12px;color:#7d90a6;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.sf-dev svg{width:13px;height:13px;color:#6b86a3}
+.sf-ctrl{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start}
+.sf-modo{display:inline-flex;background:#0a0f16;border:1px solid #2d3d52;border-radius:10px;padding:3px;gap:2px;flex:0 0 auto}
+.sf-modo button{background:transparent;border:none;color:#aebccd;border-radius:7px;padding:8px 12px;font-family:var(--head);font-weight:600;font-size:13px;min-height:40px;display:flex;align-items:center;gap:6px;cursor:pointer}
+.sf-modo button svg{width:14px;height:14px}
+.sf-modo button:hover{color:#fff}
+.sf-modo button.att{background:#F3C44B;color:#20242B}
+.sf-param{flex:1 1 230px;min-width:210px;opacity:.38;pointer-events:none;transition:opacity .2s}
+.sf-param.on{opacity:1;pointer-events:auto}
+.sf-param label{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:#aebccd;font-family:var(--head);font-weight:600;margin-bottom:3px}
+.sf-param .pv{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#F3C44B}
+.sf-param input[type=range]{width:100%;accent-color:#F3C44B;height:26px;cursor:pointer}
+.sf-param small{display:block;margin-top:2px;font-size:11.5px;color:#6b7f93}
+.sf-param small b{color:#aebccd}
 
 /* lezione finale (debrief) */
 .sf-lezione{background:var(--card);border:1px solid var(--brd);border-radius:18px;padding:22px 24px}
@@ -8441,24 +8456,50 @@ document.addEventListener('click', e => { if (e.target.closest('[data-apri-sim]'
    e casuale che regge: entrati, si vede la temperatura salire e il ghiaccio
    sciogliersi. Si chiude con la riflessione sulla propria password.
    ===================================================================== */
+/* Nomi di supermercati veri del territorio, solo per familiarità: lo scenario è di fantasia.
+   Le password NON contengono il nome del negozio (non si afferma nulla sulla loro sicurezza reale):
+   sono inventate, generate a caso a ogni accesso e il tipo di debolezza è assegnato a sorte. */
 const SF_CATENE = [
-  {id:'freddospesa', nome:'FreddoSpesa', sigla:'F', tinta:'#2E6FB0', paese:'catena francese · 84 punti vendita',
-   pass:'Admin2026', tipo:'le credenziali di fabbrica',
+  {id:'italmark', nome:'Italmark', sigla:'I', tinta:'#2E6FB0', paese:'supermercati · Lombardia'},
+  {id:'tosano',   nome:'Tosano',   sigla:'T', tinta:'#1F7A43', paese:'supermercati · Veneto'},
+  {id:'famila',   nome:'Famila',   sigla:'F', tinta:'#B8651F', paese:'supermercati · Nord-Est'},
+  {id:'coop',     nome:'Coop',     sigla:'C', tinta:'#6D4BB0', paese:'supermercati · Italia'},
+  {id:'lidl',     nome:'Lidl',     sigla:'L', tinta:'#36506B', paese:'discount · Italia'},
+];
+const SF_DEBOLEZZE = [
+  {kind:'default',  tipo:'le credenziali di fabbrica',
    perche:'È la password di fabbrica — «admin» con l\'anno — che nessuno ha mai cambiato dopo aver montato l\'impianto. È il primo tentativo in assoluto, lo stesso usato nell\'attacco vero.'},
-  {id:'orzimarket', nome:'Orzimarket', sigla:'O', tinta:'#1F7A43', paese:'catena italiana · 12 punti vendita',
-   pass:'orzimarket26', tipo:'il nome del negozio più l\'anno',
-   perche:'È il nome dell\'insegna con l\'anno in fondo: la prima cosa che prova chiunque, perché è scritta sulla porta.'},
-  {id:'mercatopiu', nome:'MercatoPiù', sigla:'M', tinta:'#B8651F', paese:'catena italiana · 7 punti vendita',
-   pass:'marco1979', tipo:'nome e anno di nascita di una persona',
-   perche:'È il nome del responsabile e il suo anno di nascita. Sono informazioni che si trovano in pochi secondi, e tantissime persone costruiscono così la loro password.'},
-  {id:'spesaviva', nome:'Spesa Viva', sigla:'SV', tinta:'#6D4BB0', paese:'catena belga · 30 punti vendita',
-   pass:'123456', tipo:'una sequenza di numeri',
-   perche:'Sei numeri in fila: è la password più usata al mondo, quindi la prima che un programma automatico mette alla prova.'},
-  {id:'gelonord', nome:'GeloNord', sigla:'GN', tinta:'#36506B', paese:'catena svedese · 55 punti vendita', forte:true,
-   pass:'K7v#Qz9!rX2m', tipo:'lunga, casuale, con simboli',
-   perche:'Dodici caratteri senza parole di senso compiuto, con maiuscole, minuscole, numeri e simboli: le combinazioni possibili sono miliardi di miliardi, e l\'attacco automatico si arrende prima di trovarla.'},
+  {kind:'persona',  tipo:'nome e anno di nascita di una persona',
+   perche:'È il nome di una persona con il suo anno di nascita: informazioni che si trovano in pochi secondi. Tantissime persone — e magari anche tu — costruiscono così la loro password.'},
+  {kind:'sequenza', tipo:'una sequenza di numeri',
+   perche:'Una sequenza di numeri banale: è tra le password più usate al mondo, quindi tra le prime che un programma automatico mette alla prova.'},
+  {kind:'parola',   tipo:'una parola comune',
+   perche:'È una parola di uso comune: un programma le prova tutte leggendo un dizionario, quindi cade in fretta.'},
+  {kind:'forte', forte:true, tipo:'lunga, casuale, con simboli',
+   perche:'Lunga, senza parole di senso compiuto, con maiuscole, minuscole, numeri e simboli: le combinazioni possibili sono miliardi di miliardi, e l\'attacco automatico si arrende prima di trovarla.'},
 ];
 const SF_POOL = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789#@!?$%&*';
+const SF_NOMI = ['luca', 'giulia', 'marco', 'sara', 'matteo', 'chiara', 'andrea', 'elisa', 'davide', 'francesca', 'simone', 'alice', 'paolo', 'laura', 'enrico', 'marta'];
+const SF_SEQ = ['123456', '111111', '000000', '12345678', '654321', '121212', '123123', '112233'];
+const SF_PAROLE = ['password', 'qwerty', 'estate', 'vacanza', 'calcio', 'amicizia', 'gelato', 'ciao1234'];
+const sfRnd = a => a[Math.floor(Math.random() * a.length)];
+function sfGenForte(){
+  const U = 'ABCDEFGHJKLMNPQRSTUVWXYZ', L = 'abcdefghijkmnpqrstuvwxyz', D = '23456789', S = '#@!?$%&*', tutto = U + L + D + S;
+  const p = Array.from({length: 12}, () => tutto[Math.floor(Math.random() * tutto.length)]);
+  p[3] = sfRnd(U); p[5] = sfRnd(L); p[7] = sfRnd(D); p[10] = sfRnd(S);   // almeno uno per categoria
+  return p.join('');
+}
+function sfGenPass(c){
+  const anno = () => 2023 + Math.floor(Math.random() * 4);               // 2023-2026
+  switch (c.kind){
+    case 'default':  return 'Admin' + anno();
+    case 'persona':  return sfRnd(SF_NOMI) + (1972 + Math.floor(Math.random() * 20));
+    case 'sequenza': return sfRnd(SF_SEQ);
+    case 'parola':   return sfRnd(SF_PAROLE);
+    case 'forte':    return sfGenForte();
+    default:         return 'Admin2026';
+  }
+}
 const SF_CORSIE = () => [
   {id:'latticini', nome:'Corsia latticini', freezer:false, set:4,   amb:22, n:8},
   {id:'surgelati', nome:'Corsia surgelati', freezer:true,  set:-18, amb:22, n:11},
@@ -8467,7 +8508,10 @@ const SF_CORSIE = () => [
 let SIMF = null;
 function sfStop(){ if (!SIMF) return; SIMF.demo.token++; clearInterval(SIMF._spin); SIMF._spin = 0; cancelAnimationFrame(SIMF._raf); SIMF._raf = 0; }
 function apriSimFrigo(){
-  SIMF = {atto:'elenco', catena:null, unita:null, t0:0, demo:{token:0}, _spin:0, _raf:0};
+  const deb = SF_DEBOLEZZE.slice();                       // debolezza assegnata a sorte a ogni accesso
+  for (let i = deb.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [deb[i], deb[j]] = [deb[j], deb[i]]; }
+  const catene = SF_CATENE.map((c, i) => ({...c, ...deb[i]}));
+  SIMF = {atto:'elenco', catene, catena:null, unita:null, t0:0, demo:{token:0}, _spin:0, _raf:0};
   mostra('scr-simfrigo');
   renderSFelenco();
 }
@@ -8497,9 +8541,9 @@ function sfAggancia(){ const b = $('#sf-esci'); if (b) b.onclick = esciSimFrigo;
 function renderSFelenco(){
   SIMF.atto = 'elenco'; sfStop(); SIMF.demo.token++;
   const dida = `<div class="sf-dida"><span class="num">Come funziona</span>
-    Prima di arrivare ai frigoriferi, gli hacker trovano un <b>muro</b>: la password del pannello di controllo. Scegli una catena e prova a scoprire la password <b>una lettera alla volta</b>. Vedrai perché certi muri cadono in pochi tentativi e uno no.
-    <span class="finto">${ico('i-attenzione')}Catene, pannelli e password sono inventati: è una simulazione, non un sistema vero.</span></div>`;
-  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-elenco">${SF_CATENE.map(c => `
+    Prima di arrivare ai frigoriferi, gli hacker trovano un <b>muro</b>: la password del pannello di controllo. Scegli un supermercato e prova a scoprire la password <b>una lettera alla volta</b>. Vedrai perché certi muri cadono in pochi tentativi e uno no.
+    <span class="finto">${ico('i-attenzione')}Nomi di supermercati veri, ma lo scenario è di fantasia: le password sono inventate, scelte a caso, e non dicono nulla sulla sicurezza reale di questi negozi.</span></div>`;
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-elenco">${SIMF.catene.map(c => `
     <div class="sf-catena">
       <div class="insegna" style="background:${c.tinta}">${sfMarchio(c)}<span><b>${esc(c.nome)}</b><small>${esc(c.paese)}</small></span></div>
       <div class="corpo">
@@ -8515,7 +8559,8 @@ function renderSFelenco(){
 /* --- 2. il muro: terminale + rullo della password --- */
 function renderSFattacco(id){
   sfStop(); SIMF.demo.token++;
-  const c = SIMF.catena = SF_CATENE.find(x => x.id === id);
+  const base = SIMF.catene.find(x => x.id === id);
+  const c = SIMF.catena = {...base, pass: sfGenPass(base)};   // password diversa a ogni accesso
   SIMF.atto = 'attacco';
   SIMF.rivelato = c.pass.split('').map(() => false);
   SIMF.provate = new Set();
@@ -8659,15 +8704,15 @@ function sfMuroTiene(c){
 function renderSFpannello(){
   const c = SIMF.catena;
   SIMF.atto = 'pannello';
-  SIMF.unita = SF_CORSIE().map(u => ({...u, t: u.set, modo: 'ok', espo: 0, perso: false}));
+  SIMF.unita = SF_CORSIE().map(u => ({...u, t: u.set, modo: 'ok', espo: 0, perso: false, fine: 6}));
   const totCelle = SIMF.unita.reduce((s, u) => s + u.n, 0);
-  const dida = `<div class="sf-dida"><span class="num">Dentro il pannello · ${esc(c.nome)}</span>
-    Ora comandi i frigoriferi: ${SIMF.unita.length} corsie, <b>${totCelle} celle in serie</b>. <b>Forza lo sbrinamento</b> e guarda la temperatura: la resistenza accesa dentro celle chiuse e isolate supera i 50°. Un solo comando muove un'intera corsia. Prova anche a <b>spegnere</b>: lì ci si ferma alla temperatura del negozio.</div>`;
+  const dida = `<div class="sf-dida"><span class="num">Dentro la centralina · ${esc(c.nome)}</span>
+    Comandi i frigoriferi dall'interfaccia della centralina, come gli hacker. Scegli <b>Sbrinamento</b> su una corsia e <b>alza «Fine sbrinamento»</b>: di fabbrica è 6°, nell'attacco vero l'hanno portata a 50°. Guarda la temperatura salire e il ghiaccio sciogliersi. Con <b>Spento</b> ci si ferma alla temperatura del negozio.</div>`;
   $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-pannello">
-    <div class="sf-pan-testa">${sfMarchio(c, 18)}<b>${esc(c.nome)} · ${totCelle} frigoriferi in ${SIMF.unita.length} corsie</b>
+    <div class="sf-pan-testa">${sfMarchio(c, 18)}<b>${esc(c.nome)}</b><span class="sf-dev">${ico('i-lucchetto')}centralina AK-SM · interfaccia web · ${totCelle} frigoriferi, ${SIMF.unita.length} corsie</span>
       <span class="allarme" id="sf-allarme" hidden>${ico('i-attenzione')}<span id="sf-allarme-txt"></span></span></div>
     ${SIMF.unita.map(sfCorsiaHTML).join('')}
-    <p class="mini" style="color:#8da2b8;font-size:13px;margin:2px 2px 0">Nell'attacco vero gli hacker hanno fatto proprio così: un comando su una centralina sbrinava intere corsie, impostate a 50° e prolungate fino a otto ore, con l'allarme che scattava in ritardo.</p>
+    <p class="mini" style="color:#8da2b8;font-size:13px;margin:2px 2px 0">Un vero pannello non ha tasti magici: è un'interfaccia web con <b>parametri</b> come questi. Gli hacker hanno solo cambiato un valore normale — la temperatura di fine sbrinamento (parametro <b>d02</b>) — portandola a 50° su intere corsie e allungando la durata fino a otto ore, con l'allarme in ritardo.</p>
     <div class="azioni" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
       <button class="btn sf-btn-chiaro" type="button" id="sf-lezione">${ico('i-luce')}Che cosa ho imparato?</button>
       <button class="btn sf-btn-fantasma" type="button" id="sf-altra3">Attacca un'altra catena</button></div></div>`;
@@ -8675,6 +8720,10 @@ function renderSFpannello(){
   $('#sf-lezione').onclick = () => renderSFlezione(c, true);
   $('#sf-altra3').onclick = renderSFelenco;
   $('#scr-simfrigo').querySelectorAll('[data-sf-cmd]').forEach(b => b.onclick = () => sfComando(b.dataset.sfU, b.dataset.sfCmd));
+  $('#scr-simfrigo').querySelectorAll('input[type=range][data-sf-u]').forEach(s => s.oninput = () => {
+    const u = SIMF.unita.find(x => x.id === s.dataset.sfU); if (!u) return;
+    u.fine = +s.value; const pv = $('#sf-pv-' + u.id); if (pv) pv.textContent = u.fine + '°C';
+  });
   SIMF._t = performance.now();
   SIMF._raf = requestAnimationFrame(sfLoop);
   sfAggiorna();
@@ -8684,14 +8733,21 @@ function sfCorsiaHTML(u){
     <div class="sf-corsia-top">
       <div class="ct-info"><div class="nome">${esc(u.nome)}</div>
         <div class="serie">${ico('i-scambia')}${u.n} celle collegate in serie · un comando le muove tutte</div></div>
-      <div class="lettura"><span class="sf-temp" id="sf-temp-${u.id}">${Math.round(u.t)}°</span><span class="sf-set">a norma ${u.set}°</span>
+      <div class="lettura"><span class="sf-temp" id="sf-temp-${u.id}">${Math.round(u.t)}°</span><span class="sf-set">set ${u.set}°</span>
         <span class="sf-stato freddo" id="sf-stato-${u.id}">${ico('i-check')}A norma</span></div>
     </div>
     <div class="sf-riga-frigo">${sfDisegno(u)}</div>
-    <div class="sf-cmd">
-      <button type="button" data-sf-u="${u.id}" data-sf-cmd="sbrina">${ico('i-luce')}Forza sbrinamento</button>
-      <button type="button" data-sf-u="${u.id}" data-sf-cmd="spento">${ico('i-pausa')}Spegni il freddo</button>
-      <button type="button" data-sf-u="${u.id}" data-sf-cmd="ok">${ico('i-ricomincia')}Ripristina</button>
+    <div class="sf-ctrl">
+      <div class="sf-modo" role="group" aria-label="Modalità ${esc(u.nome)}">
+        <button type="button" data-sf-u="${u.id}" data-sf-cmd="ok" class="att">${ico('i-check')}Normale</button>
+        <button type="button" data-sf-u="${u.id}" data-sf-cmd="sbrina">${ico('i-luce')}Sbrinamento</button>
+        <button type="button" data-sf-u="${u.id}" data-sf-cmd="spento">${ico('i-pausa')}Spento</button>
+      </div>
+      <div class="sf-param" id="sf-param-${u.id}">
+        <label for="sf-fine-${u.id}">Fine sbrinamento <span class="pv" id="sf-pv-${u.id}">${u.fine}°C</span></label>
+        <input type="range" id="sf-fine-${u.id}" min="4" max="55" step="1" value="${u.fine}" data-sf-u="${u.id}" aria-label="Temperatura di fine sbrinamento, parametro d02">
+        <small>parametro <b>d02</b> · di fabbrica 6°C · nell'attacco vero: 50°C</small>
+      </div>
     </div></div>`;
 }
 /* un armadio refrigerato dettagliato: porte a vetro, maniglie, ripiani con prodotti, canopy */
@@ -8750,14 +8806,15 @@ function sfColore(t){
 function sfComando(id, cmd){
   const u = SIMF.unita.find(x => x.id === id); if (!u || u.modo === cmd) return;
   u.modo = cmd; if (cmd === 'ok'){ u.perso = false; u.espo = 0; }
-  $('#scr-simfrigo').querySelectorAll(`[data-sf-u="${id}"]`).forEach(b => b.classList.toggle('att', b.dataset.sfCmd === cmd));
+  $('#scr-simfrigo').querySelectorAll(`[data-sf-cmd][data-sf-u="${id}"]`).forEach(b => b.classList.toggle('att', b.dataset.sfCmd === cmd));
+  const par = $('#sf-param-' + id); if (par) par.classList.toggle('on', cmd === 'sbrina');
   sfAggiorna();
 }
 function sfLoop(){
   if (!SIMF || SIMF.atto !== 'pannello') return;
   const now = performance.now(), dt = Math.min(0.12, (now - SIMF._t) / 1000); SIMF._t = now;
   SIMF.unita.forEach(u => {
-    const target = u.modo === 'sbrina' ? 52 : u.modo === 'spento' ? u.amb : u.set;
+    const target = u.modo === 'sbrina' ? u.fine : u.modo === 'spento' ? u.amb : u.set;
     const k = u.modo === 'sbrina' ? 0.5 : u.modo === 'spento' ? 0.3 : 0.9;
     u.t += (target - u.t) * (1 - Math.exp(-k * dt));
     if (u.t > u.set + 6){ u.espo += dt; if (u.t > 34 || u.espo > 7) u.perso = true; }
@@ -8794,7 +8851,7 @@ function sfAggiorna(){
 function renderSFlezione(c, entrato){
   sfStop(); SIMF.demo.token++;
   SIMF.atto = 'lezione';
-  const forte = SF_CATENE.find(x => x.forte);
+  const forte = SIMF.catene.find(x => x.forte);
   const apertura = entrato
     ? `<p>Sei entrato nel pannello di <b>${esc(c.nome)}</b> in pochi secondi e hai potuto scaldare i frigoriferi. Non perché tu sia un esperto: perché il muro era fatto male.</p>`
     : `<p>Con <b>${esc(c.nome)}</b> non sei entrato. Il muro ha retto e i frigoriferi sono rimasti al freddo.</p>`;
@@ -8805,7 +8862,7 @@ function renderSFlezione(c, entrato){
     ${apertura}
     ${chiave}
     <div class="sf-specchio"><b>E la tua password?</b> Molte delle password cadute qui sono fatte come quelle di tanti ragazzi: il proprio <b>nome più l'anno di nascita</b> (per esempio <i>luca2013</i>), una <b>parola</b> sola, una <b>sequenza</b> come 123456. Se la tua somiglia a una di queste, un programma automatico la indovinerebbe con la stessa facilità.</div>
-    <div class="sf-forte-box">${ico('i-check')} <b>GeloNord ha resistito.</b> La sua password era <span class="pw">${esc(forte.pass)}</span>: ${esc(forte.perche)}<br>Una password sicura è <b>lunga</b> (almeno 12 caratteri), <b>senza parole di senso compiuto</b>, con <b>maiuscole, minuscole, numeri e simboli</b>, e <b>diversa</b> per ogni servizio.</div>
+    <div class="sf-forte-box">${ico('i-check')} <b>${esc(forte.nome)} ha retto.</b> Aveva una password lunga e casuale, per esempio <span class="pw">${esc(sfGenForte())}</span>: ${esc(forte.perche)}<br>Una password sicura è <b>lunga</b> (almeno 12 caratteri), <b>senza parole di senso compiuto</b>, con <b>maiuscole, minuscole, numeri e simboli</b>, e <b>diversa</b> per ogni servizio.</div>
     <label for="sf-rifl" style="font-weight:600;font-family:var(--head);color:var(--ink)">Scrivi una password sicura che riusciresti a ricordare (resta solo qui, non viene salvata):</label>
     <textarea class="sf-rifl" id="sf-rifl" placeholder="Prova qui: una frase con numeri e simboli è più forte di una parola."></textarea>
     <div class="azioni">
@@ -8873,7 +8930,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
-        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente attacca la password del pannello di controllo di catene inventate (una di fabbrica «Admin2026», una col nome del negozio, una col nome e l'anno di nascita, una sequenza, e una lunga e casuale che resiste), entra e vede la temperatura salire e il ghiaccio sciogliersi. Password, catene e pannelli sono finti e nessun dato esce dal dispositivo; il rullo in stile slot è una dramatizzazione, non un vero attacco. Chiude con la riflessione sulla propria password. Utile per spiegare perché i frigoriferi sono stati portati a 50° (sbrinamento acceso in una cella chiusa) e perché una password debole è il vero punto fragile.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. Il rullo è una dramatizzazione, non un vero attacco, e nessun dato esce dal dispositivo. Il pannello è un'interfaccia da centralina (parametro d02 «fine sbrinamento», di fabbrica 6°, portato a 50° nell'attacco vero): la temperatura sale, il ghiaccio si scioglie e i frigoriferi gocciolano. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>

@@ -806,6 +806,11 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-attrezzo .at-tit svg{width:15px;height:15px;color:#F3C44B}
 .sf-attrezzo .sf-tastiera{margin-top:0}
 .sf-attrezzo .btn{min-height:46px}
+.sf-rilev{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:12px;color:#aebccd}
+.sf-rilev>span{display:inline-flex;align-items:center;gap:5px;flex:0 0 auto}
+.sf-rilev>span svg{width:13px;height:13px;color:#F3C44B}
+.sf-rilev .rb{flex:1;height:8px;background:#0a0f16;border-radius:999px;overflow:hidden;border:1px solid #223042}
+.sf-rilev .rb i{display:block;height:100%;width:0;background:linear-gradient(90deg,#E0A93A,#F39A1F);transition:width .25s}
 @keyframes sfLock{0%{transform:scale(1.22)}100%{transform:scale(1)}}
 .sf-contatore{font-family:ui-monospace,monospace;font-size:14px;color:#8da2b8;min-height:20px}
 .sf-contatore b{color:#F3C44B}
@@ -813,6 +818,7 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-esito-muro svg.i{width:26px;height:26px;flex:0 0 auto}
 .sf-esito-muro.dentro{background:rgba(243,196,75,.14);color:#F3D37A;border:1px solid rgba(243,196,75,.4)}
 .sf-esito-muro.tiene{background:rgba(79,194,126,.14);color:#86e0a8;border:1px solid rgba(79,194,126,.4)}
+.sf-esito-muro.scoperto{background:rgba(243,196,75,.14);color:#F3D37A;border:1px solid rgba(243,196,75,.4)}
 .sf-login .azioni{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
 .sf-login .azioni .btn{min-height:46px}
 .sf-btn-chiaro{background:#F3C44B;color:#20242B;border:none}
@@ -863,6 +869,95 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sp-pasti{margin-top:5px;font-size:13.5px;color:#8da2b8;line-height:1.45}
 .sp-pasti b{color:#FFC94D}
 @media(max-width:600px){.sf-spreco{flex-direction:column;align-items:flex-start}}
+.sf-switch{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#141922;border:1px dashed #2d3d52;border-radius:12px;padding:11px 15px;margin-bottom:14px;color:#aebccd;font-size:14px}
+.sf-switch>span{display:inline-flex;align-items:center;gap:8px;flex:1 1 240px}
+.sf-switch>span svg{width:16px;height:16px;color:#F3C44B;flex:0 0 auto}
+.sf-switch .btn{margin-left:auto;min-height:44px}
+.sf-difesa{display:flex;flex-direction:column;gap:12px}
+.sf-dif-barra{display:flex;align-items:center;gap:9px;background:#0f141c;border:1px solid #223042;border-radius:10px;padding:11px 15px;color:#aebccd;font-family:var(--head);font-size:14px}
+.sf-dif-barra b{font-size:22px;color:#F3C44B;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.sf-dif-barra .su{color:#6b7f93;font-size:13px}
+.sf-dif-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.sf-dif-neg{background:#0f141c;border:1px solid #223042;border-radius:13px;padding:12px}
+.sf-dif-neg.ok{border-color:rgba(79,194,126,.5);background:rgba(79,194,126,.06)}
+.sf-dif-neg .dn-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sf-dif-neg .dn-top .marchio{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff;flex:0 0 auto;font-family:var(--head)}
+.sf-dif-neg .dn-top>div{flex:1;min-width:0}
+.sf-dif-neg .dn-top b{font-family:var(--head);font-size:16px;color:#E8EEF5;display:block;line-height:1.1}
+.sf-dif-neg .dn-top small{font-size:12.5px;color:#8da2b8}
+.dn-stato{display:inline-flex;align-items:center;gap:5px;font-size:12px;border-radius:999px;padding:4px 9px;flex:0 0 auto}
+.dn-stato svg{width:13px;height:13px}
+.dn-stato.no{background:rgba(243,196,75,.16);color:#F3C44B}
+.dn-stato.ok{background:rgba(79,194,126,.18);color:#86e0a8}
+.dn-fix{display:flex;flex-direction:column;gap:6px}
+.dif-fix{display:flex;align-items:center;gap:8px;background:#1b2634;border:1px solid #2d3d52;color:#d7e5f3;border-radius:9px;padding:9px 11px;font-size:13px;font-family:var(--head);font-weight:600;min-height:42px;text-align:left;cursor:pointer}
+.dif-fix svg{width:15px;height:15px;flex:0 0 auto;color:#F3C44B}
+.dif-fix:hover:not(:disabled){border-color:#F3C44B;color:#fff}
+.dif-fix.on{background:rgba(79,194,126,.15);border-color:rgba(79,194,126,.5);color:#86e0a8}
+.dif-fix.on svg{color:#86e0a8}
+.dif-fix:disabled{opacity:.4;cursor:default}
+.dn-esiti{display:flex;flex-direction:column;gap:7px;margin:4px 0 14px}
+.dn-esito{display:flex;align-items:center;gap:9px;border-radius:10px;padding:9px 12px;font-size:14px}
+.dn-esito svg{width:17px;height:17px;flex:0 0 auto}
+.dn-esito b{font-family:var(--head);flex:0 0 auto}
+.dn-esito span{color:var(--muted);font-size:13px}
+.dn-esito.ok{background:var(--verdeL)}.dn-esito.ok svg{color:var(--verde)}.dn-esito.ok b{color:var(--verdeD)}
+.dn-esito.ko{background:var(--ambraL)}.dn-esito.ko svg{color:var(--ambraM)}.dn-esito.ko b{color:var(--ambra)}
+/* ===== cambio di ruolo: zona hacker «matrix» vs zona tecnico chiara ===== */
+.sf-testa-az{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.sf-testa .sf-testa-az .btn{margin-left:0}
+.sf-ruolo{display:inline-flex;align-items:center;gap:6px;font:700 12px var(--head);letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.sf-ruolo svg{width:14px;height:14px}
+.sf-ruolo.hacker{background:rgba(61,220,132,.15);color:#3ddc84;border:1px solid rgba(61,220,132,.45)}
+.sf-ruolo.tecnico{background:rgba(31,78,140,.12);color:#1F4E8C;border:1px solid rgba(31,78,140,.3)}
+#scr-simfrigo.ruolo-hacker{position:relative;background:#040a07;border:1px solid #11311d;border-radius:16px;padding:14px;margin-top:4px;overflow:hidden}
+#scr-simfrigo.ruolo-hacker>.sf-rain{z-index:0}
+#scr-simfrigo.ruolo-hacker>:not(.sf-rain){position:relative;z-index:1}
+#scr-simfrigo.ruolo-hacker .sf-testa h2{color:#9ff5bd}
+#scr-simfrigo.ruolo-hacker .sf-testa h2 svg.i{color:#3ddc84}
+#scr-simfrigo.ruolo-hacker .sf-dida{border-left-color:#3ddc84}
+#scr-simfrigo.ruolo-hacker .sf-dida .num{color:#6ff0a0}
+#scr-simfrigo.ruolo-tecnico{background:#e9f0f7;border:1px solid #d4deea;border-radius:16px;padding:14px;margin-top:4px}
+#scr-simfrigo.ruolo-tecnico .sf-testa h2{color:#1b2f4a}
+#scr-simfrigo.ruolo-tecnico .sf-testa h2 svg.i{color:#1F4E8C}
+#scr-simfrigo.ruolo-tecnico .sf-dida{border-left-color:#1F4E8C}
+#scr-simfrigo.ruolo-tecnico .sf-dida .num{color:#8bb4e4}
+.sf-rain{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+/* difesa in chiaro (tecnico IT) */
+#scr-simfrigo.ruolo-tecnico .sf-dif-barra,#scr-simfrigo.ruolo-tecnico .sf-dif-neg{background:#fff;border-color:#d4deea;color:#243040}
+#scr-simfrigo.ruolo-tecnico .sf-dif-barra{color:#5b6b7c}
+#scr-simfrigo.ruolo-tecnico .sf-dif-neg .dn-top b{color:#1b2f4a}
+#scr-simfrigo.ruolo-tecnico .sf-dif-neg .dn-top small{color:#5b6b7c}
+#scr-simfrigo.ruolo-tecnico .dif-fix{background:#f1f5f9;border-color:#d4deea;color:#334155}
+#scr-simfrigo.ruolo-tecnico .dif-fix:hover:not(:disabled){border-color:#1F7A43;color:#0f172a}
+#scr-simfrigo.ruolo-tecnico .sf-dif-neg.ok{background:var(--verdeL);border-color:var(--verdeB)}
+#scr-simfrigo.ruolo-tecnico .dif-fix.on{background:var(--verdeL);border-color:var(--verdeB);color:var(--verdeD)}
+#scr-simfrigo.ruolo-tecnico .dn-stato.no{background:var(--ambraL);color:var(--ambra)}
+/* due schermi Mac della scelta ruolo */
+.sf-scelta{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:4px}
+@media(max-width:720px){.sf-scelta{grid-template-columns:1fr}}
+.mac{display:flex;flex-direction:column;align-items:center}
+.mac-schermo{width:100%;border:11px solid #1a1d22;border-radius:18px;background:#000;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.mac-schermo.tecnico{border-color:#c4cad3}
+.ms-top{display:flex;align-items:center;gap:6px;padding:8px 11px;background:#15181d;font:600 11.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a97a5}
+.ms-top.chiara{background:#e6eaef;color:#5b6b7c}
+.ms-top i{width:9px;height:9px;border-radius:50%;display:block;background:#3a4450}
+.ms-top i:nth-child(1){background:#ff5f57}.ms-top i:nth-child(2){background:#febc2e}.ms-top i:nth-child(3){background:#28c840}
+.ms-top span{margin-left:7px}
+.ms-corpo{padding:18px 18px 22px;min-height:158px}
+.mac-schermo.hacker .ms-corpo{background:radial-gradient(130% 120% at 25% 0,#06220f,#02080a);color:#9ff5bd}
+.mac-schermo.tecnico .ms-corpo{background:#f5f8fc;color:#243040}
+.ms-eye{display:inline-block;font:700 11px var(--head);letter-spacing:.11em;text-transform:uppercase;padding:3px 9px;border-radius:6px;margin-bottom:9px;background:rgba(61,220,132,.16);color:#3ddc84}
+.ms-eye.blu{background:rgba(31,78,140,.14);color:#1F4E8C}
+.ms-corpo b{display:block;font-family:var(--head);font-size:20px;margin-bottom:6px}
+.mac-schermo.hacker .ms-corpo b{color:#daffe9}
+.ms-corpo p{font-size:14px;line-height:1.45;margin:0 0 12px;opacity:.92}
+.ms-code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:#3ddc84}
+.ms-ok{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--head);color:var(--verde)}
+.ms-ok svg{width:15px;height:15px}
+.mac-piede{width:84px;height:40px;background:linear-gradient(#cfd4db,#a9b1bc);clip-path:polygon(34% 0,66% 0,84% 100%,16% 100%)}
+.mac-base{width:132px;height:9px;border-radius:7px;background:linear-gradient(#b7bec8,#99a2ae);margin-top:-1px}
+.mac .btn{margin-top:16px;min-height:48px}
 .sf-riga-frigo{background:#0a0f16;border-radius:9px;padding:5px 7px;margin:2px 0 9px;overflow:hidden}
 .sf-drop{animation:sf-drip 1.15s ease-in infinite}
 @keyframes sf-drip{0%{transform:translateY(-2px);opacity:0}22%{opacity:1}82%{opacity:1}100%{transform:translateY(9px);opacity:0}}
@@ -8521,11 +8616,11 @@ document.addEventListener('click', e => { if (e.target.closest('[data-apri-sim]'
    Le password NON contengono il nome del negozio (non si afferma nulla sulla loro sicurezza reale):
    sono inventate, generate a caso a ogni accesso e il tipo di debolezza è assegnato a sorte. */
 const SF_CATENE = [
-  {id:'italmark', nome:'Italmark', sigla:'I', tinta:'#2E6FB0', paese:'supermercati · Lombardia'},
-  {id:'tosano',   nome:'Tosano',   sigla:'T', tinta:'#1F7A43', paese:'supermercati · Veneto'},
-  {id:'famila',   nome:'Famila',   sigla:'F', tinta:'#B8651F', paese:'supermercati · Nord-Est'},
-  {id:'coop',     nome:'Coop',     sigla:'C', tinta:'#6D4BB0', paese:'supermercati · Italia'},
-  {id:'lidl',     nome:'Lidl',     sigla:'L', tinta:'#36506B', paese:'discount · Italia'},
+  {id:'italmark', nome:'Italmark', sigla:'I', tinta:'#2E6FB0', paese:'supermercati · Lombardia', kgNeg:1800},
+  {id:'tosano',   nome:'Tosano',   sigla:'T', tinta:'#1F7A43', paese:'supermercati · Veneto',     kgNeg:1500},
+  {id:'famila',   nome:'Famila',   sigla:'F', tinta:'#B8651F', paese:'supermercati · Nord-Est',   kgNeg:2400},
+  {id:'coop',     nome:'Coop',     sigla:'C', tinta:'#6D4BB0', paese:'supermercati · Italia',      kgNeg:3600},
+  {id:'lidl',     nome:'Lidl',     sigla:'L', tinta:'#36506B', paese:'discount · Italia',          kgNeg:1200},
 ];
 const SF_DEBOLEZZE = [
   {kind:'default',  tipo:'le credenziali di fabbrica',
@@ -8567,14 +8662,78 @@ const SF_CORSIE = () => [
   {id:'carni',     nome:'Banco carni',      freezer:false, set:2,   amb:22, n:6,  val:700, kg:45},
 ];
 let SIMF = null;
-function sfStop(){ if (!SIMF) return; SIMF.demo.token++; clearInterval(SIMF._spin); SIMF._spin = 0; cancelAnimationFrame(SIMF._raf); SIMF._raf = 0; }
+function sfStop(){ if (!SIMF) return; SIMF.demo.token++; clearInterval(SIMF._spin); SIMF._spin = 0; cancelAnimationFrame(SIMF._raf); SIMF._raf = 0; sfRainStop(); }
 function apriSimFrigo(){
   const deb = SF_DEBOLEZZE.slice();                       // debolezza assegnata a sorte a ogni accesso
   for (let i = deb.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [deb[i], deb[j]] = [deb[j], deb[i]]; }
   const catene = SF_CATENE.map((c, i) => ({...c, ...deb[i]}));
-  SIMF = {atto:'elenco', catene, catena:null, unita:null, t0:0, demo:{token:0}, _spin:0, _raf:0};
+  SIMF = {atto:'scelta', ruolo:null, catene, catena:null, unita:null, t0:0, demo:{token:0}, _spin:0, _raf:0};
   mostra('scr-simfrigo');
-  renderSFelenco();
+  renderSFscelta();
+}
+/* la zona del simulatore cambia pelle col ruolo: nero/verde «matrix» per l'hacker, chiara per il tecnico IT */
+function sfTema(){
+  const el = $('#scr-simfrigo'); if (!el) return;
+  el.classList.toggle('ruolo-hacker', !!SIMF && SIMF.ruolo === 'hacker');
+  el.classList.toggle('ruolo-tecnico', !!SIMF && SIMF.ruolo === 'tecnico');
+}
+let sfRainRAF = 0;
+function sfRainStop(){ if (sfRainRAF){ cancelAnimationFrame(sfRainRAF); sfRainRAF = 0; } }
+function sfRainStart(){
+  sfRainStop();
+  const cv = $('#sf-rain'); if (!cv || !SIMF || SIMF.ruolo !== 'hacker') return;
+  const ctx = cv.getContext('2d'); if (!ctx) return;
+  cv.width = cv.clientWidth || 600; cv.height = cv.clientHeight || 400;
+  const passo = 15, cols = Math.max(1, Math.floor(cv.width / passo));
+  const y = Array.from({length: cols}, () => Math.random() * cv.height);
+  const glifi = '01<>[]{}/*+=#$ABCDEF9876'.split('');
+  const tok = SIMF.demo.token; let last = 0;
+  const draw = t => {
+    if (!SIMF || SIMF.demo.token !== tok || SIMF.ruolo !== 'hacker' || !document.body.contains(cv)) return;
+    if (t - last > 75){
+      last = t;
+      ctx.fillStyle = 'rgba(3,10,6,0.20)'; ctx.fillRect(0, 0, cv.width, cv.height);
+      ctx.font = '13px ui-monospace, monospace';
+      for (let i = 0; i < cols; i++){
+        ctx.fillStyle = Math.random() > 0.93 ? '#aef5c8' : '#1f9a52';
+        ctx.fillText(glifi[Math.floor(Math.random() * glifi.length)], i * passo, y[i]);
+        y[i] += passo; if (y[i] > cv.height && Math.random() > 0.975) y[i] = 0;
+      }
+    }
+    sfRainRAF = requestAnimationFrame(draw);
+  };
+  sfRainRAF = requestAnimationFrame(draw);
+}
+/* scelta del ruolo: due schermi Mac affiancati, uno «hacker» scuro e uno «tecnico» chiaro */
+function renderSFscelta(){
+  SIMF.atto = 'scelta'; SIMF.ruolo = null; sfStop(); SIMF.demo.token++; sfTema();
+  const dida = `<div class="sf-dida"><span class="num">Due ruoli, due schermi</span>
+    Questo attacco si combatte su due fronti. Scegli da che parte stare — e prova pure tutti e due.</div>`;
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-scelta">
+    <div class="mac">
+      <div class="mac-schermo hacker">
+        <div class="ms-top"><i></i><i></i><i></i><span>ombra@terminale</span></div>
+        <div class="ms-corpo"><span class="ms-eye">Lato hacker</span><b>Entra di nascosto</b>
+          <p>Trovi i pannelli lasciati aperti su Internet, scopri le password deboli e manometti i frigoriferi.</p>
+          <span class="ms-code">&gt; cracking password_</span></div>
+      </div>
+      <div class="mac-piede"></div><div class="mac-base"></div>
+      <button class="btn sf-btn-chiaro" type="button" id="sf-ruolo-h">${ico('i-chiave')}Gioca come hacker</button>
+    </div>
+    <div class="mac">
+      <div class="mac-schermo tecnico">
+        <div class="ms-top chiara"><i></i><i></i><i></i><span>Console IT · sicurezza</span></div>
+        <div class="ms-corpo"><span class="ms-eye blu">Lato tecnico IT</span><b>Difendi i negozi</b>
+          <p>Hai poche mosse prima che scenda la notte: chiudi le falle dei supermercati e salva il cibo.</p>
+          <span class="ms-ok">${ico('i-check')}negozio protetto</span></div>
+      </div>
+      <div class="mac-piede"></div><div class="mac-base"></div>
+      <button class="btn btn-scuro" type="button" id="sf-ruolo-t">${ico('i-lucchetto')}Gioca come tecnico IT</button>
+    </div>
+  </div>`;
+  sfAggancia();
+  $('#sf-ruolo-h').onclick = () => { SIMF.ruolo = 'hacker'; renderSFelenco(); };
+  $('#sf-ruolo-t').onclick = () => { SIMF.ruolo = 'tecnico'; renderSFdifesa(); };
 }
 function esciSimFrigo(){ sfStop(); SIMF = null; if (S) route(); else renderIntro(); }
 function sfAttendi(ms){
@@ -8592,19 +8751,30 @@ const sfMarchio = (c, d = 26) => `<span class="marchio" style="background:${c.ti
 
 /* --- testata comune --- */
 function sfTesta(sotto){
-  return `<div class="sf-testa"><h2 id="titolo-simf">${ico('t-cyber-frigo')}Simulatore · il muro degli hacker</h2>
-    <button class="btn btn-linea" type="button" id="sf-esci">${ico('i-sx')}Esci dal simulatore</button></div>
+  const r = SIMF && SIMF.ruolo;
+  const rain = r === 'hacker' ? '<canvas id="sf-rain" class="sf-rain" aria-hidden="true"></canvas>' : '';
+  const badge = r === 'hacker' ? `<span class="sf-ruolo hacker">${ico('i-cmd')}Hacker</span>`
+              : r === 'tecnico' ? `<span class="sf-ruolo tecnico">${ico('i-lucchetto')}Tecnico IT</span>` : '';
+  const tit = r === 'tecnico' ? 'Console di sicurezza' : r === 'hacker' ? 'Terminale d\'attacco' : 'il muro degli hacker';
+  const cambia = r ? `<button class="btn btn-linea" type="button" id="sf-cambia">${ico('i-scambia')}Cambia ruolo</button>` : '';
+  return `${rain}<div class="sf-testa"><h2 id="titolo-simf">${ico('t-cyber-frigo')}Simulatore · ${tit}</h2>${badge}
+    <div class="sf-testa-az">${cambia}<button class="btn btn-linea" type="button" id="sf-esci">${ico('i-sx')}Esci</button></div></div>
     ${sotto || ''}`;
 }
-function sfAggancia(){ const b = $('#sf-esci'); if (b) b.onclick = esciSimFrigo; }
+function sfAggancia(){
+  const b = $('#sf-esci'); if (b) b.onclick = esciSimFrigo;
+  const c = $('#sf-cambia'); if (c) c.onclick = renderSFscelta;
+  sfRainStart();
+}
 
 /* --- 1. elenco delle catene --- */
 function renderSFelenco(){
-  SIMF.atto = 'elenco'; sfStop(); SIMF.demo.token++;
+  SIMF.atto = 'elenco'; sfStop(); SIMF.demo.token++; SIMF.ruolo = 'hacker'; sfTema();
   const dida = `<div class="sf-dida"><span class="num">Come funziona</span>
     Prima di arrivare ai frigoriferi, gli hacker trovano un <b>muro</b>: la password del pannello di controllo. Scegli un supermercato e prova a scoprire la password <b>una lettera alla volta</b>. Vedrai perché certi muri cadono in pochi tentativi e uno no.
     <span class="finto">${ico('i-attenzione')}Nomi di supermercati veri, ma lo scenario è di fantasia: le password sono inventate, scelte a caso, e non dicono nulla sulla sicurezza reale di questi negozi.</span></div>`;
-  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-elenco">${SIMF.catene.map(c => `
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-switch"><span>${ico('i-lucchetto')}Hai già visto com'è facile entrare? Prova a stare dall'altra parte.</span><button class="btn btn-scuro" type="button" id="sf-vai-difesa2">${ico('i-lucchetto')}Difendi i negozi</button></div>
+    <div class="sf-elenco">${SIMF.catene.map(c => `
     <div class="sf-catena">
       <div class="insegna" style="background:${c.tinta}">${sfMarchio(c)}<span><b>${esc(c.nome)}</b><small>${esc(c.paese)}</small></span></div>
       <div class="corpo">
@@ -8614,6 +8784,7 @@ function renderSFelenco(){
       <button class="attacca" type="button" data-sf-catena="${c.id}">${ico('i-chiave')}Prova a entrare</button>
     </div>`).join('')}</div>`;
   sfAggancia();
+  $('#sf-vai-difesa2').onclick = renderSFdifesa;
   document.querySelectorAll('[data-sf-catena]').forEach(b => b.onclick = () => renderSFattacco(b.dataset.sfCatena));
 }
 
@@ -8627,11 +8798,13 @@ function renderSFattacco(id){
   SIMF.provate = new Set();
   SIMF.tentativi = 0;
   SIMF.busy = false;
+  SIMF.rilev = 0;
+  SIMF.sogliaRilev = 8;
   const dida = c.forte
     ? `<div class="sf-dida"><span class="num">Il muro · ${esc(c.nome)}</span>
         Questa password non è una parola normale. <b>Lancia l'attacco automatico</b> e guarda fin dove arriva.</div>`
     : `<div class="sf-dida"><span class="num">Il muro · ${esc(c.nome)}</span>
-        Come fa un programma di scasso: <b>scegli una lettera o un numero</b> da cercare nella password. Se c'è, compare nella sua casella. Scoprile tutte per entrare.</div>`;
+        Come fa un programma di scasso: <b>scegli una lettera o un numero</b> da cercare nella password. Attento: ogni carattere <b>sbagliato</b> ti fa notare dall'amministratore. Prova prima le <b>vocali</b> e le <b>cifre dell'anno</b>, e scoprile tutte prima di essere scoperto.</div>`;
   const slot = n => Array.from({length: n}, () => `<span class="sf-slot hide">?</span>`).join('');
   const ip = '10.0.14.' + (18 + SF_CATENE.findIndex(x => x.id === c.id) * 7);
   $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-monitor">
@@ -8658,7 +8831,9 @@ function renderSFattacco(id){
       <div class="sf-attrezzo">
         ${c.forte
           ? `<button class="btn sf-btn-chiaro" type="button" id="sf-lancia">${ico('i-chiave')}Lancia l'attacco automatico</button>`
-          : `<div class="at-tit">${ico('i-chiave')}Strumento d'attacco · prova i caratteri della password</div>${sfTastiera()}`}
+          : `<div class="at-tit">${ico('i-chiave')}Strumento d'attacco · prova i caratteri della password</div>
+             <div class="sf-rilev"><span>${ico('i-attenzione')}Rilevamento intrusione</span><div class="rb"><i id="sf-rilev-bar" style="width:0%"></i></div></div>
+             ${sfTastiera()}`}
       </div>
       <div id="sf-esito"></div>
       <div class="azioni" id="sf-azioni"><button class="btn sf-btn-fantasma" type="button" id="sf-altra">Scegli un'altra catena</button></div>
@@ -8729,12 +8904,27 @@ async function sfCerca(ch){
   } else {
     nascosti.forEach(i => reel.children[i].textContent = '?');
     sfTastoStato(ch, false);
-    sfLog(`> cerco «${ch}»… non presente`, 'dim');
+    SIMF.rilev++;
+    const rb = $('#sf-rilev-bar'); if (rb) rb.style.width = Math.min(100, SIMF.rilev / SIMF.sogliaRilev * 100) + '%';
+    sfLog(`> cerco «${ch}»… non presente (rilevamento ${SIMF.rilev}/${SIMF.sogliaRilev})`, SIMF.rilev >= SIMF.sogliaRilev - 2 ? 'warn' : 'dim');
+    if (SIMF.rilev >= SIMF.sogliaRilev){ SIMF.busy = false; return sfScoperto(c); }
   }
   const trovate = SIMF.rivelato.filter(Boolean).length;
   $('#sf-cont').innerHTML = `caselle trovate: <b>${trovate} di ${c.pass.length}</b> · tentativi: ${SIMF.tentativi}`;
   SIMF.busy = false;
   if (SIMF.rivelato.every(Boolean)) sfMuroCaduto(c);
+}
+function sfScoperto(c){
+  document.querySelectorAll('#scr-simfrigo .sf-key').forEach(b => b.disabled = true);
+  const rb = $('#sf-rilev-bar'); if (rb) rb.style.width = '100%';
+  sfLog('> intrusione rilevata: troppi tentativi falliti', 'warn');
+  sfLog('> ACCESSO BLOCCATO dall\'amministratore', 'warn');
+  $('#sf-cont').innerHTML = 'accesso bloccato';
+  $('#sf-esito').innerHTML = `<div class="sf-esito-muro scoperto">${ico('i-attenzione')}<span><b>Scoperto.</b> Troppe lettere sbagliate: l'amministratore ha bloccato l'accesso. Con un po' di strategia (vocali, anno) saresti entrato: anche una password debole si difende un po' se stai attento ai tentativi.</span></div>`;
+  $('#sf-azioni').innerHTML = `<button class="btn sf-btn-chiaro" type="button" id="sf-riprova">${ico('i-ricomincia')}Riprova (nuova password)</button>
+    <button class="btn sf-btn-fantasma" type="button" id="sf-altra2">Scegli un'altra catena</button>`;
+  $('#sf-riprova').onclick = () => renderSFattacco(c.id);
+  $('#sf-altra2').onclick = renderSFelenco;
 }
 async function sfAttaccoForte(){
   const c = SIMF.catena, reel = $('#sf-reel'), slots = [...reel.children];
@@ -9001,11 +9191,90 @@ function renderSFlezione(c, entrato){
     <label for="sf-rifl" style="font-weight:600;font-family:var(--head);color:var(--ink)">Scrivi una password sicura che riusciresti a ricordare (resta solo qui, non viene salvata):</label>
     <textarea class="sf-rifl" id="sf-rifl" placeholder="Prova qui: una frase con numeri e simboli è più forte di una parola."></textarea>
     <div class="azioni">
-      <button class="btn btn-primario" type="button" id="sf-ancora">${ico('i-ricomincia')}Prova un'altra catena</button>
+      <button class="btn btn-primario" type="button" id="sf-vai-difesa">${ico('i-lucchetto')}Ora difendili tu</button>
+      <button class="btn btn-linea" type="button" id="sf-ancora">${ico('i-ricomincia')}Prova un'altra catena</button>
       <button class="btn btn-linea" type="button" id="sf-fine">${ico('i-sx')}Torna al briefing</button></div></div>`;
   sfAggancia();
+  $('#sf-vai-difesa').onclick = renderSFdifesa;
   $('#sf-ancora').onclick = renderSFelenco;
   $('#sf-fine').onclick = esciSimFrigo;
+}
+/* --- MODALITÀ DIFESA: metti in sicurezza i negozi prima della notte --- */
+function renderSFdifesa(){
+  sfStop(); SIMF.demo.token++;
+  SIMF.atto = 'difesa'; SIMF.ruolo = 'tecnico'; sfTema();
+  SIMF.difesa = {
+    budget: 9,
+    negozi: SIMF.catene.map(c => ({id: c.id, nome: c.nome, tinta: c.tinta, sigla: c.sigla,
+      kgNeg: (SF_CATENE.find(x => x.id === c.id) || {}).kgNeg || 1500, pw: false, remoto: false, update: false}))
+  };
+  renderSFdifesaVista();
+}
+function sfDifUsati(){ return SIMF.difesa.negozi.reduce((s, n) => s + (n.pw ? 1 : 0) + (n.remoto ? 1 : 0) + (n.update ? 1 : 0), 0); }
+function renderSFdifesaVista(){
+  const d = SIMF.difesa, rimasti = d.budget - sfDifUsati();
+  const dida = `<div class="sf-dida"><span class="num">Modalità difesa</span>
+    Ora sei il tecnico dei supermercati. Prima che scenda la notte hai <b>${d.budget} interventi</b> per chiudere le falle. Un negozio è al sicuro solo se le chiudi <b>tutte e tre</b>, e gli interventi non bastano per tutti: parti da dove c'è più cibo a rischio.</div>`;
+  const fix = (n, k, on, off, ic) => `<button type="button" class="dif-fix ${n[k] ? 'on' : ''}" data-neg="${n.id}" data-fix="${k}"${!n[k] && rimasti <= 0 ? ' disabled' : ''}>${ico(n[k] ? 'i-check' : ic)}${n[k] ? on : off}</button>`;
+  const card = n => {
+    const prot = n.pw && n.remoto && n.update;
+    return `<div class="sf-dif-neg ${prot ? 'ok' : ''}">
+      <div class="dn-top"><span class="marchio" style="background:${n.tinta}"><b>${esc(n.sigla)}</b></span>
+        <div><b>${esc(n.nome)}</b><small>cibo a rischio: ${n.kgNeg.toLocaleString('it-IT', {useGrouping: true})} kg</small></div>
+        <span class="dn-stato ${prot ? 'ok' : 'no'}">${ico(prot ? 'i-check' : 'i-lucchetto')}${prot ? 'protetto' : 'vulnerabile'}</span></div>
+      <div class="dn-fix">
+        ${fix(n, 'pw', 'password forte', 'password debole', 'i-chiave')}
+        ${fix(n, 'remoto', 'accesso remoto chiuso', 'accesso remoto aperto', 'i-lucchetto')}
+        ${fix(n, 'update', 'software aggiornato', 'software vecchio', 'i-ricarica')}
+      </div></div>`;
+  };
+  $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-difesa">
+    <div class="sf-dif-barra"><span>Interventi rimasti</span><b id="sf-dif-budget">${rimasti}</b><span class="su">di ${d.budget}</span></div>
+    <div class="sf-dif-grid">${d.negozi.map(card).join('')}</div>
+    <div class="azioni" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+      <button class="btn sf-btn-chiaro" type="button" id="sf-notte">${ico('i-luce')}Fai scendere la notte</button>
+      <button class="btn sf-btn-fantasma" type="button" id="sf-dif-esci">Torna all'elenco</button></div></div>`;
+  sfAggancia();
+  $('#scr-simfrigo').querySelectorAll('[data-fix]').forEach(b => b.onclick = () => sfDifFix(b.dataset.neg, b.dataset.fix));
+  $('#sf-notte').onclick = renderSFesitoDifesa;
+  $('#sf-dif-esci').onclick = renderSFelenco;
+}
+function sfDifFix(id, k){
+  const n = SIMF.difesa.negozi.find(x => x.id === id); if (!n) return;
+  if (!n[k] && sfDifUsati() >= SIMF.difesa.budget) return;    // interventi finiti
+  n[k] = !n[k];
+  renderSFdifesaVista();
+}
+function renderSFesitoDifesa(){
+  sfStop(); SIMF.demo.token++;
+  SIMF.atto = 'esito-difesa';
+  const d = SIMF.difesa;
+  const falla = n => !n.pw ? 'password debole' : !n.remoto ? 'accesso da Internet aperto' : 'software non aggiornato';
+  const prot = n => n.pw && n.remoto && n.update;
+  const salvati = d.negozi.filter(prot), colpiti = d.negozi.filter(n => !prot(n));
+  const kgSalvo = salvati.reduce((s, n) => s + n.kgNeg, 0), kgPerso = colpiti.reduce((s, n) => s + n.kgNeg, 0);
+  const kgTot = kgSalvo + kgPerso, frac = kgTot ? kgPerso / kgTot : 0, pastiPerso = Math.round(kgPerso / 0.4);
+  const righe = d.negozi.map(n => `<div class="dn-esito ${prot(n) ? 'ok' : 'ko'}">${ico(prot(n) ? 'i-check' : 'i-attenzione')}<b>${esc(n.nome)}</b>
+    <span>${prot(n) ? 'protetto · ' + n.kgNeg.toLocaleString('it-IT', {useGrouping: true}) + ' kg salvati' : 'colpito (' + falla(n) + ') · ' + n.kgNeg.toLocaleString('it-IT', {useGrouping: true}) + ' kg buttati'}</span></div>`).join('');
+  $('#scr-simfrigo').innerHTML = sfTesta('') + `<div class="sf-lezione">
+    <span class="eyebrow">La notte è passata</span>
+    <h3>Hai salvato ${salvati.length} negozi su ${d.negozi.length}</h3>
+    <div class="dn-esiti">${righe}</div>
+    <div class="sf-spreco ${kgPerso > 0 ? 'attivo' : ''}" style="margin:0 0 14px">
+      <div class="sp-vis">${sfDisegnoSpreco()}</div>
+      <div class="sp-dati">
+        <div class="sp-kg"><b>${kgPerso.toLocaleString('it-IT', {useGrouping: true})} kg</b> di cibo buttato · <b style="color:#86e0a8">${kgSalvo.toLocaleString('it-IT', {useGrouping: true})} kg</b> salvati</div>
+        <div class="sp-pasti">${kgPerso > 0 ? '≈ <b>' + pastiPerso.toLocaleString('it-IT', {useGrouping: true}) + ' pasti</b> persi in una notte.' : 'Nessuno spreco: li hai protetti tutti!'}</div>
+      </div></div>
+    <div class="sf-specchio"><b>È bastata una falla.</b> Agli attaccanti serve <b>una sola</b> porta aperta: un negozio è sicuro solo quando le chiudi tutte. E gli interventi non bastano mai per tutto — per questo conviene partire da dove c'è più cibo in gioco.</div>
+    <div class="azioni">
+      <button class="btn btn-primario" type="button" id="sf-ridifendi">${ico('i-ricomincia')}Riprova la difesa</button>
+      <button class="btn btn-linea" type="button" id="sf-fine2">${ico('i-sx')}Torna al briefing</button></div></div>`;
+  sfAggancia();
+  const pila = $('#sf-pila'); if (pila){ const h = 66 * frac; pila.setAttribute('y', (112 - h).toFixed(1)); pila.setAttribute('height', h.toFixed(1)); }
+  const spill = $('#sf-spill'); if (spill) spill.style.opacity = frac > 0.8 ? '1' : '0';
+  $('#sf-ridifendi').onclick = renderSFdifesa;
+  $('#sf-fine2').onclick = esciSimFrigo;
 }
 /* invito al simulatore frigo (solo nella special edition cyber-frigo) */
 function invitoSimFrigo(){
@@ -9065,7 +9334,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
-        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. Il rullo è una dramatizzazione, non un vero attacco, e nessun dato esce dal dispositivo. Il pannello è un'interfaccia da centralina (parametro d02 «fine sbrinamento», di fabbrica 6°, portato a 50° nell'attacco vero): la temperatura sale, il ghiaccio si scioglie e i frigoriferi gocciolano. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. Il rullo è una dramatizzazione, non un vero attacco, e nessun dato esce dal dispositivo. Il pannello è un'interfaccia da centralina (parametro d02 «fine sbrinamento», di fabbrica 6°, portato a 50° nell'attacco vero): la temperatura sale, il ghiaccio si scioglie e i frigoriferi gocciolano. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con la scelta tra <b>due schermi</b> — la zona <b>hacker</b> (stile Matrix, scura) e la zona <b>tecnico IT</b> (chiara) — così il cambio di ruolo è evidente. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b>, in cui lo studente diventa il tecnico e con interventi limitati deve chiudere tutte le falle (password forte, accesso remoto, aggiornamento) dei negozi con più cibo a rischio prima della notte: se ne lascia una aperta, quel negozio viene colpito. Un buon aggancio per il debrief sul perché prevenire conviene.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>

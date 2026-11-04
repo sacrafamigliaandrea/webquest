@@ -758,6 +758,14 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-slot{width:28px;height:44px;border-radius:7px;background:linear-gradient(#1d2836,#0e141d);overflow:hidden;position:relative;display:grid;place-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:22px;font-weight:700;color:#cfe6ff;box-shadow:inset 0 0 0 1px #2b3747}
 .sf-slot.run{color:#9fb6cc;filter:blur(.5px)}
 .sf-slot.lock{color:#FFD86A;box-shadow:inset 0 0 0 1.5px #F3C44B;animation:sfLock .25s ease}
+.sf-slot.hide{color:#52657a;background:linear-gradient(#141d28,#0b1118)}
+.sf-tastiera{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.sf-tastiera .fila{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
+.sf-key{width:30px;height:40px;border-radius:7px;background:#1b2634;border:1px solid #2d3d52;color:#d7e5f3;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:700;min-height:40px;cursor:pointer}
+.sf-key:hover{border-color:#F3C44B;color:#fff}
+.sf-key.hit{background:#F3C44B;color:#20242B;border-color:#F3C44B}
+.sf-key.miss{background:#161c26;color:#43515f;border-color:#223042;text-decoration:line-through}
+.sf-key:disabled{cursor:default}
 @keyframes sfLock{0%{transform:scale(1.22)}100%{transform:scale(1)}}
 .sf-contatore{font-family:ui-monospace,monospace;font-size:14px;color:#8da2b8;min-height:20px}
 .sf-contatore b{color:#F3C44B}
@@ -780,25 +788,27 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-pan-testa b{font-family:var(--head);font-size:16px}
 .sf-pan-testa .allarme{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12.5px;background:rgba(243,196,75,.14);color:#F3C44B;border:1px solid rgba(243,196,75,.35);border-radius:999px;padding:5px 11px}
 .sf-pan-testa .allarme svg{width:15px;height:15px}
-.sf-unita{display:grid;grid-template-columns:76px 1fr auto;gap:13px;align-items:center;background:#0f141c;border:1px solid #223042;border-radius:13px;padding:12px}
-.sf-unita .disegno{width:76px;height:92px;position:relative}
-.sf-unita .mid{min-width:0}
-.sf-unita .nome{font-family:var(--head);font-weight:600;font-size:15px;margin-bottom:4px}
-.sf-unita .lettura{display:flex;align-items:baseline;gap:8px}
-.sf-temp{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:30px;font-weight:700;line-height:1;letter-spacing:-.01em}
+.sf-corsia{background:#0f141c;border:1px solid #223042;border-radius:13px;padding:12px 12px 10px}
+.sf-corsia-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sf-corsia .ct-info{min-width:0}
+.sf-corsia .nome{font-family:var(--head);font-weight:600;font-size:15.5px}
+.sf-corsia .serie{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#7d90a6;margin-top:2px}
+.sf-corsia .serie svg{width:14px;height:14px;color:#6b86a3}
+.sf-corsia .lettura{display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap}
+.sf-temp{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:32px;font-weight:700;line-height:1;letter-spacing:-.01em}
 .sf-set{font-size:12px;color:#7d90a6}
-.sf-stato{display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:12.5px;border-radius:999px;padding:4px 10px;line-height:1.2}
+.sf-stato{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;border-radius:999px;padding:4px 10px;line-height:1.2}
 .sf-stato svg{width:14px;height:14px;flex:0 0 auto}
 .sf-stato.freddo{background:rgba(99,170,230,.16);color:#9fd0ff}
 .sf-stato.interrotta{background:rgba(243,196,75,.16);color:#F3C44B}
 .sf-stato.perso{background:rgba(214,158,46,.2);color:#FFC94D}
-.sf-cmd{display:flex;flex-direction:column;gap:6px}
-.sf-cmd button{background:#1b2634;border:1px solid #2d3d52;color:#d7e5f3;border-radius:9px;padding:8px 11px;font-family:var(--head);font-weight:600;font-size:13px;min-height:40px;white-space:nowrap;display:flex;align-items:center;gap:6px;justify-content:flex-start}
+.sf-riga-frigo{background:#0a0f16;border-radius:9px;padding:5px 7px;margin:2px 0 9px;overflow:hidden}
+.sf-cmd{display:flex;gap:7px;flex-wrap:wrap}
+.sf-cmd button{background:#1b2634;border:1px solid #2d3d52;color:#d7e5f3;border-radius:9px;padding:8px 12px;font-family:var(--head);font-weight:600;font-size:13px;min-height:42px;display:flex;align-items:center;gap:6px}
 .sf-cmd button svg{width:15px;height:15px;flex:0 0 auto}
 .sf-cmd button:hover{border-color:#F3C44B;color:#fff}
 .sf-cmd button.att{background:#F3C44B;color:#20242B;border-color:#F3C44B}
 .sf-cmd button:disabled{opacity:.4}
-@media(max-width:600px){.sf-unita{grid-template-columns:60px 1fr}.sf-cmd{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}}
 
 /* lezione finale (debrief) */
 .sf-lezione{background:var(--card);border:1px solid var(--brd);border-radius:18px;padding:22px 24px}
@@ -8447,10 +8457,10 @@ const SF_CATENE = [
    perche:'Dodici caratteri senza parole di senso compiuto, con maiuscole, minuscole, numeri e simboli: le combinazioni possibili sono miliardi di miliardi, e l\'attacco automatico si arrende prima di trovarla.'},
 ];
 const SF_POOL = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789#@!?$%&*';
-const SF_UNITA = () => [
-  {id:'latticini', nome:'Banco latticini', freezer:false, set:4,   amb:22},
-  {id:'surgelati', nome:'Cella surgelati', freezer:true,  set:-18, amb:22},
-  {id:'carne',     nome:'Banco carni',     freezer:false, set:2,   amb:22},
+const SF_CORSIE = () => [
+  {id:'latticini', nome:'Corsia latticini', freezer:false, set:4,   amb:22, n:8},
+  {id:'surgelati', nome:'Corsia surgelati', freezer:true,  set:-18, amb:22, n:11},
+  {id:'carni',     nome:'Banco carni',      freezer:false, set:2,   amb:22, n:6},
 ];
 let SIMF = null;
 function sfStop(){ if (!SIMF) return; SIMF.demo.token++; clearInterval(SIMF._spin); SIMF._spin = 0; cancelAnimationFrame(SIMF._raf); SIMF._raf = 0; }
@@ -8485,7 +8495,7 @@ function sfAggancia(){ const b = $('#sf-esci'); if (b) b.onclick = esciSimFrigo;
 function renderSFelenco(){
   SIMF.atto = 'elenco'; sfStop(); SIMF.demo.token++;
   const dida = `<div class="sf-dida"><span class="num">Come funziona</span>
-    Prima di arrivare ai frigoriferi, gli hacker trovano un <b>muro</b>: la password del pannello di controllo. Scegli una catena e lancia l'attacco automatico. Vedrai perché certi muri cadono in un lampo e uno no.
+    Prima di arrivare ai frigoriferi, gli hacker trovano un <b>muro</b>: la password del pannello di controllo. Scegli una catena e prova a scoprire la password <b>una lettera alla volta</b>. Vedrai perché certi muri cadono in pochi tentativi e uno no.
     <span class="finto">${ico('i-attenzione')}Catene, pannelli e password sono inventati: è una simulazione, non un sistema vero.</span></div>`;
   $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-elenco">${SF_CATENE.map(c => `
     <div class="sf-catena">
@@ -8505,28 +8515,51 @@ function renderSFattacco(id){
   sfStop(); SIMF.demo.token++;
   const c = SIMF.catena = SF_CATENE.find(x => x.id === id);
   SIMF.atto = 'attacco';
-  const dida = `<div class="sf-dida"><span class="num">Il muro · ${esc(c.nome)}</span>
-    A sinistra il terminale dell'attacco, a destra il pannello della catena. Premi <b>«Lancia l'attacco»</b>: un programma prova da solo migliaia di password al secondo.</div>`;
-  const slot = n => Array.from({length: n}, () => `<span class="sf-slot">•</span>`).join('');
+  SIMF.rivelato = c.pass.split('').map(() => false);
+  SIMF.provate = new Set();
+  SIMF.tentativi = 0;
+  SIMF.busy = false;
+  const dida = c.forte
+    ? `<div class="sf-dida"><span class="num">Il muro · ${esc(c.nome)}</span>
+        Questa password non è una parola normale. <b>Lancia l'attacco automatico</b> e guarda fin dove arriva.</div>`
+    : `<div class="sf-dida"><span class="num">Il muro · ${esc(c.nome)}</span>
+        Come fa un programma di scasso: <b>scegli una lettera o un numero</b> da cercare nella password. Se c'è, compare nella sua casella. Scoprile tutte per entrare.</div>`;
+  const slot = n => Array.from({length: n}, () => `<span class="sf-slot hide">?</span>`).join('');
   $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-monitor">
     <div class="sf-term"><div class="sf-barra"><i></i><i></i><i></i></div><div class="log" id="sf-log"></div></div>
     <div class="sf-login">
       <div class="marca">${sfMarchio(c)}<span><b>${esc(c.nome)}</b><small>pannello di controllo refrigerazione</small></span></div>
       <div class="pannello-nome">${ico('i-lucchetto')}Accesso riservato ai tecnici</div>
-      <div class="sf-campo-pw"><span class="et">PASSWORD</span>
+      <div class="sf-campo-pw"><span class="et">PASSWORD · ${c.pass.length} caselle</span>
         <div class="sf-reel" id="sf-reel">${slot(c.pass.length)}</div>
-        <div class="sf-contatore" id="sf-cont"></div></div>
+        <div class="sf-contatore" id="sf-cont">${c.forte ? '' : 'Scegli una lettera o un numero qui sotto.'}</div></div>
+      ${c.forte ? '' : sfTastiera()}
       <div id="sf-esito"></div>
-      <div class="azioni" id="sf-azioni"><button class="btn sf-btn-chiaro" type="button" id="sf-lancia">${ico('i-chiave')}Lancia l'attacco</button>
-        <button class="btn sf-btn-fantasma" type="button" id="sf-altra">Scegli un'altra catena</button></div>
+      <div class="azioni" id="sf-azioni">${c.forte
+        ? `<button class="btn sf-btn-chiaro" type="button" id="sf-lancia">${ico('i-chiave')}Lancia l'attacco automatico</button>`
+        : ''}<button class="btn sf-btn-fantasma" type="button" id="sf-altra">Scegli un'altra catena</button></div>
     </div></div>`;
   sfAggancia();
   $('#sf-altra').onclick = renderSFelenco;
   sfLog('> connessione a pannello.' + c.id + '.lan', 'sys');
   sfLog('> interfaccia web esposta su Internet, porta 443 aperta', 'warn');
   sfLog('> nessun secondo codice di verifica richiesto', 'warn');
-  sfLog('> pronto. in attesa del comando…<span class="cur"></span>', 'dim');
-  $('#sf-lancia').onclick = () => { sfEseguiAttacco().catch(err => { if (err.message !== 'stop') throw err; }); };
+  if (c.forte){
+    sfLog('> pronto. in attesa del comando…<span class="cur"></span>', 'dim');
+    $('#sf-lancia').onclick = () => { sfAttaccoForte().catch(err => { if (err.message !== 'stop') throw err; }); };
+  } else {
+    sfLog('> pronto. cerca una lettera o un numero della password…<span class="cur"></span>', 'dim');
+    document.querySelectorAll('#scr-simfrigo [data-sf-ch]').forEach(b => b.onclick = () => { sfCerca(b.dataset.sfCh).catch(err => { if (err.message !== 'stop') throw err; }); });
+  }
+}
+function sfTastiera(){
+  const righe = ['0123456789', 'ABCDEFGHIJKLM', 'NOPQRSTUVWXYZ'];
+  return `<div class="sf-tastiera" id="sf-tastiera" role="group" aria-label="Scegli una lettera o un numero da cercare">${
+    righe.map(r => `<div class="fila">${[...r].map(ch => `<button class="sf-key" type="button" data-sf-ch="${ch}" aria-label="Cerca ${ch}">${ch}</button>`).join('')}</div>`).join('')}</div>`;
+}
+function sfTastoStato(ch, trovato){
+  const b = document.querySelector(`#scr-simfrigo [data-sf-ch="${ch}"]`);
+  if (b){ b.disabled = true; b.classList.add(trovato ? 'hit' : 'miss'); }
 }
 function sfLog(html, cls){
   const log = $('#sf-log'); if (!log) return;
@@ -8535,69 +8568,104 @@ function sfLog(html, cls){
   log.appendChild(d); log.scrollTop = log.scrollHeight;
 }
 const sfRandChar = () => SF_POOL[Math.floor(Math.random() * SF_POOL.length)];
-async function sfEseguiAttacco(){
+function sfSpin(indici, ms){
+  const reel = $('#sf-reel'); if (!reel) return Promise.resolve();
+  const slots = indici.map(i => reel.children[i]).filter(Boolean);
+  slots.forEach(s => s.classList.add('run'));
+  const tok = SIMF.demo.token;
+  return new Promise((ok, ko) => {
+    SIMF._spin = setInterval(() => {
+      if (!SIMF || SIMF.demo.token !== tok){ clearInterval(SIMF._spin); SIMF._spin = 0; return ko(new Error('stop')); }
+      slots.forEach(s => s.textContent = sfRandChar());
+    }, 55);
+    setTimeout(() => {
+      clearInterval(SIMF._spin); SIMF._spin = 0;
+      if (!SIMF || SIMF.demo.token !== tok) return ko(new Error('stop'));
+      slots.forEach(s => s.classList.remove('run'));
+      ok();
+    }, ms);
+  });
+}
+async function sfCerca(ch){
+  ch = String(ch || '').toUpperCase();
+  if (!SIMF || SIMF.atto !== 'attacco' || SIMF.catena.forte || SIMF.busy) return;
+  if (!/^[A-Z0-9]$/.test(ch) || SIMF.provate.has(ch)) return;
+  SIMF.busy = true;
+  SIMF.provate.add(ch); SIMF.tentativi++;
+  const c = SIMF.catena, reel = $('#sf-reel');
+  const nascosti = []; for (let i = 0; i < c.pass.length; i++) if (!SIMF.rivelato[i]) nascosti.push(i);
+  const match = nascosti.filter(i => c.pass[i].toUpperCase() === ch);
+  await sfSpin(nascosti, match.length ? 650 : 430);
+  if (!SIMF || SIMF.atto !== 'attacco') return;
+  if (match.length){
+    match.forEach(i => { SIMF.rivelato[i] = true; const s = reel.children[i]; s.textContent = c.pass[i]; s.classList.remove('hide'); s.classList.add('lock'); });
+    nascosti.filter(i => !SIMF.rivelato[i]).forEach(i => reel.children[i].textContent = '?');
+    sfTastoStato(ch, true);
+    sfLog(`> cerco «${ch}»… <b>trovata</b> (${match.length === 1 ? 'casella ' + (match[0] + 1) : match.length + ' caselle'})`, 'warn');
+  } else {
+    nascosti.forEach(i => reel.children[i].textContent = '?');
+    sfTastoStato(ch, false);
+    sfLog(`> cerco «${ch}»… non presente`, 'dim');
+  }
+  const trovate = SIMF.rivelato.filter(Boolean).length;
+  $('#sf-cont').innerHTML = `caselle trovate: <b>${trovate} di ${c.pass.length}</b> · tentativi: ${SIMF.tentativi}`;
+  SIMF.busy = false;
+  if (SIMF.rivelato.every(Boolean)) sfMuroCaduto(c);
+}
+async function sfAttaccoForte(){
   const c = SIMF.catena, reel = $('#sf-reel'), slots = [...reel.children];
   $('#sf-lancia').disabled = true; $('#sf-altra').disabled = true;
   sfLog('> avvio tentativi automatici sulla password…', 'dim');
-  const locked = slots.map(() => false);
-  slots.forEach(s => { s.textContent = sfRandChar(); s.classList.add('run'); });
+  slots.forEach(s => s.classList.remove('hide'));
+  reel.classList.add('run');
   let tent = 0;
   SIMF._spin = setInterval(() => {
-    slots.forEach((s, i) => { if (!locked[i]) s.textContent = sfRandChar(); });
-    tent += Math.floor(140 + Math.random() * 520) * (c.forte ? 9000 : 1);
+    slots.forEach(s => s.textContent = sfRandChar());
+    tent += Math.floor(140 + Math.random() * 520) * 9000;
     const el = $('#sf-cont'); if (el) el.innerHTML = 'tentativi: <b>' + tent.toLocaleString('it-IT') + '</b>';
   }, 70);
-
-  if (c.forte){
-    reel.classList.add('run');
-    await sfAttendi(1400); sfLog('> provate tutte le parole comuni… nessun risultato', 'dim');
-    await sfAttendi(1500); sfLog('> provati nomi, date, sequenze… nessun risultato', 'dim');
-    await sfAttendi(1600); sfLog('> la password è lunga e senza senso: le combinazioni sono miliardi di miliardi', 'warn');
-    await sfAttendi(1200);
-    sfStopSpin();
-    slots.forEach(s => { s.textContent = '?'; s.classList.remove('run'); });
-    reel.classList.remove('run'); reel.classList.add('respinta');
-    sfLog('> attacco interrotto: tempo stimato oltre un milione di anni', 'ok');
-    sfLog('> ACCESSO NEGATO', 'ok');
-    $('#sf-esito').innerHTML = `<div class="sf-esito-muro tiene">${ico('i-check')}<span><b>Il muro ha retto.</b> La password era troppo lunga e casuale: l'attacco automatico si è arreso.</span></div>`;
-    $('#sf-azioni').innerHTML = `<button class="btn sf-btn-chiaro" type="button" id="sf-perche">${ico('i-luce')}Perché ha resistito?</button>
-      <button class="btn sf-btn-fantasma" type="button" id="sf-altra2">Prova un'altra catena</button>`;
-    $('#sf-perche').onclick = () => renderSFlezione(c, false);
-    $('#sf-altra2').onclick = renderSFelenco;
-    return;
-  }
-
-  await sfAttendi(1300);
-  for (let i = 0; i < slots.length; i++){
-    await sfAttendi(150 + Math.random() * 90);
-    locked[i] = true;
-    slots[i].textContent = c.pass[i];
-    slots[i].classList.remove('run'); slots[i].classList.add('lock');
-    if (i === Math.floor(slots.length / 2)) sfLog('> corrispondenza parziale… proseguo', 'dim');
-  }
-  sfStopSpin();
-  reel.classList.add('forzata');
-  $('#sf-cont').innerHTML = 'password trovata: <b>' + esc(c.pass) + '</b>';
-  sfLog('> password trovata dopo ' + tent.toLocaleString('it-IT') + ' tentativi', 'warn');
+  await sfAttendi(1400); sfLog('> provate tutte le parole comuni… nessun risultato', 'dim');
+  await sfAttendi(1500); sfLog('> provati nomi, date, sequenze… nessun risultato', 'dim');
+  await sfAttendi(1600); sfLog('> la password è lunga e senza senso: le combinazioni sono miliardi di miliardi', 'warn');
+  await sfAttendi(1200);
+  clearInterval(SIMF._spin); SIMF._spin = 0;
+  slots.forEach(s => { s.textContent = '?'; s.classList.remove('run'); });
+  reel.classList.remove('run'); reel.classList.add('respinta');
+  sfLog('> attacco interrotto: tempo stimato oltre un milione di anni', 'ok');
+  sfLog('> ACCESSO NEGATO', 'ok');
+  sfMuroTiene(c);
+}
+function sfMuroCaduto(c){
+  $('#sf-reel').classList.add('forzata');
+  const tast = $('#sf-tastiera'); if (tast) tast.style.display = 'none';
+  $('#sf-cont').innerHTML = 'password ricostruita: <b>' + esc(c.pass) + '</b>';
+  sfLog('> password ricostruita: <b>' + esc(c.pass) + '</b>', 'warn');
   sfLog('> ACCESSO CONSENTITO', 'warn');
-  $('#sf-esito').innerHTML = `<div class="sf-esito-muro dentro">${ico('i-attenzione')}<span><b>Muro caduto.</b> Era ${esc(c.tipo)}: un attacco automatico la trova in pochi secondi.</span></div>`;
+  $('#sf-esito').innerHTML = `<div class="sf-esito-muro dentro">${ico('i-attenzione')}<span><b>Muro caduto.</b> Era ${esc(c.tipo)}: poche lettere comuni ed eri dentro.</span></div>`;
   $('#sf-azioni').innerHTML = `<button class="btn sf-btn-chiaro" type="button" id="sf-entra">${ico('i-dx')}Entra nel pannello dei frigoriferi</button>`;
   $('#sf-entra').onclick = () => renderSFpannello();
 }
-function sfStopSpin(){ clearInterval(SIMF._spin); SIMF._spin = 0; }
+function sfMuroTiene(c){
+  $('#sf-esito').innerHTML = `<div class="sf-esito-muro tiene">${ico('i-check')}<span><b>Il muro ha retto.</b> La password era troppo lunga e casuale: l'attacco si è arreso.</span></div>`;
+  $('#sf-azioni').innerHTML = `<button class="btn sf-btn-chiaro" type="button" id="sf-perche">${ico('i-luce')}Perché ha resistito?</button>
+    <button class="btn sf-btn-fantasma" type="button" id="sf-altra2">Prova un'altra catena</button>`;
+  $('#sf-perche').onclick = () => renderSFlezione(c, false);
+  $('#sf-altra2').onclick = renderSFelenco;
+}
 
 /* --- 3. pannello dei frigoriferi: manomissione e conseguenze --- */
 function renderSFpannello(){
   const c = SIMF.catena;
   SIMF.atto = 'pannello';
-  SIMF.unita = SF_UNITA().map(u => ({...u, t: u.set, modo: 'ok', espo: 0, perso: false}));
+  SIMF.unita = SF_CORSIE().map(u => ({...u, t: u.set, modo: 'ok', espo: 0, perso: false}));
+  const totCelle = SIMF.unita.reduce((s, u) => s + u.n, 0);
   const dida = `<div class="sf-dida"><span class="num">Dentro il pannello · ${esc(c.nome)}</span>
-    Ora comandi i frigoriferi. <b>Forza lo sbrinamento</b> e guarda la temperatura: lo sbrinamento accende una resistenza dentro una cella chiusa e isolata, così il calore non esce e si superano i 50°. Prova anche a <b>spegnere</b>: lì ci si ferma alla temperatura del negozio.</div>`;
+    Ora comandi i frigoriferi: ${SIMF.unita.length} corsie, <b>${totCelle} celle in serie</b>. <b>Forza lo sbrinamento</b> e guarda la temperatura: la resistenza accesa dentro celle chiuse e isolate supera i 50°. Un solo comando muove un'intera corsia. Prova anche a <b>spegnere</b>: lì ci si ferma alla temperatura del negozio.</div>`;
   $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-pannello">
-    <div class="sf-pan-testa">${sfMarchio(c, 18)}<b>${esc(c.nome)} · ${SIMF.unita.length} impianti</b>
+    <div class="sf-pan-testa">${sfMarchio(c, 18)}<b>${esc(c.nome)} · ${totCelle} frigoriferi in ${SIMF.unita.length} corsie</b>
       <span class="allarme" id="sf-allarme" hidden>${ico('i-attenzione')}<span id="sf-allarme-txt"></span></span></div>
-    ${SIMF.unita.map(sfUnitaHTML).join('')}
-    <p class="mini" style="color:#8da2b8;font-size:13px;margin:2px 2px 0">Nell'attacco vero gli hacker hanno fatto proprio così: sbrinamento impostato a 50°, prolungato fino a otto ore, con l'allarme che scattava in ritardo.</p>
+    ${SIMF.unita.map(sfCorsiaHTML).join('')}
+    <p class="mini" style="color:#8da2b8;font-size:13px;margin:2px 2px 0">Nell'attacco vero gli hacker hanno fatto proprio così: un comando su una centralina sbrinava intere corsie, impostate a 50° e prolungate fino a otto ore, con l'allarme che scattava in ritardo.</p>
     <div class="azioni" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
       <button class="btn sf-btn-chiaro" type="button" id="sf-lezione">${ico('i-luce')}Che cosa ho imparato?</button>
       <button class="btn sf-btn-fantasma" type="button" id="sf-altra3">Attacca un'altra catena</button></div></div>`;
@@ -8609,33 +8677,60 @@ function renderSFpannello(){
   SIMF._raf = requestAnimationFrame(sfLoop);
   sfAggiorna();
 }
-function sfUnitaHTML(u){
-  return `<div class="sf-unita">
-    <div class="disegno">${sfDisegno(u)}</div>
-    <div class="mid"><div class="nome">${esc(u.nome)}</div>
-      <div class="lettura"><span class="sf-temp" id="sf-temp-${u.id}">${Math.round(u.t)}°</span><span class="sf-set">a norma ${u.set}°</span></div>
-      <span class="sf-stato freddo" id="sf-stato-${u.id}">${ico('i-check')}A norma</span></div>
+function sfCorsiaHTML(u){
+  return `<div class="sf-corsia">
+    <div class="sf-corsia-top">
+      <div class="ct-info"><div class="nome">${esc(u.nome)}</div>
+        <div class="serie">${ico('i-scambia')}${u.n} celle collegate in serie · un comando le muove tutte</div></div>
+      <div class="lettura"><span class="sf-temp" id="sf-temp-${u.id}">${Math.round(u.t)}°</span><span class="sf-set">a norma ${u.set}°</span>
+        <span class="sf-stato freddo" id="sf-stato-${u.id}">${ico('i-check')}A norma</span></div>
+    </div>
+    <div class="sf-riga-frigo">${sfDisegno(u)}</div>
     <div class="sf-cmd">
       <button type="button" data-sf-u="${u.id}" data-sf-cmd="sbrina">${ico('i-luce')}Forza sbrinamento</button>
       <button type="button" data-sf-u="${u.id}" data-sf-cmd="spento">${ico('i-pausa')}Spegni il freddo</button>
       <button type="button" data-sf-u="${u.id}" data-sf-cmd="ok">${ico('i-ricomincia')}Ripristina</button>
     </div></div>`;
 }
+/* un armadio refrigerato dettagliato: porte a vetro, maniglie, ripiani con prodotti, canopy */
+function sfCabinet(x, u, i){
+  const g = 'sf-g-' + u.id, tinte = ['#3b5876', '#4a6f93', '#6b7f93', '#8a6b3f', '#587f6a'];
+  const prod = [25, 44, 63].map((y, r) => [0, 1, 2].map(k => {
+    const pw = 5 + ((i + r + k) % 2) * 1.6, px = 3.2 + k * 6.6 + (r % 2);
+    return `<rect x="${px.toFixed(1)}" y="${y - 7}" width="${pw.toFixed(1)}" height="7" rx="1" fill="${tinte[(i + r + k) % tinte.length]}"/>`;
+  }).join('')).join('');
+  return `<g transform="translate(${x},0)">
+    <rect x="0" y="2" width="26" height="88" rx="3" fill="#18222e" stroke="#32465c" stroke-width="1"/>
+    <rect x="0" y="2" width="26" height="8" rx="3" fill="#223247"/>
+    <rect x="17.5" y="4.2" width="6" height="3.4" rx="1" fill="#2a3b50"/>
+    <rect x="2.5" y="12" width="21" height="63" rx="2" fill="url(#${g})"/>
+    ${prod}
+    <g stroke="#2a3b50" stroke-width="0.8"><path d="M2.5 26h21M2.5 45h21M2.5 64h21"/></g>
+    <line x1="13" y1="12" x2="13" y2="75" stroke="#32465c" stroke-width="1"/>
+    <rect x="10.3" y="20" width="1.4" height="16" rx="0.7" fill="#9fb6cc"/>
+    <rect x="14.3" y="20" width="1.4" height="16" rx="0.7" fill="#9fb6cc"/>
+    <path d="M3.5 12 L7 12 L3.5 71 Z" fill="#fff" opacity=".05"/>
+    <rect x="0" y="84" width="26" height="6" rx="1" fill="#10161f"/>
+  </g>`;
+}
 function sfDisegno(u){
-  // armadio refrigerato + termometro + strato di ghiaccio (per i surgelati); gli id si aggiornano a ogni frame
-  const g = 'sf-g-' + u.id;
-  return `<svg viewBox="0 0 76 92" width="76" height="92" aria-hidden="true">
-    <defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2d4057"/><stop offset=".55" stop-color="#223247"/><stop offset="1" stop-color="#1b2a3b"/></linearGradient></defs>
-    <rect x="3" y="5" width="46" height="84" rx="6" fill="#182230" stroke="#35485f" stroke-width="1.5"/>
-    <rect x="9" y="12" width="36" height="70" rx="3" fill="url(#${g})"/>
-    <path d="M12 14 L20 14 L12 80 Z" fill="#ffffff" opacity=".06"/>
-    <g stroke="#35485f" stroke-width="1"><path d="M9 34h36M9 56h36"/></g>
-    <g id="sf-ice-${u.id}" fill="#dff1ff"><circle cx="15" cy="20" r="2.4"/><circle cx="24" cy="18" r="1.8"/><circle cx="33" cy="21" r="2.1"/><circle cx="39" cy="19" r="1.5"/><rect x="9" y="12" width="36" height="7" rx="2" opacity=".55"/></g>
-    <rect id="sf-drip-${u.id}" x="9" y="78" width="36" height="4" rx="2" fill="#8fb6d8" opacity="0"/>
-    <rect x="55" y="12" width="9" height="62" rx="4.5" fill="#0c1016" stroke="#35485f" stroke-width="1.3"/>
-    <circle cx="59.5" cy="80" r="7" fill="#0c1016" stroke="#35485f" stroke-width="1.3"/>
-    <rect id="sf-merc-${u.id}" x="57" y="40" width="5" height="34" fill="#4FA3E8"/>
-    <circle id="sf-bulb-${u.id}" cx="59.5" cy="80" r="5" fill="#4FA3E8"/>
+  const g = 'sf-g-' + u.id, cab = 30, x0 = 46, W = x0 + u.n * cab + 6;
+  const cabs = Array.from({length: u.n}, (_, i) => sfCabinet(x0 + i * cab, u, i)).join('');
+  const ice = Array.from({length: u.n}, (_, i) => { const x = x0 + i * cab; return `<rect x="${x + 2.5}" y="12" width="21" height="7" rx="2" fill="#dff1ff" opacity=".6"/><circle cx="${x + 7}" cy="17" r="1.5" fill="#eaf6ff"/><circle cx="${x + 18}" cy="16" r="1.2" fill="#eaf6ff"/>`; }).join('');
+  return `<svg viewBox="0 0 ${W} 96" preserveAspectRatio="xMidYMid meet" style="width:100%;height:118px;display:block" role="img" aria-label="${esc(u.nome)}: ${u.n} frigoriferi collegati in serie">
+    <defs>
+      <linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d4057"/><stop offset=".55" stop-color="#223247"/><stop offset="1" stop-color="#1b2a3b"/></linearGradient>
+      <linearGradient id="sf-heatg-${u.id}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F39A1F" stop-opacity="0"/><stop offset="1" stop-color="#F3C44B" stop-opacity=".55"/></linearGradient>
+    </defs>
+    <rect x="4" y="16" width="34" height="64" rx="5" fill="#0f141c" stroke="#32465c" stroke-width="1.2"/>
+    <text x="21" y="28" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#7d90a6">CTRL</text>
+    <circle id="sf-led-${u.id}" cx="21" cy="39" r="4" fill="#4FA3E8"/>
+    <rect x="10" y="50" width="6" height="24" rx="3" fill="#0c1016" stroke="#32465c" stroke-width="1"/>
+    <rect id="sf-merc-${u.id}" x="11" y="56" width="4" height="17" fill="#4FA3E8"/>
+    <circle id="sf-bulb-${u.id}" cx="13" cy="74" r="3.4" fill="#4FA3E8"/>
+    <g>${cabs}</g>
+    <rect id="sf-heat-${u.id}" x="${x0}" y="2" width="${u.n * cab}" height="88" rx="3" fill="url(#sf-heatg-${u.id})" opacity="0"/>
+    <g id="sf-ice-${u.id}">${ice}</g>
   </svg>`;
 }
 function sfColore(t){
@@ -8646,23 +8741,18 @@ function sfColore(t){
   return '#F39A1F';
 }
 function sfComando(id, cmd){
-  const u = SIMF.unita.find(x => x.id === id); if (!u) return;
-  if (u.modo === cmd) return;
+  const u = SIMF.unita.find(x => x.id === id); if (!u || u.modo === cmd) return;
   u.modo = cmd; if (cmd === 'ok'){ u.perso = false; u.espo = 0; }
-  const nomi = {sbrina: 'sbrinamento forzato', spento: 'freddo spento', ok: 'ripristino del freddo'};
-  // il terminale resta visibile solo nella fase attacco; qui aggiorno solo i pulsanti
   $('#scr-simfrigo').querySelectorAll(`[data-sf-u="${id}"]`).forEach(b => b.classList.toggle('att', b.dataset.sfCmd === cmd));
   sfAggiorna();
 }
 function sfLoop(){
   if (!SIMF || SIMF.atto !== 'pannello') return;
   const now = performance.now(), dt = Math.min(0.12, (now - SIMF._t) / 1000); SIMF._t = now;
-  let muovi = false;
   SIMF.unita.forEach(u => {
     const target = u.modo === 'sbrina' ? 52 : u.modo === 'spento' ? u.amb : u.set;
     const k = u.modo === 'sbrina' ? 0.5 : u.modo === 'spento' ? 0.3 : 0.9;
     u.t += (target - u.t) * (1 - Math.exp(-k * dt));
-    if (Math.abs(target - u.t) > 0.15) muovi = true;
     if (u.t > u.set + 6){ u.espo += dt; if (u.t > 34 || u.espo > 7) u.perso = true; }
   });
   sfAggiorna();
@@ -8675,12 +8765,12 @@ function sfAggiorna(){
     if (u.modo === 'sbrina') sbrina = true;
     const col = sfColore(u.t);
     const tN = $('#sf-temp-' + u.id); if (tN){ tN.textContent = Math.round(u.t) + '°'; tN.style.color = col; }
-    const frac = Math.max(0, Math.min(1, (u.t + 25) / 80));
-    const alto = 62 * frac, merc = $('#sf-merc-' + u.id);
-    if (merc){ merc.setAttribute('y', (74 - alto).toFixed(1)); merc.setAttribute('height', alto.toFixed(1)); merc.setAttribute('fill', col); }
+    const frac = Math.max(0, Math.min(1, (u.t + 25) / 80)), alto = 17 * frac;
+    const merc = $('#sf-merc-' + u.id); if (merc){ merc.setAttribute('y', (73 - alto).toFixed(1)); merc.setAttribute('height', alto.toFixed(1)); merc.setAttribute('fill', col); }
     const bulb = $('#sf-bulb-' + u.id); if (bulb) bulb.setAttribute('fill', col);
-    const ice = $('#sf-ice-' + u.id); if (ice) ice.style.opacity = u.freezer ? Math.max(0, Math.min(1, (0 - u.t) / 12)).toFixed(2) : '0';
-    const drip = $('#sf-drip-' + u.id); if (drip) drip.style.opacity = (u.freezer && u.t > 2) ? '.7' : '0';
+    const led = $('#sf-led-' + u.id); if (led) led.setAttribute('fill', col);
+    const ice = $('#sf-ice-' + u.id); if (ice) ice.style.opacity = (u.freezer ? Math.max(0, Math.min(1, (1 - u.t) / 12)) : Math.max(0, Math.min(0.4, (u.set + 1 - u.t) / 3))).toFixed(2);
+    const heat = $('#sf-heat-' + u.id); if (heat) heat.setAttribute('opacity', Math.max(0, Math.min(0.85, (u.t - (u.set + 4)) / 45)).toFixed(2));
     const st = $('#sf-stato-' + u.id);
     if (st){
       if (u.t <= u.set + 3){ st.className = 'sf-stato freddo'; st.innerHTML = ico('i-check') + 'A norma, catena del freddo integra'; }
@@ -8689,10 +8779,7 @@ function sfAggiorna(){
     }
   });
   const al = $('#sf-allarme');
-  if (al){
-    al.hidden = !sbrina;
-    if (sbrina) $('#sf-allarme-txt').textContent = 'Allarme ritardato: scatterà tra circa 6 ore';
-  }
+  if (al){ al.hidden = !sbrina; if (sbrina) $('#sf-allarme-txt').textContent = 'Allarme ritardato: scatterà tra circa 6 ore'; }
 }
 
 /* --- 4. la lezione (debrief) --- */
@@ -8728,6 +8815,15 @@ function invitoSimFrigo(){
     <button class="btn sf-btn-chiaro" type="button" data-apri-simfrigo>${ico('i-chiave')}Apri il simulatore</button></div>`;
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-apri-simfrigo]')) apriSimFrigo(); });
+/* tastiera fisica: nel muro si può cercare una lettera o un numero anche digitandolo */
+document.addEventListener('keydown', e => {
+  if (!SIMF || SIMF.atto !== 'attacco' || SIMF.catena.forte) return;
+  const k = e.key || '';
+  if (k.length === 1 && /[a-z0-9]/i.test(k) && !e.metaKey && !e.ctrlKey && !e.altKey){
+    e.preventDefault();
+    sfCerca(k.toUpperCase()).catch(err => { if (err.message !== 'stop') throw err; });
+  }
+});
 
 /* QUADERNO: le carte conquistate (citazioni o versi); lo studente sceglie la sua preferita e dice perche'.
    Come le altre risposte metacognitive, resta solo sulla pagina (nessun dato salvato). */

@@ -474,6 +474,26 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .v-info{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:6px 12px 12px;color:rgba(255,255,255,.88);font-size:14.5px}
 .v-info svg.i{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
 .v-info .btn{min-height:44px;font-size:14.5px;padding:7px 12px;background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+/* video introduttivo del briefing: Short verticale (9:16) stretto, con gli inviti al simulatore a destra */
+.brief-top-tit{font-family:var(--head);color:var(--ink);font-size:18px;margin:4px 0 8px}
+.brief-top{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+.brief-videos{display:flex;gap:14px;flex:0 0 auto}
+.brief-video-wrap{position:relative;flex:0 0 auto}
+.brief-num{position:absolute;top:-9px;left:-9px;z-index:6;width:30px;height:30px;border-radius:50%;background:var(--rosso);color:#fff;font-family:var(--head);font-weight:700;font-size:16px;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.brief-video{flex:0 0 auto;width:190px}
+.brief-video .v-schermo{aspect-ratio:9/16}
+.brief-video .v-poster{padding:12px}
+.brief-video .v-poster-tit{font-size:14.5px}
+.brief-video .v-poster-can{font-size:12.5px}
+.brief-video .v-grande{width:60px;height:60px}
+.brief-video .v-grande svg.i{width:30px;height:30px}
+.brief-video .v-ctrl{padding:7px;gap:6px}
+.brief-video .v-btn{min-width:40px;height:40px}
+.brief-video .v-tempo{min-width:0;font-size:13px}
+.brief-top-dx{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.brief-top-dx .sf-invito,.brief-top-dx .sim-invito{margin-bottom:0}
+@media(max-width:760px){.brief-top{flex-direction:column;align-items:stretch}}
+@media(max-width:460px){.brief-video{width:48%}}
 .special{margin-top:10px;text-align:left;display:flex;gap:12px;align-items:center;background:var(--ink);color:#fff;border-radius:14px;padding:12px 14px}
 .special .ico{width:42px;height:42px;border-radius:12px;background:var(--rosso);display:grid;place-items:center;flex:0 0 auto}
 .special .ico svg.i{width:24px;height:24px;--ico-bg:var(--rosso)}
@@ -7070,16 +7090,22 @@ function sessioneMia(st){
     return !!m && m.k === st.seed + '~' + st.tema && Date.now() - m.t < SESSIONE_MAX;
   } catch (e) { return false; }
 }
-function proponiRipresa(st){
+function proponiRipresa(st, mia){
   const q = questDa(st.tema), n = st.ris.filter(Boolean).length;
+  const prog = `${n} ${n === 1 ? 'tappa risolta' : 'tappe risolte'} su ${CONFIG.TAPPE}`, codice = `${esc(q.sigla)}-${esc(st.seed)}`;
+  const azioni = mia
+    ? `<button class="btn btn-primario" type="button" id="rip-mia">${ico('i-dx')}Riprendi la spedizione</button>
+       <button class="btn btn-linea" type="button" id="rip-chiudi">Ne scelgo una nuova</button>`
+    : `<button class="btn btn-primario" type="button" id="rip-nuova">${ico('i-busta')}Apri una nuova busta</button>
+       <button class="btn btn-linea" type="button" id="rip-mia">È la mia: riprendi</button>`;
   $('#ripresa').innerHTML = `<div class="ripresa" role="alert">
-    <h3>${ico('i-attenzione')}Questo indirizzo contiene una spedizione già iniziata</h3>
-    <p>«${esc(q.titolo)}», codice <b>${esc(q.sigla)}-${esc(st.seed)}</b>, ${n} ${n === 1 ? 'tappa risolta' : 'tappe risolte'} su ${CONFIG.TAPPE}.
-      Probabilmente l'ha iniziata un compagno: se non è la tua, apri una nuova busta.</p>
-    <div class="azioni"><button class="btn btn-primario" type="button" id="rip-nuova">${ico('i-busta')}Apri una nuova busta</button>
-      <button class="btn btn-linea" type="button" id="rip-mia">È la mia: riprendi</button></div></div>`;
-  $('#rip-nuova').onclick = () => { history.replaceState(null, '', location.pathname + location.search); apriBusta(); };
-  $('#rip-mia').onclick = () => { $('#ripresa').innerHTML = ''; S = st; salva(); route(); };
+    <h3>${ico('i-attenzione')}${mia ? 'Riprendi la tua spedizione?' : 'Questo indirizzo contiene una spedizione già iniziata'}</h3>
+    <p>${mia ? `Hai una spedizione in corso: «${esc(q.titolo)}» (codice <b>${codice}</b>, ${prog}). Riprendila da dove eri, oppure scegli qui sotto la busta o una special edition.`
+             : `«${esc(q.titolo)}» (codice <b>${codice}</b>, ${prog}). Probabilmente l'ha iniziata un compagno: se non è la tua, apri una nuova busta.`}</p>
+    <div class="azioni">${azioni}</div></div>`;
+  const nuova = $('#rip-nuova'); if (nuova) nuova.onclick = () => { history.replaceState(null, '', location.pathname + location.search); apriBusta(); };
+  const chiudi = $('#rip-chiudi'); if (chiudi) chiudi.onclick = () => { $('#ripresa').innerHTML = ''; };
+  const mio = $('#rip-mia'); if (mio) mio.onclick = () => { $('#ripresa').innerHTML = ''; S = st; salva(); route(); };
 }
 function carica(){
   const m = location.hash.match(/wq=([^&]+)/);
@@ -7121,6 +7147,7 @@ function mostra(id){
   $('#btn-home-top').classList.toggle('hidden', id === 'scr-intro');
   if (id !== 'scr-game' && typeof promemoriaCmdF === 'function') promemoriaCmdF();
   if (id !== 'scr-game' && typeof pausaVideo === 'function') pausaVideo();
+  if (id !== 'scr-brief' && typeof fermaBrief === 'function') fermaBrief();   // chiude i video del briefing quando lo si lascia
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 /* HOME dalla barra in alto: la partita resta (si riprende da dove era) e la busta non si riapre;
@@ -7409,7 +7436,12 @@ function renderBrief(){
   const q = quest(), t = tappe();
   const haPdf = t.some(x => x.pdf), haEn = t.some(x => x.lingua && x.lingua !== 'it');
   const vb = VIDEO_BRIEF[q.tema];
-  $('#scr-brief').innerHTML = testaTema() + (vb ? '<section class="blocco brief-video" id="brief-video"></section>' : '') + invitoSimFrigo() + invitoSimulatore() + pannelloDivisa() + `
+  const inviti = invitoSimFrigo() + invitoSimulatore();
+  const top = (vb && vb.length)
+    ? `<h3 class="brief-top-tit">Prima di iniziare, guarda ${vb.length > 1 ? `i ${vb.length} video in ordine (prima l'1, poi il 2)` : 'questo video'}</h3>
+       <div class="brief-top"><div class="brief-videos">${vb.map((_, i) => `<div class="brief-video-wrap"><span class="brief-num" aria-hidden="true">${i + 1}</span><section class="brief-video" id="brief-video-${i}"></section></div>`).join('')}</div><div class="brief-top-dx">${inviti}</div></div>`
+    : inviti;
+  $('#scr-brief').innerHTML = testaTema() + top + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
         <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${q.intro ? esc(q.intro) : `${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`}`
@@ -7443,7 +7475,7 @@ function renderBrief(){
   mostra('scr-brief');
   statoDivisa();
   $('#btn-via').onclick = () => { S.fase = 'g'; salva(); route(); };
-  if (vb) montaVideo({video: vb}, $('#brief-video'));
+  if (vb && vb.length) vb.forEach((v, i) => montaBrief($('#brief-video-' + i), v));
 }
 
 /* =====================================================================
@@ -7777,9 +7809,13 @@ function chiudiCmdF(){ $('#cmdf-modale').classList.add('hidden'); const c = $('#
    sottotitoli, barra con il tratto da guardare evidenziato, «Vai al punto».
    Limite noto: la pubblicita' che YouTube decide di mostrare non si puo' togliere ne' saltare.
    ===================================================================== */
-/* video introduttivo del briefing (prima del simulatore e della web quest), per tema. Senza distrazioni come gli altri. */
+/* video introduttivi del briefing (prima del simulatore e della web quest), per tema: lista di Short verticali.
+   Player indipendente (BRIEF_PLAYERS) così possono starne più d'uno affiancati, senza distrazioni come le tappe. */
 const VIDEO_BRIEF = {
-  'cyber-frigo': {id: 'V_U-1NjQJ2I', titolo: 'Cyberattacco ai supermercati europei: i freezer portati fino a 50°C', canale: 'Gianluigi Ballarani', da: 0, a: 0, durata: 0, etichetta: 'Prima di iniziare, guarda questo video'},
+  'cyber-frigo': [
+    {id: 'V_U-1NjQJ2I', titolo: 'Freezer dei supermercati portati a 50°C', canale: 'Gianluigi Ballarani'},
+    {id: 'O4qfCC4L9zE', titolo: 'Frigoriferi hackerati: cosa è successo in Italia?', canale: 'Ingegneria Italia'},
+  ],
 };
 let VIDEO = null, _ytPronto = null;
 const mmss = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
@@ -7879,6 +7915,67 @@ function fermaVideo(){
   VIDEO = null;
 }
 function pausaVideo(){ try { if (VIDEO && VIDEO.player && VIDEO.pronto) VIDEO.player.pauseVideo(); } catch (e) {} }
+
+/* player dei video del briefing: indipendente dal VIDEO delle tappe, così ne possono stare più d'uno affiancati */
+let BRIEF_PLAYERS = [];
+function pausaBrief(){ BRIEF_PLAYERS.forEach(B => { try { if (B.player && B.pronto) B.player.pauseVideo(); } catch (e) {} }); }
+function fermaBrief(){ BRIEF_PLAYERS.forEach(B => { clearInterval(B.timer); try { if (B.player && B.player.destroy) B.player.destroy(); } catch (e) {} }); BRIEF_PLAYERS = []; }
+function montaBrief(host, v){
+  if (!host) return;
+  const yid = 'yt-' + Math.random().toString(36).slice(2, 8);
+  host.innerHTML = `<div class="vplayer">
+      <div class="v-schermo">
+        <div class="v-frame"><div id="${yid}"></div></div>
+        <div class="v-scudo" aria-hidden="true"></div>
+        <button class="v-poster" type="button" aria-label="Avvia il video"><span class="v-grande">${ico('i-play')}</span>
+          <span class="v-poster-tit">${esc(v.titolo || '')}</span><span class="v-poster-can">${esc(v.canale || '')}</span></button>
+        <div class="v-fine hidden"><p>Video finito</p><button class="btn btn-primario" type="button" data-b="rivedi">${ico('i-ricarica')}Riguarda dall'inizio</button></div>
+      </div>
+      <div class="v-ctrl">
+        <button class="v-btn" type="button" data-b="play" aria-label="Riproduci">${ico('i-play')}</button>
+        <div class="v-barra"><div class="v-fatto"></div><input type="range" min="0" max="100" step="1" value="0" aria-label="Posizione nel video" data-b="seek"></div>
+        <span class="v-tempo">0:00</span>
+        <button class="v-btn testo on" type="button" data-b="cc" aria-pressed="true" aria-label="Sottotitoli">CC</button>
+      </div>
+    </div>`;
+  const B = {player: null, pronto: false, suona: false, cc: true, timer: 0, vuole: false, host};
+  const scrub = host.querySelector('[data-b="seek"]');
+  const tempo = () => {
+    if (!B.player || !B.pronto || !document.body.contains(host)) return;
+    const t = B.player.getCurrentTime() || 0, d = B.player.getDuration() || 1;
+    if (Math.abs(+scrub.max - d) > 1) scrub.max = Math.round(d);
+    if (document.activeElement !== scrub) scrub.value = Math.round(t);
+    host.querySelector('.v-fatto').style.width = (t / d * 100).toFixed(2) + '%';
+    host.querySelector('.v-tempo').textContent = mmss(t);
+  };
+  const stato = st => {
+    const Y = window.YT && YT.PlayerState; B.suona = st === Y.PLAYING;
+    if (st === Y.PLAYING){ host.querySelector('.v-poster').classList.add('hidden'); host.querySelector('.v-fine').classList.add('hidden'); }
+    if (st === Y.ENDED) host.querySelector('.v-fine').classList.remove('hidden');   // copre l'end screen
+    const pb = host.querySelector('[data-b="play"]'); pb.innerHTML = ico(B.suona ? 'i-pausa' : 'i-play'); pb.setAttribute('aria-label', B.suona ? 'Pausa' : 'Riproduci');
+    clearInterval(B.timer); if (B.suona) B.timer = setInterval(tempo, 250); tempo();
+  };
+  const cmd = c => {
+    const P = B.player, pronto = P && B.pronto;
+    if (c === 'play'){ if (!pronto){ B.vuole = true; return; } B.suona ? P.pauseVideo() : P.playVideo(); return; }
+    if (!pronto) return;
+    if (c === 'rivedi'){ P.seekTo(0, true); P.playVideo(); }
+    if (c === 'cc'){ B.cc = !B.cc; try { if (B.cc){ P.loadModule('captions'); P.setOption('captions', 'track', {languageCode: 'it'}); } else P.unloadModule('captions'); } catch (e) {} const b = host.querySelector('[data-b="cc"]'); b.classList.toggle('on', B.cc); b.setAttribute('aria-pressed', B.cc); }
+  };
+  host.addEventListener('click', e => { const b = e.target.closest('[data-b]'); if (b && b.dataset.b !== 'seek') cmd(b.dataset.b); });
+  host.querySelector('.v-scudo').addEventListener('click', () => cmd('play'));
+  scrub.addEventListener('input', e => { if (B.player && B.pronto) B.player.seekTo(+e.target.value, true); });
+  BRIEF_PLAYERS.push(B);
+  caricaYT().then(() => {
+    if (!document.body.contains(host)) return;
+    B.player = new YT.Player(yid, {
+      videoId: v.id,
+      playerVars: {controls: 0, disablekb: 1, rel: 0, iv_load_policy: 3, playsinline: 1, modestbranding: 1, fs: 0,
+                   enablejsapi: 1, cc_load_policy: 1, cc_lang_pref: 'it', hl: 'it', origin: location.origin},
+      events: {onReady: () => { B.pronto = true; if (B.vuole) B.player.playVideo(); }, onStateChange: e => stato(e.data)}
+    });
+  });
+}
 
 /* aiuti graduati (modello EXIT): dentro il rompicapo, sotto il campo risposta */
 function aiutiTappa(i, t){
@@ -9607,8 +9704,8 @@ if (!QUEST.length){
   $('#catalogo-tit').textContent = 'Nessuna quest caricata';
 } else {
   const st = carica();
-  if (st && sessioneMia(st)){ S = st; route(); }
-  else { renderIntro(); if (st) proponiRipresa(st); }
+  renderIntro();                                  // al reload si torna sempre alla home (busta + special edition)
+  if (st) proponiRipresa(st, sessioneMia(st));    // la spedizione in corso si riprende dall'avviso in alto (niente progressi persi)
   avviaControlloRete();
 }
 </script>

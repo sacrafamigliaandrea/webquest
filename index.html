@@ -901,8 +901,26 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .dn-esito svg{width:17px;height:17px;flex:0 0 auto}
 .dn-esito b{font-family:var(--head);flex:0 0 auto}
 .dn-esito span{color:var(--muted);font-size:13px}
+.dn-esito{flex-wrap:wrap}
 .dn-esito.ok{background:var(--verdeL)}.dn-esito.ok svg{color:var(--verde)}.dn-esito.ok b{color:var(--verdeD)}
 .dn-esito.ko{background:var(--ambraL)}.dn-esito.ko svg{color:var(--ambraM)}.dn-esito.ko b{color:var(--ambra)}
+.sf-min-grid{display:flex;flex-direction:column;gap:10px}
+.sf-min{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid #d4deea;border-radius:12px;padding:12px 14px}
+.sf-min .min-txt{display:flex;align-items:flex-start;gap:10px;flex:1 1 300px;min-width:0}
+.sf-min .min-ico{color:var(--ambraM);flex:0 0 auto;margin-top:1px}
+.sf-min .min-ico svg{width:20px;height:20px}
+.sf-min .min-txt b{font-family:var(--head);font-size:15.5px;color:#1b2f4a;display:block;line-height:1.2}
+.sf-min .min-txt small{font-size:13px;color:#5b6b7c;line-height:1.35;display:block;margin-top:2px}
+.min-sel{flex:0 0 auto;min-width:230px;font:inherit;font-size:14.5px;padding:10px 12px;border:1.5px solid #c4d0de;border-radius:9px;background:#f4f7fb;color:#1b2f4a;cursor:pointer}
+.min-sel:focus{border-color:#1F7A43;outline:none}
+.sf-cassetta{margin-top:12px;background:#fff;border:1px solid #d4deea;border-radius:12px;padding:2px 14px}
+.sf-cassetta summary{cursor:pointer;font-family:var(--head);font-weight:600;color:#1b2f4a;padding:11px 0;display:flex;align-items:center;gap:8px;min-height:40px;list-style:none}
+.sf-cassetta summary svg{width:16px;height:16px;color:#1F4E8C;flex:0 0 auto}
+.sf-cassetta summary::-webkit-details-marker{display:none}
+.sf-cassetta ul{margin:0 0 12px;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.sf-cassetta li{font-size:13.5px;color:#43515f;line-height:1.4}
+.sf-cassetta li b{color:#1b2f4a}
+@media(max-width:600px){.min-sel{min-width:0;width:100%}}
 /* ===== cambio di ruolo: zona hacker «matrix» vs zona tecnico chiara ===== */
 .sf-testa-az{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
 .sf-testa .sf-testa-az .btn{margin-left:0}
@@ -937,14 +955,15 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .sf-scelta{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:4px}
 @media(max-width:720px){.sf-scelta{grid-template-columns:1fr}}
 .mac{display:flex;flex-direction:column;align-items:center}
-.mac-schermo{width:100%;border:11px solid #1a1d22;border-radius:18px;background:#000;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.mac-schermo{width:100%;aspect-ratio:16/10;display:flex;flex-direction:column;border:12px solid #1a1d22;border-radius:18px;background:#000;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.28)}
 .mac-schermo.tecnico{border-color:#c4cad3}
 .ms-top{display:flex;align-items:center;gap:6px;padding:8px 11px;background:#15181d;font:600 11.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a97a5}
 .ms-top.chiara{background:#e6eaef;color:#5b6b7c}
 .ms-top i{width:9px;height:9px;border-radius:50%;display:block;background:#3a4450}
 .ms-top i:nth-child(1){background:#ff5f57}.ms-top i:nth-child(2){background:#febc2e}.ms-top i:nth-child(3){background:#28c840}
 .ms-top span{margin-left:7px}
-.ms-corpo{padding:18px 18px 22px;min-height:158px}
+.ms-corpo{padding:20px 18px;flex:1;min-height:0;display:flex;flex-direction:column}
+.ms-corpo p{flex:1}
 .mac-schermo.hacker .ms-corpo{background:radial-gradient(130% 120% at 25% 0,#06220f,#02080a);color:#9ff5bd}
 .mac-schermo.tecnico .ms-corpo{background:#f5f8fc;color:#243040}
 .ms-eye{display:inline-block;font:700 11px var(--head);letter-spacing:.11em;text-transform:uppercase;padding:3px 9px;border-radius:6px;margin-bottom:9px;background:rgba(61,220,132,.16);color:#3ddc84}
@@ -958,6 +977,19 @@ mark.fm.cur{background:#F59E0B;color:#000}
 .mac-piede{width:84px;height:40px;background:linear-gradient(#cfd4db,#a9b1bc);clip-path:polygon(34% 0,66% 0,84% 100%,16% 100%)}
 .mac-base{width:132px;height:9px;border-radius:7px;background:linear-gradient(#b7bec8,#99a2ae);margin-top:-1px}
 .mac .btn{margin-top:16px;min-height:48px}
+.mac-btn{border:1px solid transparent}
+.mac-btn.hacker{background:#0a130d;color:#3ddc84;border-color:#1f9a52}
+.mac-btn.hacker:hover{background:#122017;color:#7CF2A8}
+.mac-btn.tecnico{background:#fff;color:#1F7A43;border-color:#cdd6e0}
+.mac-btn.tecnico:hover{border-color:#1F7A43;color:#165C32}
+.dif-fix .df-et{flex:1}
+.dif-fix .df-ore{flex:0 0 auto;font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(243,196,75,.18);color:#F3C44B;border-radius:6px;padding:2px 7px}
+.dif-fix.on .df-ore{background:rgba(79,194,126,.2);color:#86e0a8}
+.dif-ok{display:flex;align-items:center;gap:8px;background:rgba(79,194,126,.1);border:1px solid rgba(79,194,126,.3);color:#86e0a8;border-radius:9px;padding:9px 11px;font:600 13px var(--head);min-height:42px}
+.dif-ok svg{width:15px;height:15px;flex:0 0 auto}
+#scr-simfrigo.ruolo-tecnico .df-ore{background:var(--ambraL);color:var(--ambra)}
+#scr-simfrigo.ruolo-tecnico .dif-fix.on .df-ore{background:var(--verdeL);color:var(--verdeD)}
+#scr-simfrigo.ruolo-tecnico .dif-ok{background:var(--verdeL);border-color:var(--verdeB);color:var(--verdeD)}
 .sf-riga-frigo{background:#0a0f16;border-radius:9px;padding:5px 7px;margin:2px 0 9px;overflow:hidden}
 .sf-drop{animation:sf-drip 1.15s ease-in infinite}
 @keyframes sf-drip{0%{transform:translateY(-2px);opacity:0}22%{opacity:1}82%{opacity:1}100%{transform:translateY(9px);opacity:0}}
@@ -7376,7 +7408,8 @@ function schemaFinestre(){
 function renderBrief(){
   const q = quest(), t = tappe();
   const haPdf = t.some(x => x.pdf), haEn = t.some(x => x.lingua && x.lingua !== 'it');
-  $('#scr-brief').innerHTML = testaTema() + invitoSimFrigo() + invitoSimulatore() + pannelloDivisa() + `
+  const vb = VIDEO_BRIEF[q.tema];
+  $('#scr-brief').innerHTML = testaTema() + (vb ? '<section class="blocco brief-video" id="brief-video"></section>' : '') + invitoSimFrigo() + invitoSimulatore() + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
         <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${q.intro ? esc(q.intro) : `${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`}`
@@ -7410,6 +7443,7 @@ function renderBrief(){
   mostra('scr-brief');
   statoDivisa();
   $('#btn-via').onclick = () => { S.fase = 'g'; salva(); route(); };
+  if (vb) montaVideo({video: vb}, $('#brief-video'));
 }
 
 /* =====================================================================
@@ -7743,6 +7777,10 @@ function chiudiCmdF(){ $('#cmdf-modale').classList.add('hidden'); const c = $('#
    sottotitoli, barra con il tratto da guardare evidenziato, «Vai al punto».
    Limite noto: la pubblicita' che YouTube decide di mostrare non si puo' togliere ne' saltare.
    ===================================================================== */
+/* video introduttivo del briefing (prima del simulatore e della web quest), per tema. Senza distrazioni come gli altri. */
+const VIDEO_BRIEF = {
+  'cyber-frigo': {id: 'V_U-1NjQJ2I', titolo: 'Cyberattacco ai supermercati europei: i freezer portati fino a 50°C', canale: 'Gianluigi Ballarani', da: 0, a: 0, durata: 0, etichetta: 'Prima di iniziare, guarda questo video'},
+};
 let VIDEO = null, _ytPronto = null;
 const mmss = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
 function caricaYT(){
@@ -7758,14 +7796,14 @@ function caricaYT(){
 function montaVideo(t, box){
   const v = t.video, dur = v.durata || 0;
   const zona = v.a > v.da && dur ? `left:${(v.da / dur * 100).toFixed(2)}%;width:${((v.a - v.da) / dur * 100).toFixed(2)}%` : 'display:none';
-  box.innerHTML = `<h3 class="etichetta"><span class="n">1</span>Guarda il video</h3>
+  box.innerHTML = `<h3 class="etichetta">${v.etichetta || '<span class="n">1</span>Guarda il video'}</h3>
     <div class="vplayer">
       <div class="v-schermo">
         <div class="v-frame"><div id="v-yt"></div></div>
         <div class="v-scudo" aria-hidden="true"></div>
         <button class="v-poster" type="button" aria-label="Avvia il video"><span class="v-grande">${ico('i-play')}</span>
-          <span class="v-poster-tit">${esc(v.titolo || '')}</span><span class="v-poster-can">${esc(v.canale || '')} · ${mmss(dur)}</span></button>
-        <div class="v-fine hidden"><p>Video finito</p><button class="btn btn-primario" type="button" data-v="rivedi">${ico('i-ricarica')}Riguarda il tratto ${mmss(v.da)}–${mmss(v.a)}</button></div>
+          <span class="v-poster-tit">${esc(v.titolo || '')}</span><span class="v-poster-can">${esc(v.canale || '')}${dur ? ' · ' + mmss(dur) : ''}</span></button>
+        <div class="v-fine hidden"><p>Video finito</p><button class="btn btn-primario" type="button" data-v="rivedi">${ico('i-ricarica')}${v.a > v.da ? 'Riguarda il tratto ' + mmss(v.da) + '–' + mmss(v.a) : 'Riguarda dall\'inizio'}</button></div>
       </div>
       <div class="v-ctrl">
         <button class="v-btn" type="button" data-v="play" aria-label="Riproduci">${ico('i-play')}</button>
@@ -8718,7 +8756,7 @@ function renderSFscelta(){
           <span class="ms-code">&gt; cracking password_</span></div>
       </div>
       <div class="mac-piede"></div><div class="mac-base"></div>
-      <button class="btn sf-btn-chiaro" type="button" id="sf-ruolo-h">${ico('i-chiave')}Gioca come hacker</button>
+      <button class="btn mac-btn hacker" type="button" id="sf-ruolo-h">${ico('i-chiave')}Gioca come hacker</button>
     </div>
     <div class="mac">
       <div class="mac-schermo tecnico">
@@ -8728,7 +8766,7 @@ function renderSFscelta(){
           <span class="ms-ok">${ico('i-check')}negozio protetto</span></div>
       </div>
       <div class="mac-piede"></div><div class="mac-base"></div>
-      <button class="btn btn-scuro" type="button" id="sf-ruolo-t">${ico('i-lucchetto')}Gioca come tecnico IT</button>
+      <button class="btn mac-btn tecnico" type="button" id="sf-ruolo-t">${ico('i-lucchetto')}Gioca come tecnico IT</button>
     </div>
   </div>`;
   sfAggancia();
@@ -9199,76 +9237,83 @@ function renderSFlezione(c, entrato){
   $('#sf-ancora').onclick = renderSFelenco;
   $('#sf-fine').onclick = esciSimFrigo;
 }
-/* --- MODALITÀ DIFESA: metti in sicurezza i negozi prima della notte --- */
+/* --- MODALITÀ DIFESA: diagnosi e contromisure (competenze del tecnico IT) ---
+   Il sistema ha varie minacce; per ciascuna lo studente sceglie lo strumento giusto.
+   La sfida non è il tempo ma sapere cosa fa ogni strumento e dove serve: una password non
+   ferma un virus, le telecamere non fermano un attacco da Internet. */
+const SF_MISURE = [
+  {id: 'password',  breve: 'Password cifrata',     nome: 'Imposta una password forte e cifrata', desc: 'Password lunga e casuale, salvata cifrata: non si indovina e non si legge.'},
+  {id: 'firewall',  breve: 'Firewall / porte',     nome: 'Firewall: chiudi le porte aperte',      desc: 'Blocca le porte di rete inutili, così il pannello non è più raggiungibile da Internet.'},
+  {id: 'os',        breve: 'Aggiorna il sistema',  nome: 'Aggiorna il sistema operativo',          desc: 'Installa gli aggiornamenti che correggono le falle note del software.'},
+  {id: 'antivirus', breve: 'Aggiorna l\'antivirus',nome: 'Aggiorna le minacce dell\'antivirus',    desc: 'Scarica le ultime minacce conosciute, così riconosce i virus nuovi.'},
+  {id: 'accessi',   breve: 'Schedula gli accessi', nome: 'Schedula gli accessi remoti',            desc: 'Permetti il collegamento da remoto solo negli orari di lavoro, non di notte.'},
+  {id: 'camere',    breve: 'Videosorveglianza',    nome: 'Installa la videosorveglianza',          desc: 'Telecamere e registro: scoraggiano e documentano chi tocca i server di persona.'},
+];
+const SF_MINACCE = [
+  {id: 'pwdef',  nome: 'Password di fabbrica «admin»',          desc: 'Chiunque conosce la password predefinita del pannello.',                   misura: 'password'},
+  {id: 'porte',  nome: 'Pannello esposto su Internet',           desc: 'Le porte di rete sono aperte: il pannello si raggiunge da tutto il mondo.', misura: 'firewall'},
+  {id: 'os',     nome: 'Sistema operativo non aggiornato',       desc: 'Una falla nota del software permette di entrare.',                         misura: 'os'},
+  {id: 'virus',  nome: 'Antivirus fermo a mesi fa',              desc: 'Non riconosce i virus più recenti.',                                      misura: 'antivirus'},
+  {id: 'notte',  nome: 'Accesso remoto consentito a ogni ora',   desc: 'Il pannello accetta comandi anche di notte, quando non c\'è nessuno.',     misura: 'accessi'},
+  {id: 'fisico', nome: 'Nessun controllo su chi tocca i server', desc: 'Chiunque può avvicinarsi di persona, senza lasciare traccia.',             misura: 'camere'},
+];
+const sfMisura = id => SF_MISURE.find(m => m.id === id);
+const sfMischia = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 function renderSFdifesa(){
   sfStop(); SIMF.demo.token++;
   SIMF.atto = 'difesa'; SIMF.ruolo = 'tecnico'; sfTema();
-  SIMF.difesa = {
-    budget: 9,
-    negozi: SIMF.catene.map(c => ({id: c.id, nome: c.nome, tinta: c.tinta, sigla: c.sigla,
-      kgNeg: (SF_CATENE.find(x => x.id === c.id) || {}).kgNeg || 1500, pw: false, remoto: false, update: false}))
-  };
+  SIMF.difesa = {minacce: sfMischia(SF_MINACCE), scelte: {}};
   renderSFdifesaVista();
 }
-function sfDifUsati(){ return SIMF.difesa.negozi.reduce((s, n) => s + (n.pw ? 1 : 0) + (n.remoto ? 1 : 0) + (n.update ? 1 : 0), 0); }
 function renderSFdifesaVista(){
-  const d = SIMF.difesa, rimasti = d.budget - sfDifUsati();
-  const dida = `<div class="sf-dida"><span class="num">Modalità difesa</span>
-    Ora sei il tecnico dei supermercati. Prima che scenda la notte hai <b>${d.budget} interventi</b> per chiudere le falle. Un negozio è al sicuro solo se le chiudi <b>tutte e tre</b>, e gli interventi non bastano per tutti: parti da dove c'è più cibo a rischio.</div>`;
-  const fix = (n, k, on, off, ic) => `<button type="button" class="dif-fix ${n[k] ? 'on' : ''}" data-neg="${n.id}" data-fix="${k}"${!n[k] && rimasti <= 0 ? ' disabled' : ''}>${ico(n[k] ? 'i-check' : ic)}${n[k] ? on : off}</button>`;
-  const card = n => {
-    const prot = n.pw && n.remoto && n.update;
-    return `<div class="sf-dif-neg ${prot ? 'ok' : ''}">
-      <div class="dn-top"><span class="marchio" style="background:${n.tinta}"><b>${esc(n.sigla)}</b></span>
-        <div><b>${esc(n.nome)}</b><small>cibo a rischio: ${n.kgNeg.toLocaleString('it-IT', {useGrouping: true})} kg</small></div>
-        <span class="dn-stato ${prot ? 'ok' : 'no'}">${ico(prot ? 'i-check' : 'i-lucchetto')}${prot ? 'protetto' : 'vulnerabile'}</span></div>
-      <div class="dn-fix">
-        ${fix(n, 'pw', 'password forte', 'password debole', 'i-chiave')}
-        ${fix(n, 'remoto', 'accesso remoto chiuso', 'accesso remoto aperto', 'i-lucchetto')}
-        ${fix(n, 'update', 'software aggiornato', 'software vecchio', 'i-ricarica')}
-      </div></div>`;
-  };
+  const d = SIMF.difesa;
+  const dida = `<div class="sf-dida"><span class="num">Modalità difesa · metti in sicurezza il sistema</span>
+    Sei il tecnico IT. La centralina della catena ha diverse falle. Per ogni minaccia <b>scegli lo strumento giusto</b>: ognuno serve a una cosa precisa (una password non ferma un virus, le telecamere non fermano un attacco da Internet). Poi fai scendere la notte e scopri se l'attacco entra.</div>`;
+  const opzioni = sel => `<option value="">— scegli la contromisura —</option>` +
+    sfMischia(SF_MISURE).map(m => `<option value="${m.id}"${sel === m.id ? ' selected' : ''}>${esc(m.breve)}</option>`).join('');
+  const riga = m => `<div class="sf-min">
+      <div class="min-txt"><span class="min-ico">${ico('i-attenzione')}</span><div><b>${esc(m.nome)}</b><small>${esc(m.desc)}</small></div></div>
+      <select class="min-sel" data-minaccia="${m.id}" aria-label="Contromisura per: ${esc(m.nome)}">${opzioni(d.scelte[m.id] || '')}</select>
+    </div>`;
+  const legenda = SF_MISURE.map(m => `<li><b>${esc(m.breve)}</b> — ${esc(m.desc)}</li>`).join('');
   $('#scr-simfrigo').innerHTML = sfTesta(dida) + `<div class="sf-difesa">
-    <div class="sf-dif-barra"><span>Interventi rimasti</span><b id="sf-dif-budget">${rimasti}</b><span class="su">di ${d.budget}</span></div>
-    <div class="sf-dif-grid">${d.negozi.map(card).join('')}</div>
+    <div class="sf-min-grid">${d.minacce.map(riga).join('')}</div>
+    <details class="sf-cassetta"><summary>${ico('i-info')}La cassetta degli attrezzi · cosa fa ogni strumento</summary><ul>${legenda}</ul></details>
     <div class="azioni" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
       <button class="btn sf-btn-chiaro" type="button" id="sf-notte">${ico('i-luce')}Fai scendere la notte</button>
       <button class="btn sf-btn-fantasma" type="button" id="sf-dif-esci">Torna all'elenco</button></div></div>`;
   sfAggancia();
-  $('#scr-simfrigo').querySelectorAll('[data-fix]').forEach(b => b.onclick = () => sfDifFix(b.dataset.neg, b.dataset.fix));
+  $('#scr-simfrigo').querySelectorAll('select[data-minaccia]').forEach(s => s.onchange = () => { SIMF.difesa.scelte[s.dataset.minaccia] = s.value; });
   $('#sf-notte').onclick = renderSFesitoDifesa;
   $('#sf-dif-esci').onclick = renderSFelenco;
-}
-function sfDifFix(id, k){
-  const n = SIMF.difesa.negozi.find(x => x.id === id); if (!n) return;
-  if (!n[k] && sfDifUsati() >= SIMF.difesa.budget) return;    // interventi finiti
-  n[k] = !n[k];
-  renderSFdifesaVista();
 }
 function renderSFesitoDifesa(){
   sfStop(); SIMF.demo.token++;
   SIMF.atto = 'esito-difesa';
-  const d = SIMF.difesa;
-  const falla = n => !n.pw ? 'password debole' : !n.remoto ? 'accesso da Internet aperto' : 'software non aggiornato';
-  const prot = n => n.pw && n.remoto && n.update;
-  const salvati = d.negozi.filter(prot), colpiti = d.negozi.filter(n => !prot(n));
-  const kgSalvo = salvati.reduce((s, n) => s + n.kgNeg, 0), kgPerso = colpiti.reduce((s, n) => s + n.kgNeg, 0);
-  const kgTot = kgSalvo + kgPerso, frac = kgTot ? kgPerso / kgTot : 0, pastiPerso = Math.round(kgPerso / 0.4);
-  const righe = d.negozi.map(n => `<div class="dn-esito ${prot(n) ? 'ok' : 'ko'}">${ico(prot(n) ? 'i-check' : 'i-attenzione')}<b>${esc(n.nome)}</b>
-    <span>${prot(n) ? 'protetto · ' + n.kgNeg.toLocaleString('it-IT', {useGrouping: true}) + ' kg salvati' : 'colpito (' + falla(n) + ') · ' + n.kgNeg.toLocaleString('it-IT', {useGrouping: true}) + ' kg buttati'}</span></div>`).join('');
+  const d = SIMF.difesa, mins = d.minacce;
+  const esiti = mins.map(m => ({m, scelta: d.scelte[m.id] || '', ok: (d.scelte[m.id] || '') === m.misura}));
+  const chiuse = esiti.filter(e => e.ok).length, aperte = mins.length - chiuse;
+  const foodTot = 10500, kgPerso = Math.round(foodTot * aperte / mins.length / 10) * 10, kgSalvo = foodTot - kgPerso;
+  const frac = aperte / mins.length, pastiPerso = Math.round(kgPerso / 0.4);
+  const righe = esiti.map(e => {
+    const giusta = sfMisura(e.m.misura);
+    if (e.ok) return `<div class="dn-esito ok">${ico('i-check')}<b>${esc(e.m.nome)}</b><span>chiusa con «${esc(giusta.breve)}»</span></div>`;
+    const scelta = sfMisura(e.scelta);
+    return `<div class="dn-esito ko">${ico('i-attenzione')}<b>${esc(e.m.nome)}</b><span>${scelta ? 'hai messo «' + esc(scelta.breve) + '», ma' : 'lasciata aperta:'} serviva «${esc(giusta.breve)}»</span></div>`;
+  }).join('');
   $('#scr-simfrigo').innerHTML = sfTesta('') + `<div class="sf-lezione">
     <span class="eyebrow">La notte è passata</span>
-    <h3>Hai salvato ${salvati.length} negozi su ${d.negozi.length}</h3>
+    <h3>Hai chiuso ${chiuse} falle su ${mins.length}</h3>
     <div class="dn-esiti">${righe}</div>
     <div class="sf-spreco ${kgPerso > 0 ? 'attivo' : ''}" style="margin:0 0 14px">
       <div class="sp-vis">${sfDisegnoSpreco()}</div>
       <div class="sp-dati">
         <div class="sp-kg"><b>${kgPerso.toLocaleString('it-IT', {useGrouping: true})} kg</b> di cibo buttato · <b style="color:#86e0a8">${kgSalvo.toLocaleString('it-IT', {useGrouping: true})} kg</b> salvati</div>
-        <div class="sp-pasti">${kgPerso > 0 ? '≈ <b>' + pastiPerso.toLocaleString('it-IT', {useGrouping: true}) + ' pasti</b> persi in una notte.' : 'Nessuno spreco: li hai protetti tutti!'}</div>
+        <div class="sp-pasti">${aperte === 0 ? 'Sistema al sicuro: l\'attacco non è entrato, nessuno spreco!' : '≈ <b>' + pastiPerso.toLocaleString('it-IT', {useGrouping: true}) + ' pasti</b> persi dalle falle rimaste aperte.'}</div>
       </div></div>
-    <div class="sf-specchio"><b>È bastata una falla.</b> Agli attaccanti serve <b>una sola</b> porta aperta: un negozio è sicuro solo quando le chiudi tutte. E gli interventi non bastano mai per tutto — per questo conviene partire da dove c'è più cibo in gioco.</div>
+    <div class="sf-specchio"><b>Ogni minaccia ha la sua contromisura.</b> Mettere in sicurezza un sistema non è un gesto solo: è conoscere gli strumenti — password cifrata, antivirus, firewall, aggiornamenti, accessi programmati, videosorveglianza — e usare quello giusto dove serve. Un solo strumento non basta: serve la <b>difesa a strati</b>.</div>
     <div class="azioni">
-      <button class="btn btn-primario" type="button" id="sf-ridifendi">${ico('i-ricomincia')}Riprova la difesa</button>
+      <button class="btn btn-primario" type="button" id="sf-ridifendi">${ico('i-ricomincia')}Riprova</button>
       <button class="btn btn-linea" type="button" id="sf-fine2">${ico('i-sx')}Torna al briefing</button></div></div>`;
   sfAggancia();
   const pila = $('#sf-pila'); if (pila){ const h = 66 * frac; pila.setAttribute('y', (112 - h).toFixed(1)); pila.setAttribute('height', h.toFixed(1)); }
@@ -9334,7 +9379,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
-        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. Il rullo è una dramatizzazione, non un vero attacco, e nessun dato esce dal dispositivo. Il pannello è un'interfaccia da centralina (parametro d02 «fine sbrinamento», di fabbrica 6°, portato a 50° nell'attacco vero): la temperatura sale, il ghiaccio si scioglie e i frigoriferi gocciolano. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con la scelta tra <b>due schermi</b> — la zona <b>hacker</b> (stile Matrix, scura) e la zona <b>tecnico IT</b> (chiara) — così il cambio di ruolo è evidente. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b>, in cui lo studente diventa il tecnico e con interventi limitati deve chiudere tutte le falle (password forte, accesso remoto, aggiornamento) dei negozi con più cibo a rischio prima della notte: se ne lascia una aperta, quel negozio viene colpito. Un buon aggancio per il debrief sul perché prevenire conviene.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «il muro degli hacker»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. Il rullo è una dramatizzazione, non un vero attacco, e nessun dato esce dal dispositivo. Il pannello è un'interfaccia da centralina (parametro d02 «fine sbrinamento», di fabbrica 6°, portato a 50° nell'attacco vero): la temperatura sale, il ghiaccio si scioglie e i frigoriferi gocciolano. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con la scelta tra <b>due schermi</b> — la zona <b>hacker</b> (stile Matrix, scura) e la zona <b>tecnico IT</b> (chiara) — così il cambio di ruolo è evidente. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b> di diagnosi e contromisure: lo studente è il tecnico IT e, per ogni minaccia del sistema (password di fabbrica, porte aperte su Internet, software non aggiornato, antivirus vecchio, accesso remoto a ogni ora, nessun controllo fisico), sceglie lo strumento giusto tra sei contromisure reali (password cifrata, firewall/chiudere le porte, aggiornare il sistema, aggiornare l'antivirus, schedulare gli accessi, videosorveglianza). Il punto è capire che ogni strumento serve a una cosa precisa — una password non ferma un virus, le telecamere non fermano un attacco da Internet — e che serve la difesa a strati. «Fai scendere la notte» mostra quante falle sono state chiuse e il cibo buttato dalle falle rimaste aperte. Buon aggancio per il debrief sulle competenze digitali e sul ridurre la superficie d'attacco.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>

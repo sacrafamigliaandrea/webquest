@@ -497,13 +497,26 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .brief-video .v-poster-can{font-size:12.5px}
 .brief-video .v-grande{width:60px;height:60px}
 .brief-video .v-grande svg.i{width:30px;height:30px}
-.brief-video .v-ctrl{padding:7px;gap:6px}
-.brief-video .v-btn{min-width:40px;height:40px}
-.brief-video .v-tempo{min-width:0;font-size:13px}
+.brief-video .v-ctrl{padding:6px;gap:5px;flex-wrap:nowrap}
+.brief-video .v-btn{min-width:38px;height:38px;padding:0 7px}
+.brief-video .v-barra{flex:1 1 40px}
+.brief-video .v-tempo{min-width:0;font-size:12px}
 .brief-top-dx{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:14px}
 .brief-top-dx .sf-invito,.brief-top-dx .sim-invito{margin-bottom:0}
 @media(max-width:760px){.brief-top{flex-direction:column;align-items:stretch}}
 @media(max-width:460px){.brief-video{width:48%}}
+/* poster cliccabile senza il pallino rosso: una pill «Tocca per avviare» */
+.v-poster-go{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font:600 14px var(--head);color:#fff;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:8px 15px}
+.v-poster-go svg.i{width:18px;height:18px}
+.v-poster:hover .v-poster-go,.v-poster:focus-visible .v-poster-go{background:rgba(255,255,255,.26)}
+/* briefing cyber-frigo in una sola pagina (zero scroll): video più grandi, niente «momenti»/«schermo diviso» */
+.noscroll .brief-top-tit{margin:2px 0 7px}
+.noscroll .brief-top{margin-bottom:0;align-items:flex-start}
+.noscroll .brief-video{width:auto}
+.noscroll .brief-video .v-schermo{height:min(49vh,600px);width:auto;aspect-ratio:9/16}
+.noscroll .brief-video .v-poster-tit{font-size:17px}
+.noscroll .brief-video .v-poster-can{font-size:13.5px}
+.noscroll .brief-top-dx{flex:1 1 230px}
 .special{margin-top:10px;text-align:left;display:flex;gap:12px;align-items:center;background:var(--ink);color:#fff;border-radius:14px;padding:12px 14px}
 .special .ico{width:42px;height:42px;border-radius:12px;background:var(--rosso);display:grid;place-items:center;flex:0 0 auto}
 .special .ico svg.i{width:24px;height:24px;--ico-bg:var(--rosso)}
@@ -7460,7 +7473,7 @@ function renderBrief(){
            <div class="brief-passo">${num(nVia)}${avvioCard}</div>
          </div></div>`
     : invitoSimFrigo() + invitoSimulatore();
-  $('#scr-brief').innerHTML = testaTema() + top + pannelloDivisa() + `
+  $('#scr-brief').innerHTML = testaTema() + top + (guidato ? '' : pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
         <p>${q.special ? `Questa è la special edition «${esc(q.breve)}»: ${q.intro ? esc(q.intro) : `${t.length} tappe dentro video didattici di editori scolastici ed enti, e alcune verifiche su siti ufficiali.`}`
@@ -7487,11 +7500,12 @@ function renderBrief(){
         ${bloccoTecniche()}
         ${haEn ? `<p class="mini" style="margin-top:10px">Una tappa è su un sito in inglese: puoi usare il traduttore del browser.</p>` : ''}</div>
     </div>
-    ${guidato ? '' : `<div class="avvio">
+    <div class="avvio">
       <button class="btn btn-primario btn-grande lampeggia" type="button" id="btn-via">${ico('i-mappa')}Inizia la spedizione</button>
       <span class="mini">La Web Quest resta a sinistra: i siti si aprono nella scheda di destra.</span>
-    </div>`}`;
+    </div>`);
   mostra('scr-brief');
+  $('#scr-brief').classList.toggle('noscroll', guidato);   // cyber-frigo: una sola pagina, senza scroll
   statoDivisa();
   $('#btn-via').onclick = () => { S.fase = 'g'; salva(); route(); };
   if (vb && vb.length) vb.forEach((v, i) => montaBrief($('#brief-video-' + i), v));
@@ -7946,8 +7960,8 @@ function montaBrief(host, v){
       <div class="v-schermo">
         <div class="v-frame"><div id="${yid}"></div></div>
         <div class="v-scudo" aria-hidden="true"></div>
-        <button class="v-poster" type="button" aria-label="Avvia il video"><span class="v-grande">${ico('i-play')}</span>
-          <span class="v-poster-tit">${esc(v.titolo || '')}</span><span class="v-poster-can">${esc(v.canale || '')}</span></button>
+        <button class="v-poster" type="button" data-b="play" aria-label="Avvia il video">
+          <span class="v-poster-tit">${esc(v.titolo || '')}</span><span class="v-poster-can">${esc(v.canale || '')}</span><span class="v-poster-go">${ico('i-play')}Tocca per avviare</span></button>
         <div class="v-fine hidden"><p>Video finito</p><button class="btn btn-primario" type="button" data-b="rivedi">${ico('i-ricarica')}Riguarda dall'inizio</button></div>
       </div>
       <div class="v-ctrl">

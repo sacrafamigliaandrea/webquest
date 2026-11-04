@@ -479,7 +479,17 @@ table.rubrica td:first-child{font-weight:700;color:var(--ink);width:17%}
 .brief-top{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
 .brief-videos{display:flex;gap:14px;flex:0 0 auto}
 .brief-video-wrap{position:relative;flex:0 0 auto}
-.brief-num{position:absolute;top:-9px;left:-9px;z-index:6;width:30px;height:30px;border-radius:50%;background:var(--rosso);color:#fff;font-family:var(--head);font-weight:700;font-size:16px;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.brief-passo{position:relative}
+.brief-num{position:absolute;top:-10px;left:-10px;z-index:6;width:31px;height:31px;border-radius:50%;background:var(--rosso);color:#fff;font-family:var(--head);font-weight:700;font-size:16px;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.35);animation:brief-num 1.15s ease-in-out infinite}
+@keyframes brief-num{0%,100%{transform:scale(1);box-shadow:0 2px 6px rgba(0,0,0,.35)}50%{transform:scale(1.3);box-shadow:0 0 0 7px rgba(237,0,6,.22),0 3px 10px rgba(0,0,0,.4)}}
+@media(prefers-reduced-motion:reduce){.brief-num{animation:none}}
+.brief-avvio{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:var(--rossoLL);border:2px solid var(--rossoL);border-radius:var(--r);padding:16px 18px}
+.brief-avvio .ico{width:48px;height:48px;border-radius:13px;background:var(--rosso);color:#fff;display:grid;place-items:center;flex:0 0 auto}
+.brief-avvio .ico svg.i{width:28px;height:28px}
+.brief-avvio>div{flex:1 1 180px;min-width:0}
+.brief-avvio b{font-family:var(--head);font-weight:600;display:block;font-size:18px;color:var(--ink)}
+.brief-avvio span{font-size:15px;color:var(--muted)}
+.brief-avvio .btn{min-height:46px;flex:0 0 auto}
 .brief-video{flex:0 0 auto;width:190px}
 .brief-video .v-schermo{aspect-ratio:9/16}
 .brief-video .v-poster{padding:12px}
@@ -7435,12 +7445,21 @@ function schemaFinestre(){
 function renderBrief(){
   const q = quest(), t = tappe();
   const haPdf = t.some(x => x.pdf), haEn = t.some(x => x.lingua && x.lingua !== 'it');
-  const vb = VIDEO_BRIEF[q.tema];
-  const inviti = invitoSimFrigo() + invitoSimulatore();
-  const top = (vb && vb.length)
-    ? `<h3 class="brief-top-tit">Prima di iniziare, guarda ${vb.length > 1 ? `i ${vb.length} video in ordine (prima l'1, poi il 2)` : 'questo video'}</h3>
-       <div class="brief-top"><div class="brief-videos">${vb.map((_, i) => `<div class="brief-video-wrap"><span class="brief-num" aria-hidden="true">${i + 1}</span><section class="brief-video" id="brief-video-${i}"></section></div>`).join('')}</div><div class="brief-top-dx">${inviti}</div></div>`
-    : inviti;
+  const vb = VIDEO_BRIEF[q.tema], guidato = !!(vb && vb.length);
+  const nMuro = (vb ? vb.length : 0) + 1, nVia = nMuro + 1;
+  const num = n => `<span class="brief-num" style="animation-delay:${((n - 1) * 0.18).toFixed(2)}s" aria-hidden="true">${n}</span>`;
+  const avvioCard = `<div class="brief-avvio"><span class="ico">${ico('i-mappa')}</span>
+      <div><b>Inizia la spedizione</b><span>Quando hai visto i video e provato il muro, parti: ${t.length} tappe tra video e siti ufficiali.</span></div>
+      <button class="btn btn-primario" type="button" id="btn-via">${ico('i-dx')}Inizia</button></div>`;
+  const top = guidato
+    ? `<h3 class="brief-top-tit">Segui l'ordine dei numeri: ${vb.length > 1 ? 'guarda i video' : 'guarda il video'}, prova il muro degli hacker, poi inizia.</h3>
+       <div class="brief-top">
+         <div class="brief-videos">${vb.map((_, i) => `<div class="brief-video-wrap">${num(i + 1)}<section class="brief-video" id="brief-video-${i}"></section></div>`).join('')}</div>
+         <div class="brief-top-dx">
+           <div class="brief-passo">${num(nMuro)}${invitoSimFrigo()}</div>
+           <div class="brief-passo">${num(nVia)}${avvioCard}</div>
+         </div></div>`
+    : invitoSimFrigo() + invitoSimulatore();
   $('#scr-brief').innerHTML = testaTema() + top + pannelloDivisa() + `
     <div class="momenti">
       <div class="card momento"><span class="num">1</span><h3>Il contesto</h3>
@@ -7468,10 +7487,10 @@ function renderBrief(){
         ${bloccoTecniche()}
         ${haEn ? `<p class="mini" style="margin-top:10px">Una tappa è su un sito in inglese: puoi usare il traduttore del browser.</p>` : ''}</div>
     </div>
-    <div class="avvio">
+    ${guidato ? '' : `<div class="avvio">
       <button class="btn btn-primario btn-grande lampeggia" type="button" id="btn-via">${ico('i-mappa')}Inizia la spedizione</button>
       <span class="mini">La Web Quest resta a sinistra: i siti si aprono nella scheda di destra.</span>
-    </div>`;
+    </div>`}`;
   mostra('scr-brief');
   statoDivisa();
   $('#btn-via').onclick = () => { S.fase = 'g'; salva(); route(); };

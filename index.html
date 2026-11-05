@@ -1113,6 +1113,11 @@ button.sf-key:hover:not(:disabled){background:#1f7a43;color:#fff;box-shadow:0 0 
 .sf-pieno{position:absolute;left:10px;top:12px;z-index:4;width:88px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;border-radius:11px;background:rgba(3,9,8,.78);border:1px solid rgba(255,255,255,.22);color:#e3f6ea;font:600 13px/1.15 var(--head);text-align:center;cursor:pointer}
 .sf-pieno:hover{background:rgba(31,122,67,.85)}
 .sf-pieno svg.i{width:21px;height:21px}
+.sf-musica{top:88px}
+.sf-musica.on{background:rgba(31,122,67,.85)}
+.sf-sala .sf-musica.on{background:rgba(31,95,174,.85)}
+.sr-musica{right:calc(clamp(10px,1.5vw,20px) + 104px)}
+.sr-musica.on,.sr-musica.on:hover{background:#1F5FAE;border-color:#1F5FAE;color:#fff}
 /* --- la sala del tecnico IT (fondale da remoto.jpeg): stessa tecnica della scena hacker. Piani in unità proprie, vedi SF_SQ --- */
 .sf-sala .sf-hc{left:1222px}
 .sf-sala .sf-barra{border-color:rgba(130,190,250,.5);background:rgba(4,11,24,.88);color:#e0ecf8}
@@ -1362,6 +1367,7 @@ body.tema-cyber #sf-ancora{border-color:#1F7A43;color:#165C32}   /* «un altro s
     <symbol id="i-scambia" viewBox="0 0 24 24"><path d="M4 8h14M14.5 4.5L18 8l-3.5 3.5M20 16H6M9.5 12.5L6 16l3.5 3.5"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-attenzione" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><circle cx="12" cy="16.4" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
     <symbol id="i-chiave" viewBox="0 0 24 24"><circle cx="7.5" cy="12" r="4"/><path d="M11.5 12H21M18 12v3.2M21 12v2.5"/></symbol>
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8.5L19 7.5V21H6zM14.5 3v4.5H19M9 12h7M9 15.5h7M9 9h2.5"/></symbol>
     <symbol id="i-mappa" viewBox="0 0 24 24"><path d="M3 6.2l6-2.2 6 2.2 6-2.2v13.8l-6 2.2-6-2.2-6 2.2zM9 4v13.8M15 6.2V20"/></symbol>
@@ -1705,15 +1711,10 @@ const QUEST = [
     "titolo": "Gli occhi dell'Europa sulla Terra",
     "disciplina": "geografia",
     "contesto": "I satelliti che osservano la Terra scattano moltissime immagini, ma alcune sono inutilizzabili perché coperte dalle nuvole. Per questo l'Agenzia Spaziale Europea (ESA) ha sviluppato Φ-sat-1, presentata come la prima missione europea di osservazione della Terra con intelligenza artificiale: l'IA a bordo scarta da sola le immagini nuvolose. L'ESA ha un centro dedicato proprio all'osservazione della Terra, e si trova in Italia: scopri in quale città.",
-    "url": "esa.int/Space_in_Member_States/Italy",
+    "url": "esa.int/space_in_member_states/italy/esa_-_dati_e_cifre",
     "lingua": "it",
     "pdf": false,
-    "percorso": [
-     "Si apre la pagina \"Italy - Lo Spazio in Italia\" del sito ESA, in italiano (l'indirizzo funziona anche scritto tutto in minuscolo).",
-     "Trova il riquadro \"Occhi su - ESA: fatti e cifre\" e clicca \"Apri\".",
-     "Nella pagina \"ESA - dati e cifre\" scorri fino alla domanda \"Dove ha sede l'ESA?\".",
-     "Nell'elenco delle sedi cerca la riga che inizia con \"ESRIN\"."
-    ],
+    "percorso": ["Si apre la pagina \"ESA - dati e cifre\" del sito dell'Agenzia Spaziale Europea, in italiano. Scrivi l'indirizzo con attenzione: tra \"esa\" e \"dati\" ci sono un trattino basso, un trattino e un altro trattino basso.", "Scorri fino alla domanda \"Dove ha sede l'ESA?\".", "Nell'elenco delle sedi cerca la riga che inizia con \"ESRIN\"."],
     "domanda": "In quale città italiana si trova ESRIN, il Centro ESA per l'Osservazione della Terra?",
     "tipo": "testo",
     "risposte": [
@@ -1725,9 +1726,9 @@ const QUEST = [
     ],
     "soluzione": "Frascati: ESRIN, il Centro ESA per l'Osservazione della Terra, si trova a Frascati, vicino a Roma.",
     "prova": "ESRIN, il Centro ESA per l'Osservazione della Terra, a Frascati, vicino Roma, Italia;",
-    "url_verifica": "https://www.esa.int/Space_in_Member_States/Italy/ESA_-_dati_e_cifre",
-    "verificato": "2026-10-14",
-    "note": "Il legame con l'IA (Φ-sat-1) è nel contesto, verificato su una pagina ESA in italiano dall'agente di ricerca."
+    "url_verifica": "https://www.esa.int/it/articoli/about-us/who-we-are/member-states/switzerland-italiano/esa-dati-e-cifre",
+    "verificato": "2026-11-05",
+    "note": "Il legame con l'IA (Φ-sat-1) è nel contesto, verificato su una pagina ESA in italiano dall'agente di ricerca. Il sito ESA è stato rifatto nell'autunno 2026: la vecchia pagina \"Italy\" non esiste più e \"dati e cifre\" non ha una voce di menu. L'indirizzo della tappa è quello vecchio della pagina, che porta all'indirizzo nuovo (molto più lungo, vedi la fonte)."
    },
    {
     "id": "pompei-affreschi-robot",
@@ -7264,7 +7265,7 @@ const QUEST = [
 ];
 /* </QUEST_DATA> */
 /* <SONDE> */
-const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","asimmetrie.it": "https://www.asimmetrie.it/wp-content/uploads/as_favicon-64-w.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/extension/pillars/design/pillars/images/ESA_Menu.svg","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","gustavoristorantepizzeria.it": "https://www.gustavoristorantepizzeria.it/images/favicon.png","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.acn.gov.it": "/portale/documents/20119/0/LOGO_ACN_NEW/200cf56e-dd00-02e0-cc85-7e5a8ba30b56","www.action.com": "/favicon.ico","www.asimmetrie.it": "/wp-content/uploads/as_favicon-64-w.png","www.ats-brescia.it": "/themes/custom/edc_web/dist/assets/img/logo-rl-bianco.png","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/default-album/4novembre2026.jpg?sfvrsn=cb72e822_0","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.comune.orzinuovi.bs.it": "/favicon","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/extension/pillars/design/pillars/images/ESA_Menu.svg","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.gustavoristorantepizzeria.it": "/images/favicon.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.istat.it": "/wp-content/themes/EGPbs5-child/images/istat.svg","www.lamadonninaristorante.it": "/favicon.ico","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.poste.it": "/assets-custom/favicons/apple-touch-icon-57x57.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.rsi.ch": "/icons/favicon-production.png","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
+const SONDE = {"accademiadellacrusca.it": "/assets/images/_smarty/flags/it.png","aci.gov.it": "//app/uploads/2024/10/favicon_ACI-150x150.png","asimmetrie.it": "https://www.asimmetrie.it/wp-content/uploads/as_favicon-64-w.png","bibliotecanazionalemarciana.cultura.gov.it": "/wp-content/uploads/2026/01/cropped-favicon-32x32.jpg","brunelleschi.imss.fi.it": "/ilogo-espo.gif","catalogo.museogalileo.it": "/imm_layout_home/spacer.gif","cineca.it": "https://www.cineca.it/themes/custom/cineca_base/media/images/cineca-logo.svg","direzionemuseiroma.cultura.gov.it": "/wp-content/uploads/2023/05/cropped-favicon-32x32.png","esa.int": "https://www.esa.int/assets/images/favicon.ico","european-union.europa.eu": "/themes/contrib/oe_theme/images/favicons/eu/favicon.svg","federscherma.it": "/wp-content/uploads/2022/07/LOGO-FIS-100x100.png","fondazioneguglielmomarconi.it": "/wp-content/uploads/2023/03/cropped-favicon_def-32x32.jpg","garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","giostradelsaracinoarezzo.it": "/wp-content/uploads/2017/06/favicon-saracino.gif","grandimaestri.unipv.it": "/wp-content/themes/grandi-maestri/assets/svg/gm_logo.svg","gustavoristorantepizzeria.it": "https://www.gustavoristorantepizzeria.it/images/favicon.png","iicstoccolma.esteri.it": "/wp-content/uploads/2023/04/repubblica-italiana-logo-scuro.png","iideassociation.com": "/wp-content/uploads/2022/02/cropped-square_favicon-32x32.png","mupin.it": "/wp-content/uploads/2020/11/cropped-Logo-mupin-32x32.png","museocavallinodellagiara.it": "/wp-content/uploads/2018/01/logo-museo-cavallino-della-giara.png","museogalileo.it": "/images/logo_MG/favicon-32x32.png","nobelprize.org": "https://www.nobelprize.org/uploads/2018/08/Nobel-favicon-50x50.png","olimpiadi.dm.unibo.it": "/wp-content/uploads/2026/02/Logo-Olimpiadi-Matematica-e-Ministero-Istruzione-e-Merito1-4.png","palazzoducale.genova.it": "/wp-content/uploads/cropped-favicon-32x32.png","palazzoducale.visitmuve.it": "/wp-content/uploads/sites/2/2026/03/cropped-Stateducale.png","palio.comune.siena.it": "/sites/default/files/styles/slideshow/public/2025-05/Palazzo%20Pubblico%20%286%29.JPG.jpg?itok=njuIMcVV","parcovalledeitempli.it": "/wp-content/uploads/2023/02/cropped-logo-solo-granchio-32x32.png","pegi.info": "/modules/contrib/languageicons/flags/en.png","pompeiisites.org": "/wp-content/themes/pompei/app/dist/images/loghi/pompei_logo-dark.png","presidenza.governo.it": "/images/layout/emblema180x108.gif","puccini.it": "/wp-content/themes/puccini-child/img/favicon/apple-touch-icon.png","sanfrancesco800.cultura.gov.it": "/wp-content/uploads/2023/09/cropped-logo-footer-retina-32x32.png","societageografica.net": "/wp/wp-content/uploads/2023/12/SocGeo_Logo_orizzontale_ets_page-0001.jpg","teatroregioparma.it": "/wp-content/uploads/2026/06/cropped-teatroregioparma-32x32.png","tourvespucci.it": "/wp-content/uploads/2024/05/cropped-favicon-32x32.jpg","unica.istruzione.gov.it": "/portale/documents/20117/35870/favicon.ico/4739f8e4-8aa9-c540-b548-8d8624280c1e","www.acn.gov.it": "/portale/documents/20119/0/LOGO_ACN_NEW/200cf56e-dd00-02e0-cc85-7e5a8ba30b56","www.action.com": "/favicon.ico","www.asimmetrie.it": "/wp-content/uploads/as_favicon-64-w.png","www.ats-brescia.it": "/themes/custom/edc_web/dist/assets/img/logo-rl-bianco.png","www.autodromoimola.it": "/wp-content/uploads/2025/03/cropped-favicon-32x32.png","www.cappelladegliscrovegni.it": "/images/logomusei250.png","www.carabinieri.it": "/images/default-source/default-album/4novembre2026.jpg?sfvrsn=cb72e822_0","www.casacarducci.it": "/casa_carducci/favicon.png","www.cineca.it": "/themes/custom/cineca_base/media/images/cineca-logo.svg","www.comune.orzinuovi.bs.it": "/favicon","www.cref.it": "/wp-content/uploads/2024/04/cropped-favicon-32x32.png","www.danteonline.it": "/files/local-image-small_14.png","www.dynamisprc.polimi.it": "/wp-content/uploads/2026/04/cropped-Logo-classico-32x32.png","www.ebri.it": "/wp-content/themes/EBRI/assets/favicon/apple-touch-icon.png","www.elysee.fr": "/front/images/apple-icon-57x57.3d97d7b5.png","www.esa.int": "/assets/images/favicon.ico","www.esercito.difesa.it": "/assets/favicon/favicon-32x32.png","www.federvolley.it": "/icons/trofeo.svg","www.fidal.it": "/themes/markup/images/logo_fidal_atletica_italiana.svg","www.fitp.it": "/Areas/Federtennis2025/images/favicon.png","www.gallerieaccademia.it": "/wp-content/uploads/2026/06/favicon-150x150.webp","www.garanteprivacy.it": "/o/gpdp5-theme/images/gpdp5-images/ico-linkedin.png","www.gustavoristorantepizzeria.it": "/images/favicon.png","www.inrim.it": "/sites/default/files/2022-04/logoinrimhp%20%281%29.svg","www.isp.cnr.it": "/templates/favourite/images/logo/Logo_ISP217x167.jpg","www.isresardegna.it": "/immagini/16_76_20070917161317.gif","www.istat.it": "/wp-content/themes/EGPbs5-child/images/istat.svg","www.lamadonninaristorante.it": "/favicon.ico","www.lincei.it": "/sites/default/files/favicon.png","www.marina.difesa.it": "/_layouts/15/FabMMEvoluzione2013/mmi-assets/images/favicon-marina.png","www.mathunion.org": "/fileadmin/2026-07/Fields-front_transparent-900.png","www.mim.gov.it": "/o/miur-theme/icons/logo-repubblica-italiana.svg","www.monzanet.it": "/wp-content/uploads/2021/10/mnzfav-1.png","www.museicapitolini.org": "/sites/all/themes/dark_elegant/images/logo_roma.svg","www.museivaticani.va": "/favicon.ico","www.museoarcheologiconapoli.it": "/mann/uploads/2025/06/cropped-cropped-logo-32x32.png","www.museoauto.com": "/wp-content/uploads/2024/04/cropped-cropped-mauto-favicon-192x192-1-32x32.png","www.museogalileo.it": "/images/logo_MG/favicon-32x32.png","www.museumofplay.org": "/app/uploads/2021/10/favicon.png","www.nobelprize.org": "/uploads/2018/08/Nobel-favicon-50x50.png","www.ospedalebambinogesu.it": "/static/images/phone.svg","www.paliodilegnano.it": "/wp-content/uploads/2017/05/cropped-favicon-palio-32x32.png","www.poste.it": "/assets-custom/favicons/apple-touch-icon-57x57.png","www.primolevi.it": "/apple-touch-icon.png","www.regione.piemonte.it": "/favicon.ico","www.rsi.ch": "/icons/favicon-production.png","www.senatoragazzi.it": "/static/images/favicon.png","www.sportesalute.eu": "/images/caivano/caivano_bird_w.svg","www.storiaolivetti.it": "/static/website/image/logo.png","www.tennisfame.com": "/favicon.0556f009848d052d7087d9ecf6f370d6.gif","www.unicef.it": "/favicon-32x32.png?v=f50f469ecdc8117a2246b09400993359","i.ytimg.com": "/vi/BofEHYO1Tfw/default.jpg"};
 /* </SONDE> */
 
 const DISC = {
@@ -9146,6 +9147,7 @@ function renderSFscelta(){
     <header class="sr-testa"><small id="titolo-simf">Frigoriferi sotto attacco</small><h2>${fatto ? 'Ora tocca alla difesa' : 'Prima l\'attacco, poi la difesa'}</h2>
       <p>${fatto ? 'Hai visto come si entra. Adesso pensa alle strategie per fermare gli attacchi: è una sfida altrettanto appassionante.' : 'Per difendersi bisogna capire come ragiona chi attacca. Comincia dal ruolo dell\'hacker: qui è tutto simulato.'}</p></header>
     <div class="hc-finto sr-finto">${ico('i-attenzione')}Scenario di fantasia</div>
+    ${sfMusicaBtn('btn btn-linea sr-esci sr-musica')}
     <button class="btn btn-linea sr-esci" type="button" id="sf-esci">${ico('i-sx')}Esci</button>
   </div>`;
   sfAggancia();
@@ -9203,6 +9205,7 @@ function sfAggancia(){
   const b = $('#sf-esci'); if (b) b.onclick = esciSimFrigo;
   const c = $('#sf-cambia'); if (c) c.onclick = renderSFscelta;
   const f = $('#sf-pieno'); if (f) f.onclick = sfSchermoIntero;
+  const m = $('#sf-musica'); if (m){ m.onclick = sfMusicaCambia; sfMusicaEtichetta(); }
   sfRainStart();
 }
 
@@ -9341,6 +9344,7 @@ function sfScena(){
         <div class="sfh-az" id="sf-azioni"></div>
       </div>
       <button class="sf-pieno" type="button" id="sf-pieno" title="Schermo intero (per uscire: tasto Esc)">${ico('i-schermo')}Schermo intero</button>
+      ${sfMusicaBtn()}
       <div class="sf-stretta" id="sf-stretta" hidden>Finestra stretta: premi «Schermo intero» per leggere bene lo schermo del Mac</div>
       <div class="sf-flash" id="sf-flash" aria-hidden="true"></div>
     </div></div>`;
@@ -9996,6 +10000,7 @@ async function sfCerca(ch){
   if (!SIMF || SIMF.atto !== 'attacco' || SIMF.catena.forte || SIMF.busy || SIMF.bloccato) return;
   if (!/^[A-Z0-9]$/.test(ch) || SIMF.provate.has(ch)) return;
   SIMF.busy = true;
+  sfAudioPronto();   // siamo dentro il clic o il tasto: se poi scatta il game over, la sirena può suonare
   SIMF.provate.add(ch); SIMF.tentativi++;
   if (!SIMF.vistaTasti){ SIMF.vistaTasti = true; sfGuidaVia(); }
   const c = SIMF.catena, reel = $('#sf-reel');
@@ -10406,7 +10411,7 @@ async function sfColpo(c){
   const chiudi = () => { if (entra && document.fullscreenElement) document.exitFullscreen().catch(() => {}); };
   const kgMio = SIMF.unita.reduce((s, u) => s + u.kgPieno * u.danno, 0), M = sfMoto();
   sfStop(); SIMF.demo.token++; sfGuidaVia();
-  SIMF.atto = 'colpo';
+  SIMF.atto = 'colpo'; sfMusicaTick();   // parte nel silenzio
   const tok = SIMF.demo.token, att = ms => new Promise((ok, ko) => setTimeout(() => (SIMF && SIMF.demo.token === tok ? ok() : ko(new Error('stop'))), ms));
   const w = document.createElement('div');
   w.className = 'sc'; w.id = 'sf-colpo';
@@ -10498,18 +10503,95 @@ async function sfColpo(c){
 const SF_BECCATO_PROB = [.2, .5, 1];   // probabilità al primo, secondo e terzo blocco di fila
 let sfBeccatoVisto = false;
 const SF_SUONO_ALLARME = true;   // sirena breve sintetizzata, nessun file audio: false per toglierla (es. in laboratorio)
+let sfAudioCtx = null;
+function sfAudioPronto(){   // da chiamare anche dentro un clic o un tasto: alcuni browser fanno suonare solo un audio sbloccato così
+  try {
+    const A = window.AudioContext || window.webkitAudioContext; if (!A) return null;
+    if (!sfAudioCtx || sfAudioCtx.state === 'closed') sfAudioCtx = new A();
+    if (sfAudioCtx.state !== 'running') sfAudioCtx.resume().catch(() => {});
+    return sfAudioCtx;
+  } catch (e) { return null; }
+}
 function sfSirena(sec = 3.2){
   if (!SF_SUONO_ALLARME) return;
-  try {
-    const A = window.AudioContext || window.webkitAudioContext; if (!A) return;
-    const a = new A(), o = a.createOscillator(), g = a.createGain(), t0 = a.currentTime;
-    a.resume();
+  const a = sfAudioPronto(); if (!a) return;
+  const parti = () => {
+    const o = a.createOscillator(), g = a.createGain(), t0 = a.currentTime + .02, VOL = .22;
     o.type = 'square';
     for (let t = 0; t < sec; t += .7){ o.frequency.setValueAtTime(620, t0 + t); o.frequency.setValueAtTime(830, t0 + t + .35); }
-    g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(.07, t0 + .05); g.gain.setValueAtTime(.07, t0 + sec - .25); g.gain.linearRampToValueAtTime(0, t0 + sec);
+    g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(VOL, t0 + .05); g.gain.setValueAtTime(VOL, t0 + sec - .25); g.gain.linearRampToValueAtTime(0, t0 + sec);
     o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0 + sec);
-    o.onended = () => a.close();
-  } catch (e) {}
+  };
+  try { if (a.state === 'running') parti(); else a.resume().then(parti).catch(() => {}); } catch (e) {}
+}
+/* MUSICA DI SOTTOFONDO del simulatore: generata qui con Web Audio, quindi niente file, diritti d'autore o problemi col filtro.
+   Spenta di partenza, si attiva col pulsante (meglio con le cuffie); la scelta vale fino al prossimo caricamento della pagina.
+   Suona solo nelle scene di gioco: tace in blackout e game over, che partono nel silenzio, e nelle pagine da leggere.
+   Hacker: minore e teso. Tecnico: più calmo. Di notte restano solo il tappeto e il battito. */
+const SF_MUSICA_VOL = .17;   // volume della musica: si cambia solo qui. Con .17 i picchi misurati stanno intorno a .2, quanto la sirena, ma l'energia è quasi tutta nei bassi
+const SF_MUSICA = {on: false, timer: 0, nodi: null, prossimo: 0, passo: 0};
+const SF_MUSICA_SCALE = {neutro: [0, 3, 5, 7, 10, 12], hacker: [0, 3, 5, 7, 10, 12, 15], tecnico: [0, 2, 5, 7, 9, 12, 14]};
+const sfMusicaBtn = (cls = 'sf-pieno sf-musica') => `<button class="${cls}" type="button" id="sf-musica" aria-pressed="false" title="Musica di sottofondo: meglio con le cuffie">${ico('i-musica')}<span>Musica: no</span></button>`;
+function sfMusicaUmore(){
+  if (!SF_MUSICA.on || !SIMF || !['scelta', 'elenco', 'attacco', 'pannello', 'difesa'].includes(SIMF.atto)) return null;
+  if (SIMF.atto === 'difesa') return SIMF.difesa && SIMF.difesa.notte ? 'notte' : 'tecnico';
+  return SIMF.atto === 'scelta' ? 'neutro' : 'hacker';
+}
+function sfMusicaAvvia(a){
+  const mast = a.createGain(), filtro = a.createBiquadFilter(), tappeto = a.createGain(), lfo = a.createOscillator(), lfoG = a.createGain(), eco = a.createDelay(1), rit = a.createGain();
+  mast.gain.value = 0; mast.connect(a.destination);
+  filtro.type = 'lowpass'; filtro.frequency.value = 520; filtro.Q.value = .7; filtro.connect(mast);
+  lfo.frequency.value = .06; lfoG.gain.value = 200; lfo.connect(lfoG); lfoG.connect(filtro.frequency); lfo.start();
+  tappeto.gain.value = .36; tappeto.connect(filtro);
+  /* il basso a 55 Hz si sente solo in cuffia: sotto i 100 Hz gli altoparlanti del Mac quasi non suonano, quindi il corpo del suono sta nelle voci a 110 e 165 Hz */
+  const base = [55, 110, 110, 164.81], oscs = base.map((f, i) => { const o = a.createOscillator(); o.type = i ? 'sawtooth' : 'triangle'; o.frequency.value = f; o.detune.value = [0, -6, 6, 3][i]; o.connect(tappeto); o.start(); return o; });
+  eco.delayTime.value = .42; rit.gain.value = .34; eco.connect(rit); rit.connect(eco); rit.connect(mast);
+  return {mast, oscs, lfo, eco, base};
+}
+function sfMusicaNota(a, n, t, f, tipo, vol, dur, conEco){
+  const o = a.createOscillator(), g = a.createGain();
+  o.type = tipo; o.frequency.value = f;
+  g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(g); g.connect(n.mast); if (conEco) g.connect(n.eco);
+  o.start(t); o.stop(t + dur + .02);
+}
+function sfMusicaTick(){
+  const M = SF_MUSICA, a = sfAudioCtx, umore = sfMusicaUmore();
+  if (!a) return;
+  if (!umore){
+    if (M.nodi){
+      const n = M.nodi; M.nodi = null;
+      n.mast.gain.cancelScheduledValues(a.currentTime); n.mast.gain.setTargetAtTime(0, a.currentTime, .1);
+      setTimeout(() => { [...n.oscs, n.lfo].forEach(o => { try { o.stop(); } catch (e) {} }); n.mast.disconnect(); }, 900);
+    }
+    return;
+  }
+  if (!M.nodi){ M.nodi = sfMusicaAvvia(a); M.nodi.mast.gain.setTargetAtTime(SF_MUSICA_VOL, a.currentTime, 1); M.prossimo = a.currentTime + .1; M.passo = 0; }
+  const n = M.nodi, dur = 60 / (umore === 'hacker' ? 72 : umore === 'notte' ? 52 : 60) / 2, scala = SF_MUSICA_SCALE[umore === 'notte' ? 'tecnico' : umore];
+  if (M.prossimo < a.currentTime) M.prossimo = a.currentTime + .05;   // scheda tornata in primo piano dopo un rallentamento dei timer: si riparte da adesso, senza recuperare le note perse tutte insieme
+  while (M.prossimo < a.currentTime + .6){   // si programma poco più avanti del presente: il timer non è preciso, l'audio sì
+    const t = M.prossimo, p = M.passo % 16, sposta = [0, -4, 0, -2][Math.floor(M.passo / 16) % 4], rapporto = Math.pow(2, sposta / 12);
+    if (p === 0) n.oscs.forEach((o, i) => o.frequency.setTargetAtTime(n.base[i] * rapporto, t, .3));
+    if ((umore === 'hacker' ? [0, 6, 8, 14] : [0, 8]).includes(p)){
+      sfMusicaNota(a, n, t, 110 * rapporto, 'triangle', umore === 'notte' ? .55 : .42, .3, false);
+      sfMusicaNota(a, n, t, 220 * rapporto, 'triangle', umore === 'notte' ? .2 : .15, .22, false);
+    }
+    if (umore !== 'notte' && Math.random() < (umore === 'hacker' ? .32 : .22)) sfMusicaNota(a, n, t, 220 * rapporto * Math.pow(2, scala[Math.floor(Math.random() * scala.length)] / 12), 'triangle', .28, .5, true);
+    M.prossimo += dur; M.passo = (M.passo + 1) % 64;
+  }
+}
+function sfMusicaEtichetta(){
+  const b = $('#sf-musica'); if (!b) return;
+  b.classList.toggle('on', SF_MUSICA.on); b.setAttribute('aria-pressed', SF_MUSICA.on);
+  b.querySelector('span').textContent = SF_MUSICA.on ? 'Musica: sì' : 'Musica: no';
+}
+function sfMusicaCambia(){
+  const M = SF_MUSICA;
+  M.on = !M.on;
+  if (M.on){ sfAudioPronto(); if (!M.timer) M.timer = setInterval(sfMusicaTick, 200); }
+  sfMusicaTick();
+  if (!M.on){ clearInterval(M.timer); M.timer = 0; }
+  sfMusicaEtichetta();
 }
 /* pioggia su canvas: quando una goccia attraversa una casella della scritta, il carattere resta lì e si accende */
 function sfMatrice(cv, tok){
@@ -10614,7 +10696,7 @@ async function sfBeccato(c){
   const chiudi = () => { if (entra && document.fullscreenElement) document.exitFullscreen().catch(() => {}); };
   SIMF.scoperte = 0; sfBeccatoVisto = true;
   sfStop(); SIMF.demo.token++; sfGuidaVia();
-  SIMF.atto = 'beccato';
+  SIMF.atto = 'beccato'; sfMusicaTick();   // parte nel silenzio, poi la sirena
   let tagliato = false;
   const tok = SIMF.demo.token, att = ms => new Promise((ok, ko) => setTimeout(() => (SIMF && SIMF.demo.token === tok && !tagliato ? ok() : ko(new Error('stop'))), ms));
   sfMissione('Allarme: intruso rilevato', 2); sfAzioni([]);
@@ -10772,6 +10854,7 @@ function sfSala(){
         <div class="sfh-az" id="sf-azioni"></div>
       </div>
       <button class="sf-pieno" type="button" id="sf-pieno" title="Schermo intero (per uscire: tasto Esc)">${ico('i-schermo')}Schermo intero</button>
+      ${sfMusicaBtn()}
       <div class="sf-stretta" id="sf-stretta" hidden>Finestra stretta: premi «Schermo intero» per leggere bene i monitor</div>
       <div class="sf-flash" id="sf-flash" aria-hidden="true"></div>
     </div></div>`;
@@ -11008,7 +11091,7 @@ const TAB = {
         <li><b>Special edition «Video detective»</b>: si apre dal pulsante dedicato nella pagina iniziale e non esce mai dalla busta. Otto video brevi (2-4 minuti) di canali ufficiali (ESA, Zanichelli, HUB Scuola, INGV): lo studente ascolta con la domanda in testa e trova il dato nel <b>tratto dorato</b> della barra, con «Vai al tratto», −10 s, velocità 0,75× e sottotitoli. Due tappe incrociano il video con un sito ufficiale. Il player non mostra video consigliati, commenti né collegamenti a YouTube; i canali sono stati scelti senza pubblicità all'ultimo controllo, ma YouTube può comunque mostrarne una breve. Servono le <b>cuffie</b> e YouTube non deve essere bloccato dal filtro della scuola.</li>
         <li><b>Special edition «Un testo da detective»</b> (si sceglie dal suo pulsante, non esce dalla busta): 8 tappe dentro una sola pagina di testo senza immagini, «La storia del Senato» (senato.it), dallo Statuto Albertino del 1848 alla Repubblica. Ogni tappa allena una strategia di lettura: titoletti, ${MOD_TXT}+F (il promemoria compare anche qui), elenchi dentro una frase, parola nel contesto («infornate»), numero scritto in lettere, collegamento tra due punti lontani del testo. Adatta a seconda (tappe sul 1848-1871) e terza (fascismo e Repubblica). Spunto per Educazione civica: la tappa sui requisiti «impliciti» che escludevano le donne.</li>
         <li><b>Special edition «Orzinuovi, istruzioni per l'uso»</b> (dal suo pulsante): compiti di realtà sul nostro paese. Orari dell'Ecosportello, giorno della carta, mercatino dell'antiquariato, orari delle farmacie, ufficio postale, conto in pizzeria, orari di Action a Orzivecchi, Street Food Party 2026 con due fonti a confronto. Tre tappe sono <b>tabelle da compilare</b> (un campo per riga; gli orari si accettano anche come «9-20» o «8.45 - 20.30»). I dati cambiano spesso: ogni tappa riporta la data di verifica nel «Bacino e risposte». Il 23/10/2026 l'ufficio postale di via Mazzini risultava chiuso al pubblico (sostitutivo: Roccafranca). La tappa sullo Street Food Party usa BresciaToday, testata con pubblicità: unica eccezione, da segnalare alla classe.</li>
-        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «Frigoriferi sotto attacco»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. La scena è a tutto schermo, come in un videogioco: a sinistra un Mac con l'accesso e poi il cruscotto, a destra un grande frigorifero che reagisce a ogni comando (si sblocca, il ghiaccio si scioglie, i vetri si appannano, l'acqua fa una pozza a terra, il cibo finisce nel bidone con i kg e i pasti sprecati). È una messinscena: centralina e comandi del terminale sono inventati, non c'è nessun vero attacco e nessun dato esce dal dispositivo. Sul cruscotto si alza la «fine sbrinamento» (di fabbrica 6°, 50° nell'attacco vero). Il freddo si può ripristinare, ma il cibo buttato non torna: è il punto sulla catena del freddo. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con una <b>scena divisa in due</b>, il covo verde dell'<b>hacker</b> e la sala di difesa blu del <b>tecnico IT</b>, e si provano entrambi i ruoli in quest'ordine: si parte dall'hacker, che è la posizione che incuriosisce di più, e la difesa si apre dopo, quando chi gioca è entrato in un pannello o è stato beccato. L'idea è far scoprire che anche difendere è appassionante, e il percorso si chiude su un messaggio di cittadinanza: giocare senza rispettare le regole è facile, il difficile è giocare rispettandole. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b> di diagnosi e contromisure: lo studente è il tecnico IT e, per ogni minaccia del sistema (password di fabbrica, porte aperte su Internet, software non aggiornato, antivirus vecchio, accesso remoto a ogni ora, nessun controllo fisico), sceglie lo strumento giusto tra sei contromisure reali (password cifrata, firewall/chiudere le porte, aggiornare il sistema, aggiornare l'antivirus, schedulare gli accessi, videosorveglianza). Il punto è capire che ogni strumento serve a una cosa precisa — una password non ferma un virus, le telecamere non fermano un attacco da Internet — e che serve la difesa a strati. Anche questa è una scena a tutto schermo: la scelta si fa sul monitor grande della sala, gli altri schermi reagiscono. «Fai scendere la notte» spegne la sala e fa arrivare gli attacchi uno alla volta: si vede quali strumenti reggono, la cella sulla telecamera si scalda per ogni attacco che entra e crescono i kg di cibo da buttare. Poi il riepilogo: quante falle sono state chiuse e che cosa serviva. Buon aggancio per il debrief sulle competenze digitali e sul ridurre la superficie d'attacco. <b>Due sorprese, da non anticipare agli studenti.</b> Chi ha sabotato un negozio, quando chiede «Che cosa ho imparato?», vede il blackout allargarsi da Orzinuovi all'Europa; poi lo schermo diventa nero e la pagina «si rivolge» direttamente a chi gioca, mostrando computer, browser, ora e batteria e seguendo il cursore. Chi viene bloccato al muro può invece trovarsi davanti, a sorpresa (1 probabilità su 5 al primo blocco, 1 su 2 al secondo, sempre al terzo), venti secondi di pioggia in stile Matrix con una breve sirena, la maschera di Anonymous e la scritta «GAME OVER - Anonymous ti ha beccato!». In entrambi i casi segue lo stesso finale, con qualche attimo di suspense: l'hacker dice «So chi sei. Studi alla Scuola Sacra Famiglia di Orzinuovi. Ti ho beccato!», cerca il nome dell'insegnante e si ferma: «Il tuo insegnante è ACERIO? Hai avuto fortuna. Sei in salvo! Segui le sue lezioni: imparerai a difenderti». Solo in fondo viene spiegato che è una simulazione: nessun dato esce dalla pagina e la password non viene mai chiesta. Anonymous qui è solo un personaggio: nel debrief conviene dire che è un vero collettivo di attivisti informatici, non un singolo hacker, e che ha compiuto anche azioni illegali. Entrambe vanno a tutto schermo e hanno il pulsante «Salta». Blackout e game over si vedono una volta ciascuno per ogni caricamento della pagina: per rivederli, ricaricare.</li>
+        <li><b>Special edition «Hacker nei frigoriferi»</b> (dal suo pulsante): attualità del 2-3 novembre 2026, gli attacchi informatici ai frigoriferi dei supermercati (Francia a ottobre, mezza Europa e Italia il 2 novembre). Cinque video (Tg1, RSI, HUB Scuola, Ministero della Salute, Euronews; domande solo sul parlato) e tre pagine senza pubblicità (bollettino dell'Agenzia per la Cybersicurezza Nazionale, RSI). Percorso: i fatti, il «come» (sbrinamento attivato a distanza, senza dettagli tecnici), le conseguenze (cibo buttato, negozi chiusi, catena del freddo, microrganismi) e la prevenzione (password, aggiornamenti, reti protette). Le fonti danno numeri diversi (supermercati colpiti in Francia: da 100 a 700): è un buon tema per il debrief. La notizia è in evoluzione: ricontrollare le fonti prima dell'uso. Dal briefing si apre anche il <b>simulatore «Frigoriferi sotto attacco»</b>: lo studente scopre la password del pannello di controllo scegliendo una lettera o un numero alla volta (stile impiccato), poi entra e manomette i frigoriferi. I negozi hanno <b>nomi veri del territorio</b> (Italmark, Tosano, Famila, Coop, Lidl) solo per familiarità, ma lo <b>scenario è di fantasia</b>: le password sono inventate, generate a caso a ogni accesso e con la debolezza assegnata a sorte, e non dicono nulla sulla sicurezza reale di quei negozi. Ogni accesso è un tipo di password debole (credenziali di fabbrica, nome e anno di nascita di una persona, sequenza, parola comune) tranne uno lungo e casuale che resiste. La scena è a tutto schermo, come in un videogioco: a sinistra un Mac con l'accesso e poi il cruscotto, a destra un grande frigorifero che reagisce a ogni comando (si sblocca, il ghiaccio si scioglie, i vetri si appannano, l'acqua fa una pozza a terra, il cibo finisce nel bidone con i kg e i pasti sprecati). È una messinscena: centralina e comandi del terminale sono inventati, non c'è nessun vero attacco e nessun dato esce dal dispositivo. Sul cruscotto si alza la «fine sbrinamento» (di fabbrica 6°, 50° nell'attacco vero). Il freddo si può ripristinare, ma il cibo buttato non torna: è il punto sulla catena del freddo. Chiude con la riflessione sulla propria password. Utile per spiegare perché si è arrivati a 50° (sbrinamento acceso in celle chiuse) e perché una password debole è il vero punto fragile. Per l'engagement: il simulatore si apre con una <b>scena divisa in due</b>, il covo verde dell'<b>hacker</b> e la sala di difesa blu del <b>tecnico IT</b>, e si provano entrambi i ruoli in quest'ordine: si parte dall'hacker, che è la posizione che incuriosisce di più, e la difesa si apre dopo, quando chi gioca è entrato in un pannello o è stato beccato. L'idea è far scoprire che anche difendere è appassionante, e il percorso si chiude su un messaggio di cittadinanza: giocare senza rispettare le regole è facile, il difficile è giocare rispettandole. Nel muro una <b>barra di rilevamento</b> (le lettere sbagliate avvicinano al blocco: serve strategia, non tirare a caso) e una <b>modalità difesa</b> di diagnosi e contromisure: lo studente è il tecnico IT e, per ogni minaccia del sistema (password di fabbrica, porte aperte su Internet, software non aggiornato, antivirus vecchio, accesso remoto a ogni ora, nessun controllo fisico), sceglie lo strumento giusto tra sei contromisure reali (password cifrata, firewall/chiudere le porte, aggiornare il sistema, aggiornare l'antivirus, schedulare gli accessi, videosorveglianza). Il punto è capire che ogni strumento serve a una cosa precisa — una password non ferma un virus, le telecamere non fermano un attacco da Internet — e che serve la difesa a strati. Anche questa è una scena a tutto schermo: la scelta si fa sul monitor grande della sala, gli altri schermi reagiscono. «Fai scendere la notte» spegne la sala e fa arrivare gli attacchi uno alla volta: si vede quali strumenti reggono, la cella sulla telecamera si scalda per ogni attacco che entra e crescono i kg di cibo da buttare. Poi il riepilogo: quante falle sono state chiuse e che cosa serviva. Buon aggancio per il debrief sulle competenze digitali e sul ridurre la superficie d'attacco. <b>Due sorprese, da non anticipare agli studenti.</b> Chi ha sabotato un negozio, quando chiede «Che cosa ho imparato?», vede il blackout allargarsi da Orzinuovi all'Europa; poi lo schermo diventa nero e la pagina «si rivolge» direttamente a chi gioca, mostrando computer, browser, ora e batteria e seguendo il cursore. Chi viene bloccato al muro può invece trovarsi davanti, a sorpresa (1 probabilità su 5 al primo blocco, 1 su 2 al secondo, sempre al terzo), venti secondi di pioggia in stile Matrix con una breve sirena, la maschera di Anonymous e la scritta «GAME OVER - Anonymous ti ha beccato!». In entrambi i casi segue lo stesso finale, con qualche attimo di suspense: l'hacker dice «So chi sei. Studi alla Scuola Sacra Famiglia di Orzinuovi. Ti ho beccato!», cerca il nome dell'insegnante e si ferma: «Il tuo insegnante è ACERIO? Hai avuto fortuna. Sei in salvo! Segui le sue lezioni: imparerai a difenderti». Solo in fondo viene spiegato che è una simulazione: nessun dato esce dalla pagina e la password non viene mai chiesta. Anonymous qui è solo un personaggio: nel debrief conviene dire che è un vero collettivo di attivisti informatici, non un singolo hacker, e che ha compiuto anche azioni illegali. Entrambe vanno a tutto schermo e hanno il pulsante «Salta». Blackout e game over si vedono una volta ciascuno per ogni caricamento della pagina: per rivederli, ricaricare. Nelle scene del simulatore c'è anche una <b>musica di sottofondo facoltativa</b>, spenta di partenza: pulsante «Musica», meglio con le cuffie.</li>
         <li>Durata indicativa: 50-60 minuti per 8 tappe + 10-15 minuti di debrief (più 5 minuti per il simulatore).</li>
         <li>Singoli o coppie. In coppia funziona la rotazione <b>pilota / navigatore</b>: chi digita cambia a ogni tappa, l'altro legge il percorso e controlla l'indirizzo.</li>
         <li>Il tema è assegnato a caso dalla busta: compagni vicini hanno spedizioni diverse. Per far lavorare tutta la classe sullo stesso tema usare «Configura partita».</li>
